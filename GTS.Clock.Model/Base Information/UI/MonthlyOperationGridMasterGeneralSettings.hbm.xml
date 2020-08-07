@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UI.MonthlyOperationGridMasterGeneralSettings, GTS.Clock.Model"
+         table ="TA_GridMonthlyOperationGridMasterGeneralSettings" lazy="true">
+    <id name="ID" access="property"  column="ID" >
+      <generator class="native" />
+    </id>
+    
+    <property name="FirstEntrance"     access="property" column="FirstEntrance" />
+    <property name="FirstExit"     access="property" column="FirstExit" />
+    <property name="SecondEntrance"     access="property" column="SecondEntrance" />
+    <property name="SecondExit"     access="property" column="SecondExit" />
+    <property name="ThirdEntrance"     access="property" column="ThirdEntrance" />
+    <property name="ThirdExit"     access="property" column="ThirdExit" />
+    <property name="FourthEntrance"     access="property" column="FourthEntrance" />
+    <property name="FourthExit"     access="property" column="FourthExit" />
+    <property name="FifthEntrance"     access="property" column="FifthEntrance" />
+    <property name="FifthExit"     access="property" column="FifthExit" />
+    <property name="LastExit"     access="property" column="LastExit" />
+    <property name="NecessaryOperation"     access="property" column="NecessaryOperation" />
+    <property name="PresenceDuration"     access="property" column="PresenceDuration" />
+    <property name="HourlyPureOperation"     access="property" column="HourlyPureOperation" />
+    <property name="DailyPureOperation"     access="property" column="DailyPureOperation" />
+    <property name="ImpureOperation"     access="property" column="ImpureOperation" />
+    <property name="AllowableOverTime"     access="property" column="AllowableOverTime" />
+    <property name="UnallowableOverTime"     access="property" column="UnallowableOverTime" />
+    <property name="HourlyAllowableAbsence"     access="property" column="HourlyAllowableAbsence" />
+    <property name="HourlyUnallowableAbsence"     access="property" column="HourlyUnallowableAbsence" />
+    <property name="DailyAbsence"     access="property" column="DailyAbsence" />
+    <property name="HourlyMission"     access="property" column="HourlyMission" />
+    <property name="DailyMission"     access="property" column="DailyMission" />
+    <property name="HostelryMission"     access="property" column="HostelryMission" />
+    <property name="HourlySickLeave"     access="property" column="HourlySickLeave" />
+    <property name="DailySickLeave"     access="property" column="DailySickLeave" />
+    <property name="HourlyMeritoriouslyLeave"     access="property" column="HourlyMeritoriouslyLeave" />
+    <property name="DailyMeritoriouslyLeave"     access="property" column="DailyMeritoriouslyLeave" />
+    <property name="HourlyWithoutPayLeave"     access="property" column="HourlyWithoutPayLeave" />
+    <property name="DailyWithoutPayLeave"     access="property" column="DailyWithoutPayLeave" />
+    <property name="HourlyWithPayLeave"     access="property" column="HourlyWithPayLeave" />
+    <property name="DailyWithPayLeave"     access="property" column="DailyWithPayLeave" />
+    <property name="ReserveField1"     access="property" column="ReserveField1" />
+    <property name="ReserveField2"     access="property" column="ReserveField2" />
+    <property name="ReserveField3"     access="property" column="ReserveField3" />
+    <property name="ReserveField4"     access="property" column="ReserveField4" />
+    <property name="ReserveField5"     access="property" column="ReserveField5" />
+    <property name="ReserveField6"     access="property" column="ReserveField6" />
+    <property name="ReserveField7"     access="property" column="ReserveField7" />
+    <property name="ReserveField8"     access="property" column="ReserveField8" />
+    <property name="ReserveField9"     access="property" column="ReserveField9" />
+    <property name="ReserveField10"     access="property" column="ReserveField10" />
+    <property name="RemainLeaveToYearEnd"     access="property" column="RemainLeaveToYearEnd" />
+    <property name="RemainLeaveToMonthEnd"     access="property" column="RemainLeaveToMonthEnd" />
+    <property name="BarCode"     access="property" column="BarCode" />
+    <property name="PersonName"     access="property" column="PersonName" />
+    <property name="DepartmentName"     access="property" column="DepartmentName" />
+
+    <many-to-one name="Language" column="LangID" class="GTS.Clock.Model.AppSetting.Languages, GTS.Clock.Model" not-null="true"/>
+
+
+  </class>
+</hibernate-mapping>

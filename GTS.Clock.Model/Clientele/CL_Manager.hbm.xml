@@ -1,0 +1,30 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_Manager, GTS.Clock.Model"
+         table ="CL_Manager" lazy="true">
+    <id name="ID" access="property"  column="MasterMng_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="Active"     access="property" column="MasterMng_Active" />
+    
+    <many-to-one name="Person" column="MasterMng_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+    <many-to-one name="OrganizationUnit" column="MasterMng_OrganizationUnitID" class="GTS.Clock.Model.Charts.OrganizationUnit, GTS.Clock.Model" />
+    
+    <bag name="ManagerFlowList" table="CL_ManagerFlow" lazy="true" >
+      <key column="mngrFlow_ManagerID"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_ManagerFlow, GTS.Clock.Model"/>
+    </bag>   
+
+    <bag name="SubstituteList" table="CL_Substitute" lazy="true" >
+      <key column="sub_ManagerId"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_Substitute, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="DataAccessList" table="CL_DataAccessManager" lazy="true" >
+      <key column="DataAccessManager_ManagerID"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_DataAccessManager, GTS.Clock.Model"/>
+    </bag>
+    
+  </class>
+</hibernate-mapping>

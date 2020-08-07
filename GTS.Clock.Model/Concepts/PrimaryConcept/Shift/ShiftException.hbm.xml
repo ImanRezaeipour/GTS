@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.ShiftException, GTS.Clock.Model"
+         table ="TA_ExceptionShift" lazy="true">
+    <id name="ID" access="property"  column="ExceptionShift_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="ExceptionShift_UserID" />
+    <property name="Date"     access="property" column="ExceptionShift_Date" />
+    <property name="RegistrationDate"     access="property" column="ExceptionShift_RegDate" />
+    <property name="Description"     access="property" column="ExceptionShift_Description" />
+
+    <many-to-one name="Shift" column="ExceptionShift_ShiftId" class="GTS.Clock.Model.Concepts.Shift, GTS.Clock.Model"  cascade="none"/>
+    <many-to-one name="Person" column="ExceptionShift_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+
+  </class>
+</hibernate-mapping>

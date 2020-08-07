@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="clmnName_GridMasterLeaveRemains_MasterLeaveRemains.HeadingText" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="clmnPersonnelID_GridMasterLeaveRemains_MasterLeaveRemains.HeadingText" xml:space="preserve">
+    <value>Personnel ID</value>
+  </data>
+  <data name="clmnRealDay_GridMasterLeaveRemains_MasterLeaveRemains.HeadingText" xml:space="preserve">
+    <value>Real Day</value>
+  </data>
+  <data name="clmnRealHour_GridMasterLeaveRemains_MasterLeaveRemains.HeadingText" xml:space="preserve">
+    <value>Real Hour</value>
+  </data>
+  <data name="clmnConfirmedDay_GridMasterLeaveRemains_MasterLeaveRemains.HeadingText" xml:space="preserve">
+    <value>Confirmed Day</value>
+  </data>
+  <data name="clmnConfirmedHour_GridMasterLeaveRemains_MasterLeaveRemains.HeadingText" xml:space="preserve">
+    <value>Confirmed Hour</value>
+  </data>
+  <data name="clmnYear_GridMasterLeaveRemains_MasterLeaveRemains.HeadingText" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="LableAlign.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="lblEmployType_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Employ Type :</value>
+  </data>
+  <data name="lblFromYear_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>From Year :</value>
+  </data>
+  <data name="lblPersonnel_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Personnel :</value>
+  </data>
+  <data name="lblToYear_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>To Year :</value>
+  </data>
+  <data name="lblWorkGroup_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>WorkGroup</value>
+  </data>
+  <data name="MasterLeaveRemainsForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="td_txtFromYear_MasterLeaveRemains.width" xml:space="preserve">
+    <value>26%</value>
+  </data>
+  <data name="td_txtToYear_MasterLeaveRemains.width" xml:space="preserve">
+    <value>26%</value>
+  </data>
+  <data name="tlbItemDelete_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="tlbItemEdit_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="tlbItemExit_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemHelp_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemMessage_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="tlbItemNew_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="tlbItemPersonnelSearch_TlbPersonnelSearch_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Personnel Search </value>
+  </data>
+  <data name="tlbItemSave_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tlbItemLeaveRemainsTransfer_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Leave Remain Transfer</value>
+  </data>
+  <data name="tlbItemView_TlbView_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="tlbItemLeaveReserve_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Leave Reserve Increase and Decrease</value>
+  </data>
+  <data name="hfAdd_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="hfCloseMessage_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Do you Exit from Merit Leave Remains Form ?</value>
+  </data>
+  <data name="hfConnectionError_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfEdit_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="hfErrorType_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="hffooter_GridMasterLeaveRemains_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Page 0 of 0</value>
+  </data>
+  <data name="hfloadingPanel_GridMasterLeaveRemains_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="lblPersonnel_PersonnelSearch_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Personnel :</value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Personnel Number</value>
+  </data>
+  <data name="hfclmnCardNum_cmbPersonnel_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="hfheader_LeaveRemains_LeaveRemains.Value" xml:space="preserve">
+    <value>Leave Remains</value>
+  </data>
+  <data name="hfView_MasterLeaveRemains.Value" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="lblConfirmedRemainsDay_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Day and</value>
+  </data>
+  <data name="lblConfirmedRemainsHour_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="lblConfirmedRemains_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Confirmed Remains :</value>
+  </data>
+  <data name="lblRealRemainsDay_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Day and</value>
+  </data>
+  <data name="lblRealRemainsHour_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="lblRealRemains_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Real Remains :</value>
+  </data>
+  <data name="lblYear_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Year :</value>
+  </data>
+  <data name="tlbItemCancel_TlbLeaveRemains.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemSave_TlbLeaveRemains.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_GridMasterLeaveRemains_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_PersonnelSearch_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_GridMasterLeaveRemains_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_PersonnelSearch_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_GridMasterLeaveRemains_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_PersonnelSearch_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_GridMasterLeaveRemains_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_PersonnelSearch_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_GridMasterLeaveRemains_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_PersonnelSearch_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>Insert Operation Completed Successfully</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>Update Operation Completed Successfully</value>
+  </data>
+  <data name="NoLeaveRemainSelectedforEdit" xml:space="preserve">
+    <value>No Item is Selected for Edit</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier:</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="lblLeaveRemainsTransfer_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Leave Remains Transfer</value>
+  </data>
+  <data name="lblPersonnelCount_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Personnel Count :</value>
+  </data>
+  <data name="lblTransferFromYear_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>From Year :</value>
+  </data>
+  <data name="lblTransferToYear_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>To Year :</value>
+  </data>
+  <data name="tlbItemCancel_TlbLeaveRemainsTransfer_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemSave_TlbLeaveRemainsTransfer_MasterLeaveRemains.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tlbItemAdvancedSearch_TlbAdvancedSearch_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="tlbItemSearch_TlbSearchPersonnel_MasterLeaveRemains.ToolTip" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbMasterLeaveRemains.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>Illegal Service Access</value>
+  </data>
+</root>

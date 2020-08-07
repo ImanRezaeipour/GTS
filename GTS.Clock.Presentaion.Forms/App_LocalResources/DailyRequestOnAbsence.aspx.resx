@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="clmnFromDate_GridRegisteredRequests_DailyRequestOnAbsence.HeadingText" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="clmnRequestDate_GridRegisteredRequests_DailyRequestOnAbsence.HeadingText" xml:space="preserve">
+    <value>Request Register Date</value>
+  </data>
+  <data name="clmnRequestType_GridRegisteredRequests_DailyRequestOnAbsence.HeadingText" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="clmnState_GridRegisteredRequests_DailyRequestOnAbsence.HeadingText" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="clmnToDate_GridRegisteredRequests_DailyRequestOnAbsence.HeadingText" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="DailyRequestOnAbsenceForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="header_RegisteredRequests_DailyRequestOnAbsence" xml:space="preserve">
+    <value>Registered Requests</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="lblDescription_Leave_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Description :</value>
+  </data>
+  <data name="lblDescription_Mission_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Description :</value>
+  </data>
+  <data name="lblDoctorName_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Doctor Name :</value>
+  </data>
+  <data name="lblFromDate_Leave_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblFromDate_Mission_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblIllnessName_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Illness Name :</value>
+  </data>
+  <data name="lblLeaveRequest_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Leave Request</value>
+  </data>
+  <data name="lblLeaveType_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>LeaveType :</value>
+  </data>
+  <data name="lblMissionLocation_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Mission Location :</value>
+  </data>
+  <data name="lblMissionRequest_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Mission Request</value>
+  </data>
+  <data name="lblMissionType_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Mission Type :</value>
+  </data>
+  <data name="lblToDate_Leave_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>To Date :</value>
+  </data>
+  <data name="lblToDate_Mission_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>To Date :</value>
+  </data>
+  <data name="Title_DialogDailyRequestOnAbsence" xml:space="preserve">
+    <value>Daily Leave and Mission Request</value>
+  </data>
+  <data name="tlbItemCancel_TlbDailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemDelete_TlbDailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="tlbItemExit_TlbDailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemHelp_TlbDailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemSave_TlbDailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="trvMissionLocation_DailyRequestOnAbsence.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/LeftLines</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>Insert Operation Completed Successfully</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>Delete Operation Completed Successfully</value>
+  </data>
+  <data name="hfCloseMessage_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Do you Exit from Hourly Leave and Mission Request Form ?</value>
+  </data>
+  <data name="hfcmbAlarm_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="hfDeleteMessage_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Do you Delete this Request ?</value>
+  </data>
+  <data name="hfheader_RegisteredRequests_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Requests States</value>
+  </data>
+  <data name="hfloadingPanel_GridRegisteredRequests_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="hfTitle_DialogDailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Daily Leave and Mission Request</value>
+  </data>
+  <data name="NoRequestSelectedforDelete" xml:space="preserve">
+    <value>No Request is Selected for Delete</value>
+  </data>
+  <data name="NotDetermined" xml:space="preserve">
+    <value>Not Determined</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_GridRegisteredRequests_DailyRequestOnAbsence.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Unconfirmed" xml:space="preserve">
+    <value>Unconfirmed</value>
+  </data>
+  <data name="UnderReview" xml:space="preserve">
+    <value>Under Review</value>
+  </data>
+  <data name="UnKnown" xml:space="preserve">
+    <value>UnKnown</value>
+  </data>
+  <data name="hfAdd_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="hfDelete_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="hfView_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="RequestDateShouldNotEmpty" xml:space="preserve">
+    <value>Request Date is Not Valued</value>
+  </data>
+  <data name="RequestFromDateGreaterThanToDate" xml:space="preserve">
+    <value>Request Start Date is greater than Request End Date</value>
+  </data>
+  <data name="RequestFromTimeGreaterThanToTime" xml:space="preserve">
+    <value>Request Start Time is greater than Request End Time</value>
+  </data>
+  <data name="RequestFromToDateNotEqual" xml:space="preserve">
+    <value>Request Start Date is Equal to Reqest End Date</value>
+  </data>
+  <data name="RequestPrecardIsEmpty" xml:space="preserve">
+    <value>Request PreCard is Not Valued</value>
+  </data>
+  <data name="RequestRepeated" xml:space="preserve">
+    <value>Request is Duplicated</value>
+  </data>
+  <data name="RequestTimeIsNotValid" xml:space="preserve">
+    <value>Request Time is Invalid</value>
+  </data>
+  <data name="RequestTimeShouldNotEmpty" xml:space="preserve">
+    <value>Request Time is Not Valued</value>
+  </data>
+  <data name="RequestUsedByFlow" xml:space="preserve">
+    <value>Request is assigned to Organization Flow</value>
+  </data>
+  <data name="hfConnectionError_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfErrorType_DailyRequestOnAbsence.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbDailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="MissLocNode_trvMissionLocation_DailyRequestOnAbsence" xml:space="preserve">
+    <value>Mission Locations</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>Illegal Service Access</value>
+  </data>
+  <data name="AttachmentUploader_Leave_DailyRequestOnAbsence.text_Uploading" xml:space="preserve">
+    <value>Uploading ...</value>
+  </data>
+  <data name="lblAttachment_Leave_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Attachment :</value>
+  </data>
+  <data name="UploadingError" xml:space="preserve">
+    <value>Uploading Error ...</value>
+  </data>
+  <data name="AttachmentUploader_Mission_DailyRequestOnAbsence.text_Uploading" xml:space="preserve">
+    <value>Uploading ...</value>
+  </data>
+  <data name="lblAttachment_Mission_DailyRequestOnAbsence.Text" xml:space="preserve">
+    <value>Attachment :</value>
+  </data>
+  <data name="tlbItemDeleteAttachment_TlbDeleteAttachment_Leave_DailyRequestOnAbsence.ToolTip" xml:space="preserve">
+    <value>Attachment Delete</value>
+  </data>
+  <data name="tlbItemDeleteAttachment_TlbDeleteAttachment_Mission_DailyRequestOnAbsence.ToolTip" xml:space="preserve">
+    <value>Attachment Delete</value>
+  </data>
+  <data name="RequestIsNotAllowed" xml:space="preserve">
+    <value>Illegal Request</value>
+  </data>
+</root>

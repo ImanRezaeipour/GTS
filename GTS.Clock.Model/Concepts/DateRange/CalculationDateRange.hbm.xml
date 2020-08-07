@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.CalculationDateRange, GTS.Clock.Model"
+         table ="TA_CalculationDateRange" lazy="true">
+    <id name="ID" access="property"  column="CalcDateRange_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="FromDay"     access="property" column="CalcDateRange_FromDay" />
+    <property name="ToDay"     access="property" column="CalcDateRange_ToDay" />
+    <property name="FromMonth"     access="property" column="CalcDateRange_FromMonth" />
+    <property name="ToMonth"     access="property" column="CalcDateRange_ToMonth" />
+    <property name="Order"     access="property" column="CalcDateRange_Order" />
+    <property name="FromIndex"     access="property" column="CalcDateRange_FromIndex" />
+    <property name="ToIndex"     access="property" column="CalcDateRange_ToIndex" />
+
+    <many-to-one name="RangeGroup" column="CalcDateRange_CalcRangeGrpId" class="GTS.Clock.Model.Concepts.CalculationRangeGroup, GTS.Clock.Model" />
+    <many-to-one name="Concept" column="CalcDateRange_ConceptTmpId" class="GTS.Clock.Model.Concepts.SecondaryConcept, GTS.Clock.Model" />
+
+    
+    
+  </class>
+</hibernate-mapping>

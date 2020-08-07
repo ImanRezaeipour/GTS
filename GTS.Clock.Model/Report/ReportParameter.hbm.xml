@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Report.ReportParameter, GTS.Clock.Model"
+         table ="TA_ReportParameter" lazy="false">
+    <id name="ID" access="property"  column="ReportParameter_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="ReportParameter_Name" />
+
+    <many-to-one name="ReportFile" column="ReportParameter_RptFileId" class="GTS.Clock.Model.Report.ReportFile, GTS.Clock.Model" />
+    <many-to-one name="ReportUIParameter" column="ReportParameter_RptUIParamId" class="GTS.Clock.Model.Report.ReportUIParameter, GTS.Clock.Model" />
+    <many-to-one name="Report" column="ReportParameter_RptID" class="GTS.Clock.Model.Report.Report, GTS.Clock.Model" />
+    
+  </class>
+</hibernate-mapping>

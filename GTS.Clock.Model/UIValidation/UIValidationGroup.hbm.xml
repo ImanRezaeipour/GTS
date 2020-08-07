@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UIValidation.UIValidationGroup, GTS.Clock.Model"
+         table ="TA_UIValidationGroup" lazy="true">
+    <id name="ID" access="property"  column="UIValGrp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="UIValGrp_Name" />
+    <property name="CustomCode"     access="property" column="UIValGrp_CustomCode" />
+    <property name="SubSystemId"     access="property" column="UIValGrp_SubSystemId" />
+    
+    <bag name="GroupingList" table="TA_UIValidationGrouping" lazy="true" inverse="true" cascade="all" >
+      <key column="UIGrp_GroupID"></key>
+      <one-to-many class="GTS.Clock.Model.UIValidation.UIValidationGrouping, GTS.Clock.Model"></one-to-many>
+    </bag>
+
+    <bag name="PersonTAList" table="TA_PersonTASpec" lazy="true" inverse="true" >
+      <key column="prsTA_UIValidationGroupID"></key>
+      <one-to-many class="GTS.Clock.Model.PersonTASpec, GTS.Clock.Model"></one-to-many>
+    </bag>
+
+    <bag name="PersonCLList" table="CL_PersonCLSpec" lazy="true" inverse="false" >
+      <key column="prsCL_UIValidationGroupID"></key>
+      <one-to-many class="GTS.Clock.Model.PersonCLSpec, GTS.Clock.Model"></one-to-many>
+    </bag>
+
+  </class>
+</hibernate-mapping>

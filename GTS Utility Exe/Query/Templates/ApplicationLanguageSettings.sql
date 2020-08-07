@@ -1,0 +1,2 @@
+INSERT TA_ApplicationLanguageSettings(AppLangSet_ID,AppLangSet_LangID,AppLangSet_IsActive) VALUES('2','2','1')
+INSERT TA_ApplicationLanguageSettings(AppLangSet_ID,AppLangSet_LangID,AppLangSet_IsActive) VALUES('3','3','0')

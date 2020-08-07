@@ -1,0 +1,52 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AssignedRule, GTS.Clock.Model" lazy="true">
+    <id name="ID" access="property"  column="AsgRle_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"               access="property" column="AsgRle_Name" />
+    <property name="RuleId"               access="property" column="AsgRle_RuleID" />
+    <property name="IdentifierCode"     access="property" column="AsgRle_IdentifierCode" />
+    <property name="FromDate"           access="property" column="AsgRle_FromDate"  />
+    <property name="ToDate"             access="property" column="AsgRle_ToDate" />
+    <property name="Order"              access="property" column="AsgRle_Order" />
+    
+    <!--<bag name="RuleParameterList" lazy="true" batch-size="300" >
+      <key column="AsgRuleParam_RuleId" property-ref="RuleId"></key>
+      <one-to-many class="GTS.Clock.Model.AssignedRuleParameter, GTS.Clock.Model" ></one-to-many>
+      <loader query-ref="GetAssginedRuleParamList"></loader>
+    </bag>-->
+    
+  </class>
+  
+  <!--<sql-query name="GetAssginedRuleParamList_Tmp">
+    <load-collection alias="AssginedRuleParam" role="GTS.Clock.Model.AssignedRule.RuleParameterList" />
+    <![CDATA[
+DECLARE @fromdate NVARCHAR(10)
+DECLARE @enddate NVARCHAR(10)
+
+SET @fromdate= :effectiveDate.fromDate
+SET @enddate= :effectiveDate.toDate
+
+
+SELECT RuleParam_ID		       AS AsgRuleParam_ID,
+	     RuleParam_Name	       AS AsgRuleParam_Name,
+	     RuleParam_Value	     AS AsgRuleParam_Value,
+	     RuleParam_Type	       AS AsgRuleParam_Type,
+	     AsgRuleParam_FromDate AS AsgRuleParam_FromDate,
+	     AsgRuleParam_ToDate   AS AsgRuleParam_ToDate,
+	     AsgRuleParam_RuleId   AS AsgRuleParam_RuleId
+FROM TA_RuleParameter 
+		inner join 	(SELECT AsgRuleParam_ID, AsgRuleParam_RuleId, AsgRuleParam_FromDate, AsgRuleParam_ToDate
+					 FROM TA_AssignRuleParameter 
+					 WHERE AsgRuleParam_FromDate BETWEEN @fromdate AND @enddate
+							OR 
+						   AsgRuleParam_ToDate BETWEEN @fromdate AND @enddate
+							OR 
+						   @fromdate >= AsgRuleParam_FromDate AND AsgRuleParam_ToDate >= @enddate) AS AsgRleParam
+		ON RuleParam_AsgRuleParamId = AsgRleParam.AsgRuleParam_ID
+  
+    ]]>
+  </sql-query>-->
+
+</hibernate-mapping>

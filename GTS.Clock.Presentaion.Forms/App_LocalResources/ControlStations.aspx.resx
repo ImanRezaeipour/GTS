@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="clmnControlStationCode_GridControlStation.HeadingText" xml:space="preserve">
+    <value>Control Station Code</value>
+  </data>
+  <data name="clmnControlStationName_GridControlStation.HeadingText" xml:space="preserve">
+    <value>Control Station Name</value>
+  </data>
+  <data name="ControlStationsForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="lblControlStationCode_ControlStation.Text" xml:space="preserve">
+    <value>Control Station Code :</value>
+  </data>
+  <data name="td_lblControlStationName_ControlStation.width" xml:space="preserve">
+    <value>18%</value>
+  </data>
+  <data name="tlbItemDelete_TlbControlStation.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="tlbItemEdit_TlbControlStation.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="tlbItemExit_TlbControlStation.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemHelp_TlbControlStation.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemMessage_TlbControlStation.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="tlbItemNew_TlbControlStation.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="tlbItemSave_TlbControlStation.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="lblControlStationName_ControlStation.Text" xml:space="preserve">
+    <value>Control Station Name :</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>Insert Operation Completed Successfully</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>Delete Operation Completed Successfully</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>Update Operation Completed Successfully</value>
+  </data>
+  <data name="hfAdd_ControlStations.Value" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="hfCloseMessage_ControlStations.Value" xml:space="preserve">
+    <value>Do you Exit from Control Stations form ?</value>
+  </data>
+  <data name="hfConnectionError_ControlStations.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfDeleteMessage_ControlStations.Value" xml:space="preserve">
+    <value>Do you Delete this Control Station ?</value>
+  </data>
+  <data name="hfDelete_ControlStations.Value" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="hfEdit_ControlStations.Value" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="hfErrorType_ControlStations.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="hfheader_ControlStationDetails_ControlStations.Value" xml:space="preserve">
+    <value>Control Station Details</value>
+  </data>
+  <data name="hfheader_ControlStations_ControlStations.Value" xml:space="preserve">
+    <value>Control Stations</value>
+  </data>
+  <data name="hfloadingPanel_GridControlStations_ControlStations.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="hfView_ControlStations.Value" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="NoControlStationSelectedforDelete" xml:space="preserve">
+    <value>No Control Station is Selected for Delete</value>
+  </data>
+  <data name="NoControlStationSelectedforEdit" xml:space="preserve">
+    <value>No Control Station is Selected for Edit</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemCancel_TlbControlStation.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_GridControlStations_ControlStations.ToolTip" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="StationCustomCodeRepeated" xml:space="preserve">
+    <value>Control Station Code is Duplicated</value>
+  </data>
+  <data name="StationNameRepeated" xml:space="preserve">
+    <value>Control Station Name is Duplicated</value>
+  </data>
+  <data name="StationNameRequierd" xml:space="preserve">
+    <value>Control Station Name is Not Valued</value>
+  </data>
+  <data name="StationUsedByPerson" xml:space="preserve">
+    <value>Control Station is Assigned to Personnel</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbControlStation.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>Illegal Service Access.</value>
+  </data>
+  <data name="StationUsedByMachine" xml:space="preserve">
+    <value>Control Station is Assigned to Machine</value>
+  </data>
+</root>

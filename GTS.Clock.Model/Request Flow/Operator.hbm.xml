@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RequestFlow.Operator, GTS.Clock.Model"
+         table ="TA_Operator" lazy="true">
+    <id name="ID" access="property"  column="opr_ID" >
+      <generator class="native" />
+    </id>
+    
+    <property name="Active"     access="property" column="opr_Active" />
+    <property name="Description"     access="property" column="opr_Description" />
+
+    <many-to-one name="Person" column="opr_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+    <many-to-one name="Flow" column="opr_FlowId" class="GTS.Clock.Model.RequestFlow.Flow, GTS.Clock.Model" />
+   
+
+    
+  </class>
+</hibernate-mapping>

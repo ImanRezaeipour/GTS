@@ -1,0 +1,3275 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTS.Clock.Model</name>
+    </assembly>
+    <members>
+        <member name="T:GTS.Clock.Model.Concepts.BasePairableConceptValue`1">
+            <summary>
+            .کلاس پایه برای نگهداری مقادیر مفهوم زوج مرتبی
+            </summary>
+            <typeparam name="TPair">نوع زوج مرتبی که مقدار مفهوم از آن استفاده می نماید</typeparam>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasePairableConceptValue`1.TotalBeforeTime(System.Int32)">
+            <summary>
+            مجموع مقادیر زوج مرتب های موجود در قبل از زمان ارسالی را برمی گرداند 
+            </summary>
+            <param name="Time">زمانیکه باید مقادیر زوج مرتب های قبل از آن محاسبه شوند</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasePairableConceptValue`1.TotalAfterTime(System.Int32)">
+            <summary>
+            مجموع مقادیر زوج مرتب های موجود در بعد از زمان ارسالی را برمی گرداند 
+            </summary>
+            <param name="Time">زمانیکه باید مقادیر زوج مرتب های بعد از آن محاسبه شوند</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasePairableConceptValue`1.RemovePairAt(System.Int32)">
+            <summary>
+            این تابع زوج مرتب مشخص شده با شناسه ورودی را حذف می کند.
+            در عین حال قبل از حذف مرتب سازی براساس "از" انجام می شود
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Business.AssignedWorkGroupDetail.Total">
+            <summary>
+            مقدار کارکردلازم ماهانه را برمیگرداند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.Managment">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Managment.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Managment.AccessGroup">
+            <summary>
+            Gets or sets the AccessGroup value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Managment.Manager">
+            <summary>
+            Gets or sets the ManagerID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Managment.WorkFlow">
+            <summary>
+            Gets or sets the WorkFlow value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Managment.ActiveFlow">
+            <summary>
+            Gets or sets the ActiveFlow value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.PersonDetail">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/24/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.MeliCode">
+            <summary>
+            Gets or sets the MeliCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.BirthCertificate">
+            <summary>
+            Gets or sets the BirthCertificate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.Status">
+            <summary>
+            Gets or sets the Status value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.FatherName">
+            <summary>
+            Gets or sets the FatherName value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.MilitaryStatus">
+            <summary>
+            Gets or sets the MilitaryStatus value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.PlaceIssued">
+            <summary>
+            Gets or sets the PlaceIssued value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.Tel">
+            <summary>
+            Gets or sets the Tel value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.Address">
+            <summary>
+            Gets or sets the Address value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.BirthPlace">
+            <summary>
+            Gets or sets the BirthPlace value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.BirthDate">
+            <summary>
+            Gets or sets the BirthDate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.Image">
+            <summary>
+            Gets or sets the Image value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R1">
+            <summary>
+            Gets or sets the R1 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R2">
+            <summary>
+            Gets or sets the R2 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R3">
+            <summary>
+            Gets or sets the R3 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R4">
+            <summary>
+            Gets or sets the R4 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R5">
+            <summary>
+            Gets or sets the R5 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R6">
+            <summary>
+            Gets or sets the R6 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R7">
+            <summary>
+            Gets or sets the R7 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R8">
+            <summary>
+            Gets or sets the R8 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R9">
+            <summary>
+            Gets or sets the R9 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R10">
+            <summary>
+            Gets or sets the R10 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R11">
+            <summary>
+            Gets or sets the R11 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R12">
+            <summary>
+            Gets or sets the R12 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R13">
+            <summary>
+            Gets or sets the R13 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R14">
+            <summary>
+            Gets or sets the R14 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R15">
+            <summary>
+            Gets or sets the R15 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R16">
+            <summary>
+            Gets or sets the R16 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R17">
+            <summary>
+            Gets or sets the R17 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R18">
+            <summary>
+            Gets or sets the R18 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R19">
+            <summary>
+            Gets or sets the R19 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.PersonDetail.R20">
+            <summary>
+            Gets or sets the R20 value.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.GetDemandLeave">
+            <summary>
+            طلب مرخصي ساليانه را بر حسب دقيقه بر ميگرداند
+            </summary>
+            <param name="minutesInDay"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.GetRemainLeave(GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            مقدار مرخصي باقيمانده با توجه به تنظيمات مرخصي
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.GetRemainLeave">
+            <summary>
+            مقدار مرخصي باقيمانده با توجه به تنظيمات مرخصي
+            اگر منفی باشد هم صفر بر میگیرداند
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.AddUsedLeave(System.Int32,GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            تعدادي مرخصي براي شخص در يک ماه خاص منظور ميکند
+            اولويت:1-باقيمانده ماه جاري 2-طلب ساليانه 3-ماههاي گذشته 4-ماههاي آينده
+            </summary>        
+            <param name="remainMinutes">به روز و دقيقه تبديل ميشود</param>
+            <param name="date"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.AddUsedLeave(System.Int32)">
+            <summary>
+            تعدادي مرخصي براي شخص در يک ماه خاص منظور ميکند
+            اولويت:1-باقيمانده ماه جاري 2-طلب ساليانه 3-ماههاي گذشته 4-ماههاي آينده
+            </summary>        
+            <param name="remainMinutes">به روز و دقيقه تبديل ميشود</param>
+            <param name="date"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.AddRemainLeaveMinute(System.Int32,GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            افزايش باقيمانده مرخصي 
+            </summary>        
+            <param name="remainMinutes">به روز و دقيقه تبديل ميشود</param>
+            <param name="date">تاريخ</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.AddRemainLeaveMinute(System.Int32)">
+            <summary>
+            افزايش باقيمانده مرخصي 
+            </summary>        
+            <param name="remainMinutes">به روز و دقيقه تبديل ميشود</param>
+            <param name="date">تاريخ</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.Initilize(System.DateTime,System.DateTime)">
+            <summary>
+            باتوجه به تنظيمات مرخصي , متغيرها را مقداردهي ميکند
+            در بازه مشخص شده تمام مرخصی های داده شده را برمیگرداند تا دوباره محاسبه کند
+            </summary>
+            <param name="fromDateCalculation">تاریخ شروع محاسبات</param>
+            <param name="toDateCalculation">تاریخ پایان محاسبات</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.GetCurrentmonthRemainLeave(GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            مقدار مرخصي باقيمانده ماه جاري را بر حسب دقيقه برميگرداند
+            CurrentBudget-CurrentUsed
+            </summary>
+            <param name="date"></param>
+            <param name="minutesInDay"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.BalanceIncDec(System.DateTime,System.DateTime)">
+            <summary>
+            اعمال حکم هاي صادر شده باتوجه به تاريخ موعد آنها
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BudgetYear.Rollback(System.DateTime,System.DateTime)">
+            <summary>
+            برگرداندن مرخصی های بین بازه محاسبه
+            ابتدا و انتهای رولبک قبلا دریافت شده است
+            </summary>
+            <param name="delDtlOrAddBallance">مثلا در 
+            AddRemainLeaveMinute 
+            لازم است جزئیات مرخصی حذف نشود بلکه با درج مقدار منفی آنرا بالانس کرد
+            که اگر باربر درست باشد حذف و اگر برابر غلط باشد بالانس میشود
+            در حال حاضر فقط در مثالی که ذکر شد لازم است مقدار نادرست فرستاده شود</param>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BudgetYear.DemandLeave">
+            <summary>
+            طلب مرخصي روزانه از سالهاي قبل
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BudgetYear.CalculatedDemandLeave">
+            <summary>
+            طلب مرخصي ساعتي از سالهاي قبل که محاسبات رويش صورت ميگيرد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BudgetYear.MaxDate">
+            <summary>
+             آخرین و بزرگترین تاریخی که مرخصی کم یا زیاد شده است
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BudgetYear.Kind">
+            <summary>
+            نوع محدودیت مثل مرخصی استحقاقی یا غیره - TA_BudgetKind
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BaseScndCnpValue.GetIndex(GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            یک شناسه منحصر به فرد برای درج در "هشت تی بل" ایجاد می نماید
+            این شناسه براساس "شماره پرسنلی"، "شناسه مفهوم" و تاریخ مقداردهی مفهوم ایجاد می شود
+            <remarks>اگر این تابع را قبل از مقداردهی به خصوصیات "شخص" و "مفهوم" فراخوانی نمایید با خطا مواجه خواهید شد</remarks>
+            </summary>
+            <param name="CalculationDate">تاریخ مقداردهی مفهوم</param>
+            <returns>شناسه منحصر به فرد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BaseScndCnpValue.GetIndex(System.DateTime)">
+            <summary>
+            یک شناسه منحصر به فرد برای درج در "هشت تی بل" ایجاد می نماید
+            این شناسه براساس "شماره پرسنلی"، "شناسه مفهوم" و تاریخ مقداردهی مفهوم ایجاد می شود
+            <remarks>اگر این تابع را قبل از مقداردهی به خصوصیات "شخص" و "مفهوم" فراخوانی نمایید با خطا مواجه خواهید شد</remarks>
+            </summary>
+            <param name="CalculationDate">تاریخ مقداردهی مفهوم</param>
+            <returns>شناسه منحصر به فرد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BaseScndCnpValue.GetScndCnpValueFacorty(GTS.Clock.Model.Concepts.SecondaryConcept)">
+            <summary>
+            بر اساس نوع مفهوم ثانویه یک نمونه از کلاس "مقدار مفهوم ثانویه" ایجاد می نماید 
+            مقدار مفهوم ثانویه بر دو نوع "زوج مرتبی" و "غیر زوج مرتبی" می باشد
+            </summary>
+            <param name="scndCnp">مفهوم ثانویه ای که باید بر اساس آن مقدار مفهوم ثانویه ایجاد شود</param>
+            <returns>یک نمونه از کلاس مقدار مفهوم ثانویه پایه</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BaseScndCnpValue.GetIndex(System.Decimal,System.Decimal,GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            یک شناسه منحصر به فرد برای درج در "هشت تی بل" ایجاد می نماید
+            این شناسه براساس "شماره پرسنلی"، "شناسه مفهوم" و تاریخ مقداردهی مفهوم ایجاد می شود
+            </summary>
+            <param name="PersonId">شماره پرسنلی</param>
+            <param name="ScndCnpID">شناسه مفهوم</param>
+            <param name="CalculationDate">تاریخ مقداردهی مفهوم</param>
+            <returns>شناسه منحصر به فرد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BaseScndCnpValue.GetIndex(System.Decimal,System.Decimal,System.DateTime)">
+            <summary>
+            یک شناسه منحصر به فرد برای درج در "هشت تی بل" ایجاد می نماید
+            این شناسه براساس "شماره پرسنلی"، "شناسه مفهوم" و تاریخ مقداردهی مفهوم ایجاد می شود
+            </summary>
+            <param name="PersonId">شماره پرسنلی</param>
+            <param name="ScndCnpID">شناسه مفهوم</param>
+            <param name="CalculationDate">تاریخ مقداردهی مفهوم</param>
+            <returns>شناسه منحصر به فرد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BaseScndCnpValue.GetIndex(System.Decimal,System.Decimal,GTS.Clock.Infrastructure.Utility.DateRange)">
+            <summary>
+            یک شناسه منحصر به فرد برای مفهوم ماهانه و درج در "هشت تی بل" ایجاد می نماید
+            این شناسه براساس "شماره پرسنلی"، "شناسه مفهوم" و محدوده محاسبه مفهوم ماهانه ایجاد می شود
+            </summary>
+            <param name="PersonId">شماره پرسنلی</param>
+            <param name="ScndCnpID">شناسه مفهوم</param>
+            <param name="CalculationDate">تاریخ مقداردهی مفهوم</param>
+            <returns>شناسه منحصر به فرد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Business.PersonWorkGroup.Total">
+            <summary>
+            مقدار کارکردلازم ماهانه را برميگرداند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseInformation.Illness">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Illness.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Illness.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Illness.Description">
+            <summary>
+            Gets or sets the Description value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.PrecardAccessGroup">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.PrecardAccessGroup.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.PrecardAccessGroup.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseInformation.Clock">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Clock.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Clock.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Clock.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Clock.Clocktype">
+            <summary>
+            Gets or sets the Clocktype value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Clock.Station">
+            <summary>
+            Gets or sets the Station value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Clock.Tel">
+            <summary>
+            Gets or sets the Tel value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Clock.Active">
+            <summary>
+            Gets or sets the Active value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.SecondaryConcept">
+            <summary>
+            کلاس والد براي 
+            ScndCnp , CategorisedCnp
+            
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.Script">
+            <summary>
+            Gets or sets the Script value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.CSharpCode">
+            <summary>
+            Gets or sets the CSharpCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.IdentifierCode">
+            <summary>
+            Gets or sets the IdentifierCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.CustomCategoryCode">
+            <summary>
+            Gets or sets the CustomCategoryCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.Order">
+            <summary>
+            Gets or sets the Order value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.IsPeriodic">
+            <summary>
+            Gets or sets the IsRangely value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.Type">
+            <summary>
+            Gets or sets the Type value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.PColumn">
+            <summary>
+            Gets or sets the PColumn value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.SecondaryConcept.ReadOnly">
+            <summary>
+            Gets or sets the ReadOnly value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.PrimaryConcept`2">
+            <summary>
+            .کلاس پایه برای مفاهیم اولیه
+            </summary>
+            <typeparam name="TConceptValue">.نوع مورد نظر برای نگهداری مقادیر مفاهیم اولیه. برای مفاهیم اولیه نوع مقدار خروجی باید زوج مرتبی باشد </typeparam>
+            <typeparam name="TPair">.نوع زوج مرتب خروجی مفهوم اولیه</typeparam>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.BaseConcept`1">
+            <summary>
+            .کلاس پايه براي تمام مفاهيم
+            </summary>
+            <typeparam name="TConceptValue">.نوع مورد نظر براي نگهداري مقادير مفهوم. بطورکلي دو نوع زوج مرتبي و عددي براي نگهداري مفاهيم وجود دارد</typeparam>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.IConcept`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TConceptValue"></typeparam>
+        </member>
+        <member name="F:GTS.Clock.Model.Concepts.BaseConcept`1.lockedMember">
+            <summary>
+            شامل کد مفاهيمي که که بايد در حافظه نگهداري شوند يعني نبايد از ديتابيس آورده شوند
+            </summary>
+        </member>
+        <member name="F:GTS.Clock.Model.Concepts.BaseConcept`1.conceptValuesStorage">
+            <summary>
+            حافظه نگهداري براي کش کردن مقدارها در طول ترازاکشن
+            </summary>
+        </member>
+        <member name="F:GTS.Clock.Model.Concepts.BasicTrafficController.curentIndex">
+            <summary>
+            صعودی یا نزولی
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasicTrafficController.#ctor(System.Collections.Generic.List{GTS.Clock.Model.Concepts.BasicTraffic})">
+            <summary>
+            
+            </summary>
+            <param name="trafficList">یک لیست از ترددها که میخواهیم آنرا پردازش کنیم</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasicTrafficController.IsTrafficInShift(GTS.Clock.Model.Business.WGDShift)">
+            <summary>
+            آیا آیتم جاری در بازه زمانی شیفت ورودی میگنجد
+            </summary>
+            <param name="shift">شیفت مقایسه</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasicTrafficController.IsTrafficInShift(GTS.Clock.Model.Business.WGDShift,GTS.Clock.Model.Concepts.BasicTraffic)">
+            <summary>
+            آیا تردد ورودی در بازه زمانی شیفت ورودی میگنجد
+            </summary>
+            <param name="shift">شیفت مقایسه</param>
+            <param name="basicTraffic">تردد مقایسه</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasicTrafficController.MoveCurrentToNextUnusedItem">
+            <summary>
+            آیتم بعدی که استفاده نشده است را آیتم جاری قرار بده
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasicTrafficController.SortByTime(GTS.Clock.Model.Concepts.SortOrder)">
+            <summary>
+            مرتب سازی ترددهای پایه بر اساس زمان تردد
+            </summary>
+            <param name="order"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasicTrafficController.InsertTrafficAfterCurentItem(GTS.Clock.Model.Concepts.BasicTraffic)">
+            <summary>
+            یک تردد پردازش نشده به لیست اضافه میکند
+            </summary>
+            <param name="_basicTraffic">این تردد باید با دقت در اضافه شود تا ترتیب لیست از بین نرود</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasicTrafficController.InsertTrafficBeforeCurentItem(GTS.Clock.Model.Concepts.BasicTraffic)">
+            <summary>
+            یک تردد پردازش نشده به لیست اضافه میکند
+            </summary>
+            <param name="_basicTraffic">این تردد باید با دقت در اضافه شود تا ترتیب لیست از بین نرود</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.BasicTrafficController.Reset">
+            <summary>
+            تنظیم دوباره اولین آیتم
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.CurrentIndex">
+            <summary>
+            ایندکس آیتم فعلی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.HasNextItem">
+            <summary>
+            آیا آیتم بعدی وجود دارد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.HasAfterNextItem">
+            <summary>
+            آیا دوتا آیتم جلوتر وجود دارد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.CurrentBasicItem">
+            <summary>
+            آیتم فعلی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.BeforeItem">
+            <summary>
+            آیتم قبلی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.NextItem">
+            <summary>
+            آیتم بعدی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.AfterNextItem">
+            <summary>
+            دوتا آیتم جلوتر
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.Finished">
+            <summary>
+            آیا همه آیتم ها استفاده شده اند
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTrafficController.CanFindPair">
+            <summary>
+            هم آیتم جاری را بررسی مسکند آیتم بعدی
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.UserSetting">
+            <summary>
+            Gets or sets the UserSettingId value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.Day">
+            <summary>
+            Gets or sets the Day value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.Date">
+            <summary>
+            Gets or sets the Date value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.FirstEntrance">
+            <summary>
+            Gets or sets the FirstEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.FirstExit">
+            <summary>
+            Gets or sets the FirstExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.SecondEntrance">
+            <summary>
+            Gets or sets the SecondEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.SecondExit">
+            <summary>
+            Gets or sets the SecondExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ThirdEntrance">
+            <summary>
+            Gets or sets the ThirdEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ThirdExit">
+            <summary>
+            Gets or sets the ThirdExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.FourthEntrance">
+            <summary>
+            Gets or sets the FourthEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.FourthExit">
+            <summary>
+            Gets or sets the FourthExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.FifthEntrance">
+            <summary>
+            Gets or sets the FifthEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.FifthExit">
+            <summary>
+            Gets or sets the FifthExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.LastExit">
+            <summary>
+            Gets or sets the LastExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.NecessaryOperation">
+            <summary>
+            Gets or sets the NecessaryOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.PresenceDuration">
+            <summary>
+            Gets or sets the PresenceDuration value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HourlyPureOperation">
+            <summary>
+            Gets or sets the HourlyPureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.DailyPureOperation">
+            <summary>
+            Gets or sets the DailyPureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ImpureOperation">
+            <summary>
+            Gets or sets the ImpureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.AllowableOverTime">
+            <summary>
+            Gets or sets the AllowableOverTime value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.UnallowableOverTime">
+            <summary>
+            Gets or sets the UnallowableOverTime value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HourlyAllowableAbsence">
+            <summary>
+            Gets or sets the HourlyAllowableAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HourlyUnallowableAbsence">
+            <summary>
+            Gets or sets the HourlyUnallowableAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.DailyAbsence">
+            <summary>
+            Gets or sets the DailyAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HourlyMission">
+            <summary>
+            Gets or sets the HourlyMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.DailyMission">
+            <summary>
+            Gets or sets the DailyMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HostelryMission">
+            <summary>
+            Gets or sets the HostelryMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HourlySickLeave">
+            <summary>
+            Gets or sets the HourlySickLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.DailySickLeave">
+            <summary>
+            Gets or sets the DailySickLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HourlyMeritoriouslyLeave">
+            <summary>
+            Gets or sets the HourlyMeritoriouslyLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.DailyMeritoriouslyLeave">
+            <summary>
+            Gets or sets the DailyMeritoriouslyLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HourlyWithoutPayLeave">
+            <summary>
+            Gets or sets the HourlyWithoutPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.DailyWithoutPayLeave">
+            <summary>
+            Gets or sets the DailyWithoutPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.HourlyWithPayLeave">
+            <summary>
+            Gets or sets the HourlyWithPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.DailyWithPayLeave">
+            <summary>
+            Gets or sets the DailyWithPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.Shift">
+            <summary>
+            Gets or sets the Shift value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField1">
+            <summary>
+            Gets or sets the ReserveField1 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField2">
+            <summary>
+            Gets or sets the ReserveField2 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField3">
+            <summary>
+            Gets or sets the ReserveField3 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField4">
+            <summary>
+            Gets or sets the ReserveField4 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField5">
+            <summary>
+            Gets or sets the ReserveField5 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField6">
+            <summary>
+            Gets or sets the ReserveField6 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField7">
+            <summary>
+            Gets or sets the ReserveField7 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField8">
+            <summary>
+            Gets or sets the ReserveField8 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField9">
+            <summary>
+            Gets or sets the ReserveField9 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridClientSettings.ReserveField10">
+            <summary>
+            Gets or sets the ReserveField10 value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.Flow">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Flow.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Flow.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Flow.Managment">
+            <summary>
+            Gets or sets the Managment value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.BasePair">
+            <summary>
+            .کلاس پایه برای نگهداری زوج مرتب
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.WorkGroup">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>6/6/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.WorkGroup.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.WorkGroup.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.WorkGroup.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.WorkGroup._grpsCode">
+            <summary>
+            Gets or sets the _grpsCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftPair.AfterToleranceTime">
+            <summary>
+            تلورانس را برای نمایش در واسط کاربر به زمان تبدیل میکند
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftPair.BeforeToleranceTime">
+            <summary>
+            تلورانس را برای نمایش در واسط کاربر به زمان تبدیل میکند
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftPair.FromTime">
+            <summary>
+            دقیقه را برای نمایش در واسط کاربر به زمان تبدیل میکند
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftPair.ToTime">
+            <summary>
+            دقیقه را برای نمایش در واسط کاربر به زمان تبدیل میکند
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Environment.GetCalendarByDate(System.DateTime)">
+            <summary>
+            لیست تمام تقویم های تاریخ مشخص شده را برمی گرداند
+            </summary>
+            <param name="Date">تاریخی که تقویم های آن مدنظر است</param>
+            <returns>لیستی از کلاس تقویم که شامل تمام تقویم های پرسنل در تاریخ مشخص شده می باشد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Environment.HasCalendar(GTS.Clock.Infrastructure.Utility.PersianDateTime,System.Decimal)">
+            <summary>
+            نتیجه ی بررسی وجود تقویم مشخص شده در روز مشخص شده را برمی گرداند
+            </summary>
+            <param name="Date">تاریخی که در آن نام تقویم جستجو می شود</param>
+            <param name="CalendarId">کد تعریف شده تقویم مورد نظر</param>
+            <returns>درست یا غلط</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Environment.HasCalendar(GTS.Clock.Infrastructure.Utility.PersianDateTime,System.Decimal[])">
+            <summary>
+            نتیجه ی بررسی وجود تقویم های مشخص شده در روز مشخص شده را برمی گرداند
+            </summary>
+            <param name="Date">تاریخی که در آن نام تقویم جستجو می شود. این تاریخ به صورت شمسی دریافت می شود ولی از مقدار میلادی آن استفاده می گردد</param>
+            <param name="CalendarId">کد تعریف شده تقویم مورد نظر</param>
+            <returns>درست یا غلط</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Environment.GetCalendarByhDate(System.DateTime,System.String)">
+            <summary>
+            تقویمی که نام و تاریخ آن مشخص شده است را برمی گرداند
+            </summary>
+            <param name="Date">تاریخی که تقویم آن مدنظر است</param>
+            <param name="CalendarName">نام تقویم مورد نظر</param>
+            <returns>یک نمونه از کلاس تقویم که شامل تقویم درخواست شده می باشد. در صورت نبود تقویم مورد نظر یک نمونه ی خالی از کلاس تقویم برگشت داده می شود</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Environment.GetConcept(System.Decimal)">
+            <summary>
+            مفهوم ثانویه با شناسه مورد نظر را برمی گرداند
+            </summary>
+            <param name="IdentifierCode">شناسه مفهوم مورد نظر</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Environment.RefreshEnviromentVariable">
+            <summary>
+            لیست های "تقویم" و "مفهوم" را از پایگاه داده مجددا فراخوانی می نماید 
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.TrafficSettings.TrafficMinLength">
+            <summary>
+            غیبت ها با طول کمتر از این مقدار را حذف کن
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.TrafficSettings.OutInWorkMax">
+            <summary>
+            غیبت ها با طول کمتر از این مقدار را حذف کن
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.UI.DetailedMonthlyOperationGridFields">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.DetailedMonthlyOperationGridFields.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.DetailedMonthlyOperationGridFields.Master">
+            <summary>
+            Gets or sets the MasterID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.DetailedMonthlyOperationGridFields.Concept">
+            <summary>
+            Gets or sets the ConceptID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.DetailedMonthlyOperationGridFields.FromHour">
+            <summary>
+            Gets or sets the FromHour value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.DetailedMonthlyOperationGridFields.ToHour">
+            <summary>
+            Gets or sets the ToHour value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.Request">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.RequestType">
+            <summary>
+            Gets or sets the RequestType value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.Precard">
+            <summary>
+            Gets or sets the Precard value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.Person">
+            <summary>
+            Gets or sets the Person value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.Title">
+            <summary>
+            Gets or sets the Title value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.FromDate">
+            <summary>
+            Gets or sets the FromDate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.ToDate">
+            <summary>
+            Gets or sets the ToDate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.FromTime">
+            <summary>
+            Gets or sets the FromTime value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.ToTime">
+            <summary>
+            Gets or sets the ToTime value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.Description">
+            <summary>
+            Gets or sets the Description value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.RegisterDate">
+            <summary>
+            Gets or sets the RegisterDate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Request.User">
+            <summary>
+            Gets or sets the UserID value.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.Budget.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="MinutesInDay">تعداد دقایق یک روز مرخصی</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.Budget.GetStandardBudget(System.Int32)">
+            <summary>
+            مقداری که برای سهمیه توسط کاربر تعیین میشود
+            </summary>      
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.NobatKari">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.NobatKari.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.NobatKari.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.NobatKari.Description">
+            <summary>
+            Gets or sets the Min value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.NobatKari.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.CalculationRangeGroup">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>6/22/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationRangeGroup.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationRangeGroup.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationRangeGroup.Description">
+            <summary>
+            Gets or sets the Des value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationRangeGroup.Year">
+            <summary>
+            Gets or sets the Year value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseInformation.ExistConcepts">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.ExistConcepts.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.ExistConcepts.ConceptColorName">
+            <summary>
+            Gets or sets the ConceptColorName value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.ExistConcepts.ConceptName">
+            <summary>
+            Gets or sets the ConceptName value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.ExistConcepts.LookupKey">
+            <summary>
+            Gets or sets the LookupKey value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseRule`1">
+            <summary>
+            کلاس والد براي 
+            Rule , CategorisedRule
+            
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseRule`1.Item(System.String)">
+            <summary>
+            مقدار پارامتری که نام آن ارسال شده است را برمی گرداند
+            </summary>
+            <param name="ParameterName">نام پارامتر</param>
+            <returns>مقدار پارامتر درخواست شده</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetProceedTraficByDate(System.DateTime)">
+            <summary>
+            تردد پرسنل در تاریخ درخواست شده را برمی گرداند
+            </summary>
+            <param name="Date">تاریخ تردد مورد نظر</param>
+            <returns>یک نمونه از کلاس تردد شامل تردد تاریخ مشخص شده</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetProceedTraficByDate(GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            تردد پرسنل در تاریخ درخواست شده را برمی گرداند
+            </summary>
+            <param name="Date">تاریخ تردد مورد نظر</param>
+            <returns>یک نمونه از کلاس تردد شامل تردد تاریخ مشخص شده</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetScndCnpValueByDate(GTS.Clock.Model.Concepts.SecondaryConcept,System.DateTime)">
+            <summary>
+            مقدار مفهوم مشخص شده در تاریخ مشخص شده را برمی گرداند
+            </summary>
+            <param name="scndCnp">مفهومی که مقدار آن مدنظر است</param>
+            <param name="Date">تاریخی که مقدار مفهوم در آن مدنظر است</param>
+            <returns>یک نمونه از کلاس مقدار مفهوم که شامل مقدار مشخص شده می باشد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetFromNotPersistedScndCnpValues(System.String)">
+            <summary>
+            این تابع وظیفه جستجوی لیست مفاهیم موجود براساس "ایندکس" ورودی را برعهده دارد
+            </summary>
+            <param name="Index">شناسه مفهوم مورد نظر</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetShiftByhDate(System.DateTime)">
+            <summary>
+            شیفت پرسنل در تاریخ مشخص شده را برمی گرداند
+            </summary>
+            <param name="Date">تاریخی که شیفت آن مدنظر است</param>
+            <returns>یک نمونه از کلاس شیفت که شامل شیفت پرسنل در تاریخ مشخص شده می باشد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetShiftByDate(GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            شیفت پرسنل در تاریخ مشخص شده را برمی گرداند
+            </summary>
+            <param name="Date">تاریخی که شیفت آن مدنظر است. در اینجا تاریخ به صورت شمسی دریافت می شود ولی از مقدار میلادی آن استفاده می شود</param>
+            <returns>یک نمونه از کلاس شیفت که شامل شیفت پرسنل در تاریخ مشخص شده می باشد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetShiftByDate(System.DateTime)">
+            <summary>
+            شیفت پرسنل در تاریخ مشخص شده را برمی گرداند
+            </summary>
+            <param name="Date">تاریخی که شیفت آن مدنظر است. </param>
+            <returns>یک نمونه از کلاس شیفت که شامل شیفت پرسنل در تاریخ مشخص شده می باشد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetWorkGroupByDate(GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            
+            </summary>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetLeaveYearByDate(GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            بر اساس تاریخ یک سال محاسباتی مرخصی را بر میگرداند
+            </summary>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetLeaveYearRemainByDate(GTS.Clock.Infrastructure.Utility.PersianDateTime,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Date">تاریخ جهت مشخص کردن یک ماه</param>
+            <param name="minutesInDay">تعداد دقایق یک روز کاری</param>
+            <returns>تعداد دقایق باقی مانده از مرخصی</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetPeriodicScndCnpValue(GTS.Clock.Model.Concepts.BaseScndCnpValue,System.DateTime)">
+            <summary>
+            وظیفه بازیابی مقدار ماهانه از پایگاه داده را برعهده دارد
+            همچنین مقادیر احتمالی محاسبه شده ی موجود در حافظه را نیز به مقدار فوق اضافه می نماید
+            </summary>
+            <param name="CalculationDate"></param>
+            <param name="RangelyScndCnpValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetPeriodicScndCnpRange(GTS.Clock.Model.Concepts.SecondaryConcept,System.DateTime)">
+            <summary>
+            وظیفه ایجاد یک "دوره" شامل دوره ی زمانیکه برای مفهوم دوره ای ارسال شده، تعریف گشته را برعهده دارد
+            </summary>
+            <param name="RangelyScndCnp"></param>
+            <param name="CalculationDate"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.GetFromPersistedScndCnpValues(System.String)">
+            <summary>
+            با ایجاد دسترسی مستقیم به "انباره ی پرسنل" مقدار مفهوم مورد نظر را براساس شناسه دریافتی بازیابی می نماید
+            این تابع وظیفه ی یافتن مقدار مفهوم مورد نظر از لیست مفاهیمی محاسبه شده ی موجود در پایگاه داده را برعهده دارد
+            </summary>
+            <param name="Index">شناسه ای که مقدار مفهوم براساس آن بازیابی می شود </param>
+            <returns>مقدار یافت شده با شناسه ارسال شده در این پارامتر قرار میگیرد</returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.Initialize(System.DateTime,System.DateTime)">
+            <summary>
+            وظیفه مقدار دهی اولیه به "شخص" بعهده این تابع است
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Person.ClearPerson">
+            <summary>
+            وظیفه حذف شیفت های "شخص" بعهده این متد است
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Person.BasicTrafficController">
+            <summary>
+            ساختاری برای پردازش ترددهای پردازش نشده است
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.CalculationDateRange">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>6/22/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationDateRange.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationDateRange.FromDate">
+            <summary>
+            Gets or sets the FromDate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationDateRange.ToDate">
+            <summary>
+            Gets or sets the ToDate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationDateRange.Concept">
+            <summary>
+            Gets or sets the ConceptTmpID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.CalculationDateRange.RangeGroup">
+            <summary>
+            Gets or sets the RangeGrpId value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.Substitute">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/24/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Substitute.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Substitute.Manager">
+            <summary>
+            Gets or sets the Manager value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Substitute.Person">
+            <summary>
+            Gets or sets the Person value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Substitute.FromDate">
+            <summary>
+            Gets or sets the FromDate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Substitute.ToDate">
+            <summary>
+            Gets or sets the ToDate value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Substitute.Active">
+            <summary>
+            Gets or sets the Active value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.UnderManagment">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.UnderManagment.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.UnderManagment.Managment">
+            <summary>
+            Gets or sets the ManagmentID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.UnderManagment.Person">
+            <summary>
+            Gets or sets the PersonID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.UnderManagment.Unit">
+            <summary>
+            Gets or sets the UnitID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.UnderManagment.ContainInnerUnits">
+            <summary>
+            Gets or sets the ContainInnerUnits value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.UnderManagment.Contains">
+            <summary>
+            Gets or sets the Contains value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.RequestStatus">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.RequestStatus.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.RequestStatus.ManagerFlow">
+            <summary>
+            Gets or sets the MnagerFlow value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.RequestStatus.Confirm">
+            <summary>
+            Gets or sets the Confirm value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.RequestStatus.EndFlow">
+            <summary>
+            Gets or sets the EndFlow value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.RequestStatus.Request">
+            <summary>
+            Gets or sets the Request value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseInformation.ClockType">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.ClockType.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.ClockType.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.ClockType.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.NominationDictionary">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.CnpValueList">
+            <summary>
+              Looks up a localized string similar to ConceptValueList.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.DefRle">
+            <summary>
+              Looks up a localized string similar to DefinedRule.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.ObjCat">
+            <summary>
+              Looks up a localized string similar to ObjectCategory.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.OrgCh">
+            <summary>
+              Looks up a localized string similar to OrganChart.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.PairScndCnpValuePair">
+            <summary>
+              Looks up a localized string similar to PairableSecondaryConceptValuePair.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.Prs">
+            <summary>
+              Looks up a localized string similar to Person.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.PrsAsg">
+            <summary>
+              Looks up a localized string similar to PersonAssignment.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.PrsUnit">
+            <summary>
+              Looks up a localized string similar to PersonUnit.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.RleCnp">
+            <summary>
+              Looks up a localized string similar to RuleConcept.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.ScndCnp">
+            <summary>
+              Looks up a localized string similar to SecondaryConcept.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.NominationDictionary.ScndCnpValue">
+            <summary>
+              Looks up a localized string similar to SecondaryConceptValue.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.WorkGroupDetail">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>6/6/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.WorkGroupDetail.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.WorkGroupDetail.WorkGroupID">
+            <summary>
+            Gets or sets the WorkGroupID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.WorkGroupDetail.ShiftID">
+            <summary>
+            Gets or sets the ShiftID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.WorkGroupDetail.Date">
+            <summary>
+            Gets or sets the Date value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseInformation.Station">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Station.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Station.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.AppSetting.UserSettings">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.UserSettings.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.UserSettings.User">
+            <summary>
+            Gets or sets the UserID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.UserSettings.Language">
+            <summary>
+            Gets or sets the LangID value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.ManagerFlow">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.ManagerFlow.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.ManagerFlow.Manager">
+            <summary>
+            Gets or sets the Manager value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.ManagerFlow.Level">
+            <summary>
+            Gets or sets the Level value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.ManagerFlow.Flow">
+            <summary>
+            Gets or sets the Flow value.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.MustRemoved.ScndCnpValueCollection`2.Add(`0,`1)">
+            <summary>
+            یک آیتم را براساس کلید مشخص شده به لیست اضافه می کند
+            اگر با این کلید قبلا آیتمی وجود داشت بروزرسانی می شود
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.#ctor(GTS.Clock.Model.Concepts.ProceedTraffic)">
+            <summary>
+            
+            </summary>
+            <param name="trafficList">یک لیست از ترددهای زوج مرتبی که میخواهیم آنرا پردازش کنیم</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.AddBallanceTraffic(GTS.Clock.Model.Concepts.ProceedTraffic)">
+            <summary>
+            یک تردد 1 دقیقه ای بمنظور ایجاد تعادل ثبت میکند
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.EditFinish">
+            <summary>
+            فیلد در حال ویرایش را به لیست اضافه میکند
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.ImportBasicTraffic(GTS.Clock.Model.Concepts.BasicTraffic,GTS.Clock.Model.Concepts.BasicTraffic)">
+            <summary>
+            Initilize the CurentEditingItem
+            </summary>
+            <param name="basic1"></param>
+            <param name="basic2"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.MergeCurrentItemWithNextItem">
+            <summary>
+            ابتدای آیتم جاری را به انتهای آیتم بعدی وصل میکند و آیتم بعدی را حذف میکند
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.MoveToNextPairItem">
+            <summary>
+            آیتم جاری را به جلو میبرد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.IsInited">
+             <summary>
+            آیا کنترلر مقدار دهی اولیه شده است یا تردد پردازش شده بتازگی ایجاد شده است
+             </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.CurrentIndex">
+            <summary>
+            ایندکس آیتم فعلی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.CurrentPaireItem">
+            <summary>
+            آیتم فعلی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.NextPaireItem">
+            <summary>
+            آیتم بعدی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.HasNextItem">
+            <summary>
+            آیا آیتم بعدی وجود دارد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.LastItem">
+            <summary>
+            آیتم آخر
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.CurrentEdingItem">
+            <summary>
+            آیتم در حال ویرایش
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.Count">
+            <summary>
+            تعداد جفتهای تردد پردازش شده کهکارمان با آنها تمام شده است
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPaireController.GapBetweenCurrentAndNextItem">
+            <summary>
+            فاصله بین خروج آیتم فعلی تا ورود آیتم بعدی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTraffic.PrecardID">
+            <summary>
+            شناسه پیشکارت
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTraffic.DateTime">
+            <summary>
+            تاریخ و ساعت را برمیگرداند
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTraffic.Manual">
+            <summary>
+            اگر بوسیله اپراتور وارد سیستم شده باشد برابر "درست"خواهد بود
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.BasicTraffic.EntryState">
+             <summary>
+             آگر شخص کارت بزند برابر صفر 
+             اگر بوسیله اپراتور وارد سیستم شده باشد و ساعتی باشد یک و
+            اگر بوسیله اپراتور وارد سیستم شده باشد و روزانه باشد دو میباشد
+            در صورت مشاهده آیتم ساعتی و روزانه در یک روز اگر این فیلد صفر باشد قسمت آن روز ساعتی و روز بعد 
+            روزانه حساب میشود   
+            
+             </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.Language">
+            <summary>
+            Gets or sets the LangID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.Day">
+            <summary>
+            Gets or sets the Day value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.Date">
+            <summary>
+            Gets or sets the Date value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.FirstEntrance">
+            <summary>
+            Gets or sets the FirstEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.FirstExit">
+            <summary>
+            Gets or sets the FirstExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.SecondEntrance">
+            <summary>
+            Gets or sets the SecondEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.SecondExit">
+            <summary>
+            Gets or sets the SecondExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ThirdEntrance">
+            <summary>
+            Gets or sets the ThirdEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ThirdExit">
+            <summary>
+            Gets or sets the ThirdExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.FourthEntrance">
+            <summary>
+            Gets or sets the FourthEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.FourthExit">
+            <summary>
+            Gets or sets the FourthExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.FifthEntrance">
+            <summary>
+            Gets or sets the FifthEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.FifthExit">
+            <summary>
+            Gets or sets the FifthExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.LastExit">
+            <summary>
+            Gets or sets the LastExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.NecessaryOperation">
+            <summary>
+            Gets or sets the NecessaryOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.PresenceDuration">
+            <summary>
+            Gets or sets the PresenceDuration value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HourlyPureOperation">
+            <summary>
+            Gets or sets the HourlyPureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.DailyPureOperation">
+            <summary>
+            Gets or sets the DailyPureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ImpureOperation">
+            <summary>
+            Gets or sets the ImpureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.AllowableOverTime">
+            <summary>
+            Gets or sets the AllowableOverTime value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.UnallowableOverTime">
+            <summary>
+            Gets or sets the UnallowableOverTime value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HourlyAllowableAbsence">
+            <summary>
+            Gets or sets the HourlyAllowableAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HourlyUnallowableAbsence">
+            <summary>
+            Gets or sets the HourlyUnallowableAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.DailyAbsence">
+            <summary>
+            Gets or sets the DailyAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HourlyMission">
+            <summary>
+            Gets or sets the HourlyMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.DailyMission">
+            <summary>
+            Gets or sets the DailyMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HostelryMission">
+            <summary>
+            Gets or sets the HostelryMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HourlySickLeave">
+            <summary>
+            Gets or sets the HourlySickLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.DailySickLeave">
+            <summary>
+            Gets or sets the DailySickLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HourlyMeritoriouslyLeave">
+            <summary>
+            Gets or sets the HourlyMeritoriouslyLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.DailyMeritoriouslyLeave">
+            <summary>
+            Gets or sets the DailyMeritoriouslyLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HourlyWithoutPayLeave">
+            <summary>
+            Gets or sets the HourlyWithoutPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.DailyWithoutPayLeave">
+            <summary>
+            Gets or sets the DailyWithoutPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.HourlyWithPayLeave">
+            <summary>
+            Gets or sets the HourlyWithPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.DailyWithPayLeave">
+            <summary>
+            Gets or sets the DailyWithPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.Shift">
+            <summary>
+            Gets or sets the Shift value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField1">
+            <summary>
+            Gets or sets the ReserveField1 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField2">
+            <summary>
+            Gets or sets the ReserveField2 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField3">
+            <summary>
+            Gets or sets the ReserveField3 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField4">
+            <summary>
+            Gets or sets the ReserveField4 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField5">
+            <summary>
+            Gets or sets the ReserveField5 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField6">
+            <summary>
+            Gets or sets the ReserveField6 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField7">
+            <summary>
+            Gets or sets the ReserveField7 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField8">
+            <summary>
+            Gets or sets the ReserveField8 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField9">
+            <summary>
+            Gets or sets the ReserveField9 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MonthlyOperationGridGeneralSettings.ReserveField10">
+            <summary>
+            Gets or sets the ReserveField10 value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseInformation.EmploymentType">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.EmploymentType.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.EmploymentType.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.EmploymentType.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.ShiftException">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftException.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftException.Date">
+            <summary>
+            Gets or sets the Date value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftException.Person">
+            <summary>
+            Gets or sets the Person value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftException.Description">
+            <summary>
+            Gets or sets the Description value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ShiftException.Shift">
+            <summary>
+            Gets or sets the Shift value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.Shift">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.Breakfast">
+            <summary>
+            Gets or sets the Sobhane value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.Lunch">
+            <summary>
+            Gets or sets the Nahar value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.Dinner">
+            <summary>
+            Gets or sets the Sham value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.Color">
+            <summary>
+            Gets or sets the Color value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.NobatKariID">
+            <summary>
+            این خصیصه صرفا بمنظور راحت سازی کار واسط کاربر تعریف میگردد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.MinNobatKariTime">
+            <summary>
+            حدنصاب نوبت کاری را برای نمایش در واسط کاربر به زمان تبدیل میکند
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Shift.ShiftTypeTitle">
+            <summary>
+            نوع شیفت که تنها برای نمایش راحت تر در واسط کاربر استفاده میشود
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.RequestType">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.RequestType.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.RequestType.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.RequestType.Description">
+            <summary>
+            Gets or sets the Description value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.PermitPair.IsEpty">
+            <summary>
+            اگر برابر "درست" باشد بدین معناست که این زوج مرتب بصورت
+            صوری درج گردیده است و ابتدا وانتها ندارد
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.UI.GridColumnColor">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.GridColumnColor.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.GridColumnColor.Person">
+            <summary>
+            Gets or sets the PersonID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.GridColumnColor.Request">
+            <summary>
+            Gets or sets the RequestID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.GridColumnColor.Date">
+            <summary>
+            Gets or sets the Date value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.GridColumnColor.ColumnName">
+            <summary>
+            Gets or sets the ColumnName value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.GridColumnColor.Color">
+            <summary>
+            Gets or sets the Color value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.PrecardGroups">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.PrecardGroups.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.PrecardGroups.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.PrecardGroups.LookupKey">
+            <summary>
+            Gets or sets the LookupKey value.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Security.IAuthorizeRepository.GetAccessDenied(System.Decimal)">
+            <summary>
+            لیستی از منابعی که استفاده از آن برای یک نقش خاص ممنوع است را برمیگرداند
+            </summary>    
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Security.IAuthorizeRepository.GetAccessDenied(GTS.Clock.Model.Security.Role)">
+            <summary>
+            لیستی از منابعی که استفاده از آن برای یک نقش خاص ممنوع است را برمیگرداند
+            </summary>        
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AddPair(GTS.Clock.Model.Concepts.IPair)">
+            <summary>
+            مقداردهی خصوصیت زوج مرتب با مقدار ارسالی
+            </summary>
+            <param name="Source">زوج مرتبی که باید انتصاب داده شود</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AddPairs(System.Collections.Generic.IList{GTS.Clock.Model.Concepts.IPair})">
+            <summary>
+            مقداردهی خصوصیت زوج مرتب با مقادیر ارسالی
+            </summary>
+            <param name="Source">لیستی از زوج مرتب ها که باید انتصاب داده شوند</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AddPairs(GTS.Clock.Model.Concepts.BaseScndCnpValue)">
+            <summary>
+            مقداردهی خصوصیت زوج مرتب با زوج مرتب های پارامترهای ارسالی
+            </summary>
+            <param name="Source">لیستی از زوج مرتب ها که باید اضافه گردند</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GTS.Clock.Model.Concepts.PairableScndCnpValue.ClearPairs" -->
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AppendPairs(System.Collections.Generic.IList{GTS.Clock.Model.Concepts.IPair})">
+            <summary>
+            اضافه نمودن زوج مرتب های ارسالی به خصوصیت زوج مرتب
+            </summary>
+            <param name="Source">لیستی از زوج مرتب ها که باید اضافه گردند</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AppendPairs(GTS.Clock.Model.Concepts.PairableScndCnpValue)">
+            <summary>
+            اضافه نمودن زوج مرتب های پارامتر ارسالی به خصوصیت زوج مرتب
+            </summary>
+            <param name="Source">لیستی از زوج مرتب ها که باید اضافه گردند</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AppendPairs(System.Collections.Generic.IList{GTS.Clock.Model.Concepts.ShiftPair})">
+            <summary>
+            اضافه نمودن زوج مرتب های شیفت ارسالی به خصوصیت زوج مرتب
+            </summary>
+            <param name="Souarce">لیستی از زوج مرتب های شیفت که باید اضافه گردند</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AppendPairs(GTS.Clock.Model.Concepts.BaseScndCnpValue)">
+            <summary>
+            اضافه نمودن زوج مرتب های پارامتر ارسالی به خصوصیت زوج مرتب
+            </summary>
+            <param name="Source">لیستی از زوج مرتب ها که باید اضافه گردند</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AppendPair(GTS.Clock.Model.Concepts.IPair)">
+            <summary>
+            اضافه نمودن مقدار ارسالی به خصوصیت زوج مرتب
+            </summary>
+            <param name="Source"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.RemovePair(GTS.Clock.Model.Concepts.IPair)">
+            <summary>
+            حذف مقدار ارسالی از خصوصیت زوج مرتب
+            </summary>
+            <param name="Source"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.RemovePairs(System.Collections.Generic.IList{GTS.Clock.Model.Concepts.IPair})">
+            <summary>
+            حذف مقدار ارسالی از خصوصیت زوج مرتب
+            </summary>
+            <param name="Source"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.IncreaseValue(System.Int32)">
+            <summary>
+            اضافه کردن مقدار ارسالی از اولین زوجهای مرتب
+            </summary>
+            <param name="Source"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.IncreaseValue(System.Int32,System.Int32)">
+            <summary>
+            اضافه کردن مقدار ارسالی از اولین زوجهای مرتب
+            </summary>
+            <param name="value"></param>
+            <param name="from">ابتدای بازه شروع</param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.AssignValue(System.Int32)">
+            <summary>
+            آنتساب مقدار ارسالی به زوجهای مرتب
+            </summary>
+            <param name="Source"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.TotalBeforeTime(System.Int32)">
+            <summary>
+            مجموع مقادیر زوج مرتب های موجود در قبل از زمان ارسالی را برمی گرداند 
+            </summary>
+            <param name="Time">زمانیکه باید مقادیر زوج مرتب های قبل از آن محاسبه شوند</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.TotalAfterTime(System.Int32)">
+            <summary>
+            مجموع مقادیر زوج مرتب های موجود در بعد از زمان ارسالی را برمی گرداند 
+            </summary>
+            <param name="Time">زمانیکه باید مقادیر زوج مرتب های بعد از آن محاسبه شوند</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.GetPairsValueInRange(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.RemovePairAt(System.Int32)">
+            <summary>
+            این تابع زوج مرتب مشخص شده با شناسه ورودی را حذف می کند.
+            در عین حال قبل از حذف مرتب سازی براساس "از" انجام می شود
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.DecreasePairFromFirst(System.Int32)">
+            <summary>
+            وظیفه این تابع کم کردن مقدار ورودی از اولین زوج مرتب های "مفهوم زوج مرتبی" می باشد
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.PairableScndCnpValue.DecreasePairFromLast(System.Int32)">
+            <summary>
+            وظیفه این تابع کم کردن مقدار ورودی از آخرین زوج مرتب های "مفهوم زوج مرتبی" می باشد
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.PairableScndCnpValue.PairValues">
+            <summary>
+            جمع مقادیر زوج مرتب ها 
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.PairableScndCnpValue.ExPairValues">
+            <summary>
+            نمایش جمع مقادیر زوج مرتب به شکل ساعت:دقیقه
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.Date">
+            <summary>
+            Gets or sets the Date value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.Day">
+            <summary>
+            Gets or sets the Day value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FirstEntrance">
+            <summary>
+            Gets or sets the FirstEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FirstExit">
+            <summary>
+            Gets or sets the FirstExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.SecondEntrance">
+            <summary>
+            Gets or sets the SecondEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.SecondExit">
+            <summary>
+            Gets or sets the SecondExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ThirdEntrance">
+            <summary>
+            Gets or sets the ThirdEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ThirdExit">
+            <summary>
+            Gets or sets the ThirdExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.LastExit">
+            <summary>
+            Gets or sets the LastExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.NecessaryOperation">
+            <summary>
+            Gets or sets the NecessaryOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlyPureOperation">
+            <summary>
+            Gets or sets the HourlyPureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.DailyPureOperation">
+            <summary>
+            Gets or sets the DailyPureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ImpureOperation">
+            <summary>
+            Gets or sets the ImpureOperation value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.AllowableOverTime">
+            <summary>
+            Gets or sets the AllowableOverTime value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.UnallowableOverTime">
+            <summary>
+            Gets or sets the UnallowableOverTime value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlyAllowableAbsence">
+            <summary>
+            Gets or sets the HourlyAllowableAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlyUnallowableAbsence">
+            <summary>
+            Gets or sets the HourlyUnallowableAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.DailyAbsence">
+            <summary>
+            Gets or sets the DailyAbsence value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlyMission">
+            <summary>
+            Gets or sets the HourlyMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.DailyMission">
+            <summary>
+            Gets or sets the DailyMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HostelryMission">
+            <summary>
+            Gets or sets the HostelryMission value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlySickLeave">
+            <summary>
+            Gets or sets the HourlySickLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.DailySickLeave">
+            <summary>
+            Gets or sets the DailySickLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlyMeritoriouslyLeave">
+            <summary>
+            Gets or sets the HourlyMeritoriouslyLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.DailyMeritoriouslyLeave">
+            <summary>
+            Gets or sets the DailyMeritoriouslyLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlyWithoutPayLeave">
+            <summary>
+            Gets or sets the HourlyWithoutPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FirstEntrance_BCID">
+            <summary>
+            Gets or sets the FirstEntrance_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FirstExit_BCID">
+            <summary>
+            Gets or sets the FirstExit_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.SecondEntrance_BCID">
+            <summary>
+            Gets or sets the SecondEntrance_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.SecondExit_BCID">
+            <summary>
+            Gets or sets the SecondExit_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ThirdEntrance_BCID">
+            <summary>
+            Gets or sets the ThirdEntrance_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ThirdExit_BCID">
+            <summary>
+            Gets or sets the ThirdExit_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FourthEntrance_BCID">
+            <summary>
+            Gets or sets the FourthEntrance_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FourthExit_BCID">
+            <summary>
+            Gets or sets the FourthExit_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FifthEntrance_BCID">
+            <summary>
+            Gets or sets the FifthEntrance_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FifthExit_BCID">
+            <summary>
+            Gets or sets the FifthExit_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.LastExit_BCID">
+            <summary>
+            Gets or sets the LastExit_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlyUnallowableAbsence_BCID">
+            <summary>
+            Gets or sets the HourlyUnallowableAbsence_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.DailyAbsence_BCID">
+            <summary>
+            Gets or sets the DailyAbsence_BCID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FourthEntrance">
+            <summary>
+            Gets or sets the FourthEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FourthExit">
+            <summary>
+            Gets or sets the FourthExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FifthEntrance">
+            <summary>
+            Gets or sets the FifthEntrance value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.FifthExit">
+            <summary>
+            Gets or sets the FifthExit value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.PresenceDuration">
+            <summary>
+            Gets or sets the PresenceDuration value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.DailyWithoutPayLeave">
+            <summary>
+            Gets or sets the DailyWithoutPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.HourlyWithPayLeave">
+            <summary>
+            Gets or sets the HourlyWithPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.DailyWithPayLeave">
+            <summary>
+            Gets or sets the DailyWithPayLeave value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.Shift">
+            <summary>
+            Gets or sets the Shift value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField1">
+            <summary>
+            Gets or sets the ReserveField1 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField2">
+            <summary>
+            Gets or sets the ReserveField2 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField3">
+            <summary>
+            Gets or sets the ReserveField3 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField4">
+            <summary>
+            Gets or sets the ReserveField4 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField5">
+            <summary>
+            Gets or sets the ReserveField5 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField6">
+            <summary>
+            Gets or sets the ReserveField6 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField7">
+            <summary>
+            Gets or sets the ReserveField7 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField8">
+            <summary>
+            Gets or sets the ReserveField8 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField9">
+            <summary>
+            Gets or sets the ReserveField9 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.UI.MasterMonthlyOperationGridFields.ReserveField10">
+            <summary>
+            Gets or sets the ReserveField10 value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseInformation.Doctor">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Doctor.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Doctor.FirstName">
+            <summary>
+            Gets or sets the FirstName value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Doctor.LastName">
+            <summary>
+            Gets or sets the LastName value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Doctor.Takhasos">
+            <summary>
+            Gets or sets the Takhasos value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Doctor.Nezampezaeshki">
+            <summary>
+            Gets or sets the Nezampezaeshki value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.Doctor.Description">
+            <summary>
+            Gets or sets the Description value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Concepts.Precard">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Precard.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Precard.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Precard.pshcardGroup">
+            <summary>
+            Gets or sets the pshcardGroup value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Precard.SecondName">
+            <summary>
+            Gets or sets the SecondName value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Precard.Active1">
+            <summary>
+            Gets or sets the Active1 value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.Precard.Active2">
+            <summary>
+            Gets or sets the Active2 value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.RequestFlow.Manager">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Manager.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Manager.Person">
+            <summary>
+            Gets or sets the Person value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RequestFlow.Manager.Unit">
+            <summary>
+            Gets or sets the Unit value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.BaseInformation.DutyPlace">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.DutyPlace.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.DutyPlace.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.DutyPlace.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.DutyPlace.ParentID">
+            <summary>
+            Gets or sets the ParentID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.BaseInformation.DutyPlace.Parent">
+            <summary>
+            Gets or sets the Parent Node.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.AppSetting.ApplicationLanguageSettings">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.ApplicationLanguageSettings.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.ApplicationLanguageSettings.Language">
+            <summary>
+            Gets or sets the LangID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.ApplicationLanguageSettings.IsActive">
+            <summary>
+            Gets or sets the IsActive value.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Rule.CopyRule(GTS.Clock.Model.Rule)">
+            <summary>
+            برای پاس دادن به 
+            XMLConvertor
+            هنگامی که
+            NHibernate
+            لیست برای ما تولید میکند
+            ProxyRule
+            </summary>
+            <param name="rule">ProxyRule</param>
+            <returns></returns>        
+        </member>
+        <member name="P:GTS.Clock.Model.InvalidCalculationResult.ToDate">
+            <summary>
+            تاریخی که محاسبات به درخواست کاربر تا آن روز انجام می شود
+            مقدار این خصوصیت در پایگاه داده ذخیره نمی شود
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPair.IsEmpty">
+            <summary>
+            اگر برابر "درست" باشد بدین معناست که این زوج مرتب بصورت
+            صوری درج گردیده است و ابتدا وانتها ندارد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPair.PishCardID">
+            <summary>
+            پیشکارت را برمیگرداند
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPair.BasicTrafficIdFromDate">
+            <summary>
+            در دیتابیس ذخیره نمیشود
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTrafficPair.BasicTrafficIdToDate">
+            <summary>
+            در دیتابیس ذخیره نمیشود
+            </summary>
+        </member>
+        <member name="F:GTS.Clock.Model.Concepts.ProceedTraffic.basicTrafficDateList">
+            <summary>
+            Imported BasicTraffics Date Memory List to set FromDate-ToDate of current proceedTraffic
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.Concepts.ProceedTraffic.SetFromToDate">
+            <summary>
+            تاريخ از و تاريخ تا با توجه به زوج هاي مرتب داخل ليست تايين ميشوند
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTraffic.IsNotDaily">
+            <summary>      
+            نشان دهنده غیر روزانه بودن تردد است
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Concepts.ProceedTraffic.IsFilled">
+            <summary>
+            طبق صحبت هاي صورت گرفته تا اينجا اگر اخرين زوج مرتب يک تردد پردازش شده ناقص باشد آن تردد ناقص است
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.AppSetting.Languages">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.Languages.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.Languages.LangID">
+            <summary>
+            Gets or sets the LangID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.AppSetting.Languages.IsActive">
+            <summary>
+            Gets or sets the IsActive value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Charts.Unit">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Unit.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Unit.ChartId">
+            <summary>
+            Gets or sets the ChartId value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Unit.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Unit.ParentId">
+            <summary>
+            Gets or sets the ParentId value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Unit.Path">
+            <summary>
+            Gets or sets the Path value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Unit.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Charts.OrganizationUnit">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.OrganizationUnit.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.OrganizationUnit.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.OrganizationUnit.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.OrganizationUnit.Person">
+            <summary>
+            Gets or sets the Person value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.OrganizationUnit.Parent">
+            <summary>
+            Gets or sets the Parent value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.OrganizationUnit.PersonID">
+            <summary>
+            بمنظور ارتباط راحتر با واسط کاربر
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.OrganizationUnit.ParentID">
+            <summary>
+            بمنظور ارتباط راحتر با واسط کاربر
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Model.Charts.Department">
+            <h3>Changes</h3>
+            	<listheader>
+            		<th>Author</th>
+            		<th>Date</th>
+            		<th>Details</th>
+            	</listheader>
+            	<item>
+            		<term>Farhad Salavati</term>
+            		<description>5/23/2011</description>
+            		<description>Created</description>
+            	</item>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Department.ID">
+            <summary>
+            Gets or sets the ID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Department.Name">
+            <summary>
+            Gets or sets the Name value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Department.CustomCode">
+            <summary>
+            Gets or sets the CustomCode value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Department.ParentID">
+            <summary>
+            بمنظور ارتباط راحتر با واسط کاربر
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.Charts.Department.Parent">
+            <summary>
+            Gets or sets the ParentID value.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Model.RuleTemplateParameter.Value">
+            <summary>
+            مقدار اولیه پارامتر قالب که در دیتابیس موجود نیست
+            و تنها جهت سهولت کار در واسط کاربر ایجاد شده است
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Model.RuleTemplate.CopyRule(GTS.Clock.Model.Rule)">
+            <summary>
+            برای پاس دادن به 
+            XMLConvertor
+            هنگامی که
+            NHibernate
+            لیست برای ما تولید میکند
+            ProxyRule
+            </summary>
+            <param name="rule">ProxyRule</param>
+            <returns></returns>        
+        </member>
+    </members>
+</doc>

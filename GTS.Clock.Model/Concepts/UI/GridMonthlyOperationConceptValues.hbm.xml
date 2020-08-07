@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.UI.GridMonthlyOperationConceptValues, GTS.Clock.Model"
+         table ="TA_GridMonthlyOperationConceptValues" lazy="true">
+    <id name="ID" access="property"  column="gridFields_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Date"         access="property" column="gridFields_Date" />
+    <property name="ManagerID"    access="property" column="gridFields_ManagerID"/>
+    <property name="DepartmentID" access="property" column="gridFields_DepartmentID" />
+    <property name="Day"          access="property" column="gridFields_Day" />
+    <!--<property name="FirstEntrance"     access="property" column="gridFields_FirstEntrance" />
+    <property name="FirstExit"     access="property" column="gridFields_FirstExit" />
+    <property name="SecondEntrance"     access="property" column="gridFields_SecondEntrance" />
+    <property name="SecondExit"     access="property" column="gridFields_SecondExit" />
+    <property name="ThirdEntrance"     access="property" column="gridFields_ThirdEntrance" />
+    <property name="ThirdExit"     access="property" column="gridFields_ThirdExit" />
+    <property name="FourthEntrance"     access="property" column="gridFields_FourthEntrance" />
+    <property name="FourthExit"     access="property" column="gridFields_FourthExit" />
+    <property name="FifthEntrance"     access="property" column="gridFields_FifthEntrance" />
+    <property name="FifthExit"     access="property" column="gridFields_FifthExit" />
+    <property name="LastExit"     access="property" column="gridFields_LastExit" />
+    <property name="NecessaryOperation"     access="property" column="gridFields_NecessaryOperation" />
+    <property name="HourlyPureOperation"     access="property" column="gridFields_HourlyPureOperation" />
+    <property name="DailyPureOperation"     access="property" column="gridFields_DailyPureOperation" />
+    <property name="ImpureOperation"     access="property" column="gridFields_ImpureOperation" />
+    <property name="AllowableOverTime"     access="property" column="gridFields_AllowableOverTime" />
+    <property name="UnallowableOverTime"     access="property" column="gridFields_UnallowableOverTime" />
+    <property name="HourlyAllowableAbsence"     access="property" column="gridFields_HourlyAllowableAbsence" />
+    <property name="HourlyUnallowableAbsence"     access="property" column="gridFields_HourlyUnallowableAbsence" />
+    <property name="DailyAbsence"     access="property" column="gridFields_DailyAbsence" />
+    <property name="HourlyMission"     access="property" column="gridFields_HourlyMission" />
+    <property name="DailyMission"     access="property" column="gridFields_DailyMission" />
+    <property name="HostelryMission"     access="property" column="gridFields_HostelryMission" />
+    <property name="HourlySickLeave"     access="property" column="gridFields_HourlySickLeave" />
+    <property name="DailySickLeave"     access="property" column="gridFields_DailySickLeave" />
+    <property name="HourlyMeritoriouslyLeave"     access="property" column="gridFields_HourlyMeritoriouslyLeave" />
+    <property name="DailyMeritoriouslyLeave"     access="property" column="gridFields_DailyMeritoriouslyLeave" />
+    <property name="HourlyWithoutPayLeave"     access="property" column="gridFields_HourlyWithoutPayLeave" />
+    <property name="PresenceDuration"     access="property" column="gridFields_PresenceDuration" />
+    <property name="DailyWithoutPayLeave"     access="property" column="gridFields_DailyWithoutPayLeave" />
+    <property name="HourlyWithPayLeave"     access="property" column="gridFields_HourlyWithPayLeave" />
+    <property name="DailyWithPayLeave"     access="property" column="gridFields_DailyWithPayLeave" />
+    <property name="ReserveField1"     access="property" column="gridFields_ReserveField1" />
+    <property name="ReserveField2"     access="property" column="gridFields_ReserveField2" />
+    <property name="ReserveField3"     access="property" column="gridFields_ReserveField3" />
+    <property name="ReserveField4"     access="property" column="gridFields_ReserveField4" />
+    <property name="ReserveField5"     access="property" column="gridFields_ReserveField5" />
+    <property name="ReserveField6"     access="property" column="gridFields_ReserveField6" />
+    <property name="ReserveField7"     access="property" column="gridFields_ReserveField7" />
+    <property name="ReserveField8"     access="property" column="gridFields_ReserveField8" />
+    <property name="ReserveField9"     access="property" column="gridFields_ReserveField9" />
+    <property name="ReserveField10"     access="property" column="gridFields_ReserveField10" />-->
+        
+    <!--<many-to-one name="Person" column="gridFields_personID" class="GTS.Clock.Model.Person, GTS.Clock.Model" />-->
+    
+    <many-to-one name="Shift" column="gridFields_ShiftID" class="GTS.Clock.Model.Concepts.Shift, GTS.Clock.Model" />
+    
+    
+
+  </class>
+
+  <sql-query name="GetCurrentProceedTrafficList">
+    <load-collection alias="AssignedScndCnpRange" role="GTS.Clock.Model.Person.AssignedScndCnpRangeList" />
+    <![CDATA[
+  DECLARE @fromdate NVARCHAR(10)
+  DECLARE @enddate NVARCHAR(10)
+  DECLARE @personId NUMERIC
+
+  SET @fromdate= :effectiveDate.fromDate
+  SET @enddate= :effectiveDate.toDate
+  SET @personId = :effectiveDate.personId
+
+SELECT ProceedTrafficPair_ID, ProceedTraffic_PersonId, 
+		ProceedTraffic_FromDate, ProceedTraffic_ToDate, 
+		ProceedTrafficPair_From, ProceedTrafficPair_To,
+		Precrd_Code
+FROM TA_ProceedTraffic
+INNER JOIN TA_ProceedTrafficPair
+ON ProceedTrafficPair_ProceedTrafficId = ProceedTraffic_ID
+INNER JOIN TA_Precard
+ON ProceedTrafficPair_PishCardID = Precrd_ID
+WHERE ProceedTraffic_FromDate = @fromdate
+		AND
+	  ProceedTraffic_ToDate = @enddate
+  
+    ]]>
+  </sql-query>
+</hibernate-mapping>

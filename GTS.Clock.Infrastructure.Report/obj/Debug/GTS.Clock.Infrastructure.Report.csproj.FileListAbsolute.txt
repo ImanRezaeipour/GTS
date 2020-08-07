@@ -1,0 +1,16 @@
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\GTS.Clock.Infrastructure.Report.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\GTS.Clock.Infrastructure.Report.pdb
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\GTS.Clock.Infrastructure.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\GTS.Clock.Model.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\log4net.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\NHibernate.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\Antlr3.Runtime.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\Remotion.Data.Linq.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\Iesi.Collections.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\GTS.Clock.Infrastructure.pdb
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\GTS.Clock.Model.pdb
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\NHibernate.pdb
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\bin\Debug\NHibernate.xml
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\obj\Debug\GTS.Clock.Infrastructure.Report.dll
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\obj\Debug\GTS.Clock.Infrastructure.Report.pdb
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Report\obj\Debug\GTS.Clock.Infrastructure.Report.csprojResolveAssemblyReference.cache

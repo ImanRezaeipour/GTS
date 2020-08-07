@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6A7C47DA-F97E-4789-998B-6818C97309C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GTSTestUnit.Clock.Business</RootNamespace>
+    <AssemblyName>Test.GTS.Clock.Business</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/Test.GTS.Clock.Business/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.1.3.42154, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Infrastructure.NHibernate\bin\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Infrastructure.NHibernate\bin\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy, Version=1.0.4.18998, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Infrastructure.NHibernate\bin\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Infrastructure.NHibernate\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.UnitTesting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="NHibernate.ByteCode.LinFu, Version=3.1.0.4000, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Infrastructure.NHibernate\bin\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>bin\Debug\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq, Version=1.13.93.1, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Infrastructure.NHibernate\bin\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2011.3.1200.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Report, Version=2011.3.1200.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseFixture.cs" />
+    <Compile Include="AssignDateRangeBusinessTest.cs" />
+    <Compile Include="AssignWorkGroupBusinessTest.cs" />
+    <Compile Include="AssignRuleBusinessTest.cs" />
+    <Compile Include="AccessGroup.Test.cs" />
+    <Compile Include="BaseSubstituteOperator.cs" />
+    <Compile Include="BasicTraffic.Test.cs" />
+    <Compile Include="BControlParameter.Test.cs" />
+    <Compile Include="BUserInfoTest.cs" />
+    <Compile Include="CFPTest.cs" />
+    <Compile Include="ChangeOrganicInfo.Test.cs" />
+    <Compile Include="ClockBusiness.Test.cs" />
+    <Compile Include="MorePrsTest.Test.cs" />
+    <Compile Include="DatabaseGateway1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseGateway.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentBusiness2.Test.cs" />
+    <Compile Include="DatabaseGateway2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseGateway2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccessTest.cs" />
+    <Compile Include="DateRangeBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DepartmentBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DepartmentRepository.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DoctorBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DutyPlaceBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmploymentBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EngineCalcBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GridMonthlyOperationGridClientSettings.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GridMonthlyOperationGridMasterSettings.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GunChartClientSettings.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HelpBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HolidaysBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IllnessBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Kartabl.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LeaveBudgetBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LeaveIncDecBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LeaveRemainBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainPageServiceBoxBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ManagerBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NobatkariBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OperatorBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OrganizationBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PersonAdvanceSearchTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PersonBusinessTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PersonMonthlyWorkedTime.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PersonReservedFields.Test.cs" />
+    <Compile Include="PrecardBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RegisteredRequest.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportParameter.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Request.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RequestOvertime.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Role.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RuleCategoryBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RuleParameterBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RuleTypeBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RuleViewerBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sentry.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ShiftBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ShiftException.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StationBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SubstituteBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SubstituteKartabl.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UIValidationGroup.Test.cs" />
+    <Compile Include="UIValidatorTest.cs" />
+    <Compile Include="DatasetGatewayWorkFlow.cs">
+      <DependentUpon>DatasetGatewayWorkFlow.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DatasetGatewayWorkFlow.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatasetGatewayWorkFlow.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GTSEngineWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="User.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserSettingsTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UtilityTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkedTime.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkgroupBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkGroupDetailCalendarBusiness.Test.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DatabaseGateway.xsc">
+      <DependentUpon>DatabaseGateway.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseGateway.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseGateway1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatabaseGateway.xss">
+      <DependentUpon>DatabaseGateway.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseGateway2.xsc">
+      <DependentUpon>DatabaseGateway2.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseGateway2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseGateway2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatabaseGateway2.xss">
+      <DependentUpon>DatabaseGateway2.xsd</DependentUpon>
+    </None>
+    <None Include="Service References\GTSEngineWS\TotalWebService1.disco" />
+    <None Include="Service References\GTSEngineWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\GTSEngineWS\configuration.svcinfo" />
+    <None Include="Service References\GTSEngineWS\configuration91.svcinfo" />
+    <None Include="DatasetGatewayWorkFlow.xsc">
+      <DependentUpon>DatasetGatewayWorkFlow.xsd</DependentUpon>
+    </None>
+    <None Include="DatasetGatewayWorkFlow.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatasetGatewayWorkFlow.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatasetGatewayWorkFlow.xss">
+      <DependentUpon>DatasetGatewayWorkFlow.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\GTSEngineWS\TotalWebService1.wsdl" />
+    <None Include="Service References\GTSEngineWS\TotalWebService2.xsd" />
+    <None Include="Service References\GTSEngineWS\TotalWebService21.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTS.Clock.Business\GTS.Clock.Business.csproj">
+      <Project>{5788C982-1C90-401A-9F8B-32F2B19B5FF4}</Project>
+      <Name>GTS.Clock.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure.NHibernate\GTS.Clock.Infrastructure.NHibernate.csproj">
+      <Project>{5909BFE7-93CF-4E5F-BE22-6293368AF01D}</Project>
+      <Name>GTS.Clock.Infrastructure.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure.Report\GTS.Clock.Infrastructure.Report.csproj">
+      <Project>{CAE4CD8E-B025-4587-AACC-910ADB8E07E4}</Project>
+      <Name>GTS.Clock.Infrastructure.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure.Repository\GTS.Clock.Infrastructure.Repository.csproj">
+      <Project>{722B8A8A-D626-446B-850D-CE8BCDE316F7}</Project>
+      <Name>GTS.Clock.Infrastructure.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure\GTS.Clock.Infrastructure.csproj">
+      <Project>{E9FCEAE6-0FBD-4996-9CD1-ED5F7FB308D6}</Project>
+      <Name>GTS.Clock.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Model\GTS.Clock.Model.csproj">
+      <Project>{1BFA345B-4FB1-4618-9BF3-6BD1C5B1BBB6}</Project>
+      <Name>GTS.Clock.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GTSEngineWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

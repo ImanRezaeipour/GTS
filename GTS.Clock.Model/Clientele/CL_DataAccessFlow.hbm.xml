@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_DataAccessFlow, GTS.Clock.Model"
+         table ="CL_DataAccessFlow" lazy="true">
+    <id name="ID" access="property"  column="DataAccessFlow_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessFlow_UserID" />
+    <property name="FlowID"     access="property" column="DataAccessFlow_FlowID" />
+    <property name="All"     access="property" column="DataAccessFlow_All" />
+
+
+  </class>
+</hibernate-mapping>

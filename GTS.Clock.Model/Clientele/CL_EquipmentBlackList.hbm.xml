@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_EquipmentBlackList, GTS.Clock.Model"
+         table ="CL_EquipmentBlackList" lazy="true">
+    <id name="ID" access="property"  column="EqpBl_ID" >
+      <generator class="native" />
+    </id>
+    <property name="IsDeleted" access="property" column="EqpBl_Deleted" />
+    <property name="Name" access="property" column="EqpBl_Name"/>
+    <property name="CustomCode" access="property" column="EqpBl_CustomCode" />
+    <property name="FromDate" access="property" column="EqpBl_FromDate" />
+    <property name="ToDate" access="property" column="EqpBl_ToDate" />
+    <property name="Description" access="property" column="EqpBl_Description" />
+
+    <bag name="DepartmentList" table="CL_EquipmentBlackListDepartments" lazy="true" >
+      <key column="blDep_EquipmentBlackListId"></key>
+      <many-to-many class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model" column="blDep_DepId"></many-to-many>
+    </bag>
+    
+  </class>
+</hibernate-mapping>

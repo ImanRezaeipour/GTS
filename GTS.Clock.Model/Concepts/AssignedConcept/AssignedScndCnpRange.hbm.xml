@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AssignedScndCnpRange, GTS.Clock.Model" lazy="true">
+    <composite-id>
+      <key-property name="ID" column="AsgScndCnpRange_ID" />
+      <key-property name="PrsRangeAsgID" column="AsgScndCnpRange_AsgID" />
+    </composite-id>
+
+    <property name="PrsRangeAsgID"     access="property" column="AsgScndCnpRange_AsgID"/>
+    <property name="AsgFromDate"        access="property" column="AsgScndCnpRange_AsgFromDate"/>
+    <property name="CalcRangeGrpId"     access="property" column="AsgScndCnpRange_CalcRangeGrpId"/>  
+    <property name="FromDay"            access="property" column="AsgScndCnpRange_FromDay"/>
+    <property name="FromMonth"          access="property" column="AsgScndCnpRange_FromMonth"/>
+    <property name="ToDay"              access="property" column="AsgScndCnpRange_ToDay"/>
+    <property name="ToMonth"            access="property" column="AsgScndCnpRange_ToMonth"/>
+    <property name="ConceptIdentifier"  access="property" column="AsgScndCnpRange_CnpIdentifierCode"/>
+    <property name="Order"              access="property" column="AsgScndCnpRange_Order"/>
+    <property name="UsedCulture"        access="property" column="AsgScndCnpRange_UsedCalendar"/>
+
+  </class>
+  
+</hibernate-mapping>

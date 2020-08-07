@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Connection Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Connection</Alias>
+        <ConnectionString>Password=123;Persist Security Info=True;Data Source=SALAVATI1\FARHADSQLSERVER;Integrated Security=False;Initial Catalog=GTSOrginInstance;User ID=farhad</ConnectionString>
+        <Name>Connection</Name>
+      </Connection>
+    </Databases>
+    <DataSources isList="true" count="4">
+      <DateRange Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>DateRange</Alias>
+        <Columns isList="true" count="3">
+          <value>Date,System.String</value>
+          <value>ORIGINAL,Column,DayName,Column,System.String</value>
+          <value>DateVal,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>DateRange</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>WITH mycte AS
+(
+SELECT CAST('2011-10-23' AS DATETIME) DateValue
+  UNION ALL
+SELECT  DateValue + 1
+	FROM    mycte   
+	WHERE   DateValue + 1 &lt; '2011-12-28'
+)
+
+SELECT  CONVERT(varchar(10),DateValue,101) as [DateVal],dbo.GTS_ASM_MiladiToShamsi(CONVERT(varchar(10), DateValue,101)) as Date
+	FROM    mycte
+OPTION (MAXRECURSION 0)</SqlCommand>
+      </DateRange>
+      <ProceedTraffic Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ProceedTraffic</Alias>
+        <Columns isList="true" count="17">
+          <value>ProceedTraffic_ID,System.Decimal</value>
+          <value>ProceedTraffic_PersonId,System.Decimal</value>
+          <value>ProceedTraffic_Value,System.Int32</value>
+          <value>ProceedTraffic_FromDate,System.DateTime</value>
+          <value>ProceedTraffic_ToDate,System.DateTime</value>
+          <value>ProceedTraffic_IsPairly,System.Boolean</value>
+          <value>ProceedTraffic_HasDailyItem,System.Boolean</value>
+          <value>ProceedTraffic_HasHourlyItem,System.Boolean</value>
+          <value>ProceedTrafficPair_ID,System.Decimal</value>
+          <value>ProceedTrafficPair_ProceedTrafficId,System.Decimal</value>
+          <value>ProceedTrafficPair_PishCardID,System.Decimal</value>
+          <value>ProceedTrafficPair_From,System.Int32</value>
+          <value>ProceedTrafficPair_To,System.Int32</value>
+          <value>ProceedTrafficPair_IsFilled,System.Boolean</value>
+          <value>ProceedTrafficPair_BasicTrafficIdFrom,System.Decimal</value>
+          <value>ProceedTrafficPair_BasicTrafficIdTo,System.Decimal</value>
+          <value>Date,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>ProceedTraffic</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *,CONVERT(varchar(10),ProceedTraffic_FromDate,101) as [Date]  from TA_ProceedTraffic
+join TA_ProceedTrafficPair on ProceedTraffic_ID=ProceedTrafficPair_ProceedTrafficId
+where ProceedTraffic_PersonId=32682</SqlCommand>
+      </ProceedTraffic>
+      <ProceedTrafficByDate Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ProceedTrafficByDate</Alias>
+        <Columns isList="true" count="8">
+          <value>Date,System.String</value>
+          <value>From,System.Int32</value>
+          <value>To,System.Int32</value>
+          <value>Precard,System.Decimal</value>
+          <value>DayMiladiDate,System.DateTime</value>
+          <value>prs_FirstName,System.String</value>
+          <value>prs_LastName,System.String</value>
+          <value>prs_Barcode,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>ProceedTrafficByDate</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="2">
+          <value>fromDate,,4,0</value>
+          <value>toDate,,4,0</value>
+        </Parameters>
+        <SqlCommand>WITH mycte AS
+(
+SELECT CAST(@fromDate AS DATETIME) DateValue
+  UNION ALL
+SELECT  DateValue + 1
+	FROM    mycte   
+	WHERE   DateValue + 1 &lt; @toDate
+)
+
+SELECT prs_Barcode,prs_FirstName,prs_LastName, dbo.GTS_ASM_MiladiToShamsi(CONVERT(varchar(10), DateValue,101)) as [Date],DateValue as DayMiladiDate,isnull(traffics.ProceedTrafficPair_From,-1)as [From],isnull(traffics.ProceedTrafficPair_To,-1) as [To],isnull(traffics.ProceedTrafficPair_PishCardID,-1) as [Precard]
+	FROM    mycte	
+		join (
+select * from ta_person 
+	join TA_ProceedTraffic  on PRS_ID=ProceedTraffic_PersonId
+join (select * from TA_ProceedTrafficpair where  ProceedTrafficPair_ProceedTrafficId in (select ProceedTrafficPair_ProceedTrafficId from TA_ProceedTrafficpair where  ProceedTrafficPair_IsFilled='0' group by ProceedTrafficPair_ProceedTrafficId)) fliterdPair
+	on ProceedTraffic_ID=fliterdPair.ProceedTrafficPair_ProceedTrafficId
+where prs_id in ({ReportHelper.Instance().ModifiedIds()})) as traffics
+on traffics.ProceedTraffic_FromDate = DateValue
+order by prs_id,DateValue
+OPTION (MAXRECURSION 0)
+
+
+</SqlCommand>
+      </ProceedTrafficByDate>
+      <nameOrg Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>nameOrg</Alias>
+        <Columns isList="true" count="1">
+          <value>OrgDef_Name,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>nameOrg</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select  OrgDef_Name from TA_DataAccessOrgan
+
+join  TA_OrganDefine on DataAccessOrgan_ID=OrgDef_ID
+
+where DataAccessOrgan_UserID={ReportHelper.Instance().UserId}</SqlCommand>
+      </nameOrg>
+    </DataSources>
+    <Relations isList="true" count="1">
+      <ProceedTraffic_Date Ref="7" type="DataRelation" isKey="true">
+        <Alias>ProceedTraffic_Date</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>Date</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>ProceedTraffic_Date</Name>
+        <NameInSource>Relation</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>DateVal</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </ProceedTraffic_Date>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page2 Ref="8" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="5">
+        <PageHeaderBand2 Ref="9" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.2,7.72,1.1</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text2 Ref="10" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;DimGray</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.9,0.1,1.2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>647261b3e40e40b09e8e4ba470fce26c</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <MinSize>1,0</MinSize>
+              <Name>Text2</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>: تاریخ تهیه گزارش</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text4 Ref="11" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.9,0.4,1.2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>5393633f9a4e414795dfe0a934519ae9</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>: تهیه کننده</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text3 Ref="12" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.1,0.1,1.14,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>5758183303fe4d23b310ce675b03cff2</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{Persian(ReportHelper.Instance().ShamsiGetNow())}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text5 Ref="13" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.1,0.4,1.18,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>d5a6cd7e62384dcba6f24f5eef5d8900</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{ReportHelper.Instance().UserName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text1 Ref="14" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>2.3,0,3.27,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,18,Bold</Font>
+              <Guid>e10626a4123d4954a12d1a431fc8c731</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{nameOrg.OrgDef_Name}
+گزارش تردد ناقص پرسنل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text1>
+            <Text7 Ref="15" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>6.3,0.3,1.3,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>a157a76f9fe24c76a63bc1969cee9b2f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>: گزارش تردد خانم/آقای</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text9 Ref="16" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>6.1,0.5,1.5,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>0b9fc4f8b89443e2afb52dbac17956ca</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{ProceedTrafficByDate.prs_FirstName + " " + ProceedTrafficByDate.prs_LastName} </Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text15 Ref="17" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>6.7,0.8,0.9,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>31ae0dedb76b4da28323c9be9af19288</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>: شماره پرسنلی</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 Ref="18" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>5.5,0.8,1.1,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>f55bbe68d0464ec1a85b7cfdfe61ccf3</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{ProceedTrafficByDate.prs_Barcode}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text37 Ref="19" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>6.4,0,1.18,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>9a10e5a1d029442d867b92d9ed32b1dc</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="8" />
+              <Parent isRef="9" />
+              <Text>{ReportHelper.Instance().LicenseName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>a88dee09378443ddaed5e000e7f18253</Guid>
+          <Name>PageHeaderBand2</Name>
+          <Page isRef="8" />
+          <Parent isRef="8" />
+        </PageHeaderBand2>
+        <GroupHeaderBand1 Ref="20" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,1.7,7.72,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Condition>{ProceedTrafficByDate.prs_Barcode}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand1</Name>
+          <NewPageBefore>True</NewPageBefore>
+          <Page isRef="8" />
+          <Parent isRef="8" />
+        </GroupHeaderBand1>
+        <ColumnHeaderBand1 Ref="21" type="Stimulsoft.Report.Components.StiColumnHeaderBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>[216:216:216]</Brush>
+          <ClientRectangle>0,2.1,7.72,0.39</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text10 Ref="22" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,0.1,1.1,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>166b902f98ed4f6a9475ae414f60ade1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="8" />
+              <Parent isRef="21" />
+              <Text>روز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="23" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text12 Ref="24" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.1,0.1,1.4,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>af54ca573eea486081d14de39d542613</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="8" />
+              <Parent isRef="21" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="25" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text11 Ref="26" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.6,0.1,1.05,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>5bb6f8c3c08942639df9400fe127c1bc</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="8" />
+              <Parent isRef="21" />
+              <Text>نوع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="27" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text13 Ref="28" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,0.1,0.9,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>54a091e975b847babbe5104ca59c2605</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="8" />
+              <Parent isRef="21" />
+              <Text>ورود</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="29" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="30" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.9,0.1,0.9,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>75cc237a92a840a3ad5892c3570883fa</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="8" />
+              <Parent isRef="21" />
+              <Text>خروج</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="31" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>3606a3f96e244992aa3b131b00bc1446</Guid>
+          <Name>ColumnHeaderBand1</Name>
+          <Page isRef="8" />
+          <Parent isRef="8" />
+        </ColumnHeaderBand1>
+        <GroupHeaderBand2 Ref="32" type="GroupHeaderBand" isKey="true">
+          <Border>All;Black;1.5;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.89,7.72,0.3</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text8 Ref="33" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,0,1.1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <Guid>53a644c790aa442daf689253d77ea697</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="8" />
+              <Parent isRef="32" />
+              <Text>{ReportHelper.Instance().ShamsiDayName(ProceedTrafficByDate.DayMiladiDate)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text6 Ref="34" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.1,0,1.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>80ed05fc4d8844628667949a64a39d16</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="8" />
+              <Parent isRef="32" />
+              <Text>{Persian(ProceedTrafficByDate.Date)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+          </Components>
+          <Condition>{ProceedTrafficByDate.Date}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand2</Name>
+          <Page isRef="8" />
+          <Parent isRef="8" />
+        </GroupHeaderBand2>
+        <DataProceedTrafficByDate Ref="35" type="DataBand" isKey="true">
+          <Border>Left, Right;Black;1;Solid;False;4;Black</Border>
+          <Brush>PeachPuff</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,3.59,7.72,0.3</ClientRectangle>
+          <ColumnDirection>DownThenAcross</ColumnDirection>
+          <Components isList="true" count="3">
+            <DataProceedTrafficByDate_ProceedTrafficPair_PishCardID Ref="36" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.6,0,1.1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataProceedTrafficByDate_ProceedTrafficPair_PishCardID</Name>
+              <Page isRef="8" />
+              <Parent isRef="35" />
+              <Text>{Replace(ReportHelper.Instance().GetPishcardName(ProceedTrafficByDate.Precard),"-1","--")}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataProceedTrafficByDate_ProceedTrafficPair_PishCardID>
+            <DataProceedTrafficByDate_ProceedTrafficPair_To Ref="37" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.9,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataProceedTrafficByDate_ProceedTrafficPair_To</Name>
+              <Page isRef="8" />
+              <Parent isRef="35" />
+              <Text>{Persian(Replace(ReportHelper.Instance().IntTimeToTime(ProceedTrafficByDate.To),"00:-1","--"))}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataProceedTrafficByDate_ProceedTrafficPair_To>
+            <DataProceedTrafficByDate_ProceedTrafficPair_From Ref="38" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataProceedTrafficByDate_ProceedTrafficPair_From</Name>
+              <Page isRef="8" />
+              <Parent isRef="35" />
+              <Text>{Persian(Replace(ReportHelper.Instance().IntTimeToTime(ProceedTrafficByDate.From),"00:-1","--"))}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataProceedTrafficByDate_ProceedTrafficPair_From>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>ProceedTrafficByDate</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataProceedTrafficByDate</Name>
+          <Page isRef="8" />
+          <Parent isRef="8" />
+          <Sort isList="true" count="2">
+            <value>ASC</value>
+            <value>{ProceedTrafficByDate.From}</value>
+          </Sort>
+        </DataProceedTrafficByDate>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>924aa15712374ce08dcefd4971f59421</Guid>
+      <Margins>0.39,0.39,0.39,0.39</Margins>
+      <Name>Page2</Name>
+      <PageHeight>11</PageHeight>
+      <PageWidth>8.5</PageWidth>
+      <PaperSize>Letter</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="39" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page2>
+  </Pages>
+  <PrinterSettings Ref="40" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>12/17/2012 2:14:47 PM</ReportChanged>
+  <ReportCreated>3/13/2012 10:45:17 AM</ReportCreated>
+  <ReportFile>E:\new Report\TrafficReportNotFilled.mrt</ReportFile>
+  <ReportGuid>33869c2a0f20453ca3e250dc490bd4ca</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Inches</ReportUnit>
+  <ReportVersion>2011.3.1200</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        
+        public Report()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="2">
+    <DataBand1Style Ref="41" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;Transparent;1;Solid;False;4;Black</Border>
+      <Brush>MistyRose</Brush>
+      <Conditions isList="true" count="0" />
+      <Description>Style based on formating of 'DataBand1' component</Description>
+      <Font>Arial,8</Font>
+      <Name>DataBand1Style</Name>
+      <TextBrush>Black</TextBrush>
+    </DataBand1Style>
+    <Style1 Ref="42" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>Khaki</Brush>
+      <Conditions isList="true" count="0" />
+      <Description />
+      <Font>Arial,8</Font>
+      <Name>Style1</Name>
+      <TextBrush>Black</TextBrush>
+    </Style1>
+  </Styles>
+</StiSerializer>

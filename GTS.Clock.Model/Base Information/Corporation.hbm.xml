@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.BaseInformation.Corporation, GTS.Clock.Model"
+         table ="TA_OrganDefine" lazy="true">
+    <id name="ID" access="property"  column="OrgDef_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Code" access="property" column="OrgDef_Code" />
+    <property name="Name" access="property" column="OrgDef_Name"/>
+    <property name="Address" access="property" column="OrgDef_Address" />
+    <property name="Phone" access="property" column="OrgDef_Phone" />
+    <property name="Fax" access="property" column="OrgDef_Fax" />
+    <property name="EconomicCode" access="property" column="OrgDef_EconomicCode" />
+    <property name="Description" access="property" column="OrgDef_Description" />
+
+  </class>
+</hibernate-mapping>

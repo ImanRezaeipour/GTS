@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="clmnFromDate_GridRuleParameters_RulesGroupUpdate.HeadingText" xml:space="preserve">
+    <value>از تاریخ</value>
+  </data>
+  <data name="clmnIssueDate_GridRuleParameters_RulesGroupUpdate.HeadingText" xml:space="preserve">
+    <value>تاریخ صدور</value>
+  </data>
+  <data name="clmnParameter1_GridRuleParameters_RulesGroupUpdate.HeadingText" xml:space="preserve">
+    <value>پارامتر1</value>
+  </data>
+  <data name="clmnParameter2_GridRuleParameters_RulesGroupUpdate.HeadingText" xml:space="preserve">
+    <value>پارامتر2</value>
+  </data>
+  <data name="clmnParameter3_GridRuleParameters_RulesGroupUpdate.HeadingText" xml:space="preserve">
+    <value>پارامتر3</value>
+  </data>
+  <data name="clmnParameter4_GridRuleParameters_RulesGroupUpdate.HeadingText" xml:space="preserve">
+    <value>پارامتر4</value>
+  </data>
+  <data name="clmnToDate_GridRuleParameters_RulesGroupUpdate.HeadingText" xml:space="preserve">
+    <value>تا تاریخ</value>
+  </data>
+  <data name="lblRuleDescription_RulesGroupUpdate.Text" xml:space="preserve">
+    <value>توضیح قانون :</value>
+  </data>
+  <data name="lblRuleGroupDescriptions_RulesGroupUpdate.Text" xml:space="preserve">
+    <value>توضیحات گروه قانون :</value>
+  </data>
+  <data name="lblRuleGroupName_RulesGroupUpdate.Text" xml:space="preserve">
+    <value>نام گروه قانون :</value>
+  </data>
+  <data name="lblRuleTemplateDescription_RulesGroupUpdate.Text" xml:space="preserve">
+    <value>توضیح الگوی قانون :</value>
+  </data>
+  <data name="RulesGroupUpdateForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="tlbItemAdd_TlbInterAction_RulesGroupUpdate.ToolTip" xml:space="preserve">
+    <value>اضافه</value>
+  </data>
+  <data name="tlbItemCancel_TlbRulesGroupUpdate.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemDelete_TlbInterAction_RulesGroupUpdate.ToolTip" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="tlbItemDelete_TlbRuleParameters.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="tlbItemEdit_TlbRuleParameters.Text" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="tlbItemExit_TlbRulesGroupUpdate.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemHelp_TlbRulesGroupUpdate.Text" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemNew_TlbRuleParameters.Text" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="tlbItemSave_TlbRulesGroupUpdate.Text" xml:space="preserve">
+    <value>ثبت</value>
+  </data>
+  <data name="trvRulesTemplates_RulesGroupUpdate.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/RightLines</value>
+  </data>
+  <data name="trvRules_RulesGroupUpdate.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/RightLines</value>
+  </data>
+  <data name="header_RuleParameters_RulesGroupUpdate" xml:space="preserve">
+    <value>پارامترهای قانون</value>
+  </data>
+  <data name="hfheader_RulesTemplates_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>الگوهای قوانین</value>
+  </data>
+  <data name="hfheader_Rules_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>قوانین</value>
+  </data>
+  <data name="hfTitle_DialogRulesGroupUpdate.Value" xml:space="preserve">
+    <value>گروه قوانین</value>
+  </data>
+  <data name="tlbItemRuleParameteresRegulation_TlbRulesGroupUpdate.Text" xml:space="preserve">
+    <value>تنظیم پارامترهای قانون</value>
+  </data>
+  <data name="Absence" xml:space="preserve">
+    <value>غیبت</value>
+  </data>
+  <data name="AddItem_contextMenu_trvRulesTemplates_RulesGroupUpdate.Look-RightIconUrl" xml:space="preserve">
+    <value>arrow-left.png</value>
+  </data>
+  <data name="AddItem_contextMenu_trvRulesTemplates_RulesGroupUpdate.Text" xml:space="preserve">
+    <value>اضافه</value>
+  </data>
+  <data name="DeleteItem_contextMenu_trvRules_RulesGroupUpdate.Look-LeftIconUrl" xml:space="preserve">
+    <value>arrow-right.png</value>
+  </data>
+  <data name="DeleteItem_contextMenu_trvRules_RulesGroupUpdate.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="hfAdd_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>درج</value>
+  </data>
+  <data name="hfCloseMessage_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>آیا از فرم گروه قانون خارج می شوید ؟</value>
+  </data>
+  <data name="hfDeleteMessage_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>آیا این گروه قانون را حذف می کنید ؟</value>
+  </data>
+  <data name="hfDelete_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="hfEdit_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="hfloadingPanel_trvRulesTemplates_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>در حال بارگیری ....</value>
+  </data>
+  <data name="hfloadingPanel_trvRules_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>در حال بارگیری ....</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>مرخصی</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>متفرقه</value>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>ماموریت</value>
+  </data>
+  <data name="OverTime" xml:space="preserve">
+    <value>اضافه کاری</value>
+  </data>
+  <data name="tlbItemAdd_TlbInterAction_RulesGroupUpdate.ImageUrl" xml:space="preserve">
+    <value>arrow-left.png</value>
+  </data>
+  <data name="tlbItemDelete_TlbInterAction_RulesGroupUpdate.ImageUrl" xml:space="preserve">
+    <value>arrow-right.png</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_trvRulesTemplates_RulesGroupUpdate.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_trvRules_RulesGroupUpdate.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>کاری</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>عملیات درج با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>عملیات حذف با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>عملیات ویرایش با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="NoRuleGroupSelectedforDelete" xml:space="preserve">
+    <value>گروه قانون جهت حذف انتخاب نگردیده است</value>
+  </data>
+  <data name="NoRuleGroupSelectedforEdit" xml:space="preserve">
+    <value>گروه قانون جهت ویرایش انتخاب نگردیده است</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="ItemNotExist" xml:space="preserve">
+    <value>گروه قانون با این شناسه موجود نمی باشد</value>
+  </data>
+  <data name="RuleCategoryNameRepeated" xml:space="preserve">
+    <value>نام گروه قانون تکراری می باشد</value>
+  </data>
+  <data name="RuleCategoryNameRequierd" xml:space="preserve">
+    <value>نام گروه قانون مقدار نگرفته است</value>
+  </data>
+  <data name="RuleTypeNodesMoreThanSix" xml:space="preserve">
+    <value>دسته بندی گروه های قوانین نامعتبر می باشد</value>
+  </data>
+  <data name="RuleCategoryRootDeleteIllegal" xml:space="preserve">
+    <value>مجاز به حذف ریشه گروه قانون نمی باشید</value>
+  </data>
+  <data name="RuleCategoryUsedByPerson" xml:space="preserve">
+    <value>این گروه قانون به پرسنل تخصیص داده شده است</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="WithoutParameter" xml:space="preserve">
+    <value>فاقد پارامتر</value>
+  </data>
+  <data name="WithParameter" xml:space="preserve">
+    <value>دارای پارامتر</value>
+  </data>
+  <data name="hfView_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="hfConnectionError_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfErrorType_RulesGroupUpdate.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbRulesGroupUpdate.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="ForFemale" xml:space="preserve">
+    <value>برای خانم</value>
+  </data>
+  <data name="ForMale" xml:space="preserve">
+    <value>برای آقای</value>
+  </data>
+  <data name="IsNotValid" xml:space="preserve">
+    <value>معتبر نمی باشد</value>
+  </data>
+  <data name="IsNotValued" xml:space="preserve">
+    <value>مقدار نگرفته است</value>
+  </data>
+  <data name="RetWarningType" xml:space="preserve">
+    <value>اخطار</value>
+  </data>
+  <data name="RuleGroupRulesParametersAreValid" xml:space="preserve">
+    <value>پارامترهای قوانین گروه قانون معتبر می باشند</value>
+  </data>
+  <data name="RuleParameters" xml:space="preserve">
+    <value>پارامترهای قانون</value>
+  </data>
+  <data name="RuleParametersDateRanges" xml:space="preserve">
+    <value>بازه های زمانی پارامترهای قانون</value>
+  </data>
+  <data name="tlbItemRuleGroupRulesParametersValidation_TlbRulesGroupUpdate.Text" xml:space="preserve">
+    <value>اعتبار سنجی پارامترهای قوانین</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی غیر مجاز به سرویس.</value>
+  </data>
+</root>

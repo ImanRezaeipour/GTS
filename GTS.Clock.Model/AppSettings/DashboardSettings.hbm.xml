@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AppSetting.DashboardSettings, GTS.Clock.Model"
+         table ="TA_DashboardSettings" lazy="false">
+    <id name="ID" access="property"  column="DashboardSet_ID" >
+    </id>
+    
+    <many-to-one name="UserSetting" column="DashboardSet_SetID" class="GTS.Clock.Model.AppSetting.UserSettings, GTS.Clock.Model" cascade="none"/>
+
+
+    <many-to-one name="Dashboard1" column="DashboardSet_DashID1" class="GTS.Clock.Model.BaseInformation.Dashboards, GTS.Clock.Model" cascade="none"/>
+    <many-to-one name="Dashboard2" column="DashboardSet_DashID2" class="GTS.Clock.Model.BaseInformation.Dashboards, GTS.Clock.Model" cascade="none"/>
+    <many-to-one name="Dashboard3" column="DashboardSet_DashID3" class="GTS.Clock.Model.BaseInformation.Dashboards, GTS.Clock.Model" cascade="none"/>
+    <many-to-one name="Dashboard4" column="DashboardSet_DashID4" class="GTS.Clock.Model.BaseInformation.Dashboards, GTS.Clock.Model" cascade="none"/>
+
+
+
+
+  </class>
+</hibernate-mapping>

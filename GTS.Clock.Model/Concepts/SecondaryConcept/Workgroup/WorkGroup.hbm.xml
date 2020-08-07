@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.WorkGroup, GTS.Clock.Model" 
+         table ="TA_WorkGroup" lazy="true">
+    <id name="ID" access="property"  column="WorkGroup_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"          access="property" column="WorkGroup_Name" />
+    <property name="CustomCode"    access="property" column="WorkGroup_CustomCode" />
+    <property name="_grpsCode"     access="property" column="WorkGroup__grpsCode" />
+
+    <bag name="DetailList" table="TA_WorkGroupDetail" lazy="true" batch-size="100" inverse="true">
+      <key column="WorkGroupDtl_WorkGroupID"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.WorkGroupDetail, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="AssignWorkGroupList" table="TA_AssignWorkGroup" lazy="true" batch-size="100" inverse="true" cascade="none">
+      <key column="AsgWorkGroup_WorkGroupId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.AssignWorkGroup, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

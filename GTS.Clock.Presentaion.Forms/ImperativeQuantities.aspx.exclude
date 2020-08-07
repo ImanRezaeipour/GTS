@@ -1,0 +1,506 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ImperativeQuantities.aspx.cs" Inherits="ImperativeQuantities" %>
+
+<%@ Register Assembly="ComponentArt.Web.UI" Namespace="ComponentArt.Web.UI" TagPrefix="ComponentArt" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="Css/toolbar.css" runat="server" type="text/css" rel="stylesheet" />
+    <link href="Css/gridStyle.css" runat="server" type="text/css" rel="stylesheet" />
+    <link href="css/style.css" runat="server" type="text/css" rel="stylesheet" />
+    <link href="css/combobox.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link href="css/inputStyle.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link href="css/dialog.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link href="css/iframe.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link href="css/tableStyle.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link href="css/label.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link href="css/alert_box.css" runat="server" type="text/css" rel="Stylesheet" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <form id="ImperativeQuantitiesForm" runat="server" meta:resourcekey="ImperativeQuantitiesForm">
+        <table id="Mastertbl_ImperativeQuantities" style="width: 99%; height: 100%; font-family: Arial; font-size: small;"
+            class="BoxStyle">
+            <tr>
+                <td>
+                    <ComponentArt:ToolBar ID="TlbImperativeQuantities" runat="server" CssClass="toolbar"
+                        DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked"
+                        DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover"
+                        DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText"
+                        ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px" UseFadeEffect="false" class="BoxStyle">
+                        <Items>
+                            <ComponentArt:ToolBarItem ID="tlbItemSave_TlbImperativeQuantities" runat="server" DropDownImageHeight="16px"
+                                ClientSideCommand="tlbItemSave_TlbImperativeQuantities_onClick();" DropDownImageWidth="16px"
+                                Enabled="false" ImageHeight="16px" ImageUrl="save.png" ImageWidth="16px"
+                                ItemType="Command" meta:resourcekey="tlbItemSave_TlbImperativeQuantities" TextImageSpacing="5" />
+                            <ComponentArt:ToolBarItem ID="tlbItemCancel_TlbImperativeQuantities" runat="server" ClientSideCommand="tlbItemCancel_TlbImperativeQuantities_onClick();"
+                                DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="cancel.png"
+                                ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemCancel_TlbImperativeQuantities"
+                                Enabled="false" TextImageSpacing="5" />
+                            <ComponentArt:ToolBarItem ID="tlbItemHelp_TlbImperativeQuantities" runat="server" DropDownImageHeight="16px"
+                                DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="help.gif" ImageWidth="16px"
+                                ItemType="Command" meta:resourcekey="tlbItemHelp_TlbImperativeQuantities" TextImageSpacing="5"
+                                ClientSideCommand="tlbItemHelp_TlbImperativeQuantities_onClick();" />
+                            <ComponentArt:ToolBarItem ID="tlbItemFormReconstruction_TlbImperativeQuantities" runat="server"
+                                ClientSideCommand="tlbItemFormReconstruction_TlbImperativeQuantities_onClick();" DropDownImageHeight="16px"
+                                DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="refresh.png" ImageWidth="16px"
+                                ItemType="Command" meta:resourcekey="tlbItemFormReconstruction_TlbImperativeQuantities" TextImageSpacing="5" />
+                            <ComponentArt:ToolBarItem ID="tlbItemExit_TlbImperativeQuantities" runat="server" DropDownImageHeight="16px"
+                                ClientSideCommand="tlbItemExit_TlbImperativeQuantities_onClick();" DropDownImageWidth="16px"
+                                ImageHeight="16px" ImageUrl="exit.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemExit_TlbImperativeQuantities"
+                                TextImageSpacing="5" />
+                        </Items>
+                    </ComponentArt:ToolBar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 35%">
+                                <table style="width: 95%;" class="BoxStyle">
+                                    <tr>
+                                        <td style="width: 90%">
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="lblPersonnel_ImperativeQuantities" runat="server" CssClass="WhiteLabel"
+                                                            meta:resourcekey="lblPersonnel_ImperativeQuantities" Text=": پرسنل"></asp:Label>
+                                                    </td>
+                                                    <td id="Td2" runat="server" meta:resourcekey="InverseAlignObj">
+                                                        <ComponentArt:ToolBar ID="TlbPaging_PersonnelSearch_ImperativeQuantities" runat="server"
+                                                            CssClass="toolbar" DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked"
+                                                            DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover"
+                                                            DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageOnly"
+                                                            DefaultItemTextImageSpacing="0" ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px"
+                                                            Style="direction: ltr;" UseFadeEffect="false">
+                                                            <Items>
+                                                                <ComponentArt:ToolBarItem ID="tlbItemRefresh_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    runat="server" ClientSideCommand="tlbItemRefresh_TlbPaging_PersonnelSearch_ImperativeQuantities_onClick();"
+                                                                    DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="refresh.png"
+                                                                    ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemRefresh_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    TextImageSpacing="5" />
+                                                                <ComponentArt:ToolBarItem ID="tlbItemFirst_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    runat="server" ClientSideCommand="tlbItemFirst_TlbPaging_PersonnelSearch_ImperativeQuantities_onClick();"
+                                                                    DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="first.png"
+                                                                    ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemFirst_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    TextImageSpacing="5" />
+                                                                <ComponentArt:ToolBarItem ID="tlbItemBefore_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    runat="server" ClientSideCommand="tlbItemBefore_TlbPaging_PersonnelSearch_ImperativeQuantities_onClick();"
+                                                                    DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="Before.png"
+                                                                    ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemBefore_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    TextImageSpacing="5" />
+                                                                <ComponentArt:ToolBarItem ID="tlbItemNext_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    runat="server" ClientSideCommand="tlbItemNext_TlbPaging_PersonnelSearch_ImperativeQuantities_onClick();"
+                                                                    DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="Next.png"
+                                                                    ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemNext_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    TextImageSpacing="5" />
+                                                                <ComponentArt:ToolBarItem ID="tlbItemLast_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    runat="server" ClientSideCommand="tlbItemLast_TlbPaging_PersonnelSearch_ImperativeQuantities_onClick();"
+                                                                    DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="last.png"
+                                                                    ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemLast_TlbPaging_PersonnelSearch_ImperativeQuantities"
+                                                                    TextImageSpacing="5" />
+                                                            </Items>
+                                                        </ComponentArt:ToolBar>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="width: 10%">&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 90%">
+                                            <ComponentArt:CallBack ID="CallBack_cmbPersonnel_ImperativeQuantities" runat="server"
+                                                Height="26" OnCallback="CallBack_cmbPersonnel_ImperativeQuantities_onCallBack">
+                                                <Content>
+                                                    <ComponentArt:ComboBox ID="cmbPersonnel_ImperativeQuantities" runat="server" AutoComplete="true"
+                                                        AutoHighlight="false" CssClass="comboBox" DataFields="BarCode" DataTextField="Name"
+                                                        DropDownCssClass="comboDropDown" DropDownHeight="210" DropDownPageSize="7" DropDownWidth="390"
+                                                        DropHoverImageUrl="Images/ComboBox/ddn-hover.png" DropImageUrl="Images/ComboBox/ddn.png"
+                                                        FocusedCssClass="comboBoxHover" HoverCssClass="comboBoxHover" ItemClientTemplateId="ItemTemplate_cmbPersonnel_ImperativeQuantities"
+                                                        ItemCssClass="comboItem" ItemHoverCssClass="comboItemHover" RunningMode="Client"
+                                                        SelectedItemCssClass="comboItemHover" Style="width: 100%" TextBoxCssClass="comboTextBox">
+                                                        <ClientTemplates>
+                                                            <ComponentArt:ClientTemplate ID="ItemTemplate_cmbPersonnel_ImperativeQuantities">
+                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                    <tr class="dataRow">
+                                                                        <td class="dataCell" style="width: 40%">## DataItem.getProperty('Text') ##
+                                                                        </td>
+                                                                        <td class="dataCell" style="width: 30%">## DataItem.getProperty('BarCode') ##
+                                                                        </td>
+                                                                        <td class="dataCell" style="width: 30%">## DataItem.getProperty('CardNum') ##
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </ComponentArt:ClientTemplate>
+                                                        </ClientTemplates>
+                                                        <DropDownHeader>
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="390">
+                                                                <tr class="headingRow">
+                                                                    <td id="clmnName_cmbPersonnel_ImperativeQuantities" class="headingCell" style="width: 40%; text-align: center">Name And Family
+                                                                    </td>
+                                                                    <td id="clmnBarCode_cmbPersonnel_ImperativeQuantities" class="headingCell" style="width: 30%; text-align: center">BarCode
+                                                                    </td>
+                                                                    <td id="clmnCardNum_cmbPersonnel_ImperativeQuantities" class="headingCell" style="width: 30%; text-align: center">CardNum
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </DropDownHeader>
+                                                        <ClientEvents>
+                                                            <Expand EventHandler="cmbPersonnel_ImperativeQuantities_onExpand" />
+                                                            <Collapse EventHandler="cmbPersonnel_ImperativeQuantities_onCollapse" />
+                                                        </ClientEvents>
+                                                    </ComponentArt:ComboBox>
+                                                    <asp:HiddenField ID="ErrorHiddenField_Personnel_ImperativeQuantities" runat="server" />
+                                                    <asp:HiddenField ID="hfPersonnelCount_ImperativeQuantities" runat="server" />
+                                                    <asp:HiddenField ID="hfPersonnelPageCount_ImperativeQuantities" runat="server" />
+                                                </Content>
+                                                <ClientEvents>
+                                                    <BeforeCallback EventHandler="CallBack_cmbPersonnel_ImperativeQuantities_onBeforeCallback" />
+                                                    <CallbackComplete EventHandler="CallBack_cmbPersonnel_ImperativeQuantities_onCallBackComplete" />
+                                                    <CallbackError EventHandler="CallBack_cmbPersonnel_ImperativeQuantities_onCallbackError" />
+                                                </ClientEvents>
+                                            </ComponentArt:CallBack>
+                                        </td>
+                                        <td style="width: 10%">&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 90%">
+                                            <input id="txtPersonnelSearch_ImperativeQuantities" runat="server" class="TextBoxes"
+                                                onclick="this.select();" onfocus="this.select();" style="width: 95%" type="text" />
+                                        </td>
+                                        <td style="width: 10%">
+                                            <ComponentArt:ToolBar ID="TlbSearchPersonnel_ImperativeQuantities" runat="server"
+                                                CssClass="toolbar" DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked"
+                                                DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover"
+                                                DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText"
+                                                ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px" UseFadeEffect="false">
+                                                <Items>
+                                                    <ComponentArt:ToolBarItem ID="tlbItemSearch_TlbSearchPersonnel_ImperativeQuantities"
+                                                        runat="server" ClientSideCommand="tlbItemSearch_TlbSearchPersonnel_ImperativeQuantities_onClick();"
+                                                        DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="search.png"
+                                                        ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemSearch_TlbSearchPersonnel_ImperativeQuantities"
+                                                        TextImageSpacing="5" />
+                                                </Items>
+                                            </ComponentArt:ToolBar>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 90%">&nbsp;
+                                        </td>
+                                        <td style="width: 10%">
+                                            <ComponentArt:ToolBar ID="TlbAdvancedSearch_ImperativeQuantities" runat="server"
+                                                CssClass="toolbar" DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked"
+                                                DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover"
+                                                DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText"
+                                                ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px" UseFadeEffect="false">
+                                                <Items>
+                                                    <ComponentArt:ToolBarItem ID="tlbItemAdvancedSearch_TlbAdvancedSearch_ImperativeQuantities"
+                                                        runat="server" ClientSideCommand="tlbItemAdvancedSearch_TlbAdvancedSearch_ImperativeQuantities_onClick();"
+                                                        DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="eyeglasses.png"
+                                                        ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemAdvancedSearch_TlbAdvancedSearch_ImperativeQuantities"
+                                                        TextImageSpacing="5" />
+                                                </Items>
+                                            </ComponentArt:ToolBar>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="vertical-align: bottom">
+                                <table style="width: 50%">
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblType_ImperativeQuantities" runat="server" Text=": نوع" CssClass="WhiteLabel"
+                                                meta:resourcekey="lblType_ImperativeQuantities"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblYear_ImperativeQuantities" runat="server" Text=": سال" CssClass="WhiteLabel"
+                                                meta:resourcekey="lblYear_ImperativeQuantities"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblMonth_ImperativeQuantities" runat="server" Text=": ماه" CssClass="WhiteLabel"
+                                                meta:resourcekey="lblMonth_ImperativeQuantities"></asp:Label>
+                                        </td>
+                                        <td>&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ComponentArt:ComboBox ID="cmbType_ImperativeQuantities" runat="server" AutoComplete="true"
+                                                AutoFilter="true" AutoHighlight="false" CssClass="comboBox" DropDownCssClass="comboDropDown"
+                                                DropDownResizingMode="Corner" DropHoverImageUrl="Images/ComboBox/ddn-hover.png"
+                                                DropImageUrl="Images/ComboBox/ddn.png" FocusedCssClass="comboBoxHover" HoverCssClass="comboBoxHover"
+                                                ItemCssClass="comboItem" ItemHoverCssClass="comboItemHover" SelectedItemCssClass="comboItemHover"
+                                                TextBoxCssClass="comboTextBox" TextBoxEnabled="true" Width="100">
+                                                <ClientEvents>
+                                                    <Change EventHandler="cmbType_ImperativeQuantities_onChange" />
+                                                </ClientEvents>
+                                            </ComponentArt:ComboBox>
+                                        </td>
+                                        <td>
+                                            <ComponentArt:ComboBox ID="cmbYear_ImperativeQuantities" runat="server" AutoComplete="true"
+                                                AutoFilter="true" AutoHighlight="false" CssClass="comboBox" DropDownCssClass="comboDropDown"
+                                                DropDownResizingMode="Corner" DropHoverImageUrl="Images/ComboBox/ddn-hover.png"
+                                                DropImageUrl="Images/ComboBox/ddn.png" FocusedCssClass="comboBoxHover" HoverCssClass="comboBoxHover"
+                                                ItemCssClass="comboItem" ItemHoverCssClass="comboItemHover" SelectedItemCssClass="comboItemHover"
+                                                TextBoxCssClass="comboTextBox" TextBoxEnabled="true" Width="100">
+                                                <ClientEvents>
+                                                    <Change EventHandler="cmbYear_ImperativeQuantities_onChange" />
+                                                </ClientEvents>
+                                            </ComponentArt:ComboBox>
+                                        </td>
+                                        <td>
+                                            <ComponentArt:ComboBox ID="cmbMonth_ImperativeQuantities" runat="server" AutoComplete="true"
+                                                AutoFilter="true" AutoHighlight="false" CssClass="comboBox" DropDownCssClass="comboDropDown"
+                                                DropDownResizingMode="Corner" DropHoverImageUrl="Images/ComboBox/ddn-hover.png"
+                                                DropImageUrl="Images/ComboBox/ddn.png" FocusedCssClass="comboBoxHover" HoverCssClass="comboBoxHover"
+                                                ItemCssClass="comboItem" ItemHoverCssClass="comboItemHover" SelectedItemCssClass="comboItemHover"
+                                                TextBoxCssClass="comboTextBox" TextBoxEnabled="true" Width="100" DropDownHeight="280">
+                                                <ClientEvents>
+                                                    <Change EventHandler="cmbMonth_ImperativeQuantities_onChange" />
+                                                </ClientEvents>
+                                            </ComponentArt:ComboBox>
+                                        </td>
+                                        <td>
+                                            <ComponentArt:ToolBar ID="TlbView_ImperativeQuantities" runat="server" CssClass="toolbar"
+                                                DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked"
+                                                DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover"
+                                                DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText"
+                                                ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px" UseFadeEffect="false">
+                                                <Items>
+                                                    <ComponentArt:ToolBarItem ID="tlbItemView_TlbView_ImperativeQuantities" runat="server"
+                                                        ClientSideCommand="tlbItemView_TlbView_ImperativeQuantities_onClick();" DropDownImageHeight="16px"
+                                                        DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="view.png" ImageWidth="16px"
+                                                        ItemType="Command" meta:resourcekey="tlbItemView_TlbView_ImperativeQuantities"
+                                                        TextImageSpacing="5" Enabled="true" />
+                                                </Items>
+                                            </ComponentArt:ToolBar>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top">
+                    <table style="width: 100%; height: 300px; border: outset 1px black;" class="BoxStyle">
+                        <tr>
+                            <td style="height: 5%">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td id="header_Type_ImperativeQuantities" class="HeaderLabel" style="width: 50%;">Imperative Quantities
+                                        </td>
+                                        <td id="loadingPanel_GridImperativeQuantities_ImperativeQuantities" class="HeaderLabel"
+                                            style="width: 45%"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: top">
+                                <ComponentArt:CallBack runat="server" ID="CallBack_GridImperativeQuantities_ImperativeQuantities"
+                                    OnCallback="CallBack_GridImperativeQuantities_ImperativeQuantities_onCallBack">
+                                    <Content>
+                                        <ComponentArt:DataGrid ID="GridImperativeQuantities_ImperativeQuantities" runat="server" AllowEditing="true"
+                                            AllowHorizontalScrolling="true" CssClass="Grid" EnableViewState="false" ShowFooter="false"
+                                            FillContainer="true" FooterCssClass="GridFooter" ImagesBaseUrl="images/Grid/" EditOnClickSelectedItem="false"
+                                            PagePaddingEnabled="true" PageSize="16" RunningMode="Client" AllowMultipleSelect="false"
+                                            AllowColumnResizing="false" ScrollBar="Off" ScrollTopBottomImagesEnabled="true"
+                                            ScrollTopBottomImageHeight="2" ScrollTopBottomImageWidth="16" ScrollImagesFolderUrl="images/Grid/scroller/"
+                                            ScrollButtonWidth="16" ScrollButtonHeight="17" ScrollBarCssClass="ScrollBar"
+                                            ScrollGripCssClass="ScrollGrip" ScrollBarWidth="16" Width="960">
+                                            <Levels>
+                                                <ComponentArt:GridLevel AlternatingRowCssClass="AlternatingRow" DataCellCssClass="DataCell"
+                                                    DataKeyField="ID" HeadingCellCssClass="HeadingCell" HeadingTextCssClass="HeadingCellText"
+                                                    RowCssClass="Row" SelectedRowCssClass="SelectedRow" SelectorCellCssClass="SelectorCell"
+                                                    SortAscendingImageUrl="asc.gif" SortDescendingImageUrl="desc.gif" SortImageHeight="5"
+                                                    SortImageWidth="9" EditCommandClientTemplateId="EditCommandTemplate">
+                                                    <Columns>
+                                                        <ComponentArt:GridColumn AllowSorting="false" DataCellClientTemplateId="EditTemplate" EditControlType="EditCommand" Width="50" Align="Center" />
+                                                        <ComponentArt:GridColumn DataField="ID" Visible="false" />
+                                                        <ComponentArt:GridColumn DataField="PersonID" Visible="false" />
+                                                        <ComponentArt:GridColumn Align="Center" DataField="PersonName" DefaultSortDirection="Descending" AllowEditing="False"
+                                                            HeadingText="نام و نام خانوادگی" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnPersonName_GridImperativeQuantities_ImperativeQuantities"
+                                                            Width="140" />
+                                                        <ComponentArt:GridColumn Align="Center" DataField="PersonCode" DefaultSortDirection="Descending" AllowEditing="False"
+                                                            HeadingText="شماره پرسنلی" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnPersonCode_GridImperativeQuantities_ImperativeQuantities"
+                                                            Width="110" />
+                                                        <ComponentArt:GridColumn Align="Center" DataField="OverTime" DefaultSortDirection="Descending" AllowEditing="False"
+                                                            HeadingText="اضافه کار" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnOverTime_GridImperativeQuantities_ImperativeQuantities"
+                                                            Width="110" Visible="false"/>
+                                                        <ComponentArt:GridColumn Align="Center" DataField="Surcharge" DefaultSortDirection="Descending" AllowEditing="False"
+                                                            HeadingText="جریمه" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnSurcharge_GridImperativeQuantities_ImperativeQuantities"
+                                                            Width="110" Visible="false"/>
+                                                        <ComponentArt:GridColumn Align="Center" DataField="MonthlyOperationSummary" DefaultSortDirection="Descending" AllowEditing="False"
+                                                            HeadingText="خلاصه کارکرد ماهیانه" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnMonthlyOperationSummary_GridImperativeQuantities_ImperativeQuantities"
+                                                            Width="290" />
+                                                        <ComponentArt:GridColumn Align="Center" DataField="Description" DefaultSortDirection="Descending" AllowEditing="False"
+                                                            HeadingText="توضیحات" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnDescription_GridImperativeQuantities_ImperativeQuantities"
+                                                            Width="200" />
+                                                    </Columns>
+                                                </ComponentArt:GridLevel>
+                                            </Levels>
+                                            <ClientTemplates>
+                                                <ComponentArt:ClientTemplate ID="EditTemplate">
+                                                    <a>
+                                                        <img src="Images/ToolBar/edit.png" onclick="javascript:EditGridImperativeQuantities_ImperativeQuantities('## DataItem.ClientId ##');" title="##SetCellTitle_GridImperativeQuantities_ImperativeQuantities('Edit')##" /></a>
+                                                </ComponentArt:ClientTemplate>
+                                                <ComponentArt:ClientTemplate ID="EditCommandTemplate">
+                                                    <a>
+                                                        <img src="Images/ToolBar/save.png" onclick="javascript:UpdateGridImperativeQuantities_ImperativeQuantities();" title="##SetCellTitle_GridImperativeQuantities_ImperativeQuantities('Save')##" /></a>&nbsp;<a>
+                                                            <img src="Images/ToolBar/cancel.png" onclick="javascript:GridImperativeQuantities_ImperativeQuantities.EditCancel();" title="##SetCellTitle_GridImperativeQuantities_ImperativeQuantities('Cancel')##" /></a>
+                                                </ComponentArt:ClientTemplate>
+                                            </ClientTemplates>
+                                            <ClientEvents>
+                                                <Load EventHandler="GridImperativeQuantities_ImperativeQuantities_onLoad" />
+                                            </ClientEvents>
+                                        </ComponentArt:DataGrid>
+                                        <asp:HiddenField runat="server" ID="ErrorHiddenField_ImperativeQuantities" />
+                                        <asp:HiddenField runat="server" ID="hfImperativeQuantitiesCount_ImperativeQuantities" />
+                                        <asp:HiddenField runat="server" ID="hfImperativeQuantitiesPageCount_ImperativeQuantities" />
+                                    </Content>
+                                    <ClientEvents>
+                                        <CallbackComplete EventHandler="CallBack_GridImperativeQuantities_ImperativeQuantities_onCallbackComplete" />
+                                        <CallbackError EventHandler="CallBack_GridImperativeQuantities_ImperativeQuantities_onCallbackError" />
+                                    </ClientEvents>
+                                </ComponentArt:CallBack>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 5%">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td id="Td1" runat="server" meta:resourcekey="AlignObj" style="width: 10%;">
+                                            <ComponentArt:ToolBar ID="TlbPaging_GridImperativeQuantities_ImperativeQuantities" runat="server"
+                                                CssClass="toolbar" DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked"
+                                                DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover"
+                                                DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageOnly"
+                                                DefaultItemTextImageSpacing="0" ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px"
+                                                Style="direction: ltr" UseFadeEffect="false">
+                                                <Items>
+                                                    <ComponentArt:ToolBarItem ID="tlbItemRefresh_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        runat="server" ClientSideCommand="tlbItemRefresh_TlbPaging_GridImperativeQuantities_ImperativeQuantities_onClick();"
+                                                        DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px"
+                                                        ImageUrl="refresh.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemRefresh_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemFirst_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        runat="server" ClientSideCommand="tlbItemFirst_TlbPaging_GridImperativeQuantities_ImperativeQuantities_onClick();"
+                                                        DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px"
+                                                        ImageUrl="first.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemFirst_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemBefore_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        runat="server" ClientSideCommand="tlbItemBefore_TlbPaging_GridImperativeQuantities_ImperativeQuantities_onClick();"
+                                                        DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px"
+                                                        ImageUrl="Before.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemBefore_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemNext_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        runat="server" ClientSideCommand="tlbItemNext_TlbPaging_GridImperativeQuantities_ImperativeQuantities_onClick();"
+                                                        DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px"
+                                                        ImageUrl="Next.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemNext_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemLast_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        runat="server" ClientSideCommand="tlbItemLast_TlbPaging_GridImperativeQuantities_ImperativeQuantities_onClick();"
+                                                        DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px"
+                                                        ImageUrl="last.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemLast_TlbPaging_GridImperativeQuantities_ImperativeQuantities"
+                                                        TextImageSpacing="5" />
+                                                </Items>
+                                            </ComponentArt:ToolBar>
+                                        </td>
+                                        <td id="footer_GridImperativeQuantities_ImperativeQuantities" runat="server" class="WhiteLabel"
+                                            meta:resourcekey="InverseAlignObj" style="width: 45%"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <ComponentArt:Dialog ModalMaskImage="Images/Dialog/alpha.png" HeaderCssClass="headerCss"
+            Modal="true" AllowResize="false" AllowDrag="false" Alignment="MiddleCentre" ID="DialogConfirm"
+            runat="server" Width="420px">
+            <Content>
+                <table id="tblConfirm_DialogConfirm" style="width: 100%;" class="ConfirmStyle">
+                    <tr align="center">
+                        <td colspan="2">
+                            <asp:Label ID="lblConfirm" runat="server" CssClass="WhiteLabel"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td style="width: 50%">
+                            <ComponentArt:ToolBar ID="TlbOkConfirm" runat="server" CssClass="toolbar" DefaultItemActiveCssClass="itemActive"
+                                DefaultItemCheckedCssClass="itemChecked" DefaultItemCheckedHoverCssClass="itemActive"
+                                DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover" DefaultItemImageHeight="16px"
+                                DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText" ImagesBaseUrl="images/ToolBar/"
+                                ItemSpacing="1px" UseFadeEffect="false">
+                                <Items>
+                                    <ComponentArt:ToolBarItem ID="tlbItemOk_TlbOkConfirm" runat="server" ClientSideCommand="tlbItemOk_TlbOkConfirm_onClick();"
+                                        DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="save.png"
+                                        ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemOk_TlbOkConfirm"
+                                        TextImageSpacing="5" />
+                                </Items>
+                            </ComponentArt:ToolBar>
+                        </td>
+                        <td>
+                            <ComponentArt:ToolBar ID="TlbCancelConfirm" runat="server" CssClass="toolbar" DefaultItemActiveCssClass="itemActive"
+                                DefaultItemCheckedCssClass="itemChecked" DefaultItemCheckedHoverCssClass="itemActive"
+                                DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover" DefaultItemImageHeight="16px"
+                                DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText" ImagesBaseUrl="images/ToolBar/"
+                                ItemSpacing="1px" UseFadeEffect="false">
+                                <Items>
+                                    <ComponentArt:ToolBarItem ID="tlbItemCancel_TlbCancelConfirm" runat="server" ClientSideCommand="tlbItemCancel_TlbCancelConfirm_onClick();"
+                                        DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="cancel.png"
+                                        ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemCancel_TlbCancelConfirm"
+                                        TextImageSpacing="5" />
+                                </Items>
+                            </ComponentArt:ToolBar>
+                        </td>
+                    </tr>
+                </table>
+            </Content>
+        </ComponentArt:Dialog>
+        <ComponentArt:Dialog ModalMaskImage="Images/Dialog/alpha.png" Modal="true" AllowResize="false"
+            runat="server" AllowDrag="false" Alignment="MiddleCentre" ID="DialogWaiting">
+            <Content>
+                <table>
+                    <tr>
+                        <td>
+                            <img id="Img1" runat="server" alt="" src="~/Images/Dialog/Waiting.gif" />
+                        </td>
+                    </tr>
+                </table>
+            </Content>
+            <ClientEvents>
+                <OnShow EventHandler="DialogWaiting_onShow" />
+            </ClientEvents>
+        </ComponentArt:Dialog>
+        <asp:HiddenField runat="server" ID="hfTitle_ImperativeQuantities_DialogImperativeQuantities" meta:resourcekey="hfTitle_ImperativeQuantities_DialogImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfheader_ImperativeQuantities_ImperativeQuantities" meta:resourcekey="hfheader_ImperativeQuantities_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfCloseMessage_ImperativeOvertime_ImperativeQuantities" meta:resourcekey="hfCloseMessage_ImperativeOvertime_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfCloseMessage_ImperativeSurcharge_ImperativeQuantities" meta:resourcekey="hfCloseMessage_ImperativeSurcharge_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfCurrentYear_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfCurrentMonth_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfCurrentType_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfImperativeQuantitiesPageSize_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hffooter_GridImperativeQuantities_ImperativeQuantities" meta:resourcekey="hffooter_GridImperativeQuantities_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfErrorType_ImperativeQuantities" meta:resourcekey="hfErrorType_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfConnectionError_ImperativeQuantities" meta:resourcekey="hfConnectionError_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfloadingPanel_GridImperativeQuantities_ImperativeQuantities" meta:resourcekey="hfloadingPanel_GridImperativeQuantities_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfclmnName_cmbPersonnel_ImperativeQuantities"
+            meta:resourcekey="hfclmnName_cmbPersonnel_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfclmnBarCode_cmbPersonnel_ImperativeQuantities"
+            meta:resourcekey="hfclmnBarCode_cmbPersonnel_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfclmnCardNum_cmbPersonnel_ImperativeQuantities"
+            meta:resourcekey="hfclmnCardNum_cmbPersonnel_ImperativeQuantities" />
+        <asp:HiddenField runat="server" ID="hfEdit_ImperativeQuantities" meta:resourcekey="hfEdit_ImperativeQuantities"/>
+        <asp:HiddenField runat="server" ID="hfSave_ImperativeQuantities" meta:resourcekey="hfSave_ImperativeQuantities"/>
+        <asp:HiddenField runat="server" ID="hfCancel_ImperativeQuantities" meta:resourcekey="hfCancel_ImperativeQuantities"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AssignedWGDShift, GTS.Clock.Model" lazy="false">
+    <id name="ID" access="property" column="AsgWGDShift_ID">
+      <generator class="native" />
+    </id>
+
+    <property name="PersonId"     access="property" column="AsgWGDShift_PersonId" />
+    <property name="Date"         access="property" column="AsgWGDShift_Date" />
+    <property name="ShiftType"    access="property" column="AsgWGDShift_Type"/>
+    <property name="ShiftId"      access="property" column="AsgWGDShift_ShiftId"/>
+    <property name="MinNobatKari" access="property" column="AsgWGDShift_MinNobatKari"/>
+    <property name="Name"         access="property" column="AsgWGDShift_ShiftName"/>
+    <property name="CustomCode"         access="property" column="AsgWGDShift_CustomCode"/>
+
+    <many-to-one name="NobatKari" column="AsgWGDShift_NobatKariId" class="GTS.Clock.Model.Concepts.NobatKari, GTS.Clock.Model" cascade="none" lazy="proxy"/>
+
+    <bag name="Pairs" lazy="true" order-by="ShiftPair_From" inverse ="true" cascade="none">
+      <key column="ShiftPair_AsgWGDShiftId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.ShiftPair, GTS.Clock.Model"/>
+      <loader query-ref="GetShiftPairs"/>
+    </bag>
+  </class>
+
+  <sql-query name="GetShiftPairs">
+    <load-collection alias="ShiftPair" role="GTS.Clock.Model.AssignedWGDShift.Pairs"/>
+    <![CDATA[
+SELECT ShiftPair_ID,
+       ShiftPair_ShiftId,
+		   ShiftPair_From,
+		   ShiftPair_To,
+		   ShiftPair_AfterTolerance,
+		   ShiftPair_BeforeTolerance,
+       ShiftPair_ShiftPairTypeId,
+       :id AS ShiftPair_AsgWGDShiftId
+FROM TA_ShiftPair
+WHERE ShiftPair_ShiftId = :AssignedWGDShift.ShiftId
+    ]]>
+  </sql-query>
+  
+</hibernate-mapping>

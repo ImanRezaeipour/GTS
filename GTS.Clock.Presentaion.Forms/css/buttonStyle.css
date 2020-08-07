@@ -1,0 +1,40 @@
+
+.buttonStyle
+{
+    font-family: Arial;
+    vertical-align:middle;
+    
+    font-size: small;
+    background-color: transparent;
+    color: White;
+    background-image: url('../Images/Ghadir/Loginbutton_D.png');
+    background-repeat: no-repeat;
+    height: 28px;
+    width: 79px;
+    border:none ;
+}         
+
+ 
+
+.buttonStyle:hover
+{
+    font-family:Arial;
+    vertical-align:middle;
+    font-size:small;
+    background-color: transparent;
+    background-image: url('../Images/Ghadir/Loginbutton_H.png');
+    height: 28px;
+    width: 79px;
+    color: White;
+}
+.buttonStyle:active
+{
+    font-family:Arial;
+    vertical-align:middle;
+    font-size:small;
+    background-color: transparent;
+    background-image: url('../Images/Ghadir/Loginbutton_A.png');
+    height: 28px;
+    width: 79px;
+    color: White;
+}

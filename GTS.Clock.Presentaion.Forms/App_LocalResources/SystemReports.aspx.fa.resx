@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="clmnAction_GridSystemUserActionReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>عملیات</value>
+  </data>
+  <data name="clmnPersonBarcode_GridSystemEngineReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>شماره پرسنلی</value>
+  </data>
+  <data name="clmnClassName_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>نام کلاس</value>
+  </data>
+  <data name="clmnClassName_GridSystemUserActionReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>نام کلاس</value>
+  </data>
+  <data name="clmnDate_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="clmnDate_GridSystemEngineReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="clmnDate_GridSystemUserActionReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="clmnDate_GridSystemWindowsServiceReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="clmnExceptionSource_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>منبع خطا</value>
+  </data>
+  <data name="clmnException_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="clmnException_GridSystemEngineReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="clmnException_GridSystemWindowsServiceReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="clmnIPAddress_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>آدرس آی پی</value>
+  </data>
+  <data name="clmnIPAddress_GridSystemUserActionReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>آدرس آی پی</value>
+  </data>
+  <data name="clmnLevel_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>سطح</value>
+  </data>
+  <data name="clmnLevel_GridSystemEngineReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>سطح</value>
+  </data>
+  <data name="clmnLevel_GridSystemWindowsServiceReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>سطح</value>
+  </data>
+  <data name="clmnMessage_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>پیغام</value>
+  </data>
+  <data name="clmnMessage_GridSystemEngineReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>پیغام</value>
+  </data>
+  <data name="clmnMessage_GridSystemWindowsServiceReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>پیغام</value>
+  </data>
+  <data name="clmnMethodName_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>نام متد</value>
+  </data>
+  <data name="clmnMethodName_GridSystemUserActionReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>نام متد</value>
+  </data>
+  <data name="clmnObjectInformation_GridSystemUserActionReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>اطلاعات شیء</value>
+  </data>
+  <data name="clmnPageID_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>شناسه صفحه</value>
+  </data>
+  <data name="clmnUsername_GridSystemBusinessReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="clmnUsername_GridSystemUserActionReport_SystemReports.HeadingText" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="hfCloseMessage_SystemReports.Value" xml:space="preserve">
+    <value>آیا از فرم گزارش های سیستمی خارج می شوید ؟</value>
+  </data>
+  <data name="hfConnectionError_SystemReports.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfDeleteMessage_SystemReports.Value" xml:space="preserve">
+    <value>آیا همه آیتم ها را حذف می کنید ؟</value>
+  </data>
+  <data name="hfErrorType_SystemReports.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="hffooter_GridSystemBusinessReport_SystemReports.Value" xml:space="preserve">
+    <value>صفحه 0 از 0</value>
+  </data>
+  <data name="hfheader_SystemReportTypeFeature_SystemReports.Value" xml:space="preserve">
+    <value>خصیصه نوع گزارش سیستمی</value>
+  </data>
+  <data name="hfheader_GridSystemReportType_SystemReports.Value" xml:space="preserve">
+    <value>نوع گزارش سیستمی</value>
+  </data>
+  <data name="hfloadingPanel_GridSystemReportType_SystemReports.Value" xml:space="preserve">
+    <value>بارگیری ...</value>
+  </data>
+  <data name="hfTitle_DialogSystemReports.Value" xml:space="preserve">
+    <value>گزارش های سیستمی</value>
+  </data>
+  <data name="lblFromDate_SystemReports.Text" xml:space="preserve">
+    <value>از تاریخ :</value>
+  </data>
+  <data name="lblSearchTerm_SystemReports.Text" xml:space="preserve">
+    <value>عبارت جستجو :</value>
+  </data>
+  <data name="lblSystemReportType_SystemReports.Text" xml:space="preserve">
+    <value>نوع گزارش سیستمی :</value>
+  </data>
+  <data name="lblToDate_SystemReports.Text" xml:space="preserve">
+    <value>تا تاریخ :</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="SystemReportsForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_GridSystemReportType_SystemReports.ToolTip" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_ToDateCalendars_SystemReports.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_FromDateCalendars_SystemReports.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemDeleteAll_TlbSystemReports.Text" xml:space="preserve">
+    <value>حذف همه</value>
+  </data>
+  <data name="tlbItemExit_TlbSystemReports.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_GridSystemReportType_SystemReports.ToolTip" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbSystemReports.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="tlbItemHelp_TlbSystemReports.Text" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_GridSystemReportType_SystemReports.ToolTip" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_GridSystemReportType_SystemReports.ToolTip" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_GridSystemReportType_SystemReports.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemResultsView_TlbResultView.Text" xml:space="preserve">
+    <value>نمایش نتایج</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>عملیات حذف آیتم ها با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="SystemBusinessReport" xml:space="preserve">
+    <value>گزارش تجاری سیستم</value>
+  </data>
+  <data name="SystemEngineReport" xml:space="preserve">
+    <value>گزارش موتور محاسباتی سیستم</value>
+  </data>
+  <data name="SystemUserActionReport" xml:space="preserve">
+    <value>گزارش عملیات کاربر سیستم</value>
+  </data>
+  <data name="SystemWindowsServiceReport" xml:space="preserve">
+    <value>گزارش سرویس ویندوز سیستم</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی غیرمجاز به سرویس</value>
+  </data>
+  <data name="hffooter_GridSystemReportType_SystemReports.Value" xml:space="preserve">
+    <value>صفحه 0 از 0</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+</root>

@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="clmnDay10_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 10</value>
+  </data>
+  <data name="clmnDay11_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 11</value>
+  </data>
+  <data name="clmnDay12_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 12</value>
+  </data>
+  <data name="clmnDay13_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 13</value>
+  </data>
+  <data name="clmnDay14_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 14</value>
+  </data>
+  <data name="clmnDay15_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 15</value>
+  </data>
+  <data name="clmnDay16_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 16</value>
+  </data>
+  <data name="clmnDay17_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 17</value>
+  </data>
+  <data name="clmnDay18_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 18</value>
+  </data>
+  <data name="clmnDay19_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 19</value>
+  </data>
+  <data name="clmnDay1_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 1</value>
+  </data>
+  <data name="clmnDay20_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 20</value>
+  </data>
+  <data name="clmnDay21_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 21</value>
+  </data>
+  <data name="clmnDay22_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 22</value>
+  </data>
+  <data name="clmnDay23_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 23</value>
+  </data>
+  <data name="clmnDay24_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 24</value>
+  </data>
+  <data name="clmnDay25_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 25</value>
+  </data>
+  <data name="clmnDay26_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 26</value>
+  </data>
+  <data name="clmnDay27_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 27</value>
+  </data>
+  <data name="clmnDay28_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 28</value>
+  </data>
+  <data name="clmnDay29_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 29</value>
+  </data>
+  <data name="clmnDay2_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 2</value>
+  </data>
+  <data name="clmnDay30_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 30</value>
+  </data>
+  <data name="clmnDay31_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 31</value>
+  </data>
+  <data name="clmnDay3_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 3</value>
+  </data>
+  <data name="clmnDay4_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 4</value>
+  </data>
+  <data name="clmnDay5_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 5</value>
+  </data>
+  <data name="clmnDay6_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 6</value>
+  </data>
+  <data name="clmnDay7_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 7</value>
+  </data>
+  <data name="clmnDay8_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 8</value>
+  </data>
+  <data name="clmnDay9_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Day 9</value>
+  </data>
+  <data name="clmnPersonCode_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Personnel Code</value>
+  </data>
+  <data name="clmnPersonName_GridMonthlyExceptionShifts_MonthlyExceptionShifts.HeadingText" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="hfCancel_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="hfCloseMessage_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Do you Exit From Monthly Exception Shifts Form ?</value>
+  </data>
+  <data name="hfConnectionError_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfDeleteMessage_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Do you Delete Selected Personnel Monthly Exception Shifts ?</value>
+  </data>
+  <data name="hfDelete_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="hfEdit_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="hfErrorType_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="hffooter_GridMonthlyExceptionShifts_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Page 0 of 0</value>
+  </data>
+  <data name="hfheader_MonthlyExceptionShifts_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Monthly Exception Shifts</value>
+  </data>
+  <data name="hfloadingPanel_GridMonthlyExceptionShifts_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="hfSave_MonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="hfTitle_DialogMonthlyExceptionShifts.Value" xml:space="preserve">
+    <value>Monthly Exception Shifts</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="lblMonth_MonthlyExceptionShifts.Text" xml:space="preserve">
+    <value>Month :</value>
+  </data>
+  <data name="lblYear_MonthlyExceptionShifts.Text" xml:space="preserve">
+    <value>Year :</value>
+  </data>
+  <data name="Month10ee" xml:space="preserve">
+    <value>October</value>
+  </data>
+  <data name="Month10fe" xml:space="preserve">
+    <value>Dey</value>
+  </data>
+  <data name="Month11ee" xml:space="preserve">
+    <value>November</value>
+  </data>
+  <data name="Month11fe" xml:space="preserve">
+    <value>Bahman</value>
+  </data>
+  <data name="Month12ee" xml:space="preserve">
+    <value>December</value>
+  </data>
+  <data name="Month12fe" xml:space="preserve">
+    <value>Esfand</value>
+  </data>
+  <data name="Month1ee" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="Month1fe" xml:space="preserve">
+    <value>Farvardin</value>
+  </data>
+  <data name="Month2ee" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="Month2fe" xml:space="preserve">
+    <value>Ordibehesht</value>
+  </data>
+  <data name="Month3ee" xml:space="preserve">
+    <value>March</value>
+  </data>
+  <data name="Month3fe" xml:space="preserve">
+    <value>Khordad</value>
+  </data>
+  <data name="Month4ee" xml:space="preserve">
+    <value>April</value>
+  </data>
+  <data name="Month4fe" xml:space="preserve">
+    <value>Tir</value>
+  </data>
+  <data name="Month5ee" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="Month5fe" xml:space="preserve">
+    <value>Mordad</value>
+  </data>
+  <data name="Month6ee" xml:space="preserve">
+    <value>June</value>
+  </data>
+  <data name="Month6fe" xml:space="preserve">
+    <value>Shahrivar</value>
+  </data>
+  <data name="Month7ee" xml:space="preserve">
+    <value>July</value>
+  </data>
+  <data name="Month7fe" xml:space="preserve">
+    <value>Mehr</value>
+  </data>
+  <data name="Month8ee" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="Month8fe" xml:space="preserve">
+    <value>Aban</value>
+  </data>
+  <data name="Month9ee" xml:space="preserve">
+    <value>September</value>
+  </data>
+  <data name="Month9fe" xml:space="preserve">
+    <value>Azar</value>
+  </data>
+  <data name="MonthlyExceptionShiftsForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_GridMonthlyExceptionShifts_MonthlyExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemExit_TlbMonthlyExceptionShifts.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_GridMonthlyExceptionShifts_MonthlyExceptionShifts.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbMonthlyExceptionShifts.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="tlbItemHelp_TlbMonthlyExceptionShifts.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_GridMonthlyExceptionShifts_MonthlyExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_GridMonthlyExceptionShifts_MonthlyExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_GridMonthlyExceptionShifts_MonthlyExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemView_TlbView_MonthlyExceptionShifts.Text" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>Delete Operation Completed Successfully</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>Edit Operation Completed Successfully</value>
+  </data>
+  <data name="ShiftWithThisCustomCodeNotExists" xml:space="preserve">
+    <value>Shift with this Code Not Exists : </value>
+  </data>
+</root>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Report.ReportFile, GTS.Clock.Model"
+         table ="TA_ReportFile" lazy="true">
+    <id name="ID" access="property"  column="ReportFile_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="Name"     access="property" column="ReportFile_Name" />
+    <property name="File"     access="property" column="ReportFile_File" />
+    <property name="Description" access="property" column="ReportFile_Description"/>
+    <property name="SubSystemId" access="property" column="ReportFile_SubSystemId"/>
+
+  </class>
+</hibernate-mapping>
+  

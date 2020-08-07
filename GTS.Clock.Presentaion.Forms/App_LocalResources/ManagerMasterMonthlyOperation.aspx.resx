@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblGraphicalSchema_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Graphical Schema</value>
+  </data>
+  <data name="lblGridSchema_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Grid Schema</value>
+  </data>
+  <data name="ManagerMasterMonthlyOperationForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="tlbItemExit_TlbManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemHelp_TlbManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="clmnAllowableOverTime_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Allowable OverTime</value>
+  </data>
+  <data name="clmnDailyMeritoriouslyLeave_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Daily Meritoriously Leave</value>
+  </data>
+  <data name="clmnDailyMission_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Daily Mission</value>
+  </data>
+  <data name="clmnDailyPureOperation_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Daily Pure Operation</value>
+  </data>
+  <data name="clmnDailySickLeave_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Daily Sick Leave</value>
+  </data>
+  <data name="clmnDailyWithoutPayLeave_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Daily Without Pay Leave</value>
+  </data>
+  <data name="clmnDailyWithPayLeave_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Daily With Pay Leave</value>
+  </data>
+  <data name="clmnDepartment_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="clmnFifthEntrance_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Ninth Traffic</value>
+  </data>
+  <data name="clmnFifthExit_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Tenth Traffic</value>
+  </data>
+  <data name="clmnFirstEntrance_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>First Traffic</value>
+  </data>
+  <data name="clmnFirstExit_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Second Traffic</value>
+  </data>
+  <data name="clmnFourthEntrance_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Seventh Traffic</value>
+  </data>
+  <data name="clmnFourthExit_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Eight Traffic</value>
+  </data>
+  <data name="clmnGridColumn_GridSummarySettings_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Grid Column</value>
+  </data>
+  <data name="clmnHostelryMission_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hostelry Mission</value>
+  </data>
+  <data name="clmnHourlyAllowableAbsence_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hourly Allowable Absence</value>
+  </data>
+  <data name="clmnHourlyMeritoriouslyLeave_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hourly Meritoriously Leave</value>
+  </data>
+  <data name="clmnHourlyMission_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hourly Mission</value>
+  </data>
+  <data name="clmnHourlyPureOperation_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hourly Pure Operation</value>
+  </data>
+  <data name="clmnHourlySickLeave_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hourly Sick Leave</value>
+  </data>
+  <data name="clmnHourlyUnallowableAbsence_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hourly Unallowable Absence</value>
+  </data>
+  <data name="clmnHourlyWithoutPayLeave_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hourly Without Pay Leave</value>
+  </data>
+  <data name="clmnHourlyWithPayLeave_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Hourly With Pay Leave</value>
+  </data>
+  <data name="clmnImpureOperation_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Impure Operation</value>
+  </data>
+  <data name="clmnLastExit_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Last Traffic</value>
+  </data>
+  <data name="clmnNameAndFamily_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="clmnNecessaryOperation_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Necessary Operation</value>
+  </data>
+  <data name="clmnPersonnelBarcode_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Personnel Barcode</value>
+  </data>
+  <data name="clmnPresenceDuration_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Presence Duration</value>
+  </data>
+  <data name="clmnRemainLeaveToMonthEnd_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Remain Leave To Month End</value>
+  </data>
+  <data name="clmnRemainLeaveToYearEnd_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Remain Leave To Year End</value>
+  </data>
+  <data name="clmnSecondEntrance_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Third Traffic</value>
+  </data>
+  <data name="clmnSecondExit_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Fourth Traffic</value>
+  </data>
+  <data name="clmnShift_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="clmnThirdEntrance_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Fifth Traffic</value>
+  </data>
+  <data name="clmnThirdExit_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Sixth Traffic</value>
+  </data>
+  <data name="clmnUnallowableAbsence_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Daily Absence</value>
+  </data>
+  <data name="clmnUnallowableOverTime_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Unallowable OverTime</value>
+  </data>
+  <data name="clmnView_GridSummarySettings_ManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="lblFilterBy_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Filter By :</value>
+  </data>
+  <data name="lblFilterTerm_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Filter Term :</value>
+  </data>
+  <data name="lblFilter_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Filter </value>
+  </data>
+  <data name="lblSelectAll_GridSummarySettings_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Select All </value>
+  </data>
+  <data name="lblSortBy_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Sort By :</value>
+  </data>
+  <data name="lblSortDirection_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Sort Direction :</value>
+  </data>
+  <data name="lblSort_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Sort </value>
+  </data>
+  <data name="tblGridSummarySettings_DialogGridSummarySettings.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="tlbItemApplyConditions_TlbApplyConditions_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Apply Conditions</value>
+  </data>
+  <data name="tlbItemExit_TlbGridSummarySettings.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemSave_TlbGridSummarySettings.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="trvDepartments_ManagerMasterMonthlyOperation.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/LeftLines</value>
+  </data>
+  <data name="lblMonth_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Month :</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemGridSettings_TlbManagerMasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>Grid Settings</value>
+  </data>
+  <data name="tlbItemGridSettings_TlbManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Grid Settings</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="hfCloseMessage_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Do you Exit from Monthly Operation Report Form ?</value>
+  </data>
+  <data name="hffooter_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Page 0 of 0</value>
+  </data>
+  <data name="hfheader_Conditions_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="hfheader_GridSummarySettings_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Grid Settings</value>
+  </data>
+  <data name="hfheader_trvDepartments_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Departments</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="cmbItemAscending_cmbSortDirection_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="cmbItemDescending_cmbSortDirection_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="lblRecreateColumns_GridSummarySettings_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Culumns Recreation</value>
+  </data>
+  <data name="hfColumnsRecreation_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Columns Recreating ...</value>
+  </data>
+  <data name="hfloadingPanel_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Loading ... </value>
+  </data>
+  <data name="hfloadingPanel_trvDepartments_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="OrgNode_trvDepartments_ManagerMasterMonthlyOperation" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_trvDepartments_ManagerMasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Month10ee" xml:space="preserve">
+    <value>October</value>
+  </data>
+  <data name="Month10fe" xml:space="preserve">
+    <value>Dey</value>
+  </data>
+  <data name="Month11ee" xml:space="preserve">
+    <value>November</value>
+  </data>
+  <data name="Month11fe" xml:space="preserve">
+    <value>Bahman</value>
+  </data>
+  <data name="Month12ee" xml:space="preserve">
+    <value>December</value>
+  </data>
+  <data name="Month12fe" xml:space="preserve">
+    <value>Esfand</value>
+  </data>
+  <data name="Month1ee" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="Month1fe" xml:space="preserve">
+    <value>Farvardin</value>
+  </data>
+  <data name="Month2ee" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="Month2fe" xml:space="preserve">
+    <value>Ordibehesht</value>
+  </data>
+  <data name="Month3ee" xml:space="preserve">
+    <value>March</value>
+  </data>
+  <data name="Month3fe" xml:space="preserve">
+    <value>Khordad</value>
+  </data>
+  <data name="Month4ee" xml:space="preserve">
+    <value>April</value>
+  </data>
+  <data name="Month4fe" xml:space="preserve">
+    <value>Tir</value>
+  </data>
+  <data name="Month5ee" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="Month5fe" xml:space="preserve">
+    <value>Mordad</value>
+  </data>
+  <data name="Month6ee" xml:space="preserve">
+    <value>June</value>
+  </data>
+  <data name="Month6fe" xml:space="preserve">
+    <value>Shahrivar</value>
+  </data>
+  <data name="Month7ee" xml:space="preserve">
+    <value>July</value>
+  </data>
+  <data name="Month7fe" xml:space="preserve">
+    <value>Mehr</value>
+  </data>
+  <data name="Month8ee" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="Month8fe" xml:space="preserve">
+    <value>Aban</value>
+  </data>
+  <data name="Month9ee" xml:space="preserve">
+    <value>September</value>
+  </data>
+  <data name="Month9fe" xml:space="preserve">
+    <value>Azar</value>
+  </data>
+  <data name="NONE" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="PersonCode" xml:space="preserve">
+    <value>Personnel Code</value>
+  </data>
+  <data name="PersonName" xml:space="preserve">
+    <value>Personnel Name and Family</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="ReserveField1.HeadingText" xml:space="preserve">
+    <value>Name 1</value>
+  </data>
+  <data name="ReserveField2.HeadingText" xml:space="preserve">
+    <value>Name 2</value>
+  </data>
+  <data name="ReserveField3.HeadingText" xml:space="preserve">
+    <value>Name 3</value>
+  </data>
+  <data name="ReserveField4.HeadingText" xml:space="preserve">
+    <value>Name 4</value>
+  </data>
+  <data name="ReserveField5.HeadingText" xml:space="preserve">
+    <value>Name 5</value>
+  </data>
+  <data name="ReserveField6.HeadingText" xml:space="preserve">
+    <value>Name 6</value>
+  </data>
+  <data name="ReserveField7.HeadingText" xml:space="preserve">
+    <value>Name 7</value>
+  </data>
+  <data name="ReserveField8.HeadingText" xml:space="preserve">
+    <value>Name 8</value>
+  </data>
+  <data name="ReserveField9.HeadingText" xml:space="preserve">
+    <value>Name 9</value>
+  </data>
+  <data name="ReserveField10.HeadingText" xml:space="preserve">
+    <value>Name 10</value>
+  </data>
+  <data name="hfheader_GridMonthlyOperationSummary_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>UnderManagement Personnel Operation Summary</value>
+  </data>
+  <data name="gridFields_BarCode" xml:space="preserve">
+    <value>Personnel Code</value>
+  </data>
+  <data name="gridFields_DepartmentName" xml:space="preserve">
+    <value>Department Name</value>
+  </data>
+  <data name="gridFields_Family" xml:space="preserve">
+    <value>Personnel Name and Family</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>Illegal Service Access</value>
+  </data>
+  <data name="InvalidDatabaseStateException" xml:space="preserve">
+    <value>UnderManagement Personnel Not have Parrent Department</value>
+  </data>
+  <data name="MonthlyOpCurentUserIsNotValid" xml:space="preserve">
+    <value>Current User is Invalid</value>
+  </data>
+  <data name="MonthlyOpIDMustSpecified" xml:space="preserve">
+    <value>Grid Settings Identifier is Invalid</value>
+  </data>
+  <data name="UnderManagmentDepartmentNull" xml:space="preserve">
+    <value>UnderManagement Personnel Department is Invalid</value>
+  </data>
+  <data name="tlbItemGraphicalSchema_TlbGraphicalSchema_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Graphical Schema</value>
+  </data>
+  <data name="tlbItemGraphicalSchema_TlbGraphicalSchema_PersonnelMasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>Graphical Schema</value>
+  </data>
+  <data name="tlbItemGridSchema_TlbGridSchema_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Grid Schema</value>
+  </data>
+  <data name="tlbItemGridSchema_TlbGridSchema_PersonnelMasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>Grid Schema</value>
+  </data>
+  <data name="hfConnectionError_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfErrorType_ManagerMasterMonthlyOperation.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="lblQuickSearch_ManagerMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>Search :</value>
+  </data>
+  <data name="tlbItemSearch_TlbManagerMasterMonthlyOperationQuickSearch.ToolTip" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="UnderList" xml:space="preserve">
+    <value>Under List</value>
+  </data>
+</root>

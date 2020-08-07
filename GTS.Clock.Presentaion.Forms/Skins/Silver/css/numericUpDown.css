@@ -1,0 +1,94 @@
+
+.spinInput, .spinContainer
+{
+    background-color: #FFFFFF;
+}
+
+.spinLeftRightEdge, .spinTopBottomEdge
+{
+    position: absolute;
+    overflow: hidden;
+    background-color: #A5ACB2;
+}
+
+.spinContainer
+{
+    position: relative;
+    font-size: 0px;
+    height: 20px;
+}
+
+.spinLeftRightEdge
+{
+    height: 20px;
+    width: 1px;
+}
+
+.spinTopBottomEdge
+{
+    height: 1px;
+    left: 1px;
+}
+
+.spinInput
+{
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    height: 15px;
+    border: 0px;
+    color: Black;
+    font-size: 9pt;
+    font-family: Tahoma;
+}
+
+.spinUpBtn, .spinUpBtnHover, .spinUpBtnPress, .spinDownBtn, .spinDownBtnHover, .spinDownBtnPress
+{
+    position: absolute;
+    width: 15px;
+    height: 8px;
+    right: 2px;
+    background-image: url('../Images/NumericUpDown/spin_control_buttons.png');
+    background-repeat: no-repeat;
+    background-color: #000000;
+}
+
+.spinUpBtn, .spinUpBtnHover, .spinUpBtnPress
+{
+    top: 2px;
+}
+
+.spinDownBtn, .spinDownBtnHover, .spinDownBtnPress
+{
+    top: 10px;
+}
+
+.spinUpBtn
+{
+    background-position: 0px 0px;
+}
+
+.spinUpBtnHover
+{
+    background-position: 0px -16px;
+}
+
+.spinUpBtnPress
+{
+    background-position: 0px -32px;
+}
+
+.spinDownBtn
+{
+    background-position: 0px -8px;
+}
+
+.spinDownBtnHover
+{
+    background-position: 0px -24px;
+}
+
+.spinDownBtnPress
+{
+    background-position: 0px -40px;
+}

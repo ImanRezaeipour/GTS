@@ -1,0 +1,846 @@
+﻿.Calendar_iFrame
+{
+    overflow: auto;
+    width: 630px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.PeriodRepeat_iFrame
+{
+    overflow: auto;
+    width: 350px;
+    height: 300px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.PersonnelMainInformation_iFrame
+{
+    overflow: auto;
+    width: 990px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.PersonnelSearch_iFrame
+{
+    overflow: auto;
+    width: 990px;
+    height: 515px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.ExceptionShifts_tbDetails_iFrame
+{
+    overflow: auto;
+    width: 735px;
+    height: 500px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.LeaveBudget_iFrame
+{
+    overflow: auto;
+    width: 520px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.UserInterfaceAccessLevels_iFrame
+{
+    overflow: auto;
+    width: 600px;
+    height: 490px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.ActiveDirectory_iFrame
+{
+    overflow: auto;
+    width: 735px;
+    height: 355px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.pgvDepartmentsIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvCorporationsIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvPostsIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvEmployTypesIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvShiftIntroduction_iFrame
+{
+    width: 100%;
+    height: 615px;
+    background-color: Transparent;
+}
+
+.pgvWelcome_iFrame
+{
+    width: 100%;
+    height: 550px;
+    background-color: Transparent;
+}
+
+.pgvMissionLocationsIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvWorkGroupsIntroduction_iFrame
+{
+    width: 100%;
+    height: 480px;
+    background-color: Transparent;
+}
+
+.pgvExceptionShiftsIntroduction_iFrame
+{
+    width: 100%;
+    height: 510px;
+    background-color: Transparent;
+}
+
+.pgvPersonnelIntroduction_iFrame
+{
+    width: 100%;
+    height: 590px;
+    background-color: Transparent;
+}
+
+.pgvWorkHeatIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvPreCardIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvControlStationIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvMachineIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvMasterLeaveRemains_iFrame
+{
+    width: 100%;
+    height: 500px;
+    background-color: Transparent;
+}
+
+.pgvPersonnelOrganizationFeaturesChange_iFrame
+{
+    width: 100%;
+    height: 680px;
+    background-color: Transparent;
+}
+
+.pgvUsersIntroduction_iFrame
+{
+    width: 100%;
+    height: 480px;
+    background-color: Transparent;
+}
+
+.pgvRolesIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvPasswordChange_iFrame
+{
+    width: 100%;
+    height: 500px;
+    background-color: Transparent;
+}
+
+.pgvManagerMasterMonthlyOperationReport_iFrame
+{
+    width: 100%;
+    height: 500px;
+    background-color: Transparent;
+}
+
+.pgvPersonnelMasterMonthlyOperationReport_iFrame
+{
+    width: 100%;
+    height: 350px;
+    background-color: Transparent;
+}
+
+.pgvMasterManagersIntroduction_iFrame
+{
+    width: 100%;
+    height: 420px;
+    background-color: Transparent;
+}
+
+.pgvWorkFlowsView_iFrame
+{
+    width: 100%;
+    height: 470px;
+    background-color: Transparent;
+}
+
+.pgvSubstituteIntroduction_iFrame
+{
+    width: 100%;
+    height: 520px;
+    background-color: Transparent;
+}
+
+.pgvPhysicianIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvIllnessIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvCalculationRangeDefinition_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvYearlyHolidaysIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvRulesGroupIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvReportsIntroduction_iFrame
+{
+    width: 100%;
+    height: 460px;
+    background-color: Transparent;
+}
+
+.pgvTrafficsControl_iFrame
+{
+    width: 100%;
+    height: 500px;
+    background-color: Transparent;
+}
+
+.pgvCalculations_iFrame
+{
+    width: 100%;
+    height: 500px;
+    background-color: Transparent;
+}
+
+.MonthlyOperationGridSchema_iFrame
+{
+    overflow: auto;
+    width: 990px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.MonthlyOperationGanttChartSchema_iFrame
+{
+    overflow: auto;
+    width: 990px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.RequestOnTraffic_iFrame
+{
+    overflow: auto;
+    width: 650px;
+    height: 480px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.HourlyRequestOnAbsence_iFrame
+{
+    overflow: auto;
+    width: 650px;
+    height: 480px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.DailyRequestOnAbsence_iFrame
+{
+    overflow: auto;
+    width: 650px;
+    height: 480px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.SystemReports_iFrame 
+{
+    overflow: auto;
+    width: 990px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.MonthlyExceptionShifts_iFrame 
+{
+    overflow: auto;
+    width: 990px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.SystemMessage_iFrame 
+{
+    overflow: auto;
+    width: 600px;
+    height: 330px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.pgvTrafficOperationByOperator_iFrame
+{
+    width: 100%;
+    height: 570px;
+    background-color: Transparent;
+}
+
+.pgvMasterPublicNews_iFrame
+{
+    width: 100%;
+    height: 500px;
+    background-color: Transparent;
+}
+.pgvPrivateMessage_iFrame
+{
+    width: 100%;
+    height: 500px;
+    background-color: Transparent;
+}
+.pgvUiValidation_iFrame
+{
+    width: 100%;
+    height: 500px;
+    background-color: Transparent;
+}
+
+.SendPrivateMessage_iFrame
+{
+    overflow: auto;
+    width: 900px;
+    height: 560px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+.UiValidationRules_iFrame
+{
+    overflow: auto;
+    width: 900px;
+    height: 560px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.CollectiveTraffic_iFrame
+{
+    overflow: auto;
+    width: 700px;
+    height: 500px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.UnderManagementPersonnel_iFrame
+{
+    overflow: auto;
+    width: 900px;
+    height: 560px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.RequestOnUnallowableOverTime_iFrame
+{
+    overflow: auto;
+    width: 650px;
+    height: 490px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.OvertimeJustificationRequest_iFrame
+{
+    overflow: auto;
+    width: 700px;
+    height: 485px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.UserSettings_iFrame
+{
+    overflow: auto;
+    width: 700px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.ShiftsView_iFrame
+{
+    overflow: auto;
+    width: 400px;
+    height: 370px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.ManagersIntroduction_iFrame
+{
+    width: 100%;
+    height: 250px;
+    background-color: Transparent;
+}
+
+.RulesView_iFrame
+{
+    width: 100%;
+    height: 200px;
+    background-color: Transparent;
+}
+
+.Traffics_iFrame
+{
+    width: 100%;
+    height: 220px;
+    background-color: Transparent;
+}
+
+.UnderManagementPersonnelExeptionAccessView_iFrame
+{
+    width: 650PX;
+    height: 380px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.MasterUnderManagementPersonnelExeptionAccessView_iFrame
+{
+    width: 100%;
+    height: 250px;
+    background-color: Transparent;
+}
+
+.UnderManagementPersonnelExeptionAccessCreation_iFrame
+{
+    width: 750PX;
+    height: 470px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.AccessGroups_iFrame
+{
+    width: 750PX;
+    height: 470px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.SubstituteSettings_iFrame
+{
+    width: 750PX;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.ManagersWorkFlow_iFrame
+{
+    width: 500PX;
+    height: 430px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.KartableFilter_iFrame
+{
+    overflow: auto;
+    width: 600px;
+    height: 430px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.RequestsState_iFrame
+{
+    overflow: auto;
+    width: 600px;
+    height: 400px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.UserInformation_iFrame
+{
+    overflow: auto;
+    width: 600px;
+    height: 400px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.Operators_iFrame
+{
+    overflow: auto;
+    width: 800px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.RulesGroupUpdate_iFrame
+{
+    overflow: auto;
+    width: 990px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.RuleParameters_iFrame
+{
+    overflow: auto;
+    width: 700px;
+    height: 490px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.MasterRulesView_iFrame
+{
+    overflow: auto;
+    width: 720px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.Kartable_iFrame
+{
+    overflow: auto;
+    width: 990px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.History_iFrame
+{
+    overflow: auto;
+    width: 600px;
+    height: 280px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.EndorsementFlowState_iFrame
+{
+    overflow: auto;
+    width: 600px;
+    height: 300px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.RegisteredRequests_iFrame
+{
+    overflow: auto;
+    width: 975px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.RequestRegister_iFrame
+{
+    overflow: auto;
+    width: 820px;
+    height: 480px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.LeaveReserve_iFrame
+{
+    overflow: auto;
+    width: 800px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.CalculationRange_iFrame
+{
+    overflow: auto;
+    width: 900px;
+    height: 530px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.PersonnelSingleDateFeatures_iFrame
+{
+    overflow: auto;
+    width: 600px;
+    height: 440px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.PersonnelRulesGroups_iFrame
+{
+    overflow: auto;
+    width: 690px;
+    height: 440px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.PersonnelExtraInformation_iFrame
+{
+    overflow: auto;
+    width: 800px;
+    height: 500px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.PersonnelExtraInformationSettings_iFrame
+{
+    overflow: auto;
+    width: 700px;
+    height: 450px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.ReportParameters_iFrame
+{
+    overflow: auto;
+    width: 990px;
+    height: 580px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.TrafficsTransfer_iFrame
+{
+    overflow: auto;
+    width: 500px;
+    height: 450px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+.MainViewPart1_iFrame
+{
+    width: 100%;
+    height: 195px;
+    background-color: Transparent;
+    background-image: url('../Images/Ghadir/firstP_iframe.jpg');
+    background-repeat: repeat;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
+
+.MainViewPart2_iFrame
+{
+    width: 100%;
+    height: 195px;
+    background-color: Transparent;
+    background-image: url('../Images/Ghadir/firstP_iframe.jpg');
+    background-repeat: repeat;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
+
+.MainViewPart3_iFrame
+{
+    width: 100%;
+    height: 195px;
+    background-color: Transparent;
+    background-image: url('../Images/Ghadir/firstP_iframe.jpg');
+    background-repeat: repeat;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
+
+.MainViewPart4_iFrame
+{
+    width: 100%;
+    height: 195px;
+    background-color: Transparent;
+    background-image: url('../Images/Ghadir/firstP_iframe.jpg');
+    background-repeat: repeat;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
+
+.MainViewPartStyle
+{
+    border: 1px outset black;
+    font-size: small;
+    font-family: Arial;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
+
+.MainViewMaximizedPart_iFrame
+{
+    width: 650px;
+    height: 385px;
+    background-repeat: repeat;
+    background-image: url('../Images/TabStrip/boxstyle_13.png');
+    border: 1px solid #C0C0C0;    
+    background-color:White;
+}
+
+.MasterDataAccessLevels_iFrame
+{
+    overflow: auto;
+    width: 900px;
+    height: 540px;
+    padding: 0px;
+    border: 1px solid #C0C0C0;
+    background-color: White;
+}
+
+

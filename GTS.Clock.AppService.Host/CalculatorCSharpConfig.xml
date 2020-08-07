@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Regions>  
+    <region name="namespace">
+      using System;
+      using System.Linq;
+      using System.Collections.Generic;
+      using GTS.Clock.Model.Business;
+      using GTS.Clock.Model;
+      using System.Reflection;
+      using GTS.Clock.Infrastructure.Exceptions;
+      using GTS.Clock.Infrastructure.Utility;
+      using GTS.Clock.Model.Concepts;
+      using GTS.Clock.Model.Concepts.Operations;
+      using GTS.Clock.Infrastructure.Log;
+    </region>
+    <region name="RuleClassDefinision">
+      namespace GTS.Clock.Model.Calculator {
+      public class RuleCalculator: ObjectCalculator {
+    </region>
+    <region name="ConceptClassDefinision">
+    namespace GTS.Clock.Model.Calculator {
+    public class ConceptCalculator : ObjectCalculator {
+  </region>
+    <region name="RuleVariables">
+      #region Vairables
+      private ConceptCalculator _CnpCalculator;
+      GTSRuleLogger gtsRuleLogger = new GTSRuleLogger();
+      bool logLock = false;
+      #endregion
+    </region>
+    <region name="ConceptVariables">
+    #region Variables
+
+    private IList&lt;ScndCnp&gt; _ScndCnpList;
+
+        #endregion
+  </region>
+    <region name="RuleConstructors">
+      #region Constructors
+     
+      public RuleCalculator(Person Person, CategorisedRule CategorisedRule, DateTime CalculateDate)
+      : base(Person, CategorisedRule, CalculateDate)
+      {
+      this._CnpCalculator = new ConceptCalculator(Person, CategorisedRule, CalculateDate);
+      }
+      #endregion
+    </region>
+    <region name="ConceptConstructors">
+    #region Constructors
+  
+    public ConceptCalculator(Person Person, CategorisedRule CategorisedRule, DateTime CalculateDate)
+    : base(Person, CategorisedRule, CalculateDate)
+    {
+    this._ScndCnpList = ScndCnp.GetScndCnpRepository(false).GetAll();
+    }
+
+    #endregion
+  </region>
+    <region name="RuleProperties">
+      #region Properties
+      public override Person Person
+      {
+      get { return base.Person; }
+      set
+      {
+      base.Person = value;
+      this._CnpCalculator.Person = value;
+      }
+      }
+
+      public override CategorisedRule CategorisedRule
+      {
+      get { return base.CategorisedRule; }
+      set
+      {
+      base.CategorisedRule = value;
+      this._CnpCalculator.CategorisedRule = value;
+      }
+      }
+
+      public override PersianDateTime CalculateDate
+      {
+      get { return base.CalculateDate; }
+      set
+      {
+      base.CalculateDate = value;
+      this._CnpCalculator.CalculateDate = value;
+      }
+      }
+
+      #endregion
+    </region>
+    <region name="RuleMethods">
+      #region Methods
+
+      public void ExecuteRule()
+      {
+      try
+      {
+      base.GetType().InvokeMember(this.CategorisedRule.MethodName, BindingFlags.InvokeMethod, null, this, new object[1] { this.CategorisedRule });
+      }
+      catch (MissingMethodException ex)
+      {
+      throw new ExecuteRuleException(String.Format("تابع {0} معرف قانون {1} موجود نيست", this.CategorisedRule.MethodName, this.CategorisedRule.Name),
+      ExceptionType.CRASH,
+      String.Format("ConceptCalculatro.ExecuteRule({0}.{1})", this.CategorisedRule.Name, this.CategorisedRule.MethodName),
+      ex);
+      }
+      catch (TargetInvocationException ex)
+      {
+      throw new ExecuteRuleException(String.Format(".خطا در اجراي قانون {0}", this.CategorisedRule.MethodName),
+      ExceptionType.CRASH,
+      ex.Message,
+      ex);
+      }
+
+      }
+
+      public BaseScndCnpValue DoConcept(decimal IdentifierCode)
+      {
+      return this._CnpCalculator.DoConcept(IdentifierCode);
+      }
+
+      public BaseScndCnpValue DoConcept(decimal IdentifierCode, PersianDateTime CalculateDate)
+      {
+      return this._CnpCalculator.DoConcept(IdentifierCode, CalculateDate.GregorianDate);
+      }
+
+      public BaseScndCnpValue DoConcept(decimal IdentifierCode, DateTime CalculateDate)
+      {
+      return this._CnpCalculator.DoConcept(IdentifierCode, CalculateDate);
+      }
+
+
+      private void GetLog(string Message, params int[] ConceptsId)
+      {
+      if (!logLock)
+      {
+      string msg = Message + ":";
+      foreach (int cnpId in ConceptsId)
+      {
+      msg += this.DoConcept(cnpId).ToString();
+      }
+      gtsRuleLogger.Logger.Debug(msg);
+      }
+      }
+
+      #endregion
+    </region>
+    <region name="ConceptMethods">
+    #region Methods
+   
+    public BaseScndCnpValue DoConcept(decimal IdentifierCode)
+    {
+    return DoConcept(IdentifierCode, this.CalculateDate.GregorianDate);
+    }
+
+  
+    public BaseScndCnpValue DoConcept(decimal IdentifierCode, PersianDateTime CalculateDate)
+    {
+    return this.DoConcept(IdentifierCode, CalculateDate.GregorianDate);
+    }
+
+    public BaseScndCnpValue DoConcept(decimal IdentifierCode, DateTime CalculateDate)
+    {
+    BaseScndCnpValue value = this.Person.GetScndCnpValueWithDate(IdentifierCode, CalculateDate);
+
+
+    ///مفاهیم ماهانه وقتی مقداردهی می شوند نباید دوباره محاسبه شوند
+    ///بعداز مقداردهی به کارکردخالص باید کارکردخالص ماهانه دوباره محاسبه شود
+
+
+    ///مفاهیم مقدار ماهانه  برای تمام تاریخ ها محاسبه می گردند
+    ///مفهوم باید مشخص کند که مقدار ماهانه، سالانه و ...کلا محدوده ای است یا خیر
+    if (value == null || value.IsValid == false || (value.Concept.IsRangely &amp;&amp; value.CalculationDate != this.CalculateDate.GregorianDate))
+    {
+    if (value == null)
+    {
+    ScndCnp scndCnp = this.GetScndCnp(IdentifierCode);
+
+    if (scndCnp == null)
+    {
+    throw new NullReferenceException(string.Format("مفهوم {0} يافت نشد", IdentifierCode));
+    }
+
+    value = BaseScndCnpValue.GetScndCnpValueFacorty(scndCnp);
+    value.Concept = scndCnp;
+    value.Person = this.Person;
+    this.Person.ScndCnpValueList.Add(value);
+    }
+    value.FromDate = this.CalculateDate.GregorianDate;
+    value.ToDate = this.CalculateDate.GregorianDate;
+    value.IsValid = true;
+    this.ExecuteScndCnp(value.Concept, value);
+
+    return value;
+    }
+    return value;
+    }
+   
+    private ScndCnp GetScndCnp(decimal IdentifierCode)
+    {
+    return this._ScndCnpList
+    .Where(x => x.IdentifierCode == IdentifierCode)
+    .FirstOrDefault();
+    }
+   
+    private void ExecuteScndCnp(BaseScndCnp ScndCnp, BaseScndCnpValue Result)
+    {
+    try
+    {
+    base.GetType().InvokeMember(ScndCnp.MethodName, BindingFlags.InvokeMethod, null, this, new Object[] { Result, ScndCnp }, null);
+    }
+    catch (MissingMethodException ex)
+    {
+    throw new BaseException(String.Format("تابع {0} معرف مفهوم {1} موجود نيست", ScndCnp.MethodName, ScndCnp.Name),
+    String.Format("ConceptCalculator.ExecuteScndCnp({0}.{1})", ScndCnp.Name, ScndCnp.MethodName),
+    ex);
+    }
+    catch (TargetInvocationException ex)
+    {
+    throw new BaseException(String.Format("خطا در اجراي مفهوم {0} در تاریخ {1} میلادی {2}", ScndCnp.MethodName, this.CalculateDate.PersianDate, this.CalculateDate.GregorianDate.ToShortDateString()),
+    String.Format("ConceptCalculator.ExecuteScndCnp({0}.{1})", ScndCnp.Name, ScndCnp.MethodName),
+    ex);
+    }
+    }
+
+    #endregion
+  </region>  
+    <region name="EndOfClass">     
+      }
+    </region>
+    <region name="EndOfNamespace">
+    }
+  </region>
+    <region name="ObjectCalculator">
+      namespace GTS.Clock.Model.Calculator
+      {
+      public class ObjectCalculator
+      {
+      #region Variables
+      private Person person;
+      private CategorisedRule categorisedRle;
+      private PersianDateTime calculateDate;
+      #endregion
+
+      #region Constructors
+     
+      public ObjectCalculator(Person Person, CategorisedRule CategorisedRule, DateTime CalculateDate)
+      {
+      this.person = Person;
+      this.calculateDate = new PersianDateTime(CalculateDate);
+      this.categorisedRle = CategorisedRule;
+      }
+      #endregion
+
+      #region Properties
+      public virtual CategorisedRule CategorisedRule
+      {
+      get { return this.categorisedRle; }
+      set { this.categorisedRle = value; }
+      }
+
+      public virtual Person Person
+      {
+      get { return this.person; }
+      set { this.person = value; }
+      }
+
+      public virtual PersianDateTime CalculateDate
+      {
+      get { return this.calculateDate; }
+      set { this.calculateDate = value; }
+      }
+
+      #endregion
+      }
+      }
+      
+      
+    </region>
+    <region name="RuleCalculatorFactory">
+    namespace GTS.Clock.Model.Calculator
+    {
+    public class RuleCalculatorFactory
+    {
+    #region Variables
+
+    private ObjectCalculator ObjCalc;
+
+    #endregion
+
+    #region Properties
+
+    public T GetCalculator&lt;T&gt;(Person person,
+                                    CategorisedRule CategorisedRule,
+                                    DateTime CalculationDate)
+            where T : ObjectCalculator
+        {
+            switch (typeof(T).Name)
+            {
+                case "RuleCalculator":
+                    {
+                        if (this.ObjCalc != null)
+                        {
+                            this.ObjCalc.Person = person;
+                            this.ObjCalc.CategorisedRule = CategorisedRule;
+                            this.ObjCalc.CalculateDate = new PersianDateTime(CalculationDate);
+                        }
+                        else
+                            ObjCalc = new RuleCalculator(person, CategorisedRule, CalculationDate);
+                        break;
+                    }
+            }
+            return (T)this.ObjCalc;
+        }
+
+        #endregion
+    }
+}
+  </region>
+
+</Regions>

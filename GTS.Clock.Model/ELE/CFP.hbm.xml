@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.CFP, GTS.Clock.Model"
+         table ="TA_Calculation_Flag_Persons" lazy="true">
+    <id name="ID" access="property"  column="CFP_ID" >
+      <generator class="native" />
+    </id>
+    <property name="PrsId"     access="property" column="CFP_PrsId" />
+    <property name="Date"     access="property" column="CFP_Date" />
+    <property name="MidNightCalculate"     access="property" column="CFP_MidNightCalculate" />
+    <property name="CalculationIsValid"     access="property" column="CFP_CalculationIsValid" />
+
+
+  </class>
+</hibernate-mapping>

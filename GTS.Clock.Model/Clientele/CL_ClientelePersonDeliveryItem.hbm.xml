@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+	<class name="GTS.Clock.Model.Clientele.CL_ClientelePersonDeliveryItem, GTS.Clock.Model"
+         table ="CL_ClientelePersonDeliveryItems" lazy="true">
+		
+		<id name="ID" access="property"  column="clpDlv_ID" >
+			<generator class="native" />
+		</id>
+
+		<many-to-one name="ClientelePerson" class="GTS.Clock.Model.Clientele.CL_ClientelePerson, GTS.Clock.Model"  column="clpDlv_ClientelePersonID" lazy="proxy"/>
+		<many-to-one name="DeliveryItem" class="GTS.Clock.Model.Clientele.CL_DeliveryItem, GTS.Clock.Model"  column="clpDlv_DeliveryItemID" lazy="proxy"/>
+	</class>
+	
+</hibernate-mapping>

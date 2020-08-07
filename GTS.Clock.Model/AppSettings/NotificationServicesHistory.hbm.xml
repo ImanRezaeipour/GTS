@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AppSetting.NotificationServicesHistory, GTS.Clock.Model"
+         table ="TA_NotificationServicesHistory" lazy="true">
+    <id name="ID" access="property"  column="ns_ID" >
+      <generator class="native" />
+    </id>
+    <property name="NotificationServiceID"     access="property" column="ns_NotificationServiceID" />
+    <property name="ItemID"     access="property" column="nt_ItemID" />
+    <property name="Date"     access="property" column="nt_Date" />
+
+  </class>
+</hibernate-mapping>

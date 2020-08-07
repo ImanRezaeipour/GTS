@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.Budget, GTS.Clock.Model"
+         table ="TA_Budget" lazy="false">
+
+    <id name="ID" access="property"  column="Bud_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Year" access="property" column="Bud_year" />
+    <property name="Total" access="property" column="Bud_total" />
+    <property name="BudgetType" access="property" column="Bud_BudgetType" />
+
+    <property name="MinutesInFarvardin" access="property" column="Bud_t1" />
+    <property name="MinutesInOrdibehesht" access="property" column="Bud_t2" />
+    <property name="MinutesInKhordad" access="property" column="Bud_t3" />
+    <property name="MinutesInTir" access="property" column="Bud_t4" />
+    <property name="MinutesInMordad" access="property" column="Bud_t5" />
+    <property name="MinutesInShahrivar" access="property" column="Bud_t6" />
+    <property name="MinutesInMehr" access="property" column="Bud_t7" />
+    <property name="MinutesInAban" access="property" column="Bud_t8" />
+    <property name="MinutesInAzar" access="property" column="Bud_t9" />
+    <property name="MinutesInDey" access="property" column="Bud_t10" />
+    <property name="MinutesInBahman" access="property" column="Bud_t11" />
+    <property name="MinutesInEsfand" access="property" column="Bud_t12" />
+
+    <property name="Description" access="property" column="Bud_Description" />
+    
+    <many-to-one name="RuleCategory" column="Bud_RuleCategoryId"  class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model" not-null="true"/>
+    
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="clmDuration_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>مدت</value>
+  </data>
+  <data name="clmnDescription_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="clmnFromHour_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>از ساعت</value>
+  </data>
+  <data name="clmnRequestDate_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>تاریخ ثبت درخواست</value>
+  </data>
+  <data name="clmnRequestType_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>نوع درخواست</value>
+  </data>
+  <data name="clmnState_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>وضعیت</value>
+  </data>
+  <data name="clmnToHour_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>تا ساعت</value>
+  </data>
+  <data name="hfheader_imgbox_OvertimeJustificationRequest_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>درخواست مجوز اضافه کاری</value>
+  </data>
+  <data name="hfheader_RegisteredRequests_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>درخواست های ثبت شده</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="lblAfterTime_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>بعد از وقت</value>
+  </data>
+  <data name="lblBeforeTime_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>قبل از وقت</value>
+  </data>
+  <data name="lblDescription_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>توضیحات :</value>
+  </data>
+  <data name="lblFromDate_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>از تاریخ :</value>
+  </data>
+  <data name="lblFromHour_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>از ساعت :</value>
+  </data>
+  <data name="lblMiddleTime_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>بین وقت</value>
+  </data>
+  <data name="lblOverTimeType_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>نوع اضافه کاری :</value>
+  </data>
+  <data name="lblTimeDuration_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>مدت زمان :</value>
+  </data>
+  <data name="lblTimePeriod_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>بازه زمانی </value>
+  </data>
+  <data name="lblToDate_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>تا تاریخ :</value>
+  </data>
+  <data name="lblToHour_OvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>تا ساعت :</value>
+  </data>
+  <data name="OvertimeJustificationRequestForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="hfTitle_DialogOvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>درخواست مجوز اضافه کاری</value>
+  </data>
+  <data name="tlbItemDelete_TlbOvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="tlbItemSave_TlbOvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>ثبت</value>
+  </data>
+  <data name="tlbItemShiftView_TlbOvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>مشاهده شیفت</value>
+  </data>
+  <data name="tlbItemExit_TlbOvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemHelp_TlbOvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>عملیات درج با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="clmnFromDate_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>از تاریخ </value>
+  </data>
+  <data name="clmnToDate_GridRegisteredRequests_OvertimeJustificationRequest.HeadingText" xml:space="preserve">
+    <value>تا تاریخ</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>تائید شده</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>عملیات حذف با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="hfAdd_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>درج</value>
+  </data>
+  <data name="hfCloseMessage_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>آیا از فرم درخواست مجوز اضافه کاری خارج می شوید ؟ </value>
+  </data>
+  <data name="hfcmbAlarm_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>انتخاب کنید</value>
+  </data>
+  <data name="hfDeleteMessage_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>آیا این درخواست را حذف می کنید ؟</value>
+  </data>
+  <data name="hfDelete_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="hfloadingPanel_GridRegisteredRequests_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>در حال بارگیری ...</value>
+  </data>
+  <data name="hfView_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="NoRequestSelectedforDelete" xml:space="preserve">
+    <value>درخواست برای حذف انتخاب نگردیده است</value>
+  </data>
+  <data name="RequestDateShouldNotEmpty" xml:space="preserve">
+    <value>تاریخ درخواست مقدار نگرفته است</value>
+  </data>
+  <data name="RequestFromDateGreaterThanToDate" xml:space="preserve">
+    <value>تاریخ شروع درخواست بزرگ تر از تاریخ پایان درخواست می باشد</value>
+  </data>
+  <data name="RequestFromTimeGreaterThanToTime" xml:space="preserve">
+    <value>زمان شروع درخواست بزرگ تر از زمان پایان درخواست می باشد</value>
+  </data>
+  <data name="RequestFromToDateNotEqual" xml:space="preserve">
+    <value>تاریخ شروع و پایان درخواست با یکدیگر برابر نمی باشند</value>
+  </data>
+  <data name="RequestOnTrafficForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="RequestOnUnallowableOverTimeForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="RequestPrecardIsEmpty" xml:space="preserve">
+    <value>پیش کارت درخواست مقدار نگرفته است</value>
+  </data>
+  <data name="RequestRepeated" xml:space="preserve">
+    <value>درخواست تکراری می باشد</value>
+  </data>
+  <data name="RequestTimeIsNotValid" xml:space="preserve">
+    <value>زمان درخواست نامعتبر می باشد</value>
+  </data>
+  <data name="RequestTimeShouldNotEmpty" xml:space="preserve">
+    <value>زمان درخواست مقدار نگرفته است</value>
+  </data>
+  <data name="RequestUsedByFlow" xml:space="preserve">
+    <value>درخواست به جریان کاری تخصیص یافته است</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="tlbItemCancel_TlbOvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_GridRegisteredRequests_OvertimeJustificationRequest.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="Unconfirmed" xml:space="preserve">
+    <value>تائید نشده</value>
+  </data>
+  <data name="UnderReview" xml:space="preserve">
+    <value>در حال بررسی</value>
+  </data>
+  <data name="UnKnown" xml:space="preserve">
+    <value>نامشخص</value>
+  </data>
+  <data name="hfConnectionError_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfErrorType_OvertimeJustificationRequest.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbOvertimeJustificationRequest.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>حذف شده</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی به سرویس غیر مجاز می باشد</value>
+  </data>
+  <data name="RequestIsNotAllowed" xml:space="preserve">
+    <value>درخواست غیر مجاز می باشد</value>
+  </data>
+</root>

@@ -1,0 +1,120 @@
+.TopGroup
+{
+    font-family:Tahoma;
+    font-weight:bold;
+}
+
+.Group
+{
+  background-color:Gray;
+  border:solid 1px #737373;
+}
+
+/* Default item styles ------------------------------------ */
+
+.Item
+{
+  font-family:tahoma;
+  font-size:11px;
+  margin:1px;
+  cursor:pointer;
+  color:White;  
+}
+
+.ItemHover
+{
+  background-color:white;
+  background-image:url('../images/Menu/item_bg.gif');
+  color:black;
+  font-family:tahoma;
+  font-size:11px;
+  border:solid 1px #ABABAB;
+  border-right-color:#737373;
+  border-bottom-color:#737373;
+  cursor:pointer;
+}
+
+.ItemExpanded
+{
+  background-color:white;
+  background-image:url('../images/Menu/item_bg.gif');
+  color:black;
+  font-family:tahoma;
+  font-size:11px;
+  border:solid 1px #737373;
+  border-right-color:#ABABAB;
+  cursor:pointer;
+}
+
+/* Selected item styles ------------------------------------ */
+.SelectedItem
+{
+  background-color:bisque;
+  font-family:tahoma;
+  font-size:11px;
+  border:solid 1px #B30000;
+  border-left-color:#FF4C4C;
+  border-top-color:#FF4C4C;
+  cursor:pointer;
+}
+
+.SelectedItemHover
+{
+  background-color:#E9CFB1;
+  color:black;
+  font-family:tahoma;
+  font-size:11px;
+  border:solid 1px #B30000;
+  border-left-color:#FF4C4C;
+  border-top-color:#FF4C4C;
+  cursor:pointer;
+}
+
+.SelectedItemExpanded
+{
+  background-color:#E9CFB1;
+  color:black;
+  font-family:tahoma;
+  font-size:11px;
+  border:solid 1px #FF4C4C;
+  border-left-color:#B30000;
+  border-top-color:#B30000;
+  cursor:pointer;
+}
+
+/* Child selected item styles ------------------------------------ */
+.ChildSelectedItem
+{
+  background-color:bisque;
+  font-family:tahoma;
+  font-size:11px;
+  border:solid 1px #0000B3;
+  border-left-color:#4C4CFF;
+  border-top-color:#4C4CFF;
+  cursor:pointer;
+}
+
+.ChildSelectedItemHover
+{
+  background-color:#E9CFB1;
+  color:black;
+  font-family:tahoma;
+  font-size:11px;
+  border:solid 1px #0000B3;
+  border-left-color:#4C4CFF;
+  border-top-color:#4C4CFF;
+  cursor:pointer;
+}
+
+.ChildSelectedItemExpanded
+{
+  background-color:#E9CFB1;
+  color:black;
+  font-family:tahoma;
+  font-size:11px;
+  border:solid 1px #4C4CFF;
+  border-left-color:#0000B3;
+  border-top-color:#0000B3;
+  cursor:pointer;
+}
+

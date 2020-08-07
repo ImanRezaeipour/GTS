@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.ConceptExpression, GTS.Clock.Model"
+         table ="TA_ConceptExpression" lazy="true">
+    <id name="ID" access="property"  column="Expression_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Parent_ID"						access="property" column="Parent_ID" />
+    <property name="ScriptBeginEn"				access="property" column="ScriptBeginEn" />
+    <property name="ScriptEndEn"					access="property" column="ScriptEndEn" />
+    <property name="ScriptBeginFa"				access="property" column="ScriptBeginFa" />
+    <property name="ScriptEndFa"				  access="property" column="ScriptEndFa" />
+    <property name="AddOnParentCreation"  access="property" column="AddOnParentCreation" />
+    <property name="CanAddToFinal"       access="property" column="CandAddToFinal" />
+    <property name="CanEditInFinal"      access="property" column="CandEditInFinal" />
+    <property name="SortOrder"            access="property" column="SortOrder" />
+    <property name="Visible"            access="property" column="Visible" />
+    <property name="CustomeCategoryCode"            access="property" column="CustomeCategoryCode" />
+    
+    
+
+    
+  </class>
+</hibernate-mapping>

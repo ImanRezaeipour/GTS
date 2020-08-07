@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.BoxService.KartablSummary, GTS.Clock.Model"
+         table ="TA_KartablSummary" lazy="true">
+    <id name="ID" access="property"  column="kartablSmry_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Key"     access="property" column="kartablSmry_Key" />
+    <property name="FnTitle"     access="property" column="kartablSmry_FnTitle" />
+    <property name="EnTitle"     access="property" column="kartablSmry_EnTitle" />
+    <property name="Order"     access="property" column="kartablSmry_Order" />
+    <property name="Active"     access="property" column="kartablSmry_Active" />
+
+
+  </class>
+</hibernate-mapping>

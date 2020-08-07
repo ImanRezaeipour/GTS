@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.0" application="StiStylesSheet">
+  <Styles isList="true" count="1">
+    <DataBand1Style Ref="1" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;Transparent;1;Solid;False;4;Black</Border>
+      <Brush>MistyRose</Brush>
+      <Description>Style based on formating of 'DataBand1' component</Description>
+      <Font>Arial,8</Font>
+      <Name>DataBand1Style</Name>
+      <StyleCode>None</StyleCode>
+      <TextBrush>Black</TextBrush>
+    </DataBand1Style>
+  </Styles>
+</StiSerializer>

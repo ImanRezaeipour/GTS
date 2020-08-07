@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Charts.Unit, GTS.Clock.Model"
+         table ="TA_Unit" lazy="true">
+
+    <id name="ID" access="property"  column="unit_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="Name" access="property" column="Unit_name"/>
+    <property name="Path" access="property" column="Unit_Path"/>
+
+   <many-to-one name="Parent" column="Unit_ParentId" class="GTS.Clock.Model.Charts.Unit, GTS.Clock.Model" not-null="false"/>
+    
+    <bag name="ChildList" table="TA_Unit" lazy="true">
+      <key column="Unit_ParentId"></key>
+      <one-to-many class="GTS.Clock.Model.Charts.Unit, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="PersonList" table="TA_PersonUnit" lazy="true" >
+      <key column="PrsUnit_UnitId"></key>
+      <many-to-many class="GTS.Clock.Model.Person, GTS.Clock.Model" column="PrsUnit_PersonId"></many-to-many>
+    </bag>
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="clmnBarCode_GridPersonnel_Departments.HeadingText" xml:space="preserve">
+    <value>BarCode</value>
+  </data>
+  <data name="clmnName_GridPersonnel_Departments.HeadingText" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="DepartmentsForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="header_BoxPersonnel_Departments.Text" xml:space="preserve">
+    <value>Personnel</value>
+  </data>
+  <data name="lblDepartmentCodeView_DepartmentIntroduction.Text" xml:space="preserve">
+    <value>Department Code View</value>
+  </data>
+  <data name="lblDepartmentCode_DepartmentIntroduction.Text" xml:space="preserve">
+    <value>Department Code :</value>
+  </data>
+  <data name="lblDepartmentName_DepartmentIntroduction.Text" xml:space="preserve">
+    <value>Department Name :</value>
+  </data>
+  <data name="lblPageIndex_Personnel_Departments.Text" xml:space="preserve">
+    <value>Page 0 of 0</value>
+  </data>
+  <data name="tblDepartmentCodeView_DepartmentIntroduction.width" xml:space="preserve">
+    <value>75%</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_Personnel_Departments.ImageUrl" xml:space="preserve">
+    <value>Before.png</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_Personnel_Departments.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemDelete_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="tlbItemEdit_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="tlbItemExit_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_Personnel_Departments.ImageUrl" xml:space="preserve">
+    <value>First.png</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_Personnel_Departments.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemHelp_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_Personnel_Departments.ImageUrl" xml:space="preserve">
+    <value>Last.png</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_Personnel_Departments.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemMessage_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="tlbItemNew_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_Personnel_Departments.ImageUrl" xml:space="preserve">
+    <value>Next.png</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_Personnel_Departments.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_Personnel_Departments.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemSave_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="trvDepartmentsIntroduction_DepartmentIntroduction.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/LeftLines</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>Insert Operation Completed Successfully</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>Delete Operation Completed Successfully</value>
+  </data>
+  <data name="DepNameRequierd" xml:space="preserve">
+    <value>Department Name is Not Valued</value>
+  </data>
+  <data name="DepParentIDRequierd" xml:space="preserve">
+    <value>Parent Department is Not Selected</value>
+  </data>
+  <data name="DepParentNotExists" xml:space="preserve">
+    <value>Parent Department is Not Valid</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>Update Operation Completed Successfully</value>
+  </data>
+  <data name="hfheader_DepartmentDetails_DepartmentIntroduction.Value" xml:space="preserve">
+    <value>Department Details</value>
+  </data>
+  <data name="hfheader_Departments_DepartmentIntroduction.Value" xml:space="preserve">
+    <value>Departments</value>
+  </data>
+  <data name="OrgNode_trvDepartmentsIntroduction_DepartmentIntroduction" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="RetWarningType" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="tlbItemCancel_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DepartmentRootMoreThanOne" xml:space="preserve">
+    <value>Department germ count in database is Invalid.</value>
+  </data>
+  <data name="hfAdd_Departments.Value" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="hfCloseMessage_Departments.Value" xml:space="preserve">
+    <value>Do you Exit from Departments Form ?</value>
+  </data>
+  <data name="hfDeleteMessage_Departments.Value" xml:space="preserve">
+    <value>Do you Delete this Department ?</value>
+  </data>
+  <data name="hfDelete_Departments.Value" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="hfEdit_Departments.Value" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="hfloadingPanel_trvDepartmentsIntroduction_DepartmentIntroduction.Value" xml:space="preserve">
+    <value>Loading .... </value>
+  </data>
+  <data name="hfView_Departments.Value" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>Illegal Service Access.</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier:</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_trvDepartmentsIntroduction_DepartmentIntroduction.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="ItemNotExist" xml:space="preserve">
+    <value>No Department exists with this Identifier </value>
+  </data>
+  <data name="DepartmentRepeatedName" xml:space="preserve">
+    <value>Department Name is Duplicated</value>
+  </data>
+  <data name="DepUsedByPersons" xml:space="preserve">
+    <value>this Department Assigned to Personnel</value>
+  </data>
+  <data name="DepartCustomCodeRepeated" xml:space="preserve">
+    <value>Department Code is Duplicated</value>
+  </data>
+  <data name="NoDepartmentSelectedforDelete" xml:space="preserve">
+    <value>No Department Selected for Delete</value>
+  </data>
+  <data name="NoDepartmentSelectedforEdit" xml:space="preserve">
+    <value>No Department Selected for Edit</value>
+  </data>
+  <data name="DepartmentRootDeleteIllegal" xml:space="preserve">
+    <value>Department Root Delete is Illegal</value>
+  </data>
+  <data name="hfConnectionError_Departments.Value" xml:space="preserve">
+    <value>Server Connection Problem </value>
+  </data>
+  <data name="hfErrorType_Departments.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbDepartmentsIntroduction.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+</root>

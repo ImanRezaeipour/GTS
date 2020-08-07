@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.ArchiveConceptValue, GTS.Clock.Model"
+         table ="TA_ArchiveConceptValue"  lazy="false">
+    <id name="ID" access="property"  column="CnpValue_ID" >
+      <generator class="native" />
+    </id>
+
+
+    <property name="PersonId"           access="property" column="CnpValue_PersonId" update="false" />
+    <property name="Value"           access="property" column="CnpValue_Value"/>
+    <property name="ChangedValue"    access="property" column="CnpValue_ChangedValue"/>  
+    <property name="FromDate"        access="property" column="CnpValue_FromDate"/>
+    <property name="ToDate"          access="property" column="CnpValue_ToDate"/>
+    <property name="RangeOrder"          access="property" column="CnpValue_RangeOrder"/>
+    <property name="Year"          access="property" column="CnpValue_Year"/>
+    <property name="Index"           access="property" column="CnpValue_Index"/>
+    <property name="ModifiedPersonId"           access="property" column="CnpValue_ModifiedPersonId"/>
+    <property name="ModifiedDate"           access="property" column="CnpValue_ModifiedDate"/>
+
+    <many-to-one name="Concept" column="CnpValue_ConceptTmpId" class="GTS.Clock.Model.Concepts.SecondaryConcept, GTS.Clock.Model" outer-join="true" not-null="true" update="false" insert="false"/>
+    <many-to-one name="Person" column="CnpValue_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true" update="false" insert="false"/>
+  </class>  
+
+  <sql-query name="GetPeriodicConceptValues">
+    <return alias="PeriodicConceptValueList" class="GTS.Clock.Model.MonthlyReport.ScndCnpValue, GTS.Clock.Model" />
+    <![CDATA[
+declare @personId decimal(28,5),@date datetime,@order int
+set @personId=:personId
+set @date=:Date
+set @order=:order
+
+select 
+			   PeriodicCnp_CnpTmpId		 AS CnpValue_PeriodicScndCnpId, 
+	           PeriodicCnp_PersonId		 AS CnpValue_PersonId,
+	           PeriodicCnp_KeyColumnName AS CnpValue_KeyColumnName,     
+	           PeriodicCnp_FromDate		 AS CnpValue_PeriodicFromDate,	   
+	           PeriodicCnp_ToDate		 AS CnpValue_PeriodicToDate,	          
+	           isnull(ScndCnpValue.ScndCnpValue_Value,-1) AS CnpValue_PeriodicValue,
+	           isnull(ScndCnpValue.ScndCnpValue_ID,-1)    AS CnpValue_PeriodicID	
+	            from (SELECT  CalcDateRange_ID					         AS PeriodicCnp_ID,
+                         PrsRangeAsg.PrsRangeAsg_PersonId		 AS PeriodicCnp_PersonId, 
+					               CalcDateRange_ConceptTmpId	 AS PeriodicCnp_CnpTmpId, 
+					               ConceptTmp_KeyColumnName 	 AS PeriodicCnp_KeyColumnName, 
+					               dbo.TA_ASM_CalculateFromDateRange(@date, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													             AS PeriodicCnp_FromDate,
+					               dbo.TA_ASM_CalculateToDateRange(@date, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													             AS PeriodicCnp_ToDate
+			           FROM (SELECT * 
+		 		               FROM dbo.TA_CalculationDateRange 
+				               WHERE CalcDateRange_Order = @order
+                      ) AS CalcDateRng
+			           INNER JOIN (SELECT * 
+						                 FROM dbo.TA_ConceptTemplate 
+						                 WHERE ConceptTmp_IsPeriodic = 1
+                            ) AS Concept
+			           ON CalcDateRange_ConceptTmpId = Concept.ConceptTmp_ID		  
+			           INNER JOIN (SELECT TOP(1) PrsRangeAsg_CalcRangeGrpId, PrsRangeAsg_PersonId
+						                 FROM TA_PersonRangeAssignment								 
+						                 WHERE PrsRangeAsg_FromDate <= @date
+						                 AND PrsRangeAsg_PersonId = @personId	
+						                 ORDER BY PrsRangeAsg_FromDate DESC
+                            ) AS PrsRangeAsg
+			           ON CalcDateRange_CalcRangeGrpId = PrsRangeAsg.PrsRangeAsg_CalcRangeGrpId
+			           INNER JOIN TA_CalculationRangeGroup
+			           ON CalcDateRange_CalcRangeGrpId = CalcRangeGroup_ID
+            WHERE ConceptTmp_KeyColumnName IS NOT NULL
+					AND
+			      ConceptTmp_KeyColumnName <> ''              
+		   ) AS PeriodicCnp       
+      OUTER APPLY dbo.TA_GetPeriodicScndCnpValue(PeriodicCnp.PeriodicCnp_PersonId, 
+									             PeriodicCnp.PeriodicCnp_CnpTmpId, 
+									             PeriodicCnp.PeriodicCnp_FromDate, 
+									             PeriodicCnp.PeriodicCnp_ToDate)AS ScndCnpValue
+]]>
+  </sql-query>
+
+
+</hibernate-mapping>

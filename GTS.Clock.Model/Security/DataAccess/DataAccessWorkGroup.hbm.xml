@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.DAWorkGroup, GTS.Clock.Model"
+         table ="TA_DataAccessWorkGroup" lazy="true">
+    <id name="ID" access="property"  column="DataAccessWorkGrp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessWorkGrp_UserID" />
+    <property name="WorkGrpID"     access="property" column="DataAccessWorkGrp_WorkGrpID" />
+    <property name="All"     access="property" column="DataAccessWorkGrp_All" />
+
+
+  </class>
+</hibernate-mapping>

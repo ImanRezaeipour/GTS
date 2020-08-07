@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.PersonInfo.PersonReserveField, GTS.Clock.Model"
+         table ="TA_PersonReserveField" lazy="true">
+    <id name="ID" access="property"  column="ReserveField_ID" >
+      <generator class="native" />
+    </id>
+    <property name="OrginalName"     access="property" column="ReserveField_OrginalName" />
+    <property name="Lable"     access="property" column="ReserveField_Lable" />
+    <property name="ControlType"     access="property" column="ReserveField_Type" />
+    <property name="SubSystemId"     access="property" column="ReserveField_SubSystemId" />
+
+    <bag name="ComboItems" table="TA_PersonReserveFieldComboValue" cascade="all-delete-orphan" inverse="true">
+      <key column="ReserveComboValue_ReserveFieldID"></key>
+      <one-to-many class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

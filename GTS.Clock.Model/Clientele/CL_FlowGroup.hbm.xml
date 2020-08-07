@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_FlowGroup, GTS.Clock.Model"
+         table ="CL_FlowGroup" lazy="true">
+    <id name="ID" access="property"  column="FlowGroup_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="FlowGroup_Name" />
+    <property name="Description"  access="property" column="FlowGroup_Description" />        
+  </class>
+</hibernate-mapping>

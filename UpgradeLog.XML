@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="GTS.Clock">
+</Property><Property Name="Solution File" Value="E:\Projects\Elaboration\GTS-Docs on Jafari\New GTS.Clock\GTS.Clock\GTS.Clock.sln">
+</Property><Property Name="Date" Value="2011/07/04">
+</Property><Property Name="Time" Value="15:30 ب.ظ">
+</Property></Properties><Event ErrorLevel="0" Project="GTS.Clock.BL.Common" Source="GTS.Clock.BL.Common\GTS.Clock.BL.Common.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.BL.Common" Source="GTS.Clock.BL.Common\GTS.Clock.BL.Common.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.Mapper" Source="GTS.Clock.BL.Mapper\GTS.Clock.BL.Mapper.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.BL.Mapper" Source="GTS.Clock.BL.Mapper\GTS.Clock.BL.Mapper.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.CodeGenTemplate" Source="GTS.Clock.BL.CodeGenTemplate\GTS.Clock.BL.CodeGenTemplate.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.BL.CodeGenTemplate" Source="GTS.Clock.BL.CodeGenTemplate\GTS.Clock.BL.CodeGenTemplate.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.DAL.Core" Source="GTS.Clock.DAL.Core\GTS.Clock.DAL.Core.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.DAL.Core" Source="GTS.Clock.DAL.Core\GTS.Clock.DAL.Core.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.Utils" Source="GTS.Clock.Utils\GTS.Clock.Utils.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.Utils" Source="GTS.Clock.Utils\GTS.Clock.Utils.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.WinUI" Source="GTS.Clock.WinUI\GTS.Clock.WinUI.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.WinUI" Source="GTS.Clock.WinUI\GTS.Clock.WinUI.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.CodeGen" Source="GTS.Clock.BL.CodeGen\GTS.Clock.BL.CodeGen.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.BL.CodeGen" Source="GTS.Clock.BL.CodeGen\GTS.Clock.BL.CodeGen.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.CodeGenerated.Rule" Source="GTS.Clock.BL.CodeGenerated.Rule\GTS.Clock.BL.CodeGenerated.Rule.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.BL.CodeGenerated.Rule" Source="GTS.Clock.BL.CodeGenerated.Rule\GTS.Clock.BL.CodeGenerated.Rule.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.CodeGenerated.Concept" Source="GTS.Clock.BL.CodeGenerated.Concept\GTS.Clock.BL.CodeGenerated.Concept.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.BL.CodeGenerated.Concept" Source="GTS.Clock.BL.CodeGenerated.Concept\GTS.Clock.BL.CodeGenerated.Concept.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.DALInterface" Source="GTS.Clock.BL.DALInterface\GTS.Clock.BL.DALInterface.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="GTS.Clock.BL.DALInterface" Source="GTS.Clock.BL.DALInterface\GTS.Clock.BL.DALInterface.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="GTS.Clock.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="GTS.Clock.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.Common" Source="GTS.Clock.BL.Common\GTS.Clock.BL.Common.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.Mapper" Source="GTS.Clock.BL.Mapper\GTS.Clock.BL.Mapper.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.CodeGenTemplate" Source="GTS.Clock.BL.CodeGenTemplate\GTS.Clock.BL.CodeGenTemplate.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.DAL.Core" Source="GTS.Clock.DAL.Core\GTS.Clock.DAL.Core.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.Utils" Source="GTS.Clock.Utils\GTS.Clock.Utils.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.WinUI" Source="GTS.Clock.WinUI\GTS.Clock.WinUI.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.CodeGen" Source="GTS.Clock.BL.CodeGen\GTS.Clock.BL.CodeGen.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.CodeGenerated.Rule" Source="GTS.Clock.BL.CodeGenerated.Rule\GTS.Clock.BL.CodeGenerated.Rule.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.CodeGenerated.Concept" Source="GTS.Clock.BL.CodeGenerated.Concept\GTS.Clock.BL.CodeGenerated.Concept.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="GTS.Clock.BL.DALInterface" Source="GTS.Clock.BL.DALInterface\GTS.Clock.BL.DALInterface.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

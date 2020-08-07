@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RequestFlow.ImperativeRequest, GTS.Clock.Model"
+         table ="TA_ImperativeRequest" lazy="true">
+    <id name="ID" access="property"  column="imperativeRequest_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Year"     access="property" column="imperativeRequest_Year" />
+    <property name="Month"     access="property" column="imperativeRequest_Month" />
+    <property name="Value"     access="property" column="imperativeRequest_Value" />
+    <property name="IsLocked"     access="property" column="imperativeRequest_IsLocked" />
+    <property name="Description"     access="property" column="imperativeRequest_Description" />
+
+    <many-to-one name="Precard" column="imperativeRequest_PrecardID" class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model" />
+    <many-to-one name="Person" column="imperativeRequest_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+
+  </class>
+</hibernate-mapping>

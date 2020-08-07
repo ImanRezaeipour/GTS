@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="clmnAccess_GridUnderManagementPersonnel_UnderManagementPersonnel.HeadingText" xml:space="preserve">
+    <value>Access</value>
+  </data>
+  <data name="clmnName_GridUnderManagementPersonnel_UnderManagementPersonnel.HeadingText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="clmnSubDepartment_GridUnderManagementPersonnel_UnderManagementPersonnel.HeadingText" xml:space="preserve">
+    <value>Sub Department</value>
+  </data>
+  <data name="clmnType_GridUnderManagementPersonnel_UnderManagementPersonnel.HeadingText" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="hfheader_ManagerFeturesBox_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Managers</value>
+  </data>
+  <data name="header_ManagersSearch_UnderManagementPersonnel" xml:space="preserve">
+    <value>Manager Search</value>
+  </data>
+  <data name="hfheader_OrganizationPersonnelBox_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Organization Personnel</value>
+  </data>
+  <data name="hfheader_UnderManagementPersonnelBox_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>UnderManagement Personnel</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="lblAccessGroup_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Access Group :</value>
+  </data>
+  <data name="lblLevel_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Level :</value>
+  </data>
+  <data name="lblManagerBarcode_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Barcode :</value>
+  </data>
+  <data name="lblManagerName_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="lblManagerOrganizationRole_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Organization Role :</value>
+  </data>
+  <data name="lblPersonnel_ManagersSearch_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Manager Search</value>
+  </data>
+  <data name="hfTitle_DialogUnderManagementPersonnel.Value" xml:space="preserve">
+    <value>UnderManagement Personnel</value>
+  </data>
+  <data name="tlbItemAccessGroup_TlbAccessGroup_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Access Group</value>
+  </data>
+  <data name="tlbItemAdd_TlbInterAction_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tlbItemAdvancedSearch_TlbAdvancedSearch_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_PersonnelSearch_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemCancel_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemDelete_TlbInterAction_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="tlbItemExeptionAccessView_TlbUnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Exception Access View</value>
+  </data>
+  <data name="tlbItemExit_TlbUnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_PersonnelSearch_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemHelp_TlbUnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_PersonnelSearch_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemLevel_TlbLevel_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_PersonnelSearch_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemExeptionAccessCreation_TlbUnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Exeption Access Creation</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_PersonnelSearch_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemSave_TlbUnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tlbItemSearch_TlbSearchPersonnel_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="UnderManagementPersonnelForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="trvOrganizationPersonnel_UnderManagementPersonnel.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/LeftLines</value>
+  </data>
+  <data name="tlbItemWorkFlow_TlbUnderManagementPersonnel.Text" xml:space="preserve">
+    <value>WorkFlow</value>
+  </data>
+  <data name="hfheader_OrganizationPosts_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Organization Posts</value>
+  </data>
+  <data name="trvOrganizationPost_UnderManagementPersonnel.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/LeftLines</value>
+  </data>
+  <data name="hfheader_OrganizationPostSearch_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Organization Post Search</value>
+  </data>
+  <data name="lblManagerOrganizationPost_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Organization Post :</value>
+  </data>
+  <data name="lblManagersSearch_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Personnel Search</value>
+  </data>
+  <data name="lblOrganizationPost_ManagersSearch_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Organization Post :</value>
+  </data>
+  <data name="lblPersonnel_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Personnel :</value>
+  </data>
+  <data name="lblPostSearchResult_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Post Search Results :</value>
+  </data>
+  <data name="lblPostsSearch_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Organization Post Search</value>
+  </data>
+  <data name="lblSearchTerm_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Search Term :</value>
+  </data>
+  <data name="tlbItemPostSearch_TlbPostSearch_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Search </value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Personnel Code</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="lblFlowName_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Flow Name :</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="hfclmnCardNum_cmbPersonnel_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="hfCloseMessage_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Do you Exit from UnderManagement Pesonnel Form ?</value>
+  </data>
+  <data name="hfloadingPanel_trvOrganizationPosts_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="OrgNode_trvPosts_Post" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_trvOrganizationPosts_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="hfcmbAlarm_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="hfloadingPanel_GridUnderManagementPersonnel_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="hfloadingPanel_trvOrganizationPersonnel_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_GridUnderManagementPersonnel_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_trvOrganizationPersonnel_UnderManagementPersonnel.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="AddItem_contextMenu_trvOrganizationPersonnel_UnderManagementPersonnel.Look-RightIconUrl" xml:space="preserve">
+    <value>arrow-right.png</value>
+  </data>
+  <data name="AddItem_contextMenu_trvOrganizationPersonnel_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="DeleteItem_contextMenu_GridUnderManagementPersonnel_UnderManagementPersonnel.Look-LeftIconUrl" xml:space="preserve">
+    <value>arrow-left.png</value>
+  </data>
+  <data name="DeleteItem_contextMenu_GridUnderManagementPersonnel_UnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="DepartmentRootMoreThanOne" xml:space="preserve">
+    <value>Departments germ Count in database is Invalid</value>
+  </data>
+  <data name="hfAdd_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="hfEdit_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="OrganizationUnitRootMoreThanOne" xml:space="preserve">
+    <value>Organization Units germ Count in database is Invalid</value>
+  </data>
+  <data name="Person" xml:space="preserve">
+    <value>Personnel</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>Insert Operation Completed Successfully</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>Update Operation Completed Successfully</value>
+  </data>
+  <data name="NoManagerSelectedforEdit" xml:space="preserve">
+    <value>No Manager Selected for Edit</value>
+  </data>
+  <data name="cmbPersonnel_UnderManagementPersonnel.DropDownOffsetX" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="NoFlowSelectedforEdit" xml:space="preserve">
+    <value>No Flow is Selected for Edit</value>
+  </data>
+  <data name="ParentDepPersonnelNodeFillProblem" xml:space="preserve">
+    <value>Problem in Parent Department Personnel  Information Fill</value>
+  </data>
+  <data name="ParentOrgPostNodeFillProblem" xml:space="preserve">
+    <value>Problem in Parent Organization Post  Information Fill</value>
+  </data>
+  <data name="tlbItemAdd_TlbInterAction_UnderManagementPersonnel.ImageUrl" xml:space="preserve">
+    <value>arrow-right.png</value>
+  </data>
+  <data name="tlbItemDelete_TlbInterAction_UnderManagementPersonnel.ImageUrl" xml:space="preserve">
+    <value>arrow-left.png</value>
+  </data>
+  <data name="FlowAccessGroupRepeated" xml:space="preserve">
+    <value>Flow Access Group is Duplicated</value>
+  </data>
+  <data name="FlowAccessGroupRequierd" xml:space="preserve">
+    <value>Flow Access Group is Not Valued</value>
+  </data>
+  <data name="FlowNameRepeated" xml:space="preserve">
+    <value>Flow Name is Duplicated</value>
+  </data>
+  <data name="FlowNameRequierd" xml:space="preserve">
+    <value>Flow Name is Not Valued</value>
+  </data>
+  <data name="FlowPersonOrOrganizationMustSpecified" xml:space="preserve">
+    <value>Personnel or Organization Post for Flow is Not Valued</value>
+  </data>
+  <data name="hfConnectionError_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfErrorType_UnderManagementPersonnel.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ManagerOwnerNotSpecified" xml:space="preserve">
+    <value>Manger Personnel or Organization Post is Not Specified</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbUnderManagementPersonnel.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>Illegal Service Access</value>
+  </data>
+</root>

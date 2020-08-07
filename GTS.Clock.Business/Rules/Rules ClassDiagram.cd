@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
+  <Class Name="GTS.Clock.Business.Rules.BRuleType">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAAAAAAAAAQAAABAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>Rules\BRuleType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BRuleCategory">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gJAAAAIAAIAAAAAAAACAAAAAAAAAAAAAAbCAAAQQAAA=</HashCode>
+      <FileName>Rules\BRuleCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BRule">
+    <Position X="8.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIBAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>Rules\BRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BDateRange">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAIAAIAAAAAAAAAAAAAAAAAAAAAEACAAAAAAABA=</HashCode>
+      <FileName>Rules\BDateRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseBusiness&lt;T&gt;">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Members" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAQBAEIAAoAAAAACAAAAAAIAAAECAAAAAiAEgAAAAAA=</HashCode>
+      <FileName>BaseBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BConcept">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Rules\BConcepts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

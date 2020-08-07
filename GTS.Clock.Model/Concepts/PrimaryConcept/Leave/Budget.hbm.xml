@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.Budget, GTS.Clock.Model"
+         table ="TA_Budget" lazy="true">
+
+    <id name="ID" access="property"  column="Budget_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Date"   access="property" column="Budget_Date" />
+    <property name="Day"    access="property" column="Budget_Day" />
+    <property name="Minute" access="property" column="Budget_Minute" />
+    <property name="Type"   access="property" column="Budget_Type" />
+    <property name="Description" access="property" column="Budget_Description" />
+    <property name="Applyed"     access="property" column="Budget_Applyed" />
+    
+    <many-to-one name="RuleCategory" column="Budget_RuleCatId"  class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model" not-null="true"/>    
+  </class>
+</hibernate-mapping>

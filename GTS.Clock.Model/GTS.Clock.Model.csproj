@@ -1,0 +1,800 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1BFA345B-4FB1-4618-9BF3-6BD1C5B1BBB6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GTS.Clock.Model</RootNamespace>
+    <AssemblyName>GTS.Clock.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/GTS.Clock.Model/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\DependentDLLs\ETC\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSettings\ApplicationSettings.cs" />
+    <Compile Include="AppSettings\DashboardSettings.cs" />
+    <Compile Include="AppSettings\EmailSettings.cs" />
+    <Compile Include="AppSettings\IApplicationSettingsRepository.cs" />
+    <Compile Include="AppSettings\ApplicationLanguageSettings.cs" />
+    <Compile Include="AppSettings\NotificationServicesHistory.cs" />
+    <Compile Include="AppSettings\SMSSettings.cs" />
+    <Compile Include="AppSettings\UISkin.cs" />
+    <Compile Include="Base Information\Clock.cs" />
+    <Compile Include="Base Information\ClockType.cs" />
+    <Compile Include="Base Information\Corporation.cs" />
+    <Compile Include="Base Information\Dashboards.cs" />
+    <Compile Include="Base Information\ExistConcepts.cs" />
+    <Compile Include="Base Information\Grade.cs" />
+    <Compile Include="Base Information\UI\GanttChartClientSettings.cs" />
+    <Compile Include="Base Information\UI\KartablSummary.cs" />
+    <Compile Include="Base Information\UI\MonthlyOperationGridMasterGeneralSettings.cs" />
+    <Compile Include="Base Information\UI\MonthlyOperationGridMasterSettings.cs" />
+    <Compile Include="Base Information\UI\PrivateMessage.cs" />
+    <Compile Include="Base Information\UI\PublicMessage.cs" />
+    <Compile Include="Charts\DepartmentPosition.cs" />
+    <Compile Include="Clientele\BaseClienteleEnity.cs" />
+    <Compile Include="Clientele\CL_Car.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clientele\CL_ClientelePersonDeliveryItem.cs" />
+    <Compile Include="Clientele\CL_ClientelePersonTraffic.cs" />
+    <Compile Include="Clientele\CL_DataAccessCtrlStation.cs" />
+    <Compile Include="Clientele\CL_DataAccessDepartment.cs" />
+    <Compile Include="Clientele\CL_DataAccessCorporation.cs" />
+    <Compile Include="Clientele\CL_DataAccessOrganizationUnit.cs" />
+    <Compile Include="Clientele\CL_DeliveryItem.cs" />
+    <Compile Include="Clientele\CL_FlowGroup.cs" />
+    <Compile Include="Clientele\InfoOffishRequest.cs" />
+    <Compile Include="Clientele\IRequestUIValidation.cs" />
+    <Compile Include="Clientele\CL_Permit.cs" />
+    <Compile Include="Clientele\CL_PermitPair.cs" />
+    <Compile Include="Clientele\RegisteredRequestsFlowLevel.cs" />
+    <Compile Include="Clientele\CL_UnderManagement.cs" />
+    <Compile Include="Clientele\CL_Substitute.cs" />
+    <Compile Include="Clientele\CL_Operator.cs" />
+    <Compile Include="Clientele\CL_OffishTypeAccessGroup.cs" />
+    <Compile Include="Clientele\CL_DataAccessOffishType.cs" />
+    <Compile Include="Clientele\CL_DataAccessManager.cs" />
+    <Compile Include="Clientele\CL_DataAccessFlow.cs" />
+    <Compile Include="Clientele\CL_ClienteleBlackList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clientele\CL_Contractor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clientele\CL_Equipment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clientele\CL_EquipmentBlackList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clientele\CL_EquipmentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clientele\CL_Flow.cs" />
+    <Compile Include="Clientele\CL_Manager.cs" />
+    <Compile Include="Clientele\CL_ManagerFlow.cs" />
+    <Compile Include="Clientele\CL_OffishRequestStatus.cs" />
+    <Compile Include="Clientele\CL_ClientelePerson.cs" />
+    <Compile Include="Clientele\CL_OffishType.cs" />
+    <Compile Include="Clientele\CL_OffishRequest.cs" />
+    <Compile Include="Clientele\CL_OffishTypeGroup.cs" />
+    <Compile Include="Clientele\CL_UnderManagementPerson.cs" />
+    <Compile Include="Concepts\ArchiveCalculations\ArchiveConceptValue.cs" />
+    <Compile Include="Concepts\ArchiveCalculations\ArchiveFieldMap.cs" />
+    <Compile Include="Concepts\ArchiveCalculations\ArchiveConceptValues.cs" />
+    <Compile Include="Concepts\AssignedConcept\CurrentYearBudget.cs" />
+    <Compile Include="Concepts\AssignedConcept\PersistedScndCnpPrdValue.cs" />
+    <Compile Include="Concepts\Calender\Calendar.cs" />
+    <Compile Include="Concepts\Calender\CalendarType.cs" />
+    <Compile Include="Concepts\Calender\HolidaysTemplate.cs" />
+    <Compile Include="Concepts\Calender\ICalenderRepository.cs" />
+    <Compile Include="Concepts\Maker\ConceptExpressions.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\Budget.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\BudgetLCR.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\IBudgetYearRepository.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\LeaveCalcResult.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\LeaveIncDec.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\LeaveIncDecLCR.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\LeaveSetting.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\LeaveYearRemain.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\LeaveYearRemainLCR.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\UsedLeaveDetail.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Leave\UsedLeaveDetailLCR.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Pishcard\IPrecardRepository.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Pishcard\Precards.cs" />
+    <Compile Include="Concepts\ILockCalculationUIValidation.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Shift\ShiftPairType.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Traffic\TrafficSetting.cs" />
+    <Compile Include="Clientele\IClienteleEntity.cs" />
+    <Compile Include="ELE\CFP.cs" />
+    <Compile Include="ELE\IEngineEnvironment.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Help\Help.cs" />
+    <Compile Include="MonthlyReport\CurrentProceedTraffic.cs" />
+    <Compile Include="MonthlyReport\InfoPeriodicScndCnpValue.cs" />
+    <Compile Include="MonthlyReport\IPrsMonthlyRptRepository.cs" />
+    <Compile Include="MonthlyReport\MonthlyReportGridColumnSpec.cs" />
+    <Compile Include="MonthlyReport\PersonalMonthlyReport.cs" />
+    <Compile Include="MonthlyReport\PersonalMonthlyReportRow.cs" />
+    <Compile Include="MonthlyReport\PersonalMonthlyReportRowDetail.cs" />
+    <Compile Include="MonthlyReport\ScndCnpValue.cs" />
+    <Compile Include="MonthlyReport\UnderManagementPerson.cs" />
+    <Compile Include="MustRemoved\ScndCnpValueCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Person\PersonCLSpec.cs" />
+    <Compile Include="Person\PersonParamValue.cs" />
+    <Compile Include="Person\PersonParamField.cs" />
+    <Compile Include="Person\PersonTASpec.cs" />
+    <Compile Include="Person\PersonReserveFieldComboValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DesignedReportColumn.cs" />
+    <Compile Include="Report\DesignedReportCondition.cs" />
+    <Compile Include="Report\DesignedReportType.cs" />
+    <Compile Include="Report\ReportParameter.cs" />
+    <Compile Include="Report\Report.cs" />
+    <Compile Include="Report\ReportFile.cs" />
+    <Compile Include="Report\ReportParameterDesigned.cs" />
+    <Compile Include="Report\ReportParameterDesignedParam.cs" />
+    <Compile Include="Report\ReportUIParameter.cs" />
+    <Compile Include="Report\SystemReportTypes.cs">
+      <DependentUpon>SystemReportTypes.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Request Flow\FlowGroup.cs" />
+    <Compile Include="Request Flow\ImperativeRequest.cs" />
+    <Compile Include="Request Flow\InfoRequest.cs" />
+    <Compile Include="Request Flow\IRequestRepository.cs" />
+    <Compile Include="Request Flow\IFlowRepository.cs" />
+    <Compile Include="Request Flow\Flow.cs" />
+    <Compile Include="Request Flow\IManagerRepository.cs" />
+    <Compile Include="Request Flow\IRequestUIValidation.cs" />
+    <Compile Include="Request Flow\IUnderManagmentRepository.cs" />
+    <Compile Include="Request Flow\ManagerFlow.cs" />
+    <Compile Include="Request Flow\Operator.cs" />
+    <Compile Include="Request Flow\RegisteredRequestsFlowLevel.cs" />
+    <Compile Include="Request Flow\Request.cs" />
+    <Compile Include="Request Flow\RequestStatus.cs" />
+    <Compile Include="AppSettings\UserSettings.cs" />
+    <Compile Include="Request Flow\Structutes.cs" />
+    <Compile Include="Request Flow\Substitute.cs" />
+    <Compile Include="Charts\IOrganizationUnitRepository.cs" />
+    <Compile Include="Charts\IDepartmentRepository.cs" />
+    <Compile Include="Concepts\AssignedConcept\AssignedScndCnpRange.cs" />
+    <Compile Include="Concepts\AssignedConcept\AssignedWGDShift.cs" />
+    <Compile Include="Concepts\ConceptEnvironment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concepts\DateRange\CalculationDateRange.cs" />
+    <Compile Include="Concepts\DateRange\CalculationDateRangeEnum.cs" />
+    <Compile Include="Concepts\DateRange\CalculationRangeGroup.cs" />
+    <Compile Include="Concepts\DateRange\ICalculationDateRangeRepository.cs" />
+    <Compile Include="Concepts\DateRange\PersonRangeAssignment.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Pishcard\Precard.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Pishcard\PrecardAccessGroup.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Pishcard\PrecardGroups.cs" />
+    <Compile Include="Charts\Department.cs" />
+    <Compile Include="Base Information\UI\DetailedMonthlyOperationGridFields.cs" />
+    <Compile Include="Base Information\Doctor.cs" />
+    <Compile Include="Base Information\DutyPlace.cs" />
+    <Compile Include="Base Information\EmploymentType.cs" />
+    <Compile Include="Base Information\UI\GridColumnColor.cs" />
+    <Compile Include="Base Information\Illness.cs" />
+    <Compile Include="AppSettings\Languages.cs" />
+    <Compile Include="Request Flow\Manager.cs" />
+    <Compile Include="Base Information\UI\MasterMonthlyOperationGridFields.cs" />
+    <Compile Include="Base Information\UI\MonthlyOperationGridClientSettings.cs" />
+    <Compile Include="Base Information\UI\MonthlyOperationGridClientGeneralSettings.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Shift\BaseShift.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Shift\NobatKari.cs" />
+    <Compile Include="Charts\Unit.cs" />
+    <Compile Include="Charts\OrganizationUnit.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Shift\Shift.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Shift\ShiftException.cs" />
+    <Compile Include="Base Information\ControlStation.cs" />
+    <Compile Include="Request Flow\UnderManagment.cs" />
+    <Compile Include="CalculatorScheduler\Timely.cs" />
+    <Compile Include="Concepts\SecondaryConcept\Workgroup\AssignWorkGroup.cs" />
+    <Compile Include="Concepts\SecondaryConcept\IConceptValue.cs" />
+    <Compile Include="Concepts\SecondaryConcept\IPairableConceptValue.cs" />
+    <Compile Include="ELE\ExecutablePersonCalculation.cs" />
+    <Compile Include="ELE\IExecutablePersonCalcRepository.cs" />
+    <Compile Include="IEntityRepository.cs" />
+    <Compile Include="Person\PersonReserveField.cs" />
+    <Compile Include="Rule\AssignedRule\AssginedRule.cs" />
+    <Compile Include="Rule\AssignedRule\AssignedRuleParameter.cs" />
+    <Compile Include="Rule\AssignedRule\IAssignedRuleRepository.cs" />
+    <Compile Include="Rule\AssignRuleParameter.cs" />
+    <Compile Include="Rule\BaseRuleParameter.cs" />
+    <Compile Include="Rule\IAssignRuleParameterRepository.cs" />
+    <Compile Include="Rule\RuleCategory\IPersonRuleCatAssignRepository.cs" />
+    <Compile Include="Rule\RuleCategory\PersonRuleCatAssignment.cs" />
+    <Compile Include="Rule\RuleCategory\RuleCategory.cs" />
+    <Compile Include="Rule\RuleCategory\RuleCategoryPart.cs" />
+    <Compile Include="Rule\RuleCategory\IRuleCategoryRepository.cs" />
+    <Compile Include="Charts\IOrganChartRepository.cs" />
+    <Compile Include="Charts\IUnitRepository.cs" />
+    <Compile Include="Charts\Chart.cs" />
+    <Compile Include="Concepts\BasePairableConceptValue.cs" />
+    <Compile Include="Concepts\BasePair.cs" />
+    <Compile Include="Concepts\Operations\IPairContainer.cs" />
+    <Compile Include="Concepts\Operations\Operation.cs" />
+    <Compile Include="Concepts\MiddleConcepts\Permit.cs" />
+    <Compile Include="Concepts\MiddleConcepts\PermitPair.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Traffic\BasicTraffic.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Traffic\BasicTrafficController.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Shift\ShiftTypesEnum.cs" />
+    <Compile Include="Concepts\SecondaryConcept\Workgroup\IPersonWorkGroupRepository.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Shift\IShiftRepository.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Shift\ShiftPair.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concepts\SecondaryConcept\Workgroup\IWorkGroupRepository.cs" />
+    <Compile Include="Concepts\SecondaryConcept\Workgroup\PersonWorkGroup.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Traffic\ProceedTraffic.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Traffic\ProceedTrafficPair.cs" />
+    <Compile Include="Concepts\PrimaryConcept\Traffic\ProceedTrafficPaireController.cs" />
+    <Compile Include="Concepts\SecondaryConcept\Workgroup\WorkGroup.cs" />
+    <Compile Include="Concepts\SecondaryConcept\Workgroup\WorkGroupDetail.cs" />
+    <Compile Include="Concepts\SecondaryConcept\BaseScndCnpValue.cs" />
+    <Compile Include="Concepts\SecondaryConcept\ISecondaryConceptRepository.cs" />
+    <Compile Include="Concepts\SecondaryConcept\NonePairableScndCnpValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concepts\SecondaryConcept\PairableScndCnpValuePair.cs" />
+    <Compile Include="Concepts\SecondaryConcept\SecondaryConcept.cs" />
+    <Compile Include="ELE\ELESetting\ELESetting.cs" />
+    <Compile Include="ELE\ELESetting\IELESettingRepository.cs" />
+    <Compile Include="ELE\UpdatePTable.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="Person\IPersonRepository.cs" />
+    <Compile Include="Person\Person.cs" />
+    <Compile Include="Concepts\IPair.cs" />
+    <Compile Include="Concepts\SecondaryConcept\PairableScndCnpValue.cs" />
+    <Compile Include="NominationDictionary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NominationDictionary.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Person\PersonDetail.cs" />
+    <Compile Include="Rule\BaseRule.cs" />
+    <Compile Include="Rule\RuleTemplate\RuleTemplate.cs" />
+    <Compile Include="Rule\IRuleRepository.cs" />
+    <Compile Include="Rule\Rule.cs" />
+    <Compile Include="Rule\RuleParameter.cs" />
+    <Compile Include="Rule\RuleParamType.cs" />
+    <Compile Include="Rule\RuleTemplate\RuleTemplateParameter.cs" />
+    <Compile Include="Rule\RuleType\RuleType.cs" />
+    <Compile Include="Rule\RuleType\RuleTypeNames.cs" />
+    <Compile Include="Security\Authorize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\DataAccess\DataAccessCtrlStation.cs" />
+    <Compile Include="Security\DataAccess\DataAccessDepartment.cs" />
+    <Compile Include="Security\DataAccess\DataAccessDoctor.cs" />
+    <Compile Include="Security\DataAccess\DataAccessEmploymentType.cs" />
+    <Compile Include="Security\DataAccess\DataAccessFlow.cs" />
+    <Compile Include="Security\DataAccess\DataAccessManager.cs" />
+    <Compile Include="Security\DataAccess\DataAccessOrganization.cs" />
+    <Compile Include="Security\DataAccess\DataAccessOrganizationUnit.cs" />
+    <Compile Include="Security\DataAccess\DataAccessPrecard.cs" />
+    <Compile Include="Security\DataAccess\DataAccessReport.cs" />
+    <Compile Include="Security\DataAccess\DataAccessRuleGroup.cs" />
+    <Compile Include="Security\DataAccess\DataAccessShift.cs" />
+    <Compile Include="Security\DataAccess\DataAccessWorkGroup.cs" />
+    <Compile Include="Security\Domains.cs" />
+    <Compile Include="Security\IDomainsRepository.cs" />
+    <Compile Include="Security\IAuthorizeRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\IResourceRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\IRoleRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\IUserRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Resource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Role.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UIValidation\UIValidationRuleParameterTemplate.cs" />
+    <Compile Include="UIValidation\UIValidationRuleParameter.cs" />
+    <Compile Include="UIValidation\UIValidationGroup.cs" />
+    <Compile Include="UIValidation\UIValidationGrouping.cs" />
+    <Compile Include="UIValidation\UIValidationRule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Concepts\Concept.cd" />
+    <None Include="Concepts\PrimaryConcept\Leave\LeaveClassDiagram.cd" />
+    <None Include="nhibernate-mapping.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\SystemReportTypes.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SystemReportTypes.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Security\Security.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_OffishRequest.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NominationDictionary.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NominationDictionary.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Report\SystemReportTypes.dbml.layout">
+      <DependentUpon>SystemReportTypes.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Rule\RuleCategory\RuleCategory.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\SecondaryConcept\PairableScndCnpValuePair.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Charts\Chart.hbm.xml" />
+    <EmbeddedResource Include="Charts\Unit.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\SecondaryConcept\BaseScndCnpValue.hbm.xml" />
+    <EmbeddedResource Include="Rule\RuleCategory\RuleCategoryPart.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ELE\ELESetting\ELESetting.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Shift\ShiftPair.hbm.xml" />
+    <EmbeddedResource Include="Concepts\MiddleConcepts\Permit.hbm.xml" />
+    <EmbeddedResource Include="Concepts\MiddleConcepts\PermitPair.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Traffic\BasicTraffic.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Traffic\ProceedTraffic.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Traffic\ProceedTrafficPair.hbm.xml" />
+    <EmbeddedResource Include="Concepts\SecondaryConcept\Workgroup\PersonWorkGroup.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Shift\Shift.hbm.xml" />
+    <EmbeddedResource Include="AppSettings\ApplicationLanguageSettings.hbm.xml" />
+    <EmbeddedResource Include="AppSettings\ApplicationSettings.hbm.xml" />
+    <EmbeddedResource Include="Base Information\Clock.hbm.xml" />
+    <EmbeddedResource Include="Base Information\ClockType.hbm.xml" />
+    <EmbeddedResource Include="Request Flow\Substitute.hbm.xml" />
+    <EmbeddedResource Include="Charts\Department.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\DetailedMonthlyOperationGridFields.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\GridColumnColor.hbm.xml" />
+    <EmbeddedResource Include="AppSettings\Languages.hbm.xml" />
+    <EmbeddedResource Include="Request Flow\ManagerFlow.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\MasterMonthlyOperationGridFields.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\MonthlyOperationGridClientSettings.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\MonthlyOperationGridClientGeneralSettings.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Shift\NobatKari.hbm.xml" />
+    <EmbeddedResource Include="Charts\OrganizationUnit.hbm.xml" />
+    <EmbeddedResource Include="Person\PersonDetail.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Pishcard\Precard.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Pishcard\PrecardAccessGroup.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Pishcard\PrecardGroups.hbm.xml" />
+    <EmbeddedResource Include="Request Flow\Request.hbm.xml" />
+    <EmbeddedResource Include="Request Flow\RequestStatus.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Shift\ShiftException.hbm.xml" />
+    <EmbeddedResource Include="AppSettings\UserSettings.hbm.xml" />
+    <EmbeddedResource Include="Base Information\Doctor.hbm.xml" />
+    <EmbeddedResource Include="Base Information\DutyPlace.hbm.xml" />
+    <EmbeddedResource Include="Base Information\EmploymentType.hbm.xml" />
+    <EmbeddedResource Include="Base Information\ExistConcepts.hbm.xml" />
+    <EmbeddedResource Include="Base Information\Illness.hbm.xml" />
+    <EmbeddedResource Include="Request Flow\Manager.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base Information\ControlStation.hbm.xml" />
+    <EmbeddedResource Include="Request Flow\UnderManagment.hbm.xml" />
+    <EmbeddedResource Include="Concepts\SecondaryConcept\Workgroup\WorkGroup.hbm.xml" />
+    <EmbeddedResource Include="Concepts\SecondaryConcept\Workgroup\WorkGroupDetail.hbm.xml" />
+    <EmbeddedResource Include="Person\Person.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Domains.hbm.xml" />
+    <EmbeddedResource Include="ELE\UpdatePTable.hbm.xml" />
+    <EmbeddedResource Include="Rule\RuleParameter.hbm.xml" />
+    <EmbeddedResource Include="Security\Authorize.hbm.xml" />
+    <EmbeddedResource Include="Security\Resource.hbm.xml" />
+    <EmbeddedResource Include="Security\Role.hbm.xml" />
+    <EmbeddedResource Include="Security\User.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\DateRange\CalculationDateRange.hbm.xml" />
+    <EmbeddedResource Include="Concepts\DateRange\CalculationRangeGroup.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Request Flow\Flow.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concepts\DateRange\PersonRangeAssignment.hbm.xml" />
+    <EmbeddedResource Include="Concepts\AssignedConcept\AssignedScndCnpRange.hbm.xml" />
+    <EmbeddedResource Include="Concepts\AssignedConcept\AssignedWGDShift.hbm.xml" />
+    <EmbeddedResource Include="Concepts\AssignedConcept\PersistedScndCnpPrdValue.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\MonthlyOperationGridMasterSettings.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\MonthlyOperationGridMasterGeneralSettings.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\PublicMessage.hbm.xml" />
+    <EmbeddedResource Include="Base Information\UI\KartablSummary.hbm.xml" />
+    <EmbeddedResource Include="Report\ReportParameter.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Report.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportFile.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportUIParameter.hbm.xml" />
+    <EmbeddedResource Include="MonthlyReport\PersonalMonthlyReportRowDetail.hbm.xml" />
+    <EmbeddedResource Include="ELE\ExecutablePersonCalculation.hbm.xml" />
+    <EmbeddedResource Include="MonthlyReport\PersonalMonthlyReport.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyReport\ScndCnpValue.hbm.xml" />
+    <EmbeddedResource Include="MonthlyReport\CurrentProceedTraffic.hbm.xml" />
+    <EmbeddedResource Include="MonthlyReport\UnderManagementPerson.hbm.xml" />
+    <EmbeddedResource Include="Rule\AssignRuleParameter.hbm.xml" />
+    <EmbeddedResource Include="Person\PersonReserveField.hbm.xml" />
+    <EmbeddedResource Include="Rule\AssignedRule\AssignedRule.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rule\AssignedRule\AssignedRuleParameter.hbm.xml" />
+    <EmbeddedResource Include="Concepts\SecondaryConcept\Workgroup\AssignWorkGroup.hbm.xml" />
+    <EmbeddedResource Include="Rule\RuleCategory\PersonRuleCatAssignment.hbm.xml" />
+    <EmbeddedResource Include="Rule\RuleType\RuleType.hbm.xml" />
+    <EmbeddedResource Include="Rule\RuleTemplate\RuleTemplate.hbm.xml" />
+    <EmbeddedResource Include="Rule\RuleTemplate\RuleTemplateParameter.hbm.xml" />
+    <EmbeddedResource Include="Rule\Rule.hbm.xml" />
+    <EmbeddedResource Include="Concepts\SecondaryConcept\SecondaryConcept.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\Calender\Calendar.hbm.xml" />
+    <EmbeddedResource Include="Concepts\Calender\CalendarType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\Calender\HolidaysTemplate.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Request Flow\Operator.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Leave\Budget.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Leave\LeaveCalcResult.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Leave\LeaveIncDec.hbm.xml" />
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Leave\LeaveYearRemain.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\AssignedConcept\CurrentYearBudget.hbm.xml">
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Leave\UsedLeaveDetail.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Security\DataAccess\DataAccessCtrlStation.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessDepartment.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessFlow.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessManager.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessOrganizationUnit.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessPrecard.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessReport.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessRuleGroup.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Help\Help.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base Information\UI\PrivateMessage.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UIValidation\UIValidationGroup.hbm.xml" />
+    <EmbeddedResource Include="UIValidation\UIValidationGrouping.hbm.xml" />
+    <EmbeddedResource Include="UIValidation\UIValidationRule.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UIValidation\UIValidationRuleParameter.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UIValidation\UIValidationRuleParameterTemplate.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppSettings\UISkin.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base Information\UI\GanttChartClientSettings.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ELE\CFP.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppSettings\EmailSettings.hbm.xml" />
+    <EmbeddedResource Include="AppSettings\SMSSettings.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppSettings\NotificationServicesHistory.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Person\PersonReserveFieldComboValue.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base Information\Corporation.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessOrganization.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\Maker\ConceptExpressions.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Request Flow\ImperativeRequest.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Person\PersonTASpec.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Traffic\TrafficSetting.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\ArchiveCalculations\ArchiveFieldMap.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\ArchiveCalculations\ArchiveConceptValue.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Person\PersonParamField.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Person\PersonParamValue.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Person\PersonCLSpec.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Charts\DepartmentPosition.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_ClientelePerson.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Concepts\PrimaryConcept\Shift\ShiftPairType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_OffishType.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_Car.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_ClienteleBlackList.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_Contractor.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientele\CL_Equipment.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_EquipmentBlackList.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_EquipmentType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_DataAccessCtrlStation.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_DataAccessDepartment.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_DataAccessCorporation.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_DataAccessOrganizationUnit.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessDoctor.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessShift.hbm.xml" />
+    <EmbeddedResource Include="Security\DataAccess\DataAccessWorkGroup.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_OffishTypeGroup.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_DataAccessFlow.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_DataAccessManager.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_DataAccessOffishType.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_Flow.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_Manager.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_ManagerFlow.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_OffishRequestStatus.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_OffishTypeAccessGroup.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_Operator.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_Substitute.hbm.xml" />
+    <EmbeddedResource Include="Clientele\CL_UnderManagement.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_Permit.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientele\CL_PermitPair.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_ClientelePersonTraffic.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure\GTS.Clock.Infrastructure.csproj">
+      <Project>{E9FCEAE6-0FBD-4996-9CD1-ED5F7FB308D6}</Project>
+      <Name>GTS.Clock.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_DeliveryItem.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_ClientelePersonDeliveryItem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure\GTS.Clock.Infrastructure.csproj">
+      <Project>{e9fceae6-0fbd-4996-9cd1-ed5f7fb308d6}</Project>
+      <Name>GTS.Clock.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Clientele\Customer\" />
+    <Folder Include="Clientele\Offish\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Request Flow\FlowGroup.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\DesignedReportColumn.hbm.xml" />
+    <EmbeddedResource Include="Report\DesignedReportCondition.hbm.xml" />
+    <EmbeddedResource Include="Report\DesignedReportType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base Information\Grade.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base Information\Dashboards.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppSettings\DashboardSettings.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Clientele\CL_FlowGroup.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\ReportParameterDesigned.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\ReportParameterDesignedParam.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Security\DataAccess\DataAccessEmploymentType.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

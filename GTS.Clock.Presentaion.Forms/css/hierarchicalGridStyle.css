@@ -1,0 +1,145 @@
+﻿
+
+.HGridClass
+{
+  cursor: pointer;
+  BORDER: 1px solid black;
+}
+
+.HRowClass
+{
+  BACKGROUND-COLOR: #d4dcee;
+}
+
+.HDataCell 
+{
+  BORDER-RIGHT: #ddecfe 1px solid;
+  PADDING-RIGHT: 4px;
+  FONT-SIZE: 10px;
+  cursor: pointer;
+  Font-family: Tahoma;
+}
+
+.HL0AlternatingRowClass 
+{
+  BACKGROUND-COLOR: #ffffff;
+}
+
+.HL1AlternatingRowClass 
+{
+  BACKGROUND-COLOR: #ffffff
+}
+
+
+.HHeaderClass 
+{
+  FONT-WEIGHT: bold;
+  FONT-SIZE: 10px;
+  Font-family: Tahoma    
+}
+
+.HHeadingCellClass 
+{
+  PADDING-RIGHT: 10px;
+  PADDING-LEFT: 4px;
+  HEIGHT: 25px;
+}
+
+.HHeadingTextClass 
+{	  
+  text-align :center;
+  color:White;
+  FONT-WEIGHT: bold;
+  FONT-SIZE: 10px;
+  Font-family: Arial;
+  text-wrap:break-word !important;
+  white-space:normal !important;}
+
+.HL0HeadingRowClass 
+{
+  BACKGROUND: url('../images/Grid/grid_headerBg3.gif');
+}
+
+.HL0SelectorCell 
+{
+  BORDER-RIGHT: 0px;
+  BORDER-TOP: 0px;
+  BACKGROUND: url('../images/Grid/blue_bg.gif');
+  BORDER-LEFT: 0px;
+  BORDER-BOTTOM: 0px;
+  HEIGHT: 20px
+}
+
+.HL1HeadingRowClass
+{    
+    background: url('../images/Grid/green_bg.gif');
+}
+
+.HL1SelectorCell 
+{
+  BORDER-RIGHT: 0px;
+  BORDER-TOP: 0px;
+  BACKGROUND: url('../images/Grid/green_bg.gif');
+  BORDER-LEFT: 0px;
+  BORDER-BOTTOM: 0px;
+  HEIGHT: 20px
+}
+
+.HSelectedRowClass 
+{
+  BORDER-RIGHT: #040484 1px solid;
+  BORDER-TOP: #040484 1px solid;
+  BORDER-LEFT: #040484 1px solid;
+  BORDER-BOTTOM: #040484 1px solid;   
+  BACKGROUND-COLOR: #FFE4B5;
+}
+
+.HSelectedRowClass TD.DataCell 
+{
+  BORDER-RIGHT: #90a8d0 1px solid
+}
+
+.HIndentCell 
+{BACKGROUND: url('../images/Ghadir/box_back2.png');
+  BORDER-RIGHT: 0px;
+   HEIGHT: 20px
+}
+
+.HGridFooterText
+{
+  color: #000000;  
+  Font-family: Tahoma; 
+  font-size: 11px;
+  direction:ltr;  
+}
+
+
+.HScrollBar
+{
+  background-image: url('../images/scroller/scroller_bg.gif'); 
+}
+
+.HScrollGrip
+{
+  background-image: url('../images/scroller/scroll_gripBg.gif'); 
+}
+
+.HScrollPopup
+{
+  background-color: #FFFFFF; 
+  border: 1px solid #666666;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  height: 23px;
+}
+
+.WithOutTextWrap
+{
+    white-space:nowrap;
+}
+
+.WithTextWrap
+{
+}
+
+

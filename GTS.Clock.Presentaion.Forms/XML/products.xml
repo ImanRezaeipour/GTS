@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Products>
+
+  <Product>
+    <Title>Time Attendance Management System</Title>
+    <Image>hozooricon2.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>Parking Control System</Title>
+    <Image>PARKINGICON.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>Restaurant Management System</Title>
+    <Image>Restaurant.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>Traffic Control System</Title>
+    <Image>TaradodIcon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>Sentry Control System</Title>
+    <Image>GhahtICON.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>BioEntry</Title>
+    <Image>BioEntry.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>BioLite Net</Title>
+    <Image>BioLite.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>BioStation</Title>
+    <Image>bsIcon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>BioStation T2</Title>
+    <Image>bsIconT2.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>CLK 6000</Title>
+    <Image>CLK6000.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>D_Station</Title>
+    <Image>D_Station.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>FP 7000</Title>
+    <Image>FP7000.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>MTT 5000</Title>
+    <Image>MTT5000_Icon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>PCT 2000</Title>
+    <Image>PCT2000_Icon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>RealScan 10</Title>
+    <Image>Real_Scan_10_Icon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>RealScan D</Title>
+    <Image>Real_Scan_D_Icon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>RealScan F</Title>
+    <Image>Real_Scan_F_Icon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>RealScan G1</Title>
+    <Image>Real_Scan_G1_Icon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>Finger Scanner</Title>
+    <Image>scannerIcon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>SG 8000</Title>
+    <Image>SG8000_Icon.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>X_Station</Title>
+    <Image>X_Station.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+  <Product>
+    <Title>Xpass</Title>
+    <Image>Xpass.png</Image>
+    <Text></Text>
+    <Price></Price>
+  </Product>
+
+</Products>

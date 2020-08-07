@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GTS.Clock.Model.Security.Resource">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACgiAAAAIAAAAAAAAAAAAAAAgAAACAAAAA=</HashCode>
+      <FileName>Security\Resource.cs</FileName>
+      <NewMemberFileName>Security\Role.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Model.Security.User">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAQEAgAAAAAAAACIAAAAEAAAiAQAAAAAAAAA=</HashCode>
+      <FileName>Security\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Person" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="RoleList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="GTS.Clock.Model.Person">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>DASAAiFAACAogoEDCwAAAAQLQAEAAAFgAAgAwAgYAgA=</HashCode>
+      <FileName>Person\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Model.Security.Authorize">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAgAAAEgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Security\Authorize.cs</FileName>
+      <NewMemberFileName>Security\Role.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Role" />
+      <Property Name="Resource" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GTS.Clock.Model.Security.Role">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAACAgAAAAAAAAAQEAAAAAAAgEgAAAAAAAAA=</HashCode>
+      <FileName>Security\Role.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="UserList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="GTS.Clock.Model.Security.ActiveDirectoryAccount">
+    <Position X="5.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAgAAAAAAAAAAAAgAAAAAgAQAAAAAAAAA=</HashCode>
+      <FileName>Security\ActiveDirectoryAccount.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Person" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GTS.Clock.Model.Security.Domains">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAgAAAAAiAQAAAAAAAAA=</HashCode>
+      <FileName>Security\Domains.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

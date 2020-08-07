@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.CalculationRangeGroup, GTS.Clock.Model"
+         table ="TA_CalculationRangeGroup" lazy="true">
+    <id name="ID" access="property"  column="CalcRangeGroup_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="CalcRangeGroup_Name" />
+    <property name="Description"     access="property" column="CalcRangeGroup_Des" />
+    <property name="Culture"     access="property" column="CalcRangeGroup_UsedCalendar" />
+    
+    <bag name="DateRangeList" table="TA_CalculationDateRange" lazy="true" batch-size="100" inverse="true" cascade="all" >
+      <key column="CalcDateRange_CalcRangeGrpId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.CalculationDateRange, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="PersonRangeAssignmentList" table="TA_PersonRangeAssignment" batch-size="100" inverse="true" cascade="none"  >
+      <key column="PrsRangeAsg_CalcRangeGrpId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.PersonRangeAssignment, GTS.Clock.Model"/>
+    </bag>
+  </class>
+</hibernate-mapping>

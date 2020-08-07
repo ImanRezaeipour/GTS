@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/GTS.Clock.Infrastructure" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GTS.Clock.Infrastructure" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://salavati1.ghadir.local/GTSWebservice/EmailService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfInfoServiceProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InfoServiceProxy" nillable="true" type="tns:InfoServiceProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInfoServiceProxy" nillable="true" type="tns:ArrayOfInfoServiceProxy" />
+  <xs:complexType name="InfoServiceProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonId" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PersonName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RepeatePeriod" type="ser:duration" />
+      <xs:element minOccurs="0" name="SendByDay" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Sex" type="tns:PersonSex" />
+      <xs:element minOccurs="0" name="SmsNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InfoServiceProxy" nillable="true" type="tns:InfoServiceProxy" />
+  <xs:simpleType name="PersonSex">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PersonSex" nillable="true" type="tns:PersonSex" />
+</xs:schema>

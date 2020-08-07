@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.ProceedTrafficPair, GTS.Clock.Model"
+         table ="TA_ProceedTrafficPair" lazy="false">
+    <id name="ID" access="property" column="ProceedTrafficPair_ID">
+      <generator class="native" />
+    </id>
+
+    <property name="From"               access="property" column="ProceedTrafficPair_From"/>
+    <property name="To"                 access="property" column="ProceedTrafficPair_To"/>
+    <property name="IsFilled"           access="property" column="ProceedTrafficPair_IsFilled"/>
+    <property name="BasicTrafficIdFrom" access="property" column="ProceedTrafficPair_BasicTrafficIdFrom"/>
+    <property name="BasicTrafficIdTo"   access="property" column="ProceedTrafficPair_BasicTrafficIdTo"/>
+    <property name="PermitIdFrom"   access="property" column="ProceedTrafficPair_PermitIdFrom"/>
+    <property name="PermitIdTo"   access="property" column="ProceedTrafficPair_PermitIdTo"/>
+
+    <many-to-one name="ProceedTraffic" column="ProceedTrafficPair_ProceedTrafficId" class="GTS.Clock.Model.Concepts.ProceedTraffic, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="Precard" column="ProceedTrafficPair_PishCardID" class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model" fetch="join"/>
+
+  </class>
+</hibernate-mapping>

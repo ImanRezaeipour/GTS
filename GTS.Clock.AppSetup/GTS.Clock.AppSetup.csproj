@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{52E1917B-7B99-43D8-9565-4733301C2470}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GTS.Clock.AppSetup</RootNamespace>
+    <AssemblyName>GTS.Clock.AppSetup</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ApplicationIcon>logo1.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>http://localhost/AppSetup/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\DependentDLLs\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="GTS.Clock.Business">
+      <HintPath>\\salavati1\Farhad Public\Code\GTS.Clock.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="GTS.Clock.Infrastructure">
+      <HintPath>\\salavati1\Farhad Public\Code\GTS.Clock.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="GTS.Clock.Infrastructure.Repository">
+      <HintPath>\\salavati1\Farhad Public\Code\GTS.Clock.Infrastructure.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="GTS.Clock.Model">
+      <HintPath>\\salavati1\Farhad Public\Code\GTS.Clock.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\DependentDLLs\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\DependentDLLs\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\DependentDLLs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\DependentDLLs\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <HintPath>..\DependentDLLs\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppSet.Designer.cs">
+      <DependentUpon>AppSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsmInfo.Designer.cs">
+      <DependentUpon>AsmInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calculator.Designer.cs">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Enum.cs" />
+    <Compile Include="Code\GTSAppSettings.cs" />
+    <Compile Include="Code\Helper.cs" />
+    <Compile Include="Code\PTableHelper.cs" />
+    <Compile Include="Code\QueryExecuter.cs" />
+    <Compile Include="CompaireAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompaireAll.Designer.cs">
+      <DependentUpon>CompaireAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CFP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CFP.Designer.cs">
+      <DependentUpon>CFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompaireAllResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompaireAllResult.Designer.cs">
+      <DependentUpon>CompaireAllResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseInit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseInit.Designer.cs">
+      <DependentUpon>DatabaseInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ClockDataSet.cs">
+      <DependentUpon>ClockDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ClockDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClockDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DateConvertor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DateConvertor.designer.cs">
+      <DependentUpon>DateConvertor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DBDataSet.cs">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CalculationCompairer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculationCompairer.Designer.cs">
+      <DependentUpon>CalculationCompairer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DebugForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebugForm.Designer.cs">
+      <DependentUpon>DebugForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ghadircopyDataSet.cs">
+      <DependentUpon>ghadircopyDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\ghadircopyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ghadircopyDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parameters.cs" />
+    <Compile Include="PriodicDtlTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PriodicDtlTemplate.Designer.cs">
+      <DependentUpon>PriodicDtlTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PriorityDependencyEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PriorityDependencyEntry.Designer.cs">
+      <DependentUpon>PriorityDependencyEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Queries.Designer.cs">
+      <DependentUpon>Queries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportModel.Designer.cs" />
+    <Compile Include="ReportRepository.cs" />
+    <Compile Include="RequestCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestCheck.Designer.cs">
+      <DependentUpon>RequestCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleTree.Designer.cs">
+      <DependentUpon>RoleTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\GTSDB.cs">
+      <DependentUpon>GTSDB.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\GTSDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GTSDB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <EmbeddedResource Include="AppSet.resx">
+      <DependentUpon>AppSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsmInfo.resx">
+      <DependentUpon>AsmInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalculationCompairer.resx">
+      <DependentUpon>CalculationCompairer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calculator.resx">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompaireAll.resx">
+      <DependentUpon>CompaireAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CFP.resx">
+      <DependentUpon>CFP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompaireAllResult.resx">
+      <DependentUpon>CompaireAllResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatabaseInit.resx">
+      <DependentUpon>DatabaseInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateConvertor.resx">
+      <DependentUpon>DateConvertor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DebugForm.resx">
+      <DependentUpon>DebugForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PriodicDtlTemplate.resx">
+      <DependentUpon>PriodicDtlTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PriorityDependencyEntry.resx">
+      <DependentUpon>PriorityDependencyEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Queries.resx">
+      <DependentUpon>Queries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestCheck.resx">
+      <DependentUpon>RequestCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleTree.resx">
+      <DependentUpon>RoleTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceTree.resx">
+      <DependentUpon>ResourceTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleCompairer.resx">
+      <DependentUpon>RuleCompairer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityEntry.resx">
+      <DependentUpon>SecurityEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShiftsQuery.resx">
+      <DependentUpon>ShiftsQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowQueryForm.resx">
+      <DependentUpon>ShowQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TempelateForm.resx">
+      <DependentUpon>TempelateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UtiliyForm.resx">
+      <DependentUpon>UtiliyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitWindow\WaitWindowGUI.resx">
+      <DependentUpon>WaitWindowGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSet\DBDataSet.xsc">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet\DBDataSet.xss">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\GTSDB.xsc">
+      <DependentUpon>GTSDB.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\GTSDB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GTSDB.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\GTSDB.xss">
+      <DependentUpon>GTSDB.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ResourceTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResourceTree.Designer.cs">
+      <DependentUpon>ResourceTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuleCompairer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuleCompairer.Designer.cs">
+      <DependentUpon>RuleCompairer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityEntry.Designer.cs">
+      <DependentUpon>SecurityEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftsQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShiftsQuery.Designer.cs">
+      <DependentUpon>ShiftsQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowQueryForm.Designer.cs">
+      <DependentUpon>ShowQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TempelateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TempelateForm.designer.cs">
+      <DependentUpon>TempelateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UtiliyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UtiliyForm.Designer.cs">
+      <DependentUpon>UtiliyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitWindow\WaitWindow.cs" />
+    <Compile Include="WaitWindow\WaitWindowEventArgs.cs" />
+    <Compile Include="WaitWindow\WaitWindowGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitWindow\WaitWindowGUI.designer.cs">
+      <DependentUpon>WaitWindowGUI.cs</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="ReportModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ReportModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Service References\ServiceReference1\TotalWebService.wsdl" />
+    <None Include="Service References\ServiceReference1\TotalWebService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\TotalWebService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\TotalWebService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo1.ico" />
+    <Content Include="Report.ico" />
+    <None Include="Service References\ServiceReference1\TotalWebService.disco" />
+    <None Include="Service References\ServiceReference1\TotalWebService1.disco" />
+    <None Include="Service References\ServiceReference1\TotalWebService1.wsdl" />
+    <None Include="DataSet\ClockDataSet.xsc">
+      <DependentUpon>ClockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ClockDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClockDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\ClockDataSet.xss">
+      <DependentUpon>ClockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ghadircopyDataSet.xsc">
+      <DependentUpon>ghadircopyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ghadircopyDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ghadircopyDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet\ghadircopyDataSet.xss">
+      <DependentUpon>ghadircopyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\flower-background-patterns-wallpaper-021.jpg" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\TotalWebService2.xsd" />
+    <None Include="Service References\ServiceReference1\TotalWebService21.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

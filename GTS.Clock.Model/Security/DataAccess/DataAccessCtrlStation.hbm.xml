@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.DACtrlStation, GTS.Clock.Model"
+         table ="TA_DataAccessCtrlStation" lazy="true">
+    <id name="ID" access="property"  column="DataAccessCtrlStation_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessCtrlStation_UserID" />
+    <property name="CtrlStationID"     access="property" column="DataAccessCtrlStation_CtrlStationID" />
+    <property name="All"     access="property" column="DataAccessCtrlStation_All" />
+
+
+  </class>
+</hibernate-mapping>

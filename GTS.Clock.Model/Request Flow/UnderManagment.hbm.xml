@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RequestFlow.UnderManagment, GTS.Clock.Model"
+         table ="TA_UnderManagment" lazy="true">
+    <id name="ID" access="property"  column="underMng_ID" >
+      <generator class="native" />
+    </id>
+    <property name="ContainInnerChilds"     access="property" column="underMng_ContainInnerChilds" />
+    <property name="Contains"     access="property" column="underMng_Contains" />
+
+    <many-to-one name="Flow" column="underMng_FlowID" class="GTS.Clock.Model.RequestFlow.Flow, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="Person" column="underMng_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+    <many-to-one name="Department" column="underMng_DepartmentID" class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model" not-null="true"/>
+
+  </class>
+</hibernate-mapping>

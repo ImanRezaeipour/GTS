@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MainForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="NavBarMain.DefaultItemTextAlign" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="nvbItemsBasicDefinitions_NavBarMain.Text" xml:space="preserve">
+    <value>تعاریف پایه</value>
+  </data>
+  <data name="nvbItemShiftIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی شیفت ها</value>
+  </data>
+  <data name="tbWelcome_TabStripMenus.Text" xml:space="preserve">
+    <value>شرکت طرح و پردازش غدیر</value>
+  </data>
+  <data name="DefaultTabLook.LeftIconUrl" xml:space="preserve">
+    <value>tab_right_icon.gif</value>
+  </data>
+  <data name="DefaultTabLook.RightIconUrl" xml:space="preserve">
+    <value>tab_left_icon.gif</value>
+  </data>
+  <data name="SelectedTabLook.LeftIconUrl" xml:space="preserve">
+    <value>selected_tab_right_icon.gif</value>
+  </data>
+  <data name="SelectedTabLook.RightIconUrl" xml:space="preserve">
+    <value>selected_tab_left_icon.gif</value>
+  </data>
+  <data name="MainForm.title" xml:space="preserve">
+    <value>برنامه تحت وب حضور و غیاب</value>
+  </data>
+  <data name="nvbItemDepartmentsIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی بخش ها</value>
+  </data>
+  <data name="nvbItemPostsIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی پست های سازمانی</value>
+  </data>
+  <data name="nvbItemEmployTypesIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی انواع استخدام</value>
+  </data>
+  <data name="nvbItemMissionLocationsIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی محل های ماموریت</value>
+  </data>
+  <data name="nvbItemWorkGroups_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی و برنامه ریزی گروه های کاری</value>
+  </data>
+  <data name="nvbItemExceptionShiftsIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی شیفت های استثناء</value>
+  </data>
+  <data name="nvbItemPersonnelIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی پرسنل</value>
+  </data>
+  <data name="nvbItemWorkHeatIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی نوبت کاری</value>
+  </data>
+  <data name="nvbItemControlStationIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی ایستگاه کنترل</value>
+  </data>
+  <data name="nvbItemMachineIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی دستگاه</value>
+  </data>
+  <data name="nvbItemMasterLeaveRemains_NavBarMain.Text" xml:space="preserve">
+    <value>مانده مرخصی</value>
+  </data>
+  <data name="nvbItemPersonnelOrganizationFeaturesChange_NavBarMain.Text" xml:space="preserve">
+    <value>تغییر مشخصات سازمانی پرسنل</value>
+  </data>
+  <data name="nvbItemAccessLevels_NavBarMain.Text" xml:space="preserve">
+    <value>سطوح دسترسی</value>
+  </data>
+  <data name="nvbItemPreCardIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی پیش کارت</value>
+  </data>
+  <data name="nvbItemLateralOperations_NavBarMain.Text" xml:space="preserve">
+    <value>عملیات جانبی</value>
+  </data>
+  <data name="nvbItemPasswordChange_NavBarMain.Text" xml:space="preserve">
+    <value>تغییر کلمه عبور </value>
+  </data>
+  <data name="UserExit_TopToolbar.Text" xml:space="preserve">
+    <value>خروج کاربر</value>
+  </data>
+  <data name="nvbItemUsersIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی کاربران </value>
+  </data>
+  <data name="nvbItemRolesIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی نقش ها</value>
+  </data>
+  <data name="nvbItemManagerMasterMonthlyOperationReport_NavBarMain.Text" xml:space="preserve">
+    <value>گزارش مدیریتی کارکرد ماهیانه</value>
+  </data>
+  <data name="nvbItemPresenceAndAbsenceOperation_NavBarMain.Text" xml:space="preserve">
+    <value>عملیات حضور و غیاب</value>
+  </data>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="imgEnglish.title" xml:space="preserve">
+    <value>انگلیسی</value>
+  </data>
+  <data name="imgPersian.title" xml:space="preserve">
+    <value>فارسی</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="tlbItemLogout_tlbLogout.Tooltip" xml:space="preserve">
+    <value>خروج کاربر</value>
+  </data>
+  <data name="nvbItemTrafficOperationByOperator_NavBarMain.Text" xml:space="preserve">
+    <value>عملیات تردد توسط اپراتور</value>
+  </data>
+  <data name="header_PersonnelSearchBox_TrafficOperationByOperator" xml:space="preserve">
+    <value>جستجوی پرسنل</value>
+  </data>
+  <data name="header_TrafficDetails_TrafficOperationByOperator" xml:space="preserve">
+    <value>جزییات تردد</value>
+  </data>
+  <data name="nvbItemMasterManagersIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>مشاهده مدیران</value>
+  </data>
+  <data name="nvbItemWorkFlowsView_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی جریان های کاری</value>
+  </data>
+  <data name="nvbItemSubstituteIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی جانشین</value>
+  </data>
+  <data name="nvbItemCartable_NavBarMain.Text" xml:space="preserve">
+    <value>کارتابل</value>
+  </data>
+  <data name="nvbItemSurveyedRequests_NavBarMain.Text" xml:space="preserve">
+    <value>درخواست های بررسی شده</value>
+  </data>
+  <data name="nvbItemRegisteredRequests_NavBarMain.Text" xml:space="preserve">
+    <value>درخواست های ثبت شده</value>
+  </data>
+  <data name="nvbItemIllnessIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی بیماری</value>
+  </data>
+  <data name="nvbItemPhysicianIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی پزشک</value>
+  </data>
+  <data name="nvbItemCalculationRangeDefinition_NavBarMain.Text" xml:space="preserve">
+    <value>تعریف محدوده محاسبات</value>
+  </data>
+  <data name="nvbItemYearlyHolidaysIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی تعطیلات سالیانه</value>
+  </data>
+  <data name="nvbItemRulesGroupIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی گروه قوانین</value>
+  </data>
+  <data name="nvbItemDepartmentsIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemDepartmentsIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemsBasicDefinitions_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemBasicDefinitions_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemYearlyHolidaysIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemYearlyHolidaysIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemCalculationRangeDefinition_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemCalculationRangeDefinition_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemCartable_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemCartable_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemControlStationIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemControlStationIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemEmployTypesIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemEmployTypesIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemExceptionShiftsIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemExceptionShiftsIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemIllnessIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemIllnessIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemLateralOperations_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemLateralOperations_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemMachineIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemMachineIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemManagerMasterMonthlyOperationReport_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemManagerMasterMonthlyOperationReport_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemMasterManagersIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemMasterManagersIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemMissionLocationsIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemMissionLocationsIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPasswordChange_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemPasswordChange_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemMasterLeaveRemains_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemMasterLeaveRemains_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPersonnelIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemPersonnelIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPersonnelOrganizationFeaturesChange_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemPersonnelOrganizationFeaturesChange_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPhysicianIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemPhysicianIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPostsIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemPostsIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPreCardIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemPreCardIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPresenceAndAbsenceOperation_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemPresenceAndAbsenceOperation_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemRegisteredRequests_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemRegisteredRequests_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemRolesIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemRolesIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemRulesGroupIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemRulesGroupIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemShiftIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemShiftIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemSubstituteIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemSubstituteIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemSurveyedRequests_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemSurveyedRequests_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemTrafficOperationByOperator_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemTrafficOperationByOperator_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemUsersIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemUsersIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemWorkFlowsView_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemWorkFlowsView_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemWorkGroups_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemWorkGroups_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemWorkHeatIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemWorkHeatIntroduction_NavBarMain.png</value>
+  </data>
+  <data name="Level2ItemLook.CssClass" xml:space="preserve">
+    <value>Level2Item_fa</value>
+  </data>
+  <data name="Level2ItemLook.HoverCssClass" xml:space="preserve">
+    <value>Level2ItemHover_fa</value>
+  </data>
+  <data name="Level2SelectedItemLook.CssClass" xml:space="preserve">
+    <value>Level2ItemSelected_fa</value>
+  </data>
+  <data name="Level2SelectedItemLook.HoverCssClass" xml:space="preserve">
+    <value>Level2ItemSelected_fa</value>
+  </data>
+  <data name="NavBarMain.CssClass" xml:space="preserve">
+    <value>NavBar_fa</value>
+  </data>
+  <data name="nvbItemBasicDefinitions_NavBarMain.SubGroupCssClass" xml:space="preserve">
+    <value>Level2Group_fa</value>
+  </data>
+  <data name="nvbItemLateralOperations_NavBarMain.SubGroupCssClass" xml:space="preserve">
+    <value>Level2Group_fa</value>
+  </data>
+  <data name="nvbItemPresenceAndAbsenceOperation_NavBarMain.SubGroupCssClass" xml:space="preserve">
+    <value>Level2Group_fa</value>
+  </data>
+  <data name="TopItemLook.ActiveCssClass" xml:space="preserve">
+    <value>TopItemActive_fa</value>
+  </data>
+  <data name="TopItemLook.CssClass" xml:space="preserve">
+    <value>TopItem_fa</value>
+  </data>
+  <data name="TopItemLook.HoverCssClass" xml:space="preserve">
+    <value>TopItemHover_fa</value>
+  </data>
+  <data name="nvbItemPersonnelMasterMonthlyOperationReport_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemPersonnelMasterMonthlyOperationReport_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPersonnelMasterMonthlyOperationReport_NavBarMain.Text" xml:space="preserve">
+    <value>گزارش کارکرد ماهیانه</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>خانم</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>آقای</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>وقت بخیر</value>
+  </data>
+  <data name="nvbItemReportsIntroduction_NavBarMain.Text" xml:space="preserve">
+    <value>معرفی گزارش ها</value>
+  </data>
+  <data name="nvbItemReports_NavBarMain.Text" xml:space="preserve">
+    <value>گزارش ها</value>
+  </data>
+  <data name="nvbItemReportsIntroduction_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>report_icon.png</value>
+  </data>
+  <data name="nvbItemReports_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>2.png</value>
+  </data>
+  <data name="hfdmItemCartable_DockMenu.Value" xml:space="preserve">
+    <value>کارتابل</value>
+  </data>
+  <data name="hfdmItemManagerMasterMonthlyOperationReport_DockMenu.Value" xml:space="preserve">
+    <value>گزارش مدیریتی کارکرد ماهیانه</value>
+  </data>
+  <data name="hfdmItemPersonnelIntroduction_DockMenu.Value" xml:space="preserve">
+    <value>معرفی پرسنل</value>
+  </data>
+  <data name="hfdmItemPersonnelMasterMonthlyOperationReport_DockMenu.Value" xml:space="preserve">
+    <value>گزارش کارکرد ماهیانه</value>
+  </data>
+  <data name="hfdmItemRegisteredRequests_DockMenu.Value" xml:space="preserve">
+    <value>درخواست های ثبت شده</value>
+  </data>
+  <data name="hfdmItemReportsIntroduction_DockMenu.Value" xml:space="preserve">
+    <value>معرفی گزارش ها</value>
+  </data>
+  <data name="hfdmItemSurveyedRequests_DockMenu.Value" xml:space="preserve">
+    <value>درخواست های بررسی شده</value>
+  </data>
+  <data name="hfdmItemTrafficOperationByOperator_DockMenu.Value" xml:space="preserve">
+    <value>عملیات تردد توسط اپراتور</value>
+  </data>
+  <data name="hfdmItemWelcome_DockMenu.Value" xml:space="preserve">
+    <value>نمای اصلی</value>
+  </data>
+  <data name="hfdmItemWorkFlowsView_DockMenu.Value" xml:space="preserve">
+    <value>معرفی جریان های کاری</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="nvbItemMasterPublicNews_NavBarMain.Text" xml:space="preserve">
+    <value>مدیریت اخبار عمومی</value>
+  </data>
+  <data name="nvbItemMasterPublicNews_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemWorkFlowsView_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemPrivateMessage_NavBarMain.Text" xml:space="preserve">
+    <value>پیام های خصوصی</value>
+  </data>
+  <data name="nvbItemUiValidation_NavBarMain.Text" xml:space="preserve">
+    <value>تنظیمات واسط کاربری</value>
+  </data>
+  <data name="nvbItemCalculations_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="nvbItemCalculations_NavBarMain.Text" xml:space="preserve">
+    <value>انجام محاسبات</value>
+  </data>
+  <data name="nvbItemConceptsManagement_NavBarMain.Look-RightIconUrl" xml:space="preserve">
+    <value>nvbItemConceptRuleManagement_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemConceptsManagement_NavBarMain.Text" xml:space="preserve">
+    <value>مدیریت مفاهیم و قوانین</value>
+  </data>
+  <data name="nvbItemConceptRuleMasterOperation_NavBarMain.Look-LeftIconUrl" xml:space="preserve">
+    <value>nvbItemConceptRuleManagement_NavBarMain.png</value>
+  </data>
+  <data name="nvbItemConceptRuleMasterOperation_NavBarMain.Text" xml:space="preserve">
+    <value>مدیریت مفاهیم و قوانین</value>
+  </data>
+  <data name="nvbItemExpressionsOperation_NavBarMain.Text" xml:space="preserve">
+    <value>مدیريت مولفه هاي ساخت مفاهيم و قوانين</value>
+  </data>
+  <data name="nvbItemExpressionsOperation_NavBarMain.Look-LeftIconUrl" xml:space="preserve">
+    <value>nvbItemExpressionsOperation_NavBarMain.png</value>
+  </data>
+</root>

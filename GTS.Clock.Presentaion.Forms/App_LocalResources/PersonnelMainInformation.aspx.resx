@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ImageUploader_DialogPersonnelMainInformation.text_Uploading" xml:space="preserve">
+    <value>Uploading.....</value>
+  </data>
+  <data name="lblAddress_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Address :</value>
+  </data>
+  <data name="lblIdentityCertificate_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Identity Certificate :</value>
+  </data>
+  <data name="lblBirthDate_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Birth Date :</value>
+  </data>
+  <data name="lblBirthLocation_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Birth Location :</value>
+  </data>
+  <data name="lblCardID_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Card ID :</value>
+  </data>
+  <data name="lblControlStation_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Control Station : </value>
+  </data>
+  <data name="lblDepartment_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Department :</value>
+  </data>
+  <data name="lblEducation_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Education :</value>
+  </data>
+  <data name="lblEmployDate_WorkStart_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>EmployDate :</value>
+  </data>
+  <data name="lblEmployEndDate_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Employ End :</value>
+  </data>
+  <data name="lblEmployNumber_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Employ Number :</value>
+  </data>
+  <data name="lblEmployType_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Employ Type :</value>
+  </data>
+  <data name="lblFamily_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Family :</value>
+  </data>
+  <data name="lblFatherName_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Father Name :</value>
+  </data>
+  <data name="lblImageSelect_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Image Select :</value>
+  </data>
+  <data name="lblIssuanceLocation_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Issuance Location :</value>
+  </data>
+  <data name="lblMarriageState_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Marriage State :</value>
+  </data>
+  <data name="lblMilitaryState_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Military State :</value>
+  </data>
+  <data name="lblName_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="lblNationalCode_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>National Code :</value>
+  </data>
+  <data name="lblOrganizationPost_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Organization Post :</value>
+  </data>
+  <data name="lblPersonnelNumber_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Personnel Number :</value>
+  </data>
+  <data name="lblSex_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Sex :</value>
+  </data>
+  <data name="lblMobileNumber_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Mobile Number : </value>
+  </data>
+  <data name="lblTel_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Tel Number :</value>
+  </data>
+  <data name="lblWorkGroup_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Work Group :</value>
+  </data>
+  <data name="PersonnelMainInformationForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="tdPair_DialogPersonnelMainInformation.Width" xml:space="preserve">
+    <value>21%</value>
+  </data>
+  <data name="tdUnit_DialogPersonnelMainInformation.Width" xml:space="preserve">
+    <value>12%</value>
+  </data>
+  <data name="tlbItemDelete_TlbPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="tlbItemEdit_TlbPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Endorsement</value>
+  </data>
+  <data name="tlbItemExit_TlbPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemExtraInformation_TlbPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Extra Information</value>
+  </data>
+  <data name="tlbItemHelp_TlbPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemMessage_TlbPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="tlbItemNew_TlbPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="tlbItemNew_TlbPersonnelMainInformation.ToolTip1" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="tlbItemSave_TlbPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="trvLineImages.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/LeftLines</value>
+  </data>
+  <data name="tlbItemDelete_TlbPersonnelExtraInformation.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="tlbItemEdit_TlbPersonnelExtraInformation.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbPersonnelExtraInformation.ToolTip" xml:space="preserve">
+    <value>Endorsement</value>
+  </data>
+  <data name="tlbItemExit_TlbPersonnelExtraInformation.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemHelp_TlbPersonnelExtraInformation.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemMessage_TlbPersonnelExtraInformation.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="tlbItemNew_TlbPersonnelExtraInformation.ToolTip" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="tlbItemSave_TlbPersonnelExtraInformation.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="LableAlign.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="header_CalculationRange_DialogPersonnelMainInformation" xml:space="preserve">
+    <value>Calculation Range</value>
+  </data>
+  <data name="lblNormalCase_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Normal Case</value>
+  </data>
+  <data name="lblSpecialCase_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Special Case</value>
+  </data>
+  <data name="Title_DialogPersonnelExtraInformation" xml:space="preserve">
+    <value>Personnel Extra Information</value>
+  </data>
+  <data name="hfTitle_DialogPersonnelMainInformation.Value" xml:space="preserve">
+    <value>Personnel Main Information</value>
+  </data>
+  <data name="tlbItemCalculationRangeDefinition_TlbCalculationRangeDefinition_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Range Definition</value>
+  </data>
+  <data name="lblCalculationRangeGroup_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Calculation Range Group :</value>
+  </data>
+  <data name="lblRuleGroup_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Rule Group :</value>
+  </data>
+  <data name="lblRunfromDate_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Run from Date :</value>
+  </data>
+  <data name="tlbItemRuleGroupDefinition_TlbRuleGroupDefinition_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Rule Group Assignment</value>
+  </data>
+  <data name="tlbItemWorkGroupDefinition_TlbWorkGroupDefinition_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Work Group Assignment</value>
+  </data>
+  <data name="lblActive_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="hfAdd_DialogPersonnelMainInformation.Value" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="hfCloseMessage_DialogPersonnelMainInformation.Value" xml:space="preserve">
+    <value>Do you Exit From Personnel Main Information From ?</value>
+  </data>
+  <data name="hfcmbAlarm_DialogPersonnelMainInformation.Value" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="hfEdit_DialogPersonnelMainInformation.Value" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_BirthDateCalendars_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_EmployDateCalendars_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_EmployEndDateCalendars_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AmadeBeKhedmat" xml:space="preserve">
+    <value>Military Provided</value>
+  </data>
+  <data name="DarayeKartePayanKhedmat" xml:space="preserve">
+    <value>Military End Card</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="GheireMashmool" xml:space="preserve">
+    <value>Not Inclusive</value>
+  </data>
+  <data name="HeineKhedmat" xml:space="preserve">
+    <value>Military During</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="MoafiatPezeshki" xml:space="preserve">
+    <value>Medicine Freedom</value>
+  </data>
+  <data name="MoafiatTahsili" xml:space="preserve">
+    <value>Education Freedom</value>
+  </data>
+  <data name="MoafiatTakafol" xml:space="preserve">
+    <value>Bail Freedom</value>
+  </data>
+  <data name="Mojarad" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="Motahel" xml:space="preserve">
+    <value>Married</value>
+  </data>
+  <data name="Motaleghe" xml:space="preserve">
+    <value>Divorced</value>
+  </data>
+  <data name="OrgNode_trvDepartment_DialogPersonnelMainInformation" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Sayer" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="OrgNode_trvOrganizationPost_DialogPersonnelMainInformation" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="ParentNodeFillProblem" xml:space="preserve">
+    <value>Problem in Parent Organization Post Information Fill</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbCalculationRange_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbControlStation_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbDepartment_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbEmployType_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbOrganizationPost_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>Insert Operation Completed Successfuly</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>Update Operation Completed Successfuly</value>
+  </data>
+  <data name="NoPersonnelSelectedforEdit" xml:space="preserve">
+    <value>No Personnel is Selected for Edit</value>
+  </data>
+  <data name="PersonBarcodeInValid" xml:space="preserve">
+    <value>Personnel Number is Invalid</value>
+  </data>
+  <data name="PersonBarcodeRepeated" xml:space="preserve">
+    <value>Personnel Number is Duplicated</value>
+  </data>
+  <data name="PersonBarcodeRequierd" xml:space="preserve">
+    <value>Personnel Number is Not Valued</value>
+  </data>
+  <data name="PersonCartNumberRepeated" xml:space="preserve">
+    <value>Personnel Card Number is Duplicated</value>
+  </data>
+  <data name="PersonCartNumInValid" xml:space="preserve">
+    <value>Personnel Card Number is Invalid</value>
+  </data>
+  <data name="PersonDateRangeRequierd" xml:space="preserve">
+    <value>Personnel Calculation Range is Not Valued</value>
+  </data>
+  <data name="PersonDepartmentRequierd" xml:space="preserve">
+    <value>Personnel Department is Not Valued</value>
+  </data>
+  <data name="PersonEmployeeNumRepeated" xml:space="preserve">
+    <value>Personnel Employment Number is Duplicated</value>
+  </data>
+  <data name="PersonEmploymentFromDateGreaterThanToDate" xml:space="preserve">
+    <value>Personnel Employment Start Date is greater than Employment End Date</value>
+  </data>
+  <data name="PersonEmploymenttypeRequierd" xml:space="preserve">
+    <value>Personnel Employment Type is Not Valued</value>
+  </data>
+  <data name="PersonLastNameRequierd" xml:space="preserve">
+    <value>Personnel Last First Name is Not Valued</value>
+  </data>
+  <data name="PersonMarriedRequierd" xml:space="preserve">
+    <value>Personnel Marital State is Not Valued</value>
+  </data>
+  <data name="PersonMeliCodeInValid" xml:space="preserve">
+    <value>Personnel National Code is Invalid</value>
+  </data>
+  <data name="PersonMeliCodeRepeated" xml:space="preserve">
+    <value>Personnel National Code is Not Valued</value>
+  </data>
+  <data name="PersonNameRequied" xml:space="preserve">
+    <value>Personnel First Name is Not Valued</value>
+  </data>
+  <data name="PersonRuleGroupRequierd" xml:space="preserve">
+    <value>Personnel Rule Group is Not Valued</value>
+  </data>
+  <data name="PersonSexRequierd" xml:space="preserve">
+    <value>Personnel Sex Type is Not Valued</value>
+  </data>
+  <data name="PersonShenasnameCodeInValid" xml:space="preserve">
+    <value>Personnel Identity Certificate is Invalid</value>
+  </data>
+  <data name="PersonWorkGroupRequierd" xml:space="preserve">
+    <value>Personnel Work Group is Not Valued</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier :</value>
+  </data>
+  <data name="DepartmentRootMoreThanOne" xml:space="preserve">
+    <value>Department germ count in database is Invalid.</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="AssignRangeGroupIdNotExsits" xml:space="preserve">
+    <value>No Calculation Range Group Exists whith this Identifier</value>
+  </data>
+  <data name="AssignRangePersonIdNotExsits" xml:space="preserve">
+    <value>No Personnel Exists with this Identifier</value>
+  </data>
+  <data name="AssignRangeSmallerThanStandardValue" xml:space="preserve">
+    <value>Calculation Range run Date is smaller than Standard Date Range</value>
+  </data>
+  <data name="ItemNotExist" xml:space="preserve">
+    <value>No Personnel Exists with this Identifier</value>
+  </data>
+  <data name="OrganizationUnitRootMoreThanOne" xml:space="preserve">
+    <value>Organization Posts germ count in database is Invalid</value>
+  </data>
+  <data name="UpdatePersonImageHasError" xml:space="preserve">
+    <value>Problem in Personnel Image Save</value>
+  </data>
+  <data name="PersonCodeRequierd" xml:space="preserve">
+    <value>Personnel Code is not Valued</value>
+  </data>
+  <data name="tlbItemExit_TlbVPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemExtraInformation_TlbVPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Extra Information</value>
+  </data>
+  <data name="tlbItemHelp_TlbVPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="tlbItemRefresh_TlbVPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Refresh Form</value>
+  </data>
+  <data name="tlbItemSave_TlbVPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="lblBirthCertificateID_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Birth Certificate ID :</value>
+  </data>
+  <data name="hfConnectionError_PersonnelMainInformation.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfErrorType_PersonnelMainInformation.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="lblUserInterfaceRuleGroup_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>User Interface Rule Group :</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbUserInterfaceRuleGroup_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemCalculationRangeGroupDefinition_TlbCalculationRangeGroupDefinition_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Calculation Range Group Assignment</value>
+  </data>
+  <data name="lblEmailAddress_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Email Address:</value>
+  </data>
+  <data name="PersonBirthDateIsNotValid" xml:space="preserve">
+    <value>Personnel Birth Date is Invalid</value>
+  </data>
+  <data name="PersonEndEmployeeDateIsNotValid" xml:space="preserve">
+    <value>Personnel Employ End Date is Invalid</value>
+  </data>
+  <data name="PersonStartEmployeeDateIsNotValid" xml:space="preserve">
+    <value>Personnel Employ Start Date is Invalid</value>
+  </data>
+  <data name="PersonUIValidationRequierd" xml:space="preserve">
+    <value>Personnel User Interface Group is Not Valued</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>Illegal Service Access</value>
+  </data>
+  <data name="tlbItemParentDepartments_TlbParentDepartments_cmbDepartment_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Parent Departments</value>
+  </data>
+  <data name="hfloadingPanel_trvParentDepartments_PersonnelMainInformation.Value" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="lblParentDepartments_ParentDepartments_PersonnelMainInformation.Text" xml:space="preserve">
+    <value>Parent Departments :</value>
+  </data>
+  <data name="OrgNode_trvParentDepartments_PersonnelMainInformation" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="lblGrade_DialogPersonnelMainInformation.Text" xml:space="preserve">
+    <value>Grade :</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_cmbOrganizationPost_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_cmbControlStation_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_cmbGrade_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemDeletePersonnelImage_TlbDeletePersonnelImage_DialogPersonnelMainInformation.ToolTip" xml:space="preserve">
+    <value>Image Delete</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>Delete Operation Completed Successfully</value>
+  </data>
+</root>

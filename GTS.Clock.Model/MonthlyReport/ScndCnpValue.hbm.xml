@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.MonthlyReport.ScndCnpValue, GTS.Clock.Model" lazy="false">
+    <id name="ID" access="property" column="ScndCnpValue_ID">
+      <generator class="native" />
+    </id>
+
+    <property name="PersonId"         access="property" column="ScndCnpValue_PersonId"/>
+    <property name="KeyColumnName"    access="property" column="ScndCnpValue_KeyColumnName"/>
+    <property name="FromDate"         access="property" column="ScndCnpValue_FromDate"/>
+    <property name="ToDate"           access="property" column="ScndCnpValue_ToDate"/>
+    <property name="Value"            access="property" column="ScndCnpValue_Value"/>
+    <property name="FromPairs"        access="property" column="ScndCnpValue_FromPairs"/>
+    <property name="ToPairs"          access="property" column="ScndCnpValue_ToPairs"/>
+    <property name="PeriodicFromDate" access="property" column="ScndCnpValue_PeriodicFromDate"/>
+    <property name="PeriodicToDate"   access="property" column="ScndCnpValue_PeriodicToDate"/>
+    <property name="PeriodicValue"    access="property" column="ScndCnpValue_PeriodicValue"/>
+    <property name="Color"    access="property" column="ConceptTmp_Color"/>
+  </class>
+  
+</hibernate-mapping>

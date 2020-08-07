@@ -1,0 +1,31 @@
+﻿
+#clockHolder {
+    width: 180px;
+    margin: 0px auto 0px auto;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+#sec {
+    display: block;
+    position: relative;
+}
+
+#min {
+    display: block;
+    position: relative;
+}
+
+#hour {
+    display: block;
+    position: relative;
+}
+
+.rotatingWrapper {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 0px;
+    left: 0px;
+}

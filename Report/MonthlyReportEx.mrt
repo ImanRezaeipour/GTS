@@ -1,0 +1,2975 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Connection Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Connection</Alias>
+        <ConnectionString>Password=salta123;Persist Security Info=True;Data Source=192.168.10.4;Integrated Security=False;Initial Catalog=GhadirGTS2;User ID=atlas</ConnectionString>
+        <Name>Connection</Name>
+      </Connection>
+    </Databases>
+    <DataSources isList="true" count="3">
+      <MonthlyReport_DailyValue Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>MonthlyReport_DailyValue</Alias>
+        <Columns isList="true" count="40">
+          <value>gridFields_ReserveField10,System.Decimal</value>
+          <value>gridFields_ReserveField9,System.Decimal</value>
+          <value>gridFields_ReserveField8,System.Decimal</value>
+          <value>gridFields_ReserveField7,System.Decimal</value>
+          <value>gridFields_ReserveField6,System.Decimal</value>
+          <value>gridFields_ReserveField5,System.Decimal</value>
+          <value>gridFields_ReserveField4,System.Decimal</value>
+          <value>gridFields_ReserveField3,System.Decimal</value>
+          <value>gridFields_ReserveField2,System.Decimal</value>
+          <value>gridFields_ReserveField1,System.Decimal</value>
+          <value>gridFields_DailyWithPayLeave,System.Decimal</value>
+          <value>gridFields_HourlyWithPayLeave,System.Decimal</value>
+          <value>gridFields_DailyWithoutPayLeave,System.Decimal</value>
+          <value>gridFields_PresenceDuration,System.Decimal</value>
+          <value>gridFields_HourlyWithoutPayLeave,System.Decimal</value>
+          <value>gridFields_DailyMeritoriouslyLeave,System.Decimal</value>
+          <value>gridFields_HourlyMeritoriouslyLeave,System.Decimal</value>
+          <value>gridFields_DailySickLeave,System.Decimal</value>
+          <value>gridFields_HourlySickLeave,System.Decimal</value>
+          <value>gridFields_HostelryMission,System.Decimal</value>
+          <value>gridFields_DailyMission,System.Decimal</value>
+          <value>gridFields_HourlyMission,System.Decimal</value>
+          <value>gridFields_DailyAbsence,System.Decimal</value>
+          <value>gridFields_HourlyUnallowableAbsence,System.Decimal</value>
+          <value>gridFields_HourlyAllowableAbsence,System.Decimal</value>
+          <value>gridFields_ImpureOperation,System.Decimal</value>
+          <value>gridFields_AllowableOverTime,System.Decimal</value>
+          <value>gridFields_UnallowableOverTime,System.Decimal</value>
+          <value>gridFields_NecessaryOperation,System.Decimal</value>
+          <value>gridFields_HourlyPureOperation,System.Decimal</value>
+          <value>gridFields_DailyPureOperation,System.Decimal</value>
+          <value>ThirdExit,System.Int32</value>
+          <value>ThirdEntrance,System.Int32</value>
+          <value>SecondExit,System.Int32</value>
+          <value>SecondEntrance,System.Int32</value>
+          <value>FirstExit,System.Int32</value>
+          <value>FirstEntrance,System.Int32</value>
+          <value>ShamsiDate,System.String</value>
+          <value>Date,System.DateTime</value>
+          <value>ScndCnpValue_PersonId,System.Decimal</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>MonthlyReport_DailyValue</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="2">
+          <value>_x0040_ToDate,,4,0</value>
+          <value>_x0040_Order,,16,0</value>
+        </Parameters>
+        <SqlCommand>SELECT 
+	[gridFields_ReserveField10]
+	,[gridFields_ReserveField9]
+	,[gridFields_ReserveField8]
+	,[gridFields_ReserveField7]
+	,[gridFields_ReserveField6]
+	,[gridFields_ReserveField5]
+	,[gridFields_ReserveField4]
+	,[gridFields_ReserveField3]
+	,[gridFields_ReserveField2]
+	,[gridFields_ReserveField1]
+	,[gridFields_DailyWithPayLeave]
+	,[gridFields_HourlyWithPayLeave]
+	,[gridFields_DailyWithoutPayLeave]
+	,[gridFields_PresenceDuration]
+	,[gridFields_HourlyWithoutPayLeave]
+	,[gridFields_DailyMeritoriouslyLeave]
+	,[gridFields_HourlyMeritoriouslyLeave]
+	,[gridFields_DailySickLeave]
+	,[gridFields_HourlySickLeave]
+	,[gridFields_HostelryMission]
+	,[gridFields_DailyMission]
+	,[gridFields_HourlyMission]
+	,[gridFields_DailyAbsence]
+	,[gridFields_HourlyUnallowableAbsence]
+	,[gridFields_HourlyAllowableAbsence]
+	,[gridFields_ImpureOperation], [gridFields_AllowableOverTime], [gridFields_UnallowableOverTime]
+	,[gridFields_NecessaryOperation], [gridFields_HourlyPureOperation], [gridFields_DailyPureOperation]
+	,ThirdExit, ThirdEntrance
+	,SecondExit, SecondEntrance
+	,FirstExit, FirstEntrance 
+	,[Date] 
+	,dbo.GTS_ASM_MiladiToShamsi(CONVERT(nvarchar(10), [Date], 111)) AS ShamsiDate
+	,ScndCnpValue_PersonId
+	FROM (							        
+SELECT Entrance.FirstEntrance, [Exit].FirstExit, 
+	Entrance.SecondEntrance, [Exit].SecondExit,
+	Entrance.ThirdEntrance, [Exit].ThirdExit,
+	Entrance.ProceedTraffic_FromDate,
+	Entrance.ProceedTraffic_PersonId	   	
+FROM (SELECT ISNULL(SUM([1]), -1000) [FirstEntrance], 
+			 ISNULL(SUM([2]), -1000) [SecondEntrance], 
+			 ISNULL(SUM([3]), -1000) [ThirdEntrance], 
+			 ProceedTraffic_FromDate, ProceedTraffic_PersonId
+FROM (SELECT RANK() OVER (PARTITION BY ProceedTraffic_PersonId, ProceedTraffic_FromDate ORDER BY ProceedTrafficPair_From) Rk, *
+			FROM TA_ProceedTraffic PrcTrf
+			INNER JOIN TA_ProceedTrafficPair PrcTrfPair
+			ON PrcTrf.ProceedTraffic_ID = PrcTrfPair.ProceedTrafficPair_ProceedTrafficId
+			WHERE PrcTrf.ProceedTraffic_PersonId IN ({ReportHelper.Instance().ModifiedIds()})
+		   ) AS PrcTrf
+	  PIVOT
+		(SUM(ProceedTrafficPair_From)	  
+		 FOR RK
+			IN([1], [2], [3])
+		) as pvt
+	  GROUP BY ProceedTraffic_PersonId, ProceedTraffic_FromDate
+	 ) Entrance
+INNER JOIN (SELECT ISNULL(SUM([1]), -1000) [FirstExit], 
+				   ISNULL(SUM([2]), -1000) [SecondExit], 
+				   ISNULL(SUM([3]), -1000) [ThirdExit], 
+				   ProceedTraffic_FromDate, ProceedTraffic_PersonId
+FROM (SELECT RANK() OVER (PARTITION BY ProceedTraffic_PersonId, ProceedTraffic_FromDate ORDER BY ProceedTrafficPair_From) Rk, *
+				  FROM TA_ProceedTraffic PrcTrf
+				  INNER JOIN TA_ProceedTrafficPair PrcTrfPair
+				  ON PrcTrf.ProceedTraffic_ID = PrcTrfPair.ProceedTrafficPair_ProceedTrafficId
+				  WHERE PrcTrf.ProceedTraffic_PersonId IN ({ReportHelper.Instance().ModifiedIds()})	
+				 ) AS PrcTrf
+			PIVOT
+				(SUM(ProceedTrafficPair_To)	  
+				 FOR RK
+					IN([1], [2], [3])
+				) as pvt
+			GROUP BY ProceedTraffic_PersonId, ProceedTraffic_FromDate
+		   ) [Exit]
+ON Entrance.ProceedTraffic_FromDate = [Exit].ProceedTraffic_FromDate
+	AND
+   Entrance.ProceedTraffic_PersonId = [Exit].ProceedTraffic_PersonId
+	) PrcTraffic
+RIGHT JOIN 
+(
+SELECT ScndCnpValue_PersonId
+	,ScndCnpValue_FromDate [Date]
+	  ,ISNULL(SUM([gridFields_NecessaryOperation]), -1000) [gridFields_NecessaryOperation]
+      ,ISNULL(SUM([gridFields_HourlyPureOperation]), -1000) [gridFields_HourlyPureOperation]
+      ,ISNULL(SUM([gridFields_DailyPureOperation]), -1000) [gridFields_DailyPureOperation]
+      ,ISNULL(SUM([gridFields_ImpureOperation]), -1000) [gridFields_ImpureOperation]
+      ,ISNULL(SUM([gridFields_AllowableOverTime]), -1000) [gridFields_AllowableOverTime]
+      ,ISNULL(SUM([gridFields_UnallowableOverTime]), -1000) [gridFields_UnallowableOverTime]
+      ,ISNULL(SUM([gridFields_HourlyAllowableAbsence]), -1000) [gridFields_HourlyAllowableAbsence]
+      ,ISNULL(SUM([gridFields_HourlyUnallowableAbsence]), -1000) [gridFields_HourlyUnallowableAbsence]
+      ,ISNULL(SUM([gridFields_DailyAbsence]), -1000) [gridFields_DailyAbsence]
+      ,ISNULL(SUM([gridFields_HourlyMission]), -1000) [gridFields_HourlyMission]
+      ,ISNULL(SUM([gridFields_DailyMission]), -1000) [gridFields_DailyMission]
+      ,ISNULL(SUM([gridFields_HostelryMission]), -1000) [gridFields_HostelryMission]
+      ,ISNULL(SUM([gridFields_HourlySickLeave]), -1000) [gridFields_HourlySickLeave]
+      ,ISNULL(SUM([gridFields_DailySickLeave]), -1000) [gridFields_DailySickLeave]
+      ,ISNULL(SUM([gridFields_HourlyMeritoriouslyLeave]), -1000) [gridFields_HourlyMeritoriouslyLeave]
+      ,ISNULL(SUM([gridFields_DailyMeritoriouslyLeave]), -1000) [gridFields_DailyMeritoriouslyLeave]
+      ,ISNULL(SUM([gridFields_HourlyWithoutPayLeave]), -1000) [gridFields_HourlyWithoutPayLeave]
+      ,ISNULL(SUM([gridFields_PresenceDuration]), -1000) [gridFields_PresenceDuration]
+      ,ISNULL(SUM([gridFields_DailyWithoutPayLeave]), -1000) [gridFields_DailyWithoutPayLeave]
+      ,ISNULL(SUM([gridFields_HourlyWithPayLeave]), -1000) [gridFields_HourlyWithPayLeave]
+      ,ISNULL(SUM([gridFields_DailyWithPayLeave]), -1000) [gridFields_DailyWithPayLeave]
+      ,ISNULL(SUM([gridFields_ReserveField1]), -1000) [gridFields_ReserveField1]
+      ,ISNULL(SUM([gridFields_ReserveField2]), -1000) [gridFields_ReserveField2]
+      ,ISNULL(SUM([gridFields_ReserveField3]), -1000) [gridFields_ReserveField3]
+      ,ISNULL(SUM([gridFields_ReserveField4]), -1000) [gridFields_ReserveField4]
+      ,ISNULL(SUM([gridFields_ReserveField5]), -1000) [gridFields_ReserveField5]
+      ,ISNULL(SUM([gridFields_ReserveField6]), -1000) [gridFields_ReserveField6]
+      ,ISNULL(SUM([gridFields_ReserveField7]), -1000) [gridFields_ReserveField7]
+      ,ISNULL(SUM([gridFields_ReserveField8]), -1000) [gridFields_ReserveField8]
+      ,ISNULL(SUM([gridFields_ReserveField9]), -1000) [gridFields_ReserveField9]
+      ,ISNULL(SUM([gridFields_ReserveField10]), -1000) [gridFields_ReserveField10]
+FROM (SELECT [No],
+	ScndCnpValues.ScndCnpValue_ID,
+	CnpTmp.ConceptTmp_FnName,
+	CnpTmp.ConceptTmp_EngName,
+	CnpTmp.ConceptTmp_KeyColumnName,
+	PeriodicCnpValue.ScndCnpValue_PeriodicFromDate,
+	PeriodicCnpValue.ScndCnpValue_PeriodicToDate,
+	PeriodicCnpValue.ScndCnpValue_PersonId,
+	ScndCnpValues.ScndCnpValue_FromDate,
+	ScndCnpValues.ScndCnpValue_ToDate,
+	ScndCnpValues.ScndCnpValue_Value
+FROM (SELECT [No],
+	PrdCnpTmpDetail_DtlCnpTmpId AS ScndCnpValue_DailyScndCnpId,
+	PeriodicCnp_KeyColumnName   AS ScndCnpValue_KeyColumnName,     
+	PeriodicCnp_FromDate		   AS ScndCnpValue_PeriodicFromDate,	   
+	PeriodicCnp_ToDate		   AS ScndCnpValue_PeriodicToDate,
+	PeriodicCnp_CnpTmpId		   AS ScndCnpValue_PeriodicScndCnpId, 
+	PeriodicCnp_PersonId		   AS ScndCnpValue_PersonId
+	FROM dbo.TA_PeriodicCnpTmpDetail 
+	INNER JOIN(SELECT PrsRangeAsg.[No],
+	CalcDateRange_ID					 AS PeriodicCnp_ID,
+	PrsRangeAsg.PrsRangeAsg_PersonId	 AS PeriodicCnp_PersonId, 
+	CalcDateRange_ConceptTmpId		 AS PeriodicCnp_CnpTmpId, 
+	Concept.ConceptTmp_FnName 		 AS PeriodicCnp_KeyColumnName, 
+	dbo.TA_ASM_CalculateFromDateRange(@ToDate, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+																 AS PeriodicCnp_FromDate,
+							  dbo.TA_ASM_CalculateToDateRange(@ToDate, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+																 AS PeriodicCnp_ToDate
+FROM (SELECT * 
+	FROM dbo.TA_CalculationDateRange 
+	WHERE CalcDateRange_Order = @Order
+						    ) AS CalcDateRng
+INNER JOIN (SELECT * 
+	FROM dbo.TA_ConceptTemplate 
+	WHERE ConceptTmp_IsPeriodic = 1
+								  ) AS Concept
+						ON CalcDateRange_ConceptTmpId = Concept.ConceptTmp_ID		  
+INNER JOIN (SELECT *
+	FROM (SELECT ROW_NUMBER() OVER (PARTITION BY PrsRangeAsg_PersonId ORDER BY PrsRangeAsg_FromDate DESC) AS [No], 
+    										 PrsRangeAsg_PersonId, PrsRangeAsg_CalcRangeGrpId
+										  FROM TA_PersonRangeAssignment								 
+										  WHERE PrsRangeAsg_FromDate &lt;= @ToDate
+												  AND 
+												PrsRangeAsg_PersonId IN ({ReportHelper.Instance().ModifiedIds()})
+										 ) AS [Range]
+									WHERE [Range].[No] = 1
+								   ) AS PrsRangeAsg
+						ON CalcDateRange_CalcRangeGrpId = PrsRangeAsg.PrsRangeAsg_CalcRangeGrpId
+						INNER JOIN TA_CalculationRangeGroup
+						ON CalcDateRange_CalcRangeGrpId = CalcRangeGroup_ID
+						WHERE ConceptTmp_KeyColumnName IS NOT NULL
+								AND
+							  Len(ConceptTmp_KeyColumnName) &lt;&gt; 0              
+		              ) AS PeriodicCnp		
+	        ON PrdCnpTmpDetail_PrdCnpTmpId = PeriodicCnp.PeriodicCnp_CnpTmpId
+		   ) AS PeriodicCnpValue     
+	 INNER JOIN TA_ConceptTemplate CnpTmp
+	 ON CnpTmp.ConceptTmp_ID = PeriodicCnpValue.ScndCnpValue_DailyScndCnpId
+	 CROSS APPLY dbo.TA_GetScndCnpValues(PeriodicCnpValue.ScndCnpValue_PersonId,
+										 PeriodicCnpValue.ScndCnpValue_DailyScndCnpId,
+										 PeriodicCnpValue.ScndCnpValue_PeriodicFromDate,
+										 PeriodicCnpValue.ScndCnpValue_PeriodicToDate) AS  ScndCnpValues 							        
+	) AS [Source]		
+PIVOT
+(
+	SUM(ScndCnpValue_Value)
+	FOR ConceptTmp_KeyColumnName
+		IN ([gridFields_NecessaryOperation]
+			  ,[gridFields_HourlyPureOperation]
+			  ,[gridFields_DailyPureOperation]
+			  ,[gridFields_ImpureOperation]
+			  ,[gridFields_AllowableOverTime]
+			  ,[gridFields_UnallowableOverTime]
+			  ,[gridFields_HourlyAllowableAbsence]
+			  ,[gridFields_HourlyUnallowableAbsence]
+			  ,[gridFields_DailyAbsence]
+			  ,[gridFields_HourlyMission]
+			  ,[gridFields_DailyMission]
+			  ,[gridFields_HostelryMission]
+			  ,[gridFields_HourlySickLeave]
+			  ,[gridFields_DailySickLeave]
+			  ,[gridFields_HourlyMeritoriouslyLeave]
+			  ,[gridFields_DailyMeritoriouslyLeave]
+			  ,[gridFields_HourlyWithoutPayLeave]
+			  ,[gridFields_PresenceDuration]
+			  ,[gridFields_DailyWithoutPayLeave]
+			  ,[gridFields_HourlyWithPayLeave]
+			  ,[gridFields_DailyWithPayLeave]
+			  ,[gridFields_ReserveField1]
+			  ,[gridFields_ReserveField2]
+			  ,[gridFields_ReserveField3]
+			  ,[gridFields_ReserveField4]
+			  ,[gridFields_ReserveField5]
+			  ,[gridFields_ReserveField6]
+			  ,[gridFields_ReserveField7]
+			  ,[gridFields_ReserveField8]
+			  ,[gridFields_ReserveField9]
+			  ,[gridFields_ReserveField10])
+) AS Result			
+GROUP BY ScndCnpValue_PersonId, ScndCnpValue_FromDate 
+) ScndCnpValue
+ON PrcTraffic.ProceedTraffic_FromDate = ScndCnpValue.Date
+	AND	
+   PrcTraffic.ProceedTraffic_PersonId = ScndCnpValue.ScndCnpValue_PersonId
+ORDER BY ShamsiDate</SqlCommand>
+      </MonthlyReport_DailyValue>
+      <MonthlyReport_MonthlyValue Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>MonthlyReport_MonthlyValue</Alias>
+        <Columns isList="true" count="38">
+          <value>gridFields_ReserveField10,System.Decimal</value>
+          <value>gridFields_ReserveField9,System.Decimal</value>
+          <value>gridFields_ReserveField8,System.Decimal</value>
+          <value>gridFields_ReserveField7,System.Decimal</value>
+          <value>gridFields_ReserveField6,System.Decimal</value>
+          <value>gridFields_ReserveField5,System.Decimal</value>
+          <value>gridFields_ReserveField4,System.Decimal</value>
+          <value>gridFields_ReserveField3,System.Decimal</value>
+          <value>gridFields_ReserveField2,System.Decimal</value>
+          <value>gridFields_ReserveField1,System.Decimal</value>
+          <value>gridFields_DailyWithPayLeave,System.Decimal</value>
+          <value>gridFields_HourlyWithPayLeave,System.Decimal</value>
+          <value>gridFields_DailyWithoutPayLeave,System.Decimal</value>
+          <value>gridFields_PresenceDuration,System.Decimal</value>
+          <value>gridFields_HourlyWithoutPayLeave,System.Decimal</value>
+          <value>gridFields_DailyMeritoriouslyLeave,System.Decimal</value>
+          <value>gridFields_HourlyMeritoriouslyLeave,System.Decimal</value>
+          <value>gridFields_DailySickLeave,System.Decimal</value>
+          <value>gridFields_HourlySickLeave,System.Decimal</value>
+          <value>gridFields_HostelryMission,System.Decimal</value>
+          <value>gridFields_DailyMission,System.Decimal</value>
+          <value>gridFields_HourlyMission,System.Decimal</value>
+          <value>gridFields_DailyAbsence,System.Decimal</value>
+          <value>gridFields_HourlyUnallowableAbsence,System.Decimal</value>
+          <value>gridFields_HourlyAllowableAbsence,System.Decimal</value>
+          <value>gridFields_ImpureOperation,System.Decimal</value>
+          <value>gridFields_AllowableOverTime,System.Decimal</value>
+          <value>gridFields_UnallowableOverTime,System.Decimal</value>
+          <value>gridFields_NecessaryOperation,System.Decimal</value>
+          <value>gridFields_HourlyPureOperation,System.Decimal</value>
+          <value>gridFields_DailyPureOperation,System.Decimal</value>
+          <value>ScndCnpValue_PersonId,System.Decimal</value>
+          <value>Prs_FirstName,System.String</value>
+          <value>Prs_LastName,System.String</value>
+          <value>ScndCnpValue_PeriodicFromDate,System.DateTime</value>
+          <value>ScndCnpValue_PeriodicToDate,System.DateTime</value>
+          <value>Prs_BarCode,System.String</value>
+          <value>resultCalcValidation,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>MonthlyReport_MonthlyValue</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="2">
+          <value>_x0040_ToDate,,4,0</value>
+          <value>_x0040_Order,,8,0</value>
+        </Parameters>
+        <SqlCommand>
+SELECT 
+	[gridFields_ReserveField10]
+	,[gridFields_ReserveField9]
+	,[gridFields_ReserveField8]
+	,[gridFields_ReserveField7]
+	,[gridFields_ReserveField6]
+	,[gridFields_ReserveField5]
+	,[gridFields_ReserveField4]
+	,[gridFields_ReserveField3]
+	,[gridFields_ReserveField2]
+	,[gridFields_ReserveField1]
+	,[gridFields_DailyWithPayLeave]
+	,[gridFields_HourlyWithPayLeave]
+	,[gridFields_DailyWithoutPayLeave]
+	,[gridFields_PresenceDuration]
+	,[gridFields_HourlyWithoutPayLeave]
+	,[gridFields_DailyMeritoriouslyLeave]
+	,[gridFields_HourlyMeritoriouslyLeave]
+	,[gridFields_DailySickLeave]
+	,[gridFields_HourlySickLeave]
+	,[gridFields_HostelryMission]
+	,[gridFields_DailyMission]
+	,[gridFields_HourlyMission]
+	,[gridFields_DailyAbsence]
+	,[gridFields_HourlyUnallowableAbsence]
+	,[gridFields_HourlyAllowableAbsence]
+	,[gridFields_ImpureOperation], [gridFields_AllowableOverTime], [gridFields_UnallowableOverTime]
+	,[gridFields_NecessaryOperation], [gridFields_HourlyPureOperation], [gridFields_DailyPureOperation] 
+	,ScndCnpValue_PersonId
+	,Prs.Prs_FirstName
+	,Prs_LastName
+	,Prs_BarCode	
+	,ScndCnpValue_PeriodicFromDate
+	,ScndCnpValue_PeriodicToDate
+	,resultCalcValidation 
+	FROM (							        
+SELECT ISNULL(SUM([gridFields_NecessaryOperation]), -1000) [gridFields_NecessaryOperation]
+      ,ISNULL(SUM([gridFields_HourlyPureOperation]), -1000) [gridFields_HourlyPureOperation]
+      ,ISNULL(SUM([gridFields_DailyPureOperation]), -1000) [gridFields_DailyPureOperation]
+      ,ISNULL(SUM([gridFields_ImpureOperation]), -1000) [gridFields_ImpureOperation]
+      ,ISNULL(SUM([gridFields_AllowableOverTime]), -1000) [gridFields_AllowableOverTime]
+      ,ISNULL(SUM([gridFields_UnallowableOverTime]), -1000) [gridFields_UnallowableOverTime]
+      ,ISNULL(SUM([gridFields_HourlyAllowableAbsence]), -1000) [gridFields_HourlyAllowableAbsence]
+      ,ISNULL(SUM([gridFields_HourlyUnallowableAbsence]), -1000) [gridFields_HourlyUnallowableAbsence]
+      ,ISNULL(SUM([gridFields_DailyAbsence]), -1000) [gridFields_DailyAbsence]
+      ,ISNULL(SUM([gridFields_HourlyMission]), -1000) [gridFields_HourlyMission]
+      ,ISNULL(SUM([gridFields_DailyMission]), -1000) [gridFields_DailyMission]
+      ,ISNULL(SUM([gridFields_HostelryMission]), -1000) [gridFields_HostelryMission]
+      ,ISNULL(SUM([gridFields_HourlySickLeave]), -1000) [gridFields_HourlySickLeave]
+      ,ISNULL(SUM([gridFields_DailySickLeave]), -1000) [gridFields_DailySickLeave]
+      ,ISNULL(SUM([gridFields_HourlyMeritoriouslyLeave]), -1000) [gridFields_HourlyMeritoriouslyLeave]
+      ,ISNULL(SUM([gridFields_DailyMeritoriouslyLeave]), -1000) [gridFields_DailyMeritoriouslyLeave]
+      ,ISNULL(SUM([gridFields_HourlyWithoutPayLeave]), -1000) [gridFields_HourlyWithoutPayLeave]
+      ,ISNULL(SUM([gridFields_PresenceDuration]), -1000) [gridFields_PresenceDuration]
+      ,ISNULL(SUM([gridFields_DailyWithoutPayLeave]), -1000) [gridFields_DailyWithoutPayLeave]
+      ,ISNULL(SUM([gridFields_HourlyWithPayLeave]), -1000) [gridFields_HourlyWithPayLeave]
+      ,ISNULL(SUM([gridFields_DailyWithPayLeave]), -1000) [gridFields_DailyWithPayLeave]
+      ,ISNULL(SUM([gridFields_ReserveField1]), -1000) [gridFields_ReserveField1]
+      ,ISNULL(SUM([gridFields_ReserveField2]), -1000) [gridFields_ReserveField2]
+      ,ISNULL(SUM([gridFields_ReserveField3]), -1000) [gridFields_ReserveField3]
+      ,ISNULL(SUM([gridFields_ReserveField4]), -1000) [gridFields_ReserveField4]
+      ,ISNULL(SUM([gridFields_ReserveField5]), -1000) [gridFields_ReserveField5]
+      ,ISNULL(SUM([gridFields_ReserveField6]), -1000) [gridFields_ReserveField6]
+      ,ISNULL(SUM([gridFields_ReserveField7]), -1000) [gridFields_ReserveField7]
+      ,ISNULL(SUM([gridFields_ReserveField8]), -1000) [gridFields_ReserveField8]
+      ,ISNULL(SUM([gridFields_ReserveField9]), -1000) [gridFields_ReserveField9]
+      ,ISNULL(SUM([gridFields_ReserveField10]), -1000) [gridFields_ReserveField10]
+      ,ScndCnpValue_PersonId
+      ,ScndCnpValue_PeriodicFromDate
+      ,ScndCnpValue_PeriodicToDate
+FROM (SELECT   PeriodicCnp_KeyColumnName AS ScndCnpValue_KeyColumnName,     
+	PeriodicCnp_FromDate		 AS ScndCnpValue_PeriodicFromDate,	   
+	PeriodicCnp_ToDate		 AS ScndCnpValue_PeriodicToDate,
+	PeriodicCnp_CnpTmpId		 AS ScndCnpValue_PeriodicScndCnpId, 
+	PeriodicCnp_PersonId		 AS ScndCnpValue_PersonId,
+	dbo.TA_FN_GetPeriodicScndCnpValue(PeriodicCnp_PersonId, 
+	PeriodicCnp_CnpTmpId, 
+	PeriodicCnp_FromDate, 
+	PeriodicCnp_ToDate) 
+	AS ScndCnpValue_PeriodicValue
+	FROM (SELECT  CalcDateRange_ID				  AS PeriodicCnp_ID,
+	PrsRangeAsg.PrsRangeAsg_PersonId  AS PeriodicCnp_PersonId, 
+	CalcDateRange_ConceptTmpId		  AS PeriodicCnp_CnpTmpId, 
+	ConceptTmp_KeyColumnName 		  AS PeriodicCnp_KeyColumnName, 
+	dbo.TA_ASM_CalculateFromDateRange(@ToDate, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													  AS PeriodicCnp_FromDate,
+					dbo.TA_ASM_CalculateToDateRange(@ToDate, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													  AS PeriodicCnp_ToDate
+FROM (SELECT * 
+	FROM dbo.TA_CalculationDateRange 
+	WHERE CalcDateRange_Order = @Order
+                 ) AS CalcDateRng
+INNER JOIN (SELECT * 
+	FROM dbo.TA_ConceptTemplate 
+	WHERE ConceptTmp_IsPeriodic = 1
+                            ) AS Concept
+			     ON CalcDateRange_ConceptTmpId = Concept.ConceptTmp_ID		  
+INNER JOIN (SELECT *
+	FROM (SELECT ROW_NUMBER() OVER (PARTITION BY PrsRangeAsg_PersonId ORDER BY PrsRangeAsg_FromDate DESC) AS [No], 
+									  PrsRangeAsg_PersonId, PrsRangeAsg_CalcRangeGrpId AS PrsRangeAsg_CalcRangeGrpId
+								   FROM TA_PersonRangeAssignment								 
+								   WHERE PrsRangeAsg_FromDate &lt;= @ToDate
+										  AND 
+										 PrsRangeAsg_PersonId IN ({ReportHelper.Instance().ModifiedIds()})
+								  ) AS [Range]
+							 WHERE [Range].[No] = 1
+                            ) AS PrsRangeAsg                            
+			     ON CalcDateRange_CalcRangeGrpId = PrsRangeAsg.PrsRangeAsg_CalcRangeGrpId
+			     INNER JOIN TA_CalculationRangeGroup
+			     ON CalcDateRange_CalcRangeGrpId = CalcRangeGroup_ID				     		     
+                 WHERE ConceptTmp_KeyColumnName IS NOT NULL
+				         AND
+			           Len(ConceptTmp_KeyColumnName) &lt;&gt; 0              
+		   ) AS PeriodicCnpValue	
+		   
+	) AS [Source]
+			
+	PIVOT
+	(
+	 SUM(ScndCnpValue_PeriodicValue)
+	 FOR ScndCnpValue_KeyColumnName
+		 IN ([gridFields_NecessaryOperation]
+			  ,[gridFields_HourlyPureOperation]
+			  ,[gridFields_DailyPureOperation]
+			  ,[gridFields_ImpureOperation]
+			  ,[gridFields_AllowableOverTime]
+			  ,[gridFields_UnallowableOverTime]
+			  ,[gridFields_HourlyAllowableAbsence]
+			  ,[gridFields_HourlyUnallowableAbsence]
+			  ,[gridFields_DailyAbsence]
+			  ,[gridFields_HourlyMission]
+			  ,[gridFields_DailyMission]
+			  ,[gridFields_HostelryMission]
+			  ,[gridFields_HourlySickLeave]
+			  ,[gridFields_DailySickLeave]
+			  ,[gridFields_HourlyMeritoriouslyLeave]
+			  ,[gridFields_DailyMeritoriouslyLeave]
+			  ,[gridFields_HourlyWithoutPayLeave]
+			  ,[gridFields_PresenceDuration]
+			  ,[gridFields_DailyWithoutPayLeave]
+			  ,[gridFields_HourlyWithPayLeave]
+			  ,[gridFields_DailyWithPayLeave]
+			  ,[gridFields_ReserveField1]
+			  ,[gridFields_ReserveField2]
+			  ,[gridFields_ReserveField3]
+			  ,[gridFields_ReserveField4]
+			  ,[gridFields_ReserveField5]
+			  ,[gridFields_ReserveField6]
+			  ,[gridFields_ReserveField7]
+			  ,[gridFields_ReserveField8]
+			  ,[gridFields_ReserveField9]
+			  ,[gridFields_ReserveField10])
+	) AS Result			
+GROUP BY ScndCnpValue_PersonId, ScndCnpValue_PeriodicFromDate ,ScndCnpValue_PeriodicToDate
+) ScndCnpValue
+INNER JOIN TA_Person Prs
+ON ScndCnpValue.ScndCnpValue_PersonId = Prs.Prs_ID
+left outer join (select CFP_PrsId, case when  CFP_CalculationIsValid=0 and CFP_Date&lt;@ToDate  then 'توجه : برای اطمینان از صحت محاسبات ، لازم به محاسبه می باشد.' else '' end  resultCalcValidation  from TA_Calculation_Flag_Persons
+where CFP_PrsId IN ({ReportHelper.Instance().ModifiedIds()})) validationCalc on
+ScndCnpValue.ScndCnpValue_PersonId =validationCalc.CFP_PrsId</SqlCommand>
+      </MonthlyReport_MonthlyValue>
+      <nameOrg Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>nameOrg</Alias>
+        <Columns isList="true" count="1">
+          <value>OrgDef_Name,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>nameOrg</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select  OrgDef_Name from TA_DataAccessOrgan
+
+join  TA_OrganDefine on DataAccessOrgan_OrgDefID=OrgDef_ID
+
+where DataAccessOrgan_UserID={ReportHelper.Instance().UserId}</SqlCommand>
+      </nameOrg>
+    </DataSources>
+    <Relations isList="true" count="1">
+      <PeriodicDetailRelation Ref="6" type="DataRelation" isKey="true">
+        <Alias>PeriodicDetailRelation</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ScndCnpValue_PersonId</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>PeriodicDetailRelation</Name>
+        <NameInSource>Relation</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ScndCnpValue_PersonId</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </PeriodicDetailRelation>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="2">
+    <pgeReport Ref="7" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="6">
+        <phbMain Ref="8" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,28.7,1.6</ClientRectangle>
+          <Components isList="true" count="13">
+            <txtOrgDefName Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>7.6,0,10.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,18,Bold</Font>
+              <Guid>c1e7b68399f34ef1b8f89fde7da3521a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtOrgDefName</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{nameOrg.OrgDef_Name}
+گزارش کارکرد ماهیانه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </txtOrgDefName>
+            <txtMr Ref="10" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>25.2,0.6,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>c117217ae7db4a54b05f71695d8b791d</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtMr</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>گزارش کارکرد خانم/آقای</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtMr>
+            <txtName Ref="11" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>21.2,0.6,4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>eedf6cb847b14c7696581c94b919f080</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtName</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{MonthlyReport_MonthlyValue.Prs_FirstName + " " + MonthlyReport_MonthlyValue.Prs_LastName} </Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtName>
+            <txtFrom Ref="12" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>28.2,0,0.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>5276b924f8bf455c990b7b8e41372eaa</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtFrom</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>از</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtFrom>
+            <txtPeriodicFromDate Ref="13" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>25.8,0,2.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>5676fa21050a4dd8bdbc653202cbebe2</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtPeriodicFromDate</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{ReportHelper.Instance().MiladiToShamsi(MonthlyReport_MonthlyValue.ScndCnpValue_PeriodicFromDate)}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtPeriodicFromDate>
+            <txtTo Ref="14" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>25.2,0,0.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>2e1fe8291046465381b77faa69a0ba25</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtTo</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>تا</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtTo>
+            <txtPeriodicToDate Ref="15" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>22.8,0,2.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>8b230f6d452043f3a2e72a075bace763</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtPeriodicToDate</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{ReportHelper.Instance().MiladiToShamsi(MonthlyReport_MonthlyValue.ScndCnpValue_PeriodicToDate)}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtPeriodicToDate>
+            <txteportDate Ref="16" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>2.4,0,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>50c930666be5494f83c1073efeadae1a</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txteportDate</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>: تاریخ تهیه گزارش</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txteportDate>
+            <txtReporter Ref="17" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>3,0.6,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>257c3e8fba274d6f8a4ebe0812202ca6</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtReporter</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>: تهیه کننده</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtReporter>
+            <txtShamsiGetNow Ref="18" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0,0,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>43e19e8e13fc493b9b95f87511f84432</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtShamsiGetNow</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{ReportHelper.Instance().ShamsiGetNow()}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtShamsiGetNow>
+            <txtUserName Ref="19" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0,0.6,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>7aa38193d7564f29b84eaf088295b252</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtUserName</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{ReportHelper.Instance().UserName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtUserName>
+            <txtPersonId Ref="20" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>26.4,1,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>f0db4949132b4d60962dfcde166c10e9</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtPersonId</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>شماره پرسنلی</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtPersonId>
+            <txtPrsBarCode Ref="21" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>22.6,1,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>b381ea2d6c824052b8716d99223525ac</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtPrsBarCode</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{MonthlyReport_MonthlyValue.Prs_BarCode}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </txtPrsBarCode>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>phbMain</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+        </phbMain>
+        <pfbMain Ref="22" type="PageFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,19.4,28.7,0.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <txtResultCalcValidation Ref="23" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>19.4,0,9.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>869f6033c1ae41dba22e9a2ae29bae51</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtResultCalcValidation</Name>
+              <Page isRef="7" />
+              <Parent isRef="22" />
+              <Text>{MonthlyReport_MonthlyValue.resultCalcValidation}</Text>
+              <TextBrush>Red</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+            </txtResultCalcValidation>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>pfbMain</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+        </pfbMain>
+        <ghbMain Ref="24" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.8,28.7,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Condition>{MonthlyReport_DailyValue.ScndCnpValue_PersonId}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>ghbMain</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+        </ghbMain>
+        <hdrMain Ref="25" type="HeaderBand" isKey="true">
+          <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
+          <Brush>Gainsboro</Brush>
+          <ClientRectangle>0,3.6,28.7,1</ClientRectangle>
+          <Components isList="true" count="27">
+            <htDailyWithoutPayLeave Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.2,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>48a29fa1ba1a479d84cac1a972ec0042</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htDailyWithoutPayLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>م بی حقوق روزانه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htDailyWithoutPayLeave>
+            <htHourlyWithoutPayLeave Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.2,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>b731db0aa1514a50a320e3789b612697</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htHourlyWithoutPayLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>م بی حقوق ساعتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htHourlyWithoutPayLeave>
+            <htDailyMeritoriouslyLeave Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.2,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>c2dcacb4ec0a4bec9e6261426042c908</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htDailyMeritoriouslyLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>مرخصی استحقاقی روزانه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htDailyMeritoriouslyLeave>
+            <htHourlyMeritoriouslyLeave Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,1.2,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>3a4a712f81b74ae6857566a132afca0c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htHourlyMeritoriouslyLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>مرخصی استحقاقی ساعتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htHourlyMeritoriouslyLeave>
+            <htDailySickLeave Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.4,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>6975f70778114680a216e80ecf866c51</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htDailySickLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>مرخصی استعلاجی روزانه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htDailySickLeave>
+            <htHourlySickLeave Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.4,0,1.2,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>18aaa45d127647b3ae75dd7e3020d147</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htHourlySickLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>مرخصی استعلاجی ساعتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htHourlySickLeave>
+            <htHostelryMission Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.6,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>f0375774a9fc4e2eb7236eb6b85ae282</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htHostelryMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>ماموریت شبانه روزی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htHostelryMission>
+            <htDailyMission Ref="33" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.6,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>eea07d3effaf4e7ebe27156c3d39c943</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htDailyMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>ماموریت روزانه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htDailyMission>
+            <htHourlyMission Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.6,0,1.2,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>12b0adf22b1a4bc0a9754390ad1e53bb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htHourlyMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>ماموریت ساعتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htHourlyMission>
+            <htDailyAbsence Ref="35" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.8,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>bd8eaf738f394402b996a694fed5d5bd</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htDailyAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>غیبت غیرمجاز روزانه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htDailyAbsence>
+            <htHourlyUnallowableAbsence Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>10.8,0,1.2,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>0040d651e7cc4b9db15ff102ca08fa78</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htHourlyUnallowableAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>غیبت غیر مجاز ساعتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htHourlyUnallowableAbsence>
+            <htHourlyAllowableAbsence Ref="37" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>12,0,1.2,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>0ffa421ae008417d9c16176c5b658c35</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htHourlyAllowableAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>غیبت مجاز ساعتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htHourlyAllowableAbsence>
+            <htUnallowableOverTime Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.2,0,1.1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>d87534b076bc431ca3edd750f72b4f9f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htUnallowableOverTime</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>اضافه کار غیرمجاز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htUnallowableOverTime>
+            <htAllowableOverTime Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.3,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>5c83ac8735474eb39720788d9fba28d7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htAllowableOverTime</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>اضافه کار مجاز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htAllowableOverTime>
+            <htImpureOperation Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>15.3,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>3b884945e9cb437e8a65073c2d2f884c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htImpureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>کارکرد ناخالص ساعتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htImpureOperation>
+            <htDailyPureOperation Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.3,0,0.8,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>8d12f8d1a42b4e7e818e4889053e1ff1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htDailyPureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>کارکرد خالص روزانه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htDailyPureOperation>
+            <htHourlyPureOperation Ref="42" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>17.1,0,1.4,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>a42aaad179bf4d0894f2694ed9a2531f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htHourlyPureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>کارکرد خالص ساعتی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htHourlyPureOperation>
+            <htPresenceDuration Ref="43" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>18.5,0,1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>ddee542b83a54c5ebe9f147506aa14b9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htPresenceDuration</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>حضور کاری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htPresenceDuration>
+            <htNecessaryOperation Ref="44" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>19.5,0,1.1,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>6d29f9cef96548f686b038b0e34e243f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htNecessaryOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>کارکرد لازم</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htNecessaryOperation>
+            <htThirdExit Ref="45" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>20.6,0,0.9,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>28b9b73624204b6192a356d043250d6b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htThirdExit</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>خروج سوم</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htThirdExit>
+            <htThirdEntrance Ref="46" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>21.5,0,0.9,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>5c66d7745d3c4c039338e10ebcfbe2a0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htThirdEntrance</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>ورود سوم</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htThirdEntrance>
+            <htSecondExit Ref="47" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>22.4,0,0.9,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>0a40a06b90bf4ac5829d1f6112ea9e30</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htSecondExit</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>خروج دوم</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htSecondExit>
+            <htSecondEntrance Ref="48" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>23.3,0,0.9,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>8cc5a20f4eb5448b84c9d8dcf52223ca</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htSecondEntrance</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>ورود دوم</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htSecondEntrance>
+            <htFirstExit Ref="49" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>24.2,0,0.9,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>9dc1d250a9544d9c98126f6308ce737b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htFirstExit</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>خروج اول</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htFirstExit>
+            <htFirstEntrance Ref="50" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>25.1,0,0.9,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>43a11da307cd4b7ea1811126c47ae81b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htFirstEntrance</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>ورود اول</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htFirstEntrance>
+            <htDate Ref="51" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>26,0,1.2,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>1178c4230464493bb432bbcf5dacfad6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htDate</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>روز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htDate>
+            <htShamsiDate Ref="52" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>27.2,0,1.5,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.75</Font>
+              <Guid>261f5cb855cf426fb5d14dd90edb3122</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>htShamsiDate</Name>
+              <Page isRef="7" />
+              <Parent isRef="25" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </htShamsiDate>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>4cc69102fe74471bb68b734711459a11</Guid>
+          <Name>hdrMain</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <ToolTip>erwr</ToolTip>
+        </hdrMain>
+        <dbMain Ref="53" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,5.4,28.7,0.5</ClientRectangle>
+          <Components isList="true" count="27">
+            <dtDailyWithoutPayLeave Ref="54" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>18c3c1309a6e46a6a6f046b976c505c8</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtDailyWithoutPayLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_DailyValue.gridFields_DailyWithoutPayLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtDailyWithoutPayLeave>
+            <dtHourlyWithoutPayLeave Ref="55" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.2,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>0d31de2a058a4b3397c730109b947e0b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtHourlyWithoutPayLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_HourlyWithoutPayLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtHourlyWithoutPayLeave>
+            <dtDailyMeritoriouslyLeave Ref="56" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.2,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>783ddc7632dd4db08973b591a4ffa08e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtDailyMeritoriouslyLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_DailyValue.gridFields_DailyMeritoriouslyLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtDailyMeritoriouslyLeave>
+            <dtHourlyMeritoriouslyLeave Ref="57" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>1eb1bbd7ac59487dab3a118a1a0ef4d9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtHourlyMeritoriouslyLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_HourlyMeritoriouslyLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtHourlyMeritoriouslyLeave>
+            <dtDailySickLeave Ref="58" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.4,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>0a312fda1e464ef9bbe1143d5c315515</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtDailySickLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_DailyValue.gridFields_DailySickLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtDailySickLeave>
+            <dtHourlySickLeave Ref="59" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.4,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>c016bc4cd5e44035ba240b096b936aae</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtHourlySickLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_HourlySickLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtHourlySickLeave>
+            <dtHostelryMission Ref="60" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.6,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>154c331998954ccfb2085e2464cb3de7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtHostelryMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_DailyValue.gridFields_HostelryMission)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtHostelryMission>
+            <dtDailyMission Ref="61" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.6,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>2f813a1c67a64f1a9de60aaaca4bdc9b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtDailyMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_DailyValue.gridFields_DailyMission)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtDailyMission>
+            <dtHourlyMission Ref="62" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.6,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>c4ff4868533a46c3a2ddf3de387444fc</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtHourlyMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_HourlyMission)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtHourlyMission>
+            <dtDailyAbsence Ref="63" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.8,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>0874e81525994c90817da1b2cfb3c860</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtDailyAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_DailyValue.gridFields_DailyAbsence)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtDailyAbsence>
+            <dtHourlyUnallowableAbsence Ref="64" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>10.8,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>1734be30e3054dd69fc4ac9b1ae1f400</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtHourlyUnallowableAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_HourlyUnallowableAbsence)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtHourlyUnallowableAbsence>
+            <dtHourlyAllowableAbsence Ref="65" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>12,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>8182641dd9e147dba8155910e389a632</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtHourlyAllowableAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_HourlyAllowableAbsence)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtHourlyAllowableAbsence>
+            <dtUnallowableOverTime Ref="66" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.2,0,1.1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>dd10e269fa97431bbc31c4bf4416a737</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtUnallowableOverTime</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_UnallowableOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtUnallowableOverTime>
+            <dtAllowableOverTime Ref="67" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.3,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>aea1a926d53342d59ca546b1be071afc</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtAllowableOverTime</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_AllowableOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtAllowableOverTime>
+            <dtImpureOperation Ref="68" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>15.3,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>acd149c5353d4d74b87485dd5d6662d9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtImpureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_ImpureOperation)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtImpureOperation>
+            <dtDailyPureOperation Ref="69" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.3,0,0.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>0e168a7dc2134343a1ab1e5d90a29534</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtDailyPureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_DailyValue.gridFields_DailyPureOperation)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtDailyPureOperation>
+            <dtHourlyPureOperation Ref="70" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>17.1,0,1.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>a7c51824d53c4fb2b4602029355576a1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtHourlyPureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_HourlyPureOperation)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtHourlyPureOperation>
+            <dtPresenceDuration Ref="71" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>18.5,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>c418614c0cff4a81bca719ae390937aa</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtPresenceDuration</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_PresenceDuration)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtPresenceDuration>
+            <dtNecessaryOperation Ref="72" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>19.5,0,1.1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>fc61e9a022c241eaa87cafc53730b3a8</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtNecessaryOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.gridFields_NecessaryOperation)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtNecessaryOperation>
+            <dtThirdExit Ref="73" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>20.6,0,0.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>3b1924693b82467da4d2adaddbe78339</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtThirdExit</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.ThirdExit)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtThirdExit>
+            <dtThirdEntrance Ref="74" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>21.5,0,0.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>cd38f9e36a654951aa4b77e4e8e1cca5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtThirdEntrance</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.ThirdEntrance)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtThirdEntrance>
+            <dtSecondExit Ref="75" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>22.4,0,0.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>ad516b702448414b9e2f934baa60a6c6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtSecondExit</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.SecondExit)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtSecondExit>
+            <dtSecondEntrance Ref="76" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>23.3,0,0.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>58696900da90432f8a3953df0dc224fc</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtSecondEntrance</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.SecondEntrance)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtSecondEntrance>
+            <dtFirstExit Ref="77" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>24.2,0,0.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>974197cfb195405f8d35899e40244558</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtFirstExit</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.FirstExit)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtFirstExit>
+            <dtFirstEntrance Ref="78" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>25.1,0,0.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>00720695fbf7420eb183dad9ca0e8408</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtFirstEntrance</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().IntTimeToRealTime(MonthlyReport_DailyValue.FirstEntrance)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtFirstEntrance>
+            <dtDate Ref="79" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>26,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>0715656a9ea24040ab28a6efab57a873</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtDate</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{ReportHelper.Instance().ShamsiDayName(MonthlyReport_DailyValue.Date)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </dtDate>
+            <dtShamsiDate Ref="80" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>27.2,0,1.5,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,7.5</Font>
+              <Guid>ddaa8cbaca9946a9aee65824190ec0ed</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>dtShamsiDate</Name>
+              <Page isRef="7" />
+              <Parent isRef="53" />
+              <Text>{Remove(MonthlyReport_DailyValue.ShamsiDate,0,5)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </dtShamsiDate>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation</DataRelationName>
+          <DataSourceName>MonthlyReport_DailyValue</DataSourceName>
+          <EvenStyle>EventStyle</EvenStyle>
+          <Filters isList="true" count="0" />
+          <Guid>8a75d5d125b8490e919a438cc50433ec</Guid>
+          <MasterComponent isRef="81" />
+          <Name>dbMain</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="2">
+            <value>ASC</value>
+            <value>Date</value>
+          </Sort>
+        </dbMain>
+        <mbMain Ref="81" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,6.7,28.7,0.5</ClientRectangle>
+          <Components isList="true" count="20">
+            <mtDailyWithoutPayLeave Ref="82" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>59a0bdaccebd45c59b726df9dff52e3e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtDailyWithoutPayLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_MonthlyValue.gridFields_DailyWithoutPayLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtDailyWithoutPayLeave>
+            <mtHourlyWithoutPayLeave Ref="83" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.2,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>b9823b582ebe465fbcdce3dfa12e27b8</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtHourlyWithoutPayLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_HourlyWithoutPayLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtHourlyWithoutPayLeave>
+            <mtDailyMeritoriouslyLeave Ref="84" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.2,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>76ce9fdfa01140a2950335cb89a822df</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtDailyMeritoriouslyLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_MonthlyValue.gridFields_DailyMeritoriouslyLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtDailyMeritoriouslyLeave>
+            <mtHourlyMeritoriouslyLeave Ref="85" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>c39d5d672c4a4031beb753529b422463</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtHourlyMeritoriouslyLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_HourlyMeritoriouslyLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtHourlyMeritoriouslyLeave>
+            <mtDailySickLeave Ref="86" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.4,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>f86e5df0518f45a890b51e271143f3df</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtDailySickLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_MonthlyValue.gridFields_DailySickLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtDailySickLeave>
+            <mtHourlySickLeave Ref="87" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.4,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>c5b30087efa4424bb7dfcae5c24680d1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtHourlySickLeave</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_HourlySickLeave)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtHourlySickLeave>
+            <mtHostelryMission Ref="88" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.6,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>aed7aa0204c1422bacbc49ee84a63bc4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtHostelryMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_MonthlyValue.gridFields_HostelryMission)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtHostelryMission>
+            <mtDailyMission Ref="89" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.6,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>3120703d63494635a2ec7db76e7d692e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtDailyMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_MonthlyValue.gridFields_DailyMission)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtDailyMission>
+            <mtHourlyMission Ref="90" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.6,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>045142ad75c14bb0b7c546a36889c99f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtHourlyMission</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_HourlyMission)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtHourlyMission>
+            <mtDailyAbsence Ref="91" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.8,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>2445a87c626e4d1288f8e3275d2c4bd3</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtDailyAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_MonthlyValue.gridFields_DailyAbsence)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtDailyAbsence>
+            <mtHourlyUnallowableAbsence Ref="92" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>10.8,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>9569bc5c8bfd42fb8c50ac339ebe3c2a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtHourlyUnallowableAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_HourlyUnallowableAbsence)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtHourlyUnallowableAbsence>
+            <mtHourlyAllowableAbsence Ref="93" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>12,0,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>88385192832d4b6e841aaa375a2194ff</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtHourlyAllowableAbsence</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_HourlyAllowableAbsence)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtHourlyAllowableAbsence>
+            <mtUnallowableOverTime Ref="94" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.2,0,1.1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>d6e3789ec5e64f45aa2db62c48097516</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtUnallowableOverTime</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_UnallowableOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtUnallowableOverTime>
+            <mtAllowableOverTime Ref="95" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.3,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>8c62c5be094b4d71bf4f1eba9db5d957</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtAllowableOverTime</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_AllowableOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtAllowableOverTime>
+            <mtImpureOperation Ref="96" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>15.3,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>f599cb59f7674917bce4f476c39e0ca4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtImpureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_ImpureOperation)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtImpureOperation>
+            <mtDailyPureOperation Ref="97" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.3,0,0.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>5f4a1676a15c498aaacce73cb8fae1f9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtDailyPureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().FixedDailyValue(MonthlyReport_MonthlyValue.gridFields_DailyPureOperation)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtDailyPureOperation>
+            <mtHourlyPureOperation Ref="98" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>17.1,0,1.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>7b9762306a2348e6be41e3d2668ed595</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtHourlyPureOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_HourlyPureOperation)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtHourlyPureOperation>
+            <mtPresenceDuration Ref="99" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>18.5,0,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>45b91e31b586425c93d4c5c242ddcfdc</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtPresenceDuration</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_PresenceDuration)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtPresenceDuration>
+            <mtNecessaryOperation Ref="100" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>19.5,0,1.1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>c2619ec05967463c80d424c49cceb535</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtNecessaryOperation</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(MonthlyReport_MonthlyValue.gridFields_NecessaryOperation)}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </mtNecessaryOperation>
+            <mtTotal Ref="101" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[34:177:76]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>20.6,0,8.1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Guid>558a1d25878e411baf29a4fbb1776139</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>mtTotal</Name>
+              <Page isRef="7" />
+              <Parent isRef="81" />
+              <Text>مجموع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </mtTotal>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>MonthlyReport_MonthlyValue</DataSourceName>
+          <Filters isList="true" count="0" />
+          <KeepChildTogether>True</KeepChildTogether>
+          <KeepDetailsTogether>True</KeepDetailsTogether>
+          <Name>mbMain</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
+          <Sort isList="true" count="0" />
+        </mbMain>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>4312ae8a09374b55a344f00f7cb85b2f</Guid>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
+      <Name>pgeReport</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <PaperSize>Statement</PaperSize>
+      <Report isRef="0" />
+      <RightToLeft>True</RightToLeft>
+      <Watermark Ref="102" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </pgeReport>
+    <frmFilter Ref="103" type="Stimulsoft.Report.Dialogs.StiForm" isKey="true">
+      <BackColor>Control</BackColor>
+      <Components isList="true" count="28">
+        <btnShow Ref="104" type="Stimulsoft.Report.Dialogs.StiButtonControl" isKey="true">
+          <ClickEvent>htShamsiDate.Enabled=chkShamsiDate.Checked;
+dtShamsiDate.Enabled=chkShamsiDate.Checked;
+
+htDate.Enabled=chkDate.Checked;
+dtDate.Enabled=chkDate.Checked;
+
+htFirstEntrance.Enabled=chkFirstEntrance.Checked;
+dtFirstEntrance.Enabled=chkFirstEntrance.Checked;
+
+htFirstExit.Enabled=chkFirstExit.Checked;
+dtFirstExit.Enabled=chkFirstExit.Checked;
+
+htSecondEntrance.Enabled=chkSecondEntrance.Checked;
+dtSecondEntrance.Enabled=chkSecondEntrance.Checked;
+
+htSecondExit.Enabled=chkSecondExit.Checked;
+dtSecondExit.Enabled=chkSecondExit.Checked;
+
+htThirdEntrance.Enabled=chkThirdEntrance.Checked;
+dtThirdEntrance.Enabled=chkThirdEntrance.Checked;
+
+htThirdExit.Enabled=chkThirdExit.Checked;
+dtThirdExit.Enabled=chkThirdExit.Checked;
+
+htNecessaryOperation.Enabled=chkNecessaryOperation.Checked;
+dtNecessaryOperation.Enabled=chkNecessaryOperation.Checked;
+mtNecessaryOperation.Enabled=chkNecessaryOperation.Checked;
+
+htPresenceDuration.Enabled=chkPresenceDuration.Checked;
+dtPresenceDuration.Enabled=chkPresenceDuration.Checked;
+mtPresenceDuration.Enabled=chkPresenceDuration.Checked;
+
+htHourlyPureOperation.Enabled=chkHourlyPureOperation.Checked;
+dtHourlyPureOperation.Enabled=chkHourlyPureOperation.Checked;
+mtHourlyPureOperation.Enabled=chkHourlyPureOperation.Checked;
+
+htDailyPureOperation.Enabled=chkDailyPureOperation.Checked;
+dtDailyPureOperation.Enabled=chkDailyPureOperation.Checked;
+mtDailyPureOperation.Enabled=chkDailyPureOperation.Checked;
+
+htImpureOperation.Enabled=chkImpureOperation.Checked;
+dtImpureOperation.Enabled=chkImpureOperation.Checked;
+mtImpureOperation.Enabled=chkImpureOperation.Checked;
+
+htAllowableOverTime.Enabled=chkAllowableOverTime.Checked;
+dtAllowableOverTime.Enabled=chkAllowableOverTime.Checked;
+mtAllowableOverTime.Enabled=chkAllowableOverTime.Checked;
+
+htUnallowableOverTime.Enabled=chkUnallowableOverTime.Checked;
+dtUnallowableOverTime.Enabled=chkUnallowableOverTime.Checked;
+mtUnallowableOverTime.Enabled=chkUnallowableOverTime.Checked;
+
+htHourlyAllowableAbsence.Enabled=chkHourlyAllowableAbsence.Checked;
+dtHourlyAllowableAbsence.Enabled=chkHourlyAllowableAbsence.Checked;
+mtHourlyAllowableAbsence.Enabled=chkHourlyAllowableAbsence.Checked;
+
+htHourlyUnallowableAbsence.Enabled=chkHourlyUnallowableAbsence.Checked;
+dtHourlyUnallowableAbsence.Enabled=chkHourlyUnallowableAbsence.Checked;
+mtHourlyUnallowableAbsence.Enabled=chkHourlyUnallowableAbsence.Checked;
+
+htDailyAbsence.Enabled=chkDailyAbsence.Checked;
+dtDailyAbsence.Enabled=chkDailyAbsence.Checked;
+mtDailyAbsence.Enabled=chkDailyAbsence.Checked;
+	
+htHourlyMission.Enabled=chkHourlyMission.Checked;
+dtHourlyMission.Enabled=chkHourlyMission.Checked;
+mtHourlyMission.Enabled=chkHourlyMission.Checked;
+
+htDailyMission.Enabled=chkDailyMission.Checked;
+dtDailyMission.Enabled=chkDailyMission.Checked;
+mtDailyMission.Enabled=chkDailyMission.Checked;
+
+htHostelryMission.Enabled=chkHostelryMission.Checked;
+dtHostelryMission.Enabled=chkHostelryMission.Checked;
+mtHostelryMission.Enabled=chkHostelryMission.Checked;
+
+htHourlySickLeave.Enabled=chkHourlySickLeave.Checked;
+dtHourlySickLeave.Enabled=chkHourlySickLeave.Checked;
+mtHourlySickLeave.Enabled=chkHourlySickLeave.Checked;
+
+htDailySickLeave.Enabled=chkDailySickLeave.Checked;
+dtDailySickLeave.Enabled=chkDailySickLeave.Checked;
+mtDailySickLeave.Enabled=chkDailySickLeave.Checked;
+
+htHourlyMeritoriouslyLeave.Enabled=chkHourlyMeritoriouslyLeave.Checked;
+dtHourlyMeritoriouslyLeave.Enabled=chkHourlyMeritoriouslyLeave.Checked;
+mtHourlyMeritoriouslyLeave.Enabled=chkHourlyMeritoriouslyLeave.Checked;
+
+htDailyMeritoriouslyLeave.Enabled=chkDailyMeritoriouslyLeave.Checked;
+dtDailyMeritoriouslyLeave.Enabled=chkDailyMeritoriouslyLeave.Checked;
+mtDailyMeritoriouslyLeave.Enabled=chkDailyMeritoriouslyLeave.Checked;
+
+htHourlyWithoutPayLeave.Enabled=chkHourlyWithoutPayLeave.Checked;
+dtHourlyWithoutPayLeave.Enabled=chkHourlyWithoutPayLeave.Checked;
+mtHourlyWithoutPayLeave.Enabled=chkHourlyWithoutPayLeave.Checked;
+
+htDailyWithoutPayLeave.Enabled=chkDailyWithoutPayLeave.Checked;
+dtDailyWithoutPayLeave.Enabled=chkDailyWithoutPayLeave.Checked;
+mtDailyWithoutPayLeave.Enabled=chkDailyWithoutPayLeave.Checked;
+
+double width = 0;
+int count=0;
+double left=0;
+
+foreach (StiComponent comp in dbMain.Components)
+{
+if (comp.Enabled)
+count ++;  
+}
+
+foreach (StiComponent comp in hdrMain.Components)
+{
+
+if (comp.Enabled)
+{
+comp.Left=left;
+comp.Width = 29.7/count;
+left +=comp.Width;
+}
+}
+
+left=0;
+foreach (StiComponent comp in dbMain.Components)
+{
+
+if (comp.Enabled)
+{
+comp.Left=left;
+comp.Width = 29.7/count;
+left +=comp.Width;
+}
+}
+
+mtTotal.Width=0;
+if(dtShamsiDate.Enabled==true)
+mtTotal.Width+=dtShamsiDate.Width;
+if(dtDate.Enabled==true)
+mtTotal.Width+=dtDate.Width;
+if(dtFirstEntrance.Enabled==true)
+mtTotal.Width+=dtFirstEntrance.Width;
+if(dtFirstExit.Enabled==true)
+mtTotal.Width+=dtFirstExit.Width;
+if(dtSecondEntrance.Enabled==true)
+mtTotal.Width+=dtSecondEntrance.Width;
+if(dtSecondExit.Enabled==true)
+mtTotal.Width+=dtSecondExit.Width;
+if(dtThirdEntrance.Enabled==true)
+mtTotal.Width+=dtThirdEntrance.Width;
+if(dtThirdExit.Enabled==true)
+mtTotal.Width+=dtThirdExit.Width;
+
+mtNecessaryOperation.Width=dtNecessaryOperation.Width;
+mtNecessaryOperation.Left=dtNecessaryOperation.Left;
+
+mtPresenceDuration.Width=dtPresenceDuration.Width;
+mtPresenceDuration.Left=dtPresenceDuration.Left;
+
+mtHourlyPureOperation.Width=dtHourlyPureOperation.Width;
+mtHourlyPureOperation.Left=dtHourlyPureOperation.Left;
+
+mtDailyPureOperation.Width=dtDailyPureOperation.Width;
+mtDailyPureOperation.Left=dtDailyPureOperation.Left;
+
+mtImpureOperation.Width=dtImpureOperation.Width;
+mtImpureOperation.Left=dtImpureOperation.Left;
+
+mtAllowableOverTime.Width=dtAllowableOverTime.Width;
+mtAllowableOverTime.Left=dtAllowableOverTime.Left;
+
+mtUnallowableOverTime.Width=dtUnallowableOverTime.Width;
+mtUnallowableOverTime.Left=dtUnallowableOverTime.Left;
+
+mtHourlyAllowableAbsence.Width=dtHourlyAllowableAbsence.Width;
+mtHourlyAllowableAbsence.Left=dtHourlyAllowableAbsence.Left;
+
+mtHourlyUnallowableAbsence.Width=dtHourlyUnallowableAbsence.Width;
+mtHourlyUnallowableAbsence.Left=dtHourlyUnallowableAbsence.Left;
+
+mtDailyAbsence.Width=dtDailyAbsence.Width;
+mtDailyAbsence.Left=dtDailyAbsence.Left;
+
+mtHourlyMission.Width=dtHourlyMission.Width;
+mtHourlyMission.Left=dtHourlyMission.Left;
+
+mtDailyMission.Width=dtDailyMission.Width;
+mtDailyMission.Left=dtDailyMission.Left;
+
+mtHostelryMission.Width=dtHostelryMission.Width;
+mtHostelryMission.Left=dtHostelryMission.Left;
+
+mtHourlySickLeave.Width=dtHourlySickLeave.Width;
+mtHourlySickLeave.Left=dtHourlySickLeave.Left;
+
+mtDailySickLeave.Width=dtDailySickLeave.Width;
+mtDailySickLeave.Left=dtDailySickLeave.Left;
+
+mtHourlyMeritoriouslyLeave.Width=dtHourlyMeritoriouslyLeave.Width;
+mtHourlyMeritoriouslyLeave.Left=dtHourlyMeritoriouslyLeave.Left;
+
+mtDailyMeritoriouslyLeave.Width=dtDailyMeritoriouslyLeave.Width;
+mtDailyMeritoriouslyLeave.Left=dtDailyMeritoriouslyLeave.Left;
+
+mtHourlyWithoutPayLeave.Width=dtHourlyWithoutPayLeave.Width;
+mtHourlyWithoutPayLeave.Left=dtHourlyWithoutPayLeave.Left;
+
+mtDailyWithoutPayLeave.Width=dtDailyWithoutPayLeave.Width;
+mtDailyWithoutPayLeave.Left=dtDailyWithoutPayLeave.Left;
+
+left=0;
+foreach (StiComponent comp in mbMain.Components)
+{
+if (comp.Enabled)
+{
+left +=comp.Width;
+}
+}
+mtTotal.Left =left - mtTotal.Width;</ClickEvent>
+          <ClientRectangle>208,488,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <DialogResult>OK</DialogResult>
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Location>208, 488</Location>
+          <Name>btnShow</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>نمایش</Text>
+        </btnShow>
+        <chkShamsiDate Ref="105" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>400,16,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>6c98d3214ab94768b0ccb7204a057239</Guid>
+          <Location>400, 16</Location>
+          <Name>chkShamsiDate</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>تاریخ</Text>
+        </chkShamsiDate>
+        <chkDate Ref="106" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>400,64,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>2057f9ecba524aaeafa3f4aa1d5c593b</Guid>
+          <Location>400, 64</Location>
+          <Name>chkDate</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>روز</Text>
+        </chkDate>
+        <chkFirstEntrance Ref="107" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>400,112,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>41bbf977c9cb4f58b5657652b66db711</Guid>
+          <Location>400, 112</Location>
+          <Name>chkFirstEntrance</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>ورود اول</Text>
+        </chkFirstEntrance>
+        <chkFirstExit Ref="108" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>400,160,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>b2fc8f74094341d1b173ed3eb80d3b63</Guid>
+          <Location>400, 160</Location>
+          <Name>chkFirstExit</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>خروج اول</Text>
+        </chkFirstExit>
+        <chkSecondEntrance Ref="109" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>400,208,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>b5a79f10677746bc8dd41f96e508879b</Guid>
+          <Location>400, 208</Location>
+          <Name>chkSecondEntrance</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>ورود دوم</Text>
+        </chkSecondEntrance>
+        <chkSecondExit Ref="110" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>400,256,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>2ccdbf4edf104fc095a677d050c31657</Guid>
+          <Location>400, 256</Location>
+          <Name>chkSecondExit</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>خروج دوم</Text>
+        </chkSecondExit>
+        <chkThirdEntrance Ref="111" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>400,304,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>5745a6b27ae246e9a1b4ae83fad7c1c1</Guid>
+          <Location>400, 304</Location>
+          <Name>chkThirdEntrance</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>ورود سوم</Text>
+        </chkThirdEntrance>
+        <chkThirdExit Ref="112" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>400,352,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>d592fd6247a94f9a88e18b079a7a03ce</Guid>
+          <Location>400, 352</Location>
+          <Name>chkThirdExit</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>خروج سوم</Text>
+        </chkThirdExit>
+        <chkNecessaryOperation Ref="113" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>400,400,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>589a13ad3d7e4f7b8b6cc0531b932032</Guid>
+          <Location>400, 400</Location>
+          <Name>chkNecessaryOperation</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>کارکرد لازم</Text>
+        </chkNecessaryOperation>
+        <chkPresenceDuration Ref="114" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>208,16,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>42538f7810c1414cb19efb70ea63426d</Guid>
+          <Location>208, 16</Location>
+          <Name>chkPresenceDuration</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>حضور کاری</Text>
+        </chkPresenceDuration>
+        <chkHourlyPureOperation Ref="115" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>208,64,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>94131514f0204789b723c05b798d1830</Guid>
+          <Location>208, 64</Location>
+          <Name>chkHourlyPureOperation</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>کارکرد خالص ساعتی</Text>
+        </chkHourlyPureOperation>
+        <chkDailyPureOperation Ref="116" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>208,112,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>0722e2c40c0c4c35a5d2da61d9a1f31e</Guid>
+          <Location>208, 112</Location>
+          <Name>chkDailyPureOperation</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>کارکرد خالص روزانه</Text>
+        </chkDailyPureOperation>
+        <chkImpureOperation Ref="117" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>208,160,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>abe2d37b11a947c6a52b6348e6383bd9</Guid>
+          <Location>208, 160</Location>
+          <Name>chkImpureOperation</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>کارکرد ناخالص ساعتی</Text>
+        </chkImpureOperation>
+        <chkAllowableOverTime Ref="118" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>208,208,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>fe99bfdd397c4da3bcc958e60c988af5</Guid>
+          <Location>208, 208</Location>
+          <Name>chkAllowableOverTime</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>اضافه کار مجاز</Text>
+        </chkAllowableOverTime>
+        <chkUnallowableOverTime Ref="119" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>208,256,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>77dc1903a6044f01bdd3a45585f38e19</Guid>
+          <Location>208, 256</Location>
+          <Name>chkUnallowableOverTime</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>اضافه کار غیرمجاز</Text>
+        </chkUnallowableOverTime>
+        <chkHourlyAllowableAbsence Ref="120" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>208,304,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>b103d1060cfc4b8d829b64e05d8e7d37</Guid>
+          <Location>208, 304</Location>
+          <Name>chkHourlyAllowableAbsence</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>غیبت مجاز ساعتی</Text>
+        </chkHourlyAllowableAbsence>
+        <chkHourlyUnallowableAbsence Ref="121" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>208,352,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>681d728d4aee4e1d9e5a09675d70b38a</Guid>
+          <Location>208, 352</Location>
+          <Name>chkHourlyUnallowableAbsence</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>غیبت غیر مجاز ساعتی</Text>
+        </chkHourlyUnallowableAbsence>
+        <chkDailyAbsence Ref="122" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>208,400,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>efa32efc561f48e38dd93a9b2ae592d2</Guid>
+          <Location>208, 400</Location>
+          <Name>chkDailyAbsence</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>غیبت غیرمجاز روزانه</Text>
+        </chkDailyAbsence>
+        <chkHourlyMission Ref="123" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>16,16,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>429ba7dd8daa4c5e8dfa80542876e24f</Guid>
+          <Location>16, 16</Location>
+          <Name>chkHourlyMission</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>ماموریت ساعتی</Text>
+        </chkHourlyMission>
+        <chkDailyMission Ref="124" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>16,64,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>b2fcce6bbb69492db4a2095cfced947a</Guid>
+          <Location>16, 64</Location>
+          <Name>chkDailyMission</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>ماموریت روزانه</Text>
+        </chkDailyMission>
+        <chkHostelryMission Ref="125" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>16,112,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>cb4c7f8ce73f419e810e1570d1ae9e58</Guid>
+          <Location>16, 112</Location>
+          <Name>chkHostelryMission</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>ماموریت شبانه روزی</Text>
+        </chkHostelryMission>
+        <chkHourlySickLeave Ref="126" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>16,160,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>b416c6774ffa408d8fc50c5e15b48445</Guid>
+          <Location>16, 160</Location>
+          <Name>chkHourlySickLeave</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>مرخصی استعلاجی ساعتی</Text>
+        </chkHourlySickLeave>
+        <chkDailySickLeave Ref="127" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>16,208,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>b7b9d8a265cd4dafb902f402cd8f2fb7</Guid>
+          <Location>16, 208</Location>
+          <Name>chkDailySickLeave</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>مرخصی استعلاجی روزانه</Text>
+        </chkDailySickLeave>
+        <chkHourlyMeritoriouslyLeave Ref="128" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>16,256,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>755d25616531435a91a7f0dfa4b687ca</Guid>
+          <Location>16, 256</Location>
+          <Name>chkHourlyMeritoriouslyLeave</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>مرخصی استحقاقی ساعتی</Text>
+        </chkHourlyMeritoriouslyLeave>
+        <chkDailyMeritoriouslyLeave Ref="129" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <Checked>True</Checked>
+          <ClientRectangle>16,304,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>c0790c5f0b324142b9b35ea667f0c5d6</Guid>
+          <Location>16, 304</Location>
+          <Name>chkDailyMeritoriouslyLeave</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>مرخصی استحقاقی روزانه</Text>
+        </chkDailyMeritoriouslyLeave>
+        <chkHourlyWithoutPayLeave Ref="130" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>16,352,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>a6f41014f27f4c64b10e2d7a0f321503</Guid>
+          <Location>16, 352</Location>
+          <Name>chkHourlyWithoutPayLeave</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>مرخصی بی حقوق ساعتی</Text>
+        </chkHourlyWithoutPayLeave>
+        <chkDailyWithoutPayLeave Ref="131" type="Stimulsoft.Report.Dialogs.StiCheckBoxControl" isKey="true">
+          <BackColor>Control</BackColor>
+          <ClientRectangle>16,400,184,40</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Font>Microsoft Sans Serif,8</Font>
+          <ForeColor>Black</ForeColor>
+          <Guid>dffefca7279a4810886feb236a3e2cfb</Guid>
+          <Location>16, 400</Location>
+          <Name>chkDailyWithoutPayLeave</Name>
+          <Page isRef="103" />
+          <Parent isRef="103" />
+          <Size>184, 40</Size>
+          <Text>مرخصی بی حقوق روزانه</Text>
+        </chkDailyWithoutPayLeave>
+      </Components>
+      <Font>Microsoft Sans Serif,8</Font>
+      <Guid>8953b6bc0acb4dc6a59f6f5734ea2aa3</Guid>
+      <Location>0, 0</Location>
+      <Name>frmFilter</Name>
+      <Report isRef="0" />
+      <Size>600, 600</Size>
+      <Text>فیلتر</Text>
+    </frmFilter>
+  </Pages>
+  <PrinterSettings Ref="132" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>rptMonthlyReport</ReportAlias>
+  <ReportChanged>1/9/2013 4:41:31 PM</ReportChanged>
+  <ReportCreated>11/6/2011 9:01:08 AM</ReportCreated>
+  <ReportFile>D:\Ghadir Projects\Atlas\Step11.mrt</ReportFile>
+  <ReportGuid>51fb4603a23e4891a4ea34c4e90d0d64</ReportGuid>
+  <ReportName>rptMonthlyReport</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2011.3.1200</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class rptMonthlyReport : Stimulsoft.Report.StiReport
+    {
+        
+        public rptMonthlyReport()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="3">
+    <Master Ref="133" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>NavajoWhite</Brush>
+      <Conditions isList="true" count="0" />
+      <Description />
+      <Font>Arial,8</Font>
+      <Name>Master</Name>
+      <TextBrush>Black</TextBrush>
+    </Master>
+    <EventStyle Ref="134" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>AntiqueWhite</Brush>
+      <Conditions isList="true" count="0" />
+      <Description />
+      <Font>Arial,8</Font>
+      <Name>EventStyle</Name>
+      <TextBrush>Black</TextBrush>
+    </EventStyle>
+    <Style1 Ref="135" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>Transparent</Brush>
+      <Conditions isList="true" count="0" />
+      <Description />
+      <Font>Arial,8</Font>
+      <Name>Style1</Name>
+      <TextBrush>Black</TextBrush>
+    </Style1>
+  </Styles>
+</StiSerializer>

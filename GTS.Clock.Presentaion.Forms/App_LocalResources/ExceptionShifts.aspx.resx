@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DefaultTabLook.LeftIconUrl" xml:space="preserve">
+    <value>tab_left_icon.gif</value>
+  </data>
+  <data name="DefaultTabLook.RightIconUrl" xml:space="preserve">
+    <value>tab_right_icon.gif</value>
+  </data>
+  <data name="ExceptionShiftsForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="lblDates_TwoDayReplacementDialog_ExceptionShifts.Text" xml:space="preserve">
+    <value>Dates </value>
+  </data>
+  <data name="lblDate_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Date :</value>
+  </data>
+  <data name="lblFirstPersonnelWorkGroup_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Work Group 1 :</value>
+  </data>
+  <data name="lblFirstPersonnel_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Personnel :</value>
+  </data>
+  <data name="lblFromDate_ExceptionShifts.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblPersonnelchb_TwoDayReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Personnel</value>
+  </data>
+  <data name="lblPersonnelchb_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Personnel </value>
+  </data>
+  <data name="lblPersonnel_TwoDayReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Personnel :</value>
+  </data>
+  <data name="lblSecondPersonnelWorkGroup_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Work Group 2 :</value>
+  </data>
+  <data name="lblSecondPersonnel_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Personnel :</value>
+  </data>
+  <data name="lblShift_ExceptionShifts.Text" xml:space="preserve">
+    <value>Shift :</value>
+  </data>
+  <data name="lblToDate_ExceptionShifts.Text" xml:space="preserve">
+    <value>To Date :</value>
+  </data>
+  <data name="lblWorkGroupchb_TwoDayReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Work Group </value>
+  </data>
+  <data name="lblWorkGroupchb_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Work Group</value>
+  </data>
+  <data name="lblWorkGroup_TwoDayReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Work Group</value>
+  </data>
+  <data name="SelectedTabLook.LeftIconUrl" xml:space="preserve">
+    <value>selected_tab_left_icon.gif</value>
+  </data>
+  <data name="SelectedTabLook.RightIconUrl" xml:space="preserve">
+    <value>selected_tab_right_icon.gif</value>
+  </data>
+  <data name="tbDetails_TabStripShiftDetails.Text" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="tbl_rdbPersonnel_TwoDayReplacement_ExceptionShifts.Width" xml:space="preserve">
+    <value>22%</value>
+  </data>
+  <data name="tbl_rdbPersonnel_TwoPersonnelReplacement_ExceptionShifts.Width" xml:space="preserve">
+    <value>36.5%</value>
+  </data>
+  <data name="tbTwoDayReplacement_TabStripShiftDetails.Text" xml:space="preserve">
+    <value>Two Day Replacement</value>
+  </data>
+  <data name="tbTwoPersonnelReplacement_TabStripShiftDetails.Text" xml:space="preserve">
+    <value>Two Personnel Replacement</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbExceptionShiftsDetails.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbTwoDayReplacement.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbTwoPersonnelReplacement.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tlbItemExit_TlbExceptionShiftsDetails.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemExit_TlbTwoDayReplacement.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemExit_TlbTwoPersonnelReplacement.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemFirstPersonnel_SearchTlbSearchPersonnel_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="tlbItemPersonnel_SearchTlbSearchPersonnel_TwoDayReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Personnel Search</value>
+  </data>
+  <data name="tlbItemSecondPersonnel_SearchTlbSearchPersonnel_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="tlbItemView_TlbFirstDateView_TwoDayReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Selected First Date Shift View</value>
+  </data>
+  <data name="tlbItemView_TlbFirstDateView_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Selected First Date Shift View</value>
+  </data>
+  <data name="tlbItemView_TlbSecondDateView_TwoDayReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Selected Second Date Shift View</value>
+  </data>
+  <data name="tlbItemView_TlbSecondDateView_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Selected Second Date Shift View</value>
+  </data>
+  <data name="VAlignObj.valign" xml:space="preserve">
+    <value>top</value>
+  </data>
+  <data name="LableAlign.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="clmnBarCode_cmbPersonnel1_TwoPersonnelReplacement_ExceptionShifts" xml:space="preserve">
+    <value>BarCode</value>
+  </data>
+  <data name="clmnBarCode_cmbPersonnel2_TwoPersonnelReplacement_ExceptionShifts" xml:space="preserve">
+    <value>BarCode</value>
+  </data>
+  <data name="clmnBarCode_cmbPersonnel_TwoDayReplacement_ExceptionShifts" xml:space="preserve">
+    <value>BarCode</value>
+  </data>
+  <data name="clmnName_cmbPersonnel1_TwoPersonnelReplacement_ExceptionShifts" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="clmnName_cmbPersonnel2_TwoPersonnelReplacement_ExceptionShifts" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="clmnName_cmbPersonnel_TwoDayReplacement_ExceptionShifts" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="header_SearchByPersonnelBox1_TwoPersonnelReplacement_ExceptionShifts" xml:space="preserve">
+    <value>Personnel1 Select</value>
+  </data>
+  <data name="header_SearchByPersonnelBox2_TwoPersonnelReplacement_ExceptionShifts" xml:space="preserve">
+    <value>Personnel2 Select</value>
+  </data>
+  <data name="header_SearchByPersonnelBox_TwoDayReplacement_ExceptionShifts" xml:space="preserve">
+    <value>Personnel Select</value>
+  </data>
+  <data name="lblPersonnel1_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Personnel1 :</value>
+  </data>
+  <data name="lblPersonnel2_TwoPersonnelReplacement_ExceptionShifts.Text" xml:space="preserve">
+    <value>Personnel2 :</value>
+  </data>
+  <data name="tlbItemAdvancedSearch_TlbAdvancedSearch1_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="tlbItemAdvancedSearch_TlbAdvancedSearch2_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="tlbItemAdvancedSearch_TlbAdvancedSearch_TwoDayReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging1_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging2_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_PersonnelSearch_TwoDayReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging1_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging2_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_PersonnelSearch_TwoDayReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging1_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging2_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_PersonnelSearch_TwoDayReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging1_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging2_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_PersonnelSearch_TwoDayReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging1_PersonnelSearch1_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging2_PersonnelSearch_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_PersonnelSearch_TwoDayReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemSearch_TlbSearchPersonnel1_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="tlbItemSearch_TlbSearchPersonnel2_TwoPersonnelReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="tlbItemSearch_TlbSearchPersonnel_TwoDayReplacement_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="CustomAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="lblDates_TwoPersonnelReplacementDialog_ExceptionShifts.Text" xml:space="preserve">
+    <value>Dates</value>
+  </data>
+  <data name="hfTitle_DialogExceptionShifts.Value" xml:space="preserve">
+    <value>Exception Shifts</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="hfAdd_ExceptionShifts.Value" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel1_TwoPersonnelReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>BarCode</value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel2_TwoPersonnelReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>BarCode</value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel_TwoDayReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>BarCode</value>
+  </data>
+  <data name="hfclmnCardNum_cmbPersonnel1_TwoPersonnelReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="hfclmnCardNum_cmbPersonnel2_TwoPersonnelReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="hfclmnCardNum_cmbPersonnel_TwoDayReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel1_TwoPersonnelReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel2_TwoPersonnelReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel_TwoDayReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Name and Family</value>
+  </data>
+  <data name="hfCloseMessage_ExceptionShifts.Value" xml:space="preserve">
+    <value>Do you Exit from Exception Shifts Page ?</value>
+  </data>
+  <data name="hfConnectionError_ExceptionShifts.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfEdit_ExceptionShifts.Value" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="hfErrorType_ExceptionShifts.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="hfheader_SearchByPersonnelBox1_TwoPersonnelReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Select First Personnel</value>
+  </data>
+  <data name="hfheader_SearchByPersonnelBox2_TwoPersonnelReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Select Second Personnel</value>
+  </data>
+  <data name="hfheader_SearchByPersonnelBox_TwoDayReplacement_ExceptionShifts.Value" xml:space="preserve">
+    <value>Personnel Select</value>
+  </data>
+  <data name="hfcmbAlarm_ExceptionShifts.Value" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>Insert Operation Completed Successfully</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>Update Operation Completed Successfully</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>Error Identifier :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="TwoDayReplacementComplete" xml:space="preserve">
+    <value>Two Day Replacement Operation Completed Successfully</value>
+  </data>
+  <data name="TwoPersonnelReplacementComplete" xml:space="preserve">
+    <value>Two Personnel Replacement Operation Completed Successfully</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbExceptionShiftsDetails.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbTwoDayReplacement.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbTwoPersonnelReplacement.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="NoShift" xml:space="preserve">
+    <value>Without Shift</value>
+  </data>
+  <data name="ExceptionShiftPersonIdRequierd" xml:space="preserve">
+    <value>Personnel is Not Valued</value>
+  </data>
+  <data name="ExceptionShiftShiftIdRequierd" xml:space="preserve">
+    <value>Shift is Not Valued</value>
+  </data>
+  <data name="ExceptionShiftWorkGroupIdRequierd" xml:space="preserve">
+    <value>Work Group is Not Valued</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>Illegal Service Access</value>
+  </data>
+</root>

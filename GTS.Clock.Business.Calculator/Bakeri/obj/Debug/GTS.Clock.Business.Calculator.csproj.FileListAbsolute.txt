@@ -1,0 +1,5 @@
+D:\TFS Folder\Atlas\GTS.Clock\GTS.Clock.Business.Calculator\Bakeri\obj\Debug\GTS.Clock.Business.Calculator.csprojResolveAssemblyReference.cache
+D:\TFS Folder\Atlas\GTS.Clock\GTS.Clock.AppService.Host\bin\GTS.Clock.Business.Calculator.dll
+D:\TFS Folder\Atlas\GTS.Clock\GTS.Clock.AppService.Host\bin\GTS.Clock.Business.Calculator.pdb
+D:\TFS Folder\Atlas\GTS.Clock\GTS.Clock.Business.Calculator\Bakeri\obj\Debug\GTS.Clock.Business.Calculator.dll
+D:\TFS Folder\Atlas\GTS.Clock\GTS.Clock.Business.Calculator\Bakeri\obj\Debug\GTS.Clock.Business.Calculator.pdb

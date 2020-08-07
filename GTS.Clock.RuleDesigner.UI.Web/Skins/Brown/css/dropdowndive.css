@@ -1,0 +1,25 @@
+﻿
+
+        .dhtmlgoodies_contentBox
+        {
+            border: 1px solid #317082;
+            height: 0px;
+            visibility: hidden;
+            position: absolute;
+            background-color: #E2EBED;
+            overflow: hidden;
+            padding: 2px; 
+            background-image:url('../Images/Ghadir/bg-body.jpg');
+            background-repeat:repeat;           
+        }
+        .dhtmlgoodies_content
+{
+    background-position: right;
+    position: relative;
+    width: 100%;
+    background-image: url('../Images/TabStrip/boxstyle_13.png');
+}
+.DropDownHeader
+{
+    color:white;
+}

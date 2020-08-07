@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="hfCloseMessage_PersonnelSearch.Value" xml:space="preserve">
+    <value>Do you Exit from Advanced Search Form ? </value>
+  </data>
+  <data name="hfConnectionError_PersonnelSearch.Value" xml:space="preserve">
+    <value>Server Connection Error</value>
+  </data>
+  <data name="hfErrorType_PersonnelSearch.Value" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="hfTitle_DialogPersonnelSearch.Value" xml:space="preserve">
+    <value>Personnel Search</value>
+  </data>
+  <data name="lblBirthDate_WorkGroups_PersonnelSearch.Text" xml:space="preserve">
+    <value>Birth Date :</value>
+  </data>
+  <data name="lblBirthLocation_PersonnelSearch.Text" xml:space="preserve">
+    <value>Birth Location :</value>
+  </data>
+  <data name="lblCardID_PersonnelSearch.Text" xml:space="preserve">
+    <value>Card ID :</value>
+  </data>
+  <data name="lblControlStation_PersonnelSearch.Text" xml:space="preserve">
+    <value>Control Station :</value>
+  </data>
+  <data name="lblDepartment_PersonnelSearch.Text" xml:space="preserve">
+    <value>Department :</value>
+  </data>
+  <data name="lblEducation_PersonnelSearch.Text" xml:space="preserve">
+    <value>Education :</value>
+  </data>
+  <data name="lblEmployNumber_PersonnelSearch.Text" xml:space="preserve">
+    <value>Employ Number :</value>
+  </data>
+  <data name="lblFatherName_PersonnelSearch.Text" xml:space="preserve">
+    <value>Father Name : </value>
+  </data>
+  <data name="lblFromDate_BirthDate_PersonnelSearch.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblFromDate_DualCalendars_PersonnelSearch.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblFromDate_RuleGroups_PersonnelSearch.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblFromDate_SingleCalendar_PersonnelSearch.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblFromDate_WorkGroups_PersonnelSearch.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblMarriageState_PersonnelSearch.Text" xml:space="preserve">
+    <value>Marriage State :</value>
+  </data>
+  <data name="lblMilitaryState_PersonnelSearch.Text" xml:space="preserve">
+    <value>Military State :</value>
+  </data>
+  <data name="lblOrganizationPost_PersonnelSearch.Text" xml:space="preserve">
+    <value>Organization Post :</value>
+  </data>
+  <data name="lblRuleGroup_PersonnelSearch.Text" xml:space="preserve">
+    <value>Rule Group :</value>
+  </data>
+  <data name="lblSex_PersonnelSearch.Text" xml:space="preserve">
+    <value>Sex :</value>
+  </data>
+  <data name="lblToDate_BirthDate_PersonnelSearch.Text" xml:space="preserve">
+    <value>To Date :</value>
+  </data>
+  <data name="lblToDate_DualCalendars_PersonnelSearch.Text" xml:space="preserve">
+    <value>To Date :</value>
+  </data>
+  <data name="lblToDate_RuleGroups_PersonnelSearch.Text" xml:space="preserve">
+    <value>To Date :</value>
+  </data>
+  <data name="lblWorkGroup_PersonnelSearch.Text" xml:space="preserve">
+    <value>Work Group :</value>
+  </data>
+  <data name="PersonnelSearchForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="tlbItemCancel_TlbPersonnelSearch.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_CalculationRange_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_ControlStation_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_Department_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_EmployDate_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_FromDateCalendars_DualCalendars_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_FromDateCalendars_SingleCalendar_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_MarriageState_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_MilitaryState_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_RuleGroups_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_Sex_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_ToDateCalendars_DualCalendars_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemClear_TlbClear_WorkGroups_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="tlbItemExit_TlbDualCalendars_PersonnelSearch.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemExit_TlbPersonnelSearch.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemExit_TlbSingleCalendar_PersonnelSearch.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbControlStation_PersonnelSearch" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbDepartment_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbOrganizationPost_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemSave_TlbDualCalendars_PersonnelSearch.Text" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="tlbItemSave_TlbPersonnelSearch.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tlbItemSave_TlbSingleCalendar_PersonnelSearch.Text" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="tlbItemSetDate_TlbSetDate_BirthDate_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Date Regulation</value>
+  </data>
+  <data name="tlbItemSetDate_TlbSetDate_EmployDate_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Date Regulation</value>
+  </data>
+  <data name="tlbItemSetDate_TlbSetDate_RuleGroups_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Date Regulation</value>
+  </data>
+  <data name="tlbItemSetDate_TlbSetDate_WorkGroups_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Date Regulation</value>
+  </data>
+  <data name="trvDepartment_PersonnelSearch.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/LeftLines</value>
+  </data>
+  <data name="trvOrganizationPost_PersonnelSearch.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/LeftLines</value>
+  </data>
+  <data name="AmadeBeKhedmat" xml:space="preserve">
+    <value>Military Provided</value>
+  </data>
+  <data name="DarayeKartePayanKhedmat" xml:space="preserve">
+    <value>Military End Card</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="GheireMashmool" xml:space="preserve">
+    <value>Not Inclusive</value>
+  </data>
+  <data name="HeineKhedmat" xml:space="preserve">
+    <value>Military During</value>
+  </data>
+  <data name="hfcmbAlarm_PersonnelSearch.Value" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="MoafiatPezeshki" xml:space="preserve">
+    <value>Medicine Freedom</value>
+  </data>
+  <data name="MoafiatTahsili" xml:space="preserve">
+    <value>Education Freedom</value>
+  </data>
+  <data name="MoafiatTakafol" xml:space="preserve">
+    <value>Bail Freedom</value>
+  </data>
+  <data name="Mojarad" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="Motahel" xml:space="preserve">
+    <value>Married</value>
+  </data>
+  <data name="Motaleghe" xml:space="preserve">
+    <value>Divorced</value>
+  </data>
+  <data name="OrgNode_trvOrganizationPost_PersonnelSearch" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="ParentNodeFillProblem" xml:space="preserve">
+    <value>Problem in Parent Organization Post Information Fill</value>
+  </data>
+  <data name="Sayer" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbRuleGroups_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbWorkGroups_PersonnelSearch.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="lblCalculationRange_PersonnelSearch.Text" xml:space="preserve">
+    <value>Calculation Range :</value>
+  </data>
+  <data name="lblEmployDate_WorkGroups_PersonnelSearch.Text" xml:space="preserve">
+    <value>Employ Date :</value>
+  </data>
+  <data name="lblEmployType_PersonnelSearch.Text" xml:space="preserve">
+    <value>Employ Type :</value>
+  </data>
+  <data name="lblFromDate_CalculationDateRange_PersonnelSearch.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblFromDate_EmployDate_PersonnelSearch.Text" xml:space="preserve">
+    <value>From Date :</value>
+  </data>
+  <data name="lblToDate_EmployDate_PersonnelSearch.Text" xml:space="preserve">
+    <value>To Date :</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbPersonnelSearch.Text" xml:space="preserve">
+    <value>Form Reconstruction</value>
+  </data>
+  <data name="lblSubDepartment_PersonnelSearch.Text" xml:space="preserve">
+    <value>Sub Dep</value>
+  </data>
+  <data name="OrgNode_trvDepartment_PersonnelSearch" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="lblActive_PersonnelSearch.Text" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="lblAllPersonnel_PersonnelSearch.Text" xml:space="preserve">
+    <value>All Personnel</value>
+  </data>
+  <data name="lblDeactive_PersonnelSearch.Text" xml:space="preserve">
+    <value>Deactive</value>
+  </data>
+</root>

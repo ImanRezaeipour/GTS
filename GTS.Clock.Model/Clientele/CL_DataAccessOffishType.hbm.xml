@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name=" GTS.Clock.Model.Clientele.CL_DataAccessOffishType, GTS.Clock.Model"
+         table ="CL_DataAccessOffishType" lazy="true">
+    <id name="ID" access="property"  column="DataAccessOffishType_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessOffishType_UserID" />
+    <property name="OffishTypeID"     access="property" column="DataAccessOffishType_OffishTypeID" />
+    <property name="All"     access="property" column="DataAccessOffishType_All" />
+
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Rules.PersonParamValue, GTS.Clock.Model"
+         table ="TA_PersonParamValue" lazy="false">
+    <id name="ID" access="property"  column="prsParam_ID" >
+      <generator class="native" />
+    </id>      
+    <property name="FromDate"     access="property" column="prsParam_FromDate" />
+    <property name="ToDate"     access="property" column="prsParam_ToDate" />
+    <property name="Value"     access="property" column="prsParam_Value" />
+
+    <many-to-one name="Person" class="GTS.Clock.Model.Person, GTS.Clock.Model" column="prsParam_PersonId" />
+    <many-to-one name="ParamField" class="GTS.Clock.Model.Rules.PersonParamField, GTS.Clock.Model" column="prsParam_fieldId" cascade="none" />
+       
+  </class>
+</hibernate-mapping>

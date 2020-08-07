@@ -1,0 +1,27 @@
+﻿23-05-1393
+00:30   -   01:00
+
+24-05-1393
+11:15   -   17:30
+19:00   -   20:25
+
+-----------------------------------------------------
+شماره پرسنلی های تست شده:
+20202
+20124
+-----------------------------------------------------
+نکات ورود و خروج و تردد مجازی :
+* پایان شبانه روز قطعی نباشد
+* برای پایان شبانه روز تلورانس ورود و خروج گذاشته شود
+* کوئری بروزرسانی نشاگر محاسبات تغییر کرد - برای پرسنلی که ورود آنها منفی میخورد
+
+-----------------------------------------------------
+در فرم مجوز اضافه کاری , نمایش شیفتها تنها باید عادی را نمایش دهد
+در فرم مجوز اضافه کاری , ادامه در روز بعد نمایش داده شود
+
+-----------------------------------------------------
+TFS :
+G:\Ghadir Projects\Atlas\GTS.Clock\GTS.Clock.Model\Concepts\PrimaryConcept\Pishcard\Precards.cs
+G:\Ghadir Projects\Atlas\GTS.Clock\GTS.Clock.Model\Concepts\PrimaryConcept\Traffic\BasicTrafficController.cs
+G:\Ghadir Projects\Atlas\GTS.Clock\GTS.Clock.Model\Concepts\PrimaryConcept\Traffic\ProceedTraffic.cs
+G:\Ghadir Projects\Atlas\GTS.Clock\GTS.Clock.Infrastructure.Repository\ConceptRepository\PermitRepository.cs

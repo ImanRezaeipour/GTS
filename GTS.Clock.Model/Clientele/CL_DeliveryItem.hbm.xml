@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_DeliveryItem, GTS.Clock.Model"
+         table ="CL_DeliveryItems" lazy="true">
+    <id name="ID" access="property"  column="dlv_ID" >
+      <generator class="native" />
+    </id>
+		<property name="Title" access="property" column="dlv_Title"/>
+		<property name="CustomCode" access="property" column="dlv_CustomCode"/>
+		<property name="Image" access="property" column="dlv_Image"/>
+		<property name="Date" access="property" column="dlv_Date"/>
+    <property name="Description" access="property" column="dlv_Description"/>
+    <property name="IsReturn" access="property" column="dlv_IsReturn" />
+
+    <many-to-one name="Contractor" class="GTS.Clock.Model.Clientele.CL_Contractor, GTS.Clock.Model"  column="dlv_ContractorID" lazy="proxy"/>
+    <many-to-one name="Offish" class="GTS.Clock.Model.Clientele.CL_OffishRequest, GTS.Clock.Model"  column="dlv_OffishID" lazy="proxy"/>
+  </class>
+</hibernate-mapping>

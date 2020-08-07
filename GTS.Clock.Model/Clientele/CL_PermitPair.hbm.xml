@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_PermitPair, GTS.Clock.Model"
+         table ="CL_PermitPair" lazy="false">
+    <id name="ID" access="property" column="PermitPair_ID">
+      <generator class="native" />
+    </id>
+
+    <many-to-one name="Permit" column="PermitPair_PermitId" class="GTS.Clock.Model.Clientele.CL_Permit, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="OffishType" column="PermitPair_OffishTypeID" class="GTS.Clock.Model.Clientele.CL_OffishType, GTS.Clock.Model" lazy="proxy" outer-join="false" cascade="none" update="false" insert="false" />
+
+    <property name="OffishTypeID" access="property" column="PermitPair_OffishTypeID"/>
+    <property name="From" access="property" column="PermitPair_From"/>
+    <property name="To" access="property" column="PermitPair_To"/>
+    <property name="Value" access="property" column="PermitPair_Value"/>
+    <property name="IsFilled" access="property" column="PermitPair_IsFilled"/>
+    <property name="OffishID" access="property" column="PermitPair_OffishId" />
+
+  
+
+  </class>
+</hibernate-mapping>

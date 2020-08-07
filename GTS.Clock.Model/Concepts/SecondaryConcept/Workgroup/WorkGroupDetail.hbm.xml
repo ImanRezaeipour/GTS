@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.WorkGroupDetail, GTS.Clock.Model"
+         table ="TA_WorkGroupDetail" lazy="true">
+    <id name="ID" access="property"  column="WorkGroupDtl_ID" >
+      <generator class="native" />
+    </id>
+   
+    <property name="Date"     access="property" column="WorkGroupDtl_Date" />
+    
+    <many-to-one name="Shift" column="WorkGroupDtl_ShiftID" class="GTS.Clock.Model.Concepts.Shift, GTS.Clock.Model" />
+    <many-to-one name="WorkGroup" column="WorkGroupDtl_WorkGroupID" class="GTS.Clock.Model.Concepts.WorkGroup, GTS.Clock.Model" />
+   
+
+  </class>
+</hibernate-mapping>

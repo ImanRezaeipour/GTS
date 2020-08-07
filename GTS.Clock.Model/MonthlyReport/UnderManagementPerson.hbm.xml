@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.MonthlyReport.UnderManagementPerson, GTS.Clock.Model" lazy="true">
+    <id name="ID" access="property"  column="gridFields_PersonID" >
+      <generator class="native" />
+    </id>
+
+    <property name ="BarCode"   access="property" column="gridFields_BarCode"/>
+    <property name ="PersonName"    access="property" column="gridFields_Family"/>
+    <property name ="Date"      access="property" column="gridFields_CurrentDateTime"/>
+    <property name ="PersonId"  access="property" column="gridFields_PersonID"/>    
+    <property name ="DepartmentName"     access="property" column="gridFields_DepartmentName"/>
+    <property name ="DateRangeOrder"     access="property" column="gridFields_DataRangeOrder"/>
+    <property name ="DateRangeOrderIndex"     access="property" column="gridFields_DataRangeOrderIndex"/>
+
+
+    <bag name="CurrentProceedTrafficList" lazy="true" batch-size="3000" cascade="none" >
+      <key column="CurrentProceedTraffic_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.MonthlyReport.CurrentProceedTraffic, GTS.Clock.Model"/>
+      <loader query-ref="GetCurrentProceedTrafficList"/>
+    </bag>
+
+    <!--<map name="PeriodicScndCnpValueList" lazy="true" batch-size="3000"  >
+      <key column="ScndCnpValue_PersonId"></key>
+      <index column="ScndCnpValue_KeyColumnName" type="string"/>
+      <one-to-many class="GTS.Clock.Model.MonthlyReport.ScndCnpValue, GTS.Clock.Model"/>
+      <loader query-ref="GetPeriodicScndCnpValueList"/>
+    </map>-->
+  </class>
+
+  <sql-query name="GetCurrentProceedTrafficList">
+    <load-collection alias="CurrentProceedTrafficList" role="GTS.Clock.Model.MonthlyReport.UnderManagementPerson.CurrentProceedTrafficList" />
+    <![CDATA[
+  SELECT ProceedTrafficPair_ID    AS CurrentProceedTraffic_ID, 
+         ProceedTraffic_PersonId  AS CurrentProceedTraffic_PersonId, 
+		     ProceedTraffic_FromDate  AS CurrentProceedTraffic_FromDate,
+         ProceedTraffic_ToDate    AS CurrentProceedTraffic_ToDate, 
+		     ProceedTrafficPair_From  AS CurrentProceedTraffic_From, 
+         ProceedTrafficPair_To    AS CurrentProceedTraffic_To,
+		     Precrd_Name              AS CurrentProceedTraffic_PrecrdName
+  FROM TA_ProceedTraffic
+  INNER JOIN TA_ProceedTrafficPair
+  ON ProceedTrafficPair_ProceedTrafficId = ProceedTraffic_ID
+  INNER JOIN TA_Precard
+  ON ProceedTrafficPair_PishCardID = Precrd_ID
+  WHERE ProceedTraffic_FromDate = :UnderManagementPerson.Date
+		      AND
+	      ProceedTraffic_ToDate = :UnderManagementPerson.Date
+          AND
+        ProceedTraffic_PersonId = :UnderManagementPerson.PersonId
+  
+    ]]>
+  </sql-query>
+
+  <!--<sql-query name="GetPeriodicScndCnpValueList">
+    <load-collection alias="PeriodicScndCnpValueList" role="GTS.Clock.Model.MonthlyReport.UnderManagementPerson.PeriodicScndCnpValueList" />
+    <![CDATA[
+  SELECT  PeriodicScndCnp_ID            AS ScndCnpValue_ID,
+          PeriodicScndCnp_PersonId      AS ScndCnpValue_PersonId, 
+ 		      PeriodicScndCnp_KeyColumnName AS ScndCnpValue_KeyColumnName,
+ 		      PeriodicScndCnp_FromDate      AS ScndCnpValue_FromDate,
+ 		      PeriodicScndCnp_ToDate        AS ScndCnpValue_ToDate,          
+ 		      0                             AS ScndCnpValue_Value,                    
+          0                             AS ScndCnpValue_FromPairs,                    
+          0                             AS ScndCnpValue_ToPairs,             
+          0                             AS ConceptTmp_Color,
+ 		      PeriodicScndCnp_CnpTmpId      AS ScndCnpValue_PeriodicScndCnpId,
+ 		      PeriodicScndCnp_FromDate      AS ScndCnpValue_PeriodicFromDate,
+ 		      PeriodicScndCnp_ToDate        AS ScndCnpValue_PeriodicToDate,
+ 		      PeriodicValue.ScndCnpValue_Value AS ScndCnpValue_PeriodicValue
+  FROM (SELECT CalcDateRange_ID					         AS PeriodicScndCnp_ID,
+               PrsRangeAsg.PrsRangeAsg_PersonId  AS PeriodicScndCnp_PersonId, 
+					     CalcDateRange_ConceptTmpId		     AS PeriodicScndCnp_CnpTmpId, 
+					     ConceptTmp_KeyColumnName 		     AS PeriodicScndCnp_KeyColumnName, 
+					     dbo.TA_ASM_CalculateFromDateRange(:UnderManagementPerson.Date, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													                       AS PeriodicScndCnp_FromDate,
+					     dbo.TA_ASM_CalculateToDateRange(:UnderManagementPerson.Date, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													                       AS PeriodicScndCnp_ToDate
+			        FROM (SELECT * 
+		 		             FROM dbo.TA_CalculationDateRange 
+				             WHERE (:UnderManagementPerson.DateRangeOrderIndex BETWEEN CalcDateRange_FromIndex AND CalcDateRange_ToIndex) OR (:UnderManagementPerson.DateRangeOrder = CalcDateRange_Order)
+                   ) AS CalcDateRng
+			        INNER JOIN (SELECT * 
+						              FROM dbo.TA_ConceptTemplate 
+						              WHERE ConceptTmp_IsPeriodic = 1
+                         ) AS Concept
+			        ON CalcDateRange_ConceptTmpId = Concept.ConceptTmp_ID		  
+			        INNER JOIN (SELECT TOP(1) PrsRangeAsg_CalcRangeGrpId, PrsRangeAsg_PersonId
+						              FROM dbo.TA_PersonRangeAssignment								 
+						              WHERE CONVERT(nvarchar(10), PrsRangeAsg_FromDate, 111) <= Convert(NVARCHAR(4), YEAR(:UnderManagementPerson.Date)) + '/' + RIGHT('00' + CONVERT(NVARCHAR(2), MONTH(:UnderManagementPerson.Date)), 2) + '/31'
+						              AND PrsRangeAsg_PersonId = :UnderManagementPerson.PersonId	
+						              ORDER BY PrsRangeAsg_FromDate DESC
+                         ) AS PrsRangeAsg
+			        ON CalcDateRange_CalcRangeGrpId = PrsRangeAsg.PrsRangeAsg_CalcRangeGrpId
+			        INNER JOIN dbo.TA_CalculationRangeGroup
+			        ON CalcDateRange_CalcRangeGrpId = CalcRangeGroup_ID
+              WHERE ConceptTmp_KeyColumnName IS NOT NULL
+				              AND
+			              ConceptTmp_KeyColumnName <> ''              
+			 ) AS CnpRange	
+  CROSS APPLY  		      dbo.TA_GetPeriodicScndCnpValue(PeriodicScndCnp_PersonId, 
+									               PeriodicScndCnp_CnpTmpId, 
+									               PeriodicScndCnp_FromDate, 
+									               PeriodicScndCnp_ToDate) AS PeriodicValue       
+  ]]>
+  </sql-query>-->
+
+<sql-query name="GetPeriodicScndCnpValueList">
+    <![CDATA[
+  Declare @date datetime, @dateRangeOrderIndex int, 
+          @dateRangeOrder int, @prsId numeric
+  set @date=:date
+  set @dateRangeOrderIndex=:dateRangeOrderIndex
+  set @dateRangeOrder=:dateRangeOrder
+  set @prsId=:prsId
+  SELECT  PeriodicScndCnp_ID            AS ScndCnpValue_ID,
+          PeriodicScndCnp_PersonId      AS ScndCnpValue_PersonId, 
+ 		      PeriodicScndCnp_KeyColumnName AS ScndCnpValue_KeyColumnName,
+ 		      PeriodicScndCnp_FromDate      AS ScndCnpValue_FromDate,
+ 		      PeriodicScndCnp_ToDate        AS ScndCnpValue_ToDate,          
+ 		      0                             AS ScndCnpValue_Value,                    
+          0                             AS ScndCnpValue_FromPairs,                    
+          0                             AS ScndCnpValue_ToPairs,             
+          0                             AS ConceptTmp_Color,
+ 		      PeriodicScndCnp_CnpTmpId      AS ScndCnpValue_PeriodicScndCnpId,
+ 		      PeriodicScndCnp_FromDate      AS ScndCnpValue_PeriodicFromDate,
+ 		      PeriodicScndCnp_ToDate        AS ScndCnpValue_PeriodicToDate,
+ 		      PeriodicValue.ScndCnpValue_Value AS ScndCnpValue_PeriodicValue
+  FROM (SELECT CalcDateRange_ID					         AS PeriodicScndCnp_ID,
+               PrsRangeAsg.PrsRangeAsg_PersonId  AS PeriodicScndCnp_PersonId, 
+					     CalcDateRange_ConceptTmpId		     AS PeriodicScndCnp_CnpTmpId, 
+					     ConceptTmp_KeyColumnName 		     AS PeriodicScndCnp_KeyColumnName, 
+					     dbo.TA_ASM_CalculateFromDateRange(@date, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													                       AS PeriodicScndCnp_FromDate,
+					     dbo.TA_ASM_CalculateToDateRange(@date, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													                       AS PeriodicScndCnp_ToDate
+			        FROM (SELECT * 
+		 		             FROM dbo.TA_CalculationDateRange 
+				             WHERE (@dateRangeOrderIndex BETWEEN CalcDateRange_FromIndex AND CalcDateRange_ToIndex) OR (@dateRangeOrder = CalcDateRange_Order)
+                   ) AS CalcDateRng
+			        INNER JOIN (SELECT * 
+						              FROM dbo.TA_ConceptTemplate 
+						              WHERE ConceptTmp_IsPeriodic = 1
+                         ) AS Concept
+			        ON CalcDateRange_ConceptTmpId = Concept.ConceptTmp_ID		  
+			        INNER JOIN (SELECT TOP(1) PrsRangeAsg_CalcRangeGrpId, PrsRangeAsg_PersonId
+						              FROM dbo.TA_PersonRangeAssignment								 
+						              WHERE CONVERT(nvarchar(10), PrsRangeAsg_FromDate, 111) <= Convert(NVARCHAR(4), YEAR(@date)) + '/' + RIGHT('00' + CONVERT(NVARCHAR(2), MONTH(@date)), 2) + '/31'
+						              AND PrsRangeAsg_PersonId = @prsId	
+						              ORDER BY PrsRangeAsg_FromDate DESC
+                         ) AS PrsRangeAsg
+			        ON CalcDateRange_CalcRangeGrpId = PrsRangeAsg.PrsRangeAsg_CalcRangeGrpId
+			        INNER JOIN dbo.TA_CalculationRangeGroup
+			        ON CalcDateRange_CalcRangeGrpId = CalcRangeGroup_ID
+              WHERE ConceptTmp_KeyColumnName IS NOT NULL
+				              AND
+			              ConceptTmp_KeyColumnName <> ''              
+			 ) AS CnpRange	
+  CROSS APPLY  		      dbo.TA_GetPeriodicScndCnpValue(PeriodicScndCnp_PersonId, 
+									               PeriodicScndCnp_CnpTmpId, 
+									               PeriodicScndCnp_FromDate, 
+									               PeriodicScndCnp_ToDate) AS PeriodicValue       
+  ]]>
+  </sql-query>
+</hibernate-mapping>

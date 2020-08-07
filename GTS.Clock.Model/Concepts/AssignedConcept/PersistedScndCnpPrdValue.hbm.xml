@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.PersistedScndCnpPrdValue, GTS.Clock.Model"
+         lazy="false" mutable="true">
+    <composite-id>
+      <key-property name="ID" column="PersistedSCPrdValue_ScndCnpId" />
+      <key-property name="FromDate" column="PersistedSCPrdValue_FromDate" />
+      <key-property name="ToDate" column="PersistedSCPrdValue_ToDate" />
+    </composite-id>
+
+    <property name="Value"     access="property" column="PersistedSCPrdValue_Value"/>
+    <property name="FromDate"  access="property" column="PersistedSCPrdValue_FromDate"/>
+    <property name="ToDate"    access="property" column="PersistedSCPrdValue_ToDate"/>
+    <!--<property name="RangeType" access="property" column="MonthValue_Type"/>-->
+    <property name="ScndCnpId" access="property" column="PersistedSCPrdValue_ScndCnpId"/>
+    
+  </class>
+  
+</hibernate-mapping>

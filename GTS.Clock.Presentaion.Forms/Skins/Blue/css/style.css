@@ -1,0 +1,22 @@
+.field { height:25px;padding:10px 20px;margin:0;width:500px;position:relative; vertical-align:middle;}
+	.field span.lbl { float:left;width:60px;height:25px;line-height:24px;font-size:12px;padding:0 10px 0 0;text-align:right;cursor:default; }
+
+	.field span input { width:150px;border:1px solid #000;background:#fff;margin:0;padding:4px 4px 5px 4px;font:12px Tahoma,Verdana,Arial,Helvetica,sans-serif;border:1px solid #666;border-color:#666 #999 #999 #666;vertical-align:middle;}
+
+	.field span.empty input { color:#b7b7b7;font-style:italic; }
+
+	.field span.focused input { color:#333;font-style:normal; }
+
+	.field span.valid input { color:#333;font-style:normal; }
+
+	.field span.focused-valid input { color:#0a0;font-style:normal; }
+
+	.field span.invalid input { color:#d00;font-style:normal; }
+
+	.field span.disabled input { background:#f3f3f3;color:#bbb;font-style:normal;border-color:#bbb #ddd #ddd #bbb; }
+	
+	.validator_message { position:absolute; left:607px; 
+top:94px;
+    bottom: 523px;
+    margin-top: 14px;
+}

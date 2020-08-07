@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.DARuleGroup, GTS.Clock.Model"
+         table ="TA_DataAccessRuleGroup" lazy="true">
+    <id name="ID" access="property"  column="DataAccessRuleGrp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessRuleGrp_UserID" />
+    <property name="RuleGrpID"     access="property" column="DataAccessRuleGrp_RuleGrpID" />
+    <property name="All"     access="property" column="DataAccessRuleGrp_All" />
+
+    <many-to-one name="RuleCategory" column="DataAccessRuleGrp_RuleGrpID" class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model"  update="false" insert="false"/>
+
+  </class>
+</hibernate-mapping>

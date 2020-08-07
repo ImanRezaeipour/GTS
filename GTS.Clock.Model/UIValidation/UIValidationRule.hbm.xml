@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UIValidation.UIValidationRule, GTS.Clock.Model"
+         table ="TA_UIValidationRule" lazy="true">
+    <id name="ID" access="property"  column="UIRle_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="UIRle_Name" />
+    <property name="CustomCode"     access="property" column="UIRle_CustomCode" />
+    <property name="Active"     access="property" column="UIRle_Active" />
+    <property name="SubSystemId"     access="property" column="UIRle_SubSystemId" />
+    <property name="Order"     access="property" column="UIRle_Order" />
+
+    <bag name="GroupingList" table="TA_UIValidationGrouping" lazy="true" >
+      <key column="UIGrp_RuleID"></key>
+      <one-to-many class="GTS.Clock.Model.UIValidation.UIValidationGrouping, GTS.Clock.Model"></one-to-many>
+    </bag>
+
+  </class>
+</hibernate-mapping>

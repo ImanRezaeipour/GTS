@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RuleCategoryPart, GTS.Clock.Model"
+         table="TA_RuleCategoryPart" lazy="true">
+
+    <id name="ID" access="property"  column="RuleCatPart_ID" >
+      <generator class="native"/>
+    </id>
+
+    <property name="IsContain" access="property" column="RuleCatPart_IsContain" />
+    
+    <many-to-one name="Parent" column="RuleCatPart_ParentCatId" class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="Child"  column ="RuleCatPart_ChildCatId" class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model" not-null="true"/>
+    
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_OffishType, GTS.Clock.Model"
+         table ="CL_OffishType" lazy="true">
+    <id name="ID" access="property"  column="offishType_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Active" access="property" column="offishType_Active" />
+    <property name="IsDeleted" access="property" column="offishType_Deleted" />
+    <property name="RealName" access="property" column="offishType_RealName" />
+    <property name="Name" access="property" column="offishType_Name" />
+    <property name="CustomCode" access="property" column="offishType_CustomCode" />
+
+    <many-to-one name="OffishTypeGroup" column="offishType_offishTypeGroupID" class="GTS.Clock.Model.Clientele.CL_OffishTypeGroup, GTS.Clock.Model"/>
+
+    <bag name="AccessGroupList" table="CL_OffishTypeAccessGroupDetails" lazy="true" inverse="true" cascade="none">
+      <key column="offishTypeAccessGroupDetail_OffishTypeId"></key>
+      <many-to-many class="GTS.Clock.Model.Clientele.CL_OffishTypeAccessGroup, GTS.Clock.Model" column="offishTypeAccessGroupDetail_OffishTypeAccessGroupId"></many-to-many>
+    </bag>
+
+    <bag name="AccessRoleList" table="CL_RoleOffishType" lazy="true" >
+      <key column="RoleOfficeType_OfficeTypeId"></key>
+      <many-to-many class="GTS.Clock.Model.Security.Role, GTS.Clock.Model" column="RoleOfficeType_RoleId"></many-to-many>
+    </bag>
+
+  </class>
+</hibernate-mapping>

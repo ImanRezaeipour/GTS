@@ -1,0 +1,59 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_OffishRequest, GTS.Clock.Model"
+         table ="CL_Offish" lazy="true">
+    <id name="ID" access="property"  column="offish_ID" >
+      <generator class="native" />
+    </id>
+    <property name="IsDeleted" access="property" column="offish_Deleted" />
+    <property name="FromDate" access="property" column="offish_FromDate"/>
+    <property name="ToDate" access="property" column="offish_ToDate" />
+    <property name="FromTime" access="property" column="offish_FromTime" />
+    <property name="ToTime" access="property" column="offish_ToTime" />
+    <property name="ActiveDirectory" access="property" column="offish_ActiveDirectory" />
+    <property name="InternetAccess" access="property" column="offish_InternetAccess" />
+    <property name="Description" access="property" column="offish_Description" />
+    <property name="Sex" access="property" column="offish_Sex" />
+    <property name="MeetingLocation" access="property" column="offish_MeetingLocation" />
+    <property name="ActiveDirectoryUserName" access="property" column="offish_ActiveDirectoryUserName" />    
+    <property name="FoodRecieve" access="property" column="offish_FoodRecieve" />
+    <property name="Attachment" access="property" column="offish_Attachment" />
+    <property name="CustomCode" access="property" column="offish_CustomCode" />
+    <property name="PersonId" access="property" column="offish_PersonId" />
+    <property name="EndFlow" access="property" column="offish_EndFlow" />
+    
+
+    <many-to-one name="Department" column="offish_departmentId" class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model" />
+    
+    <many-to-one name="OffishType" class="GTS.Clock.Model.Clientele.CL_OffishType, GTS.Clock.Model"  column="offish_offishTypeId" lazy="proxy"/>
+
+    <bag name="PersonList" table="CL_PersonOffish" lazy="false">
+      <key column="prsOffish_OffishId"></key>
+      <many-to-many class="GTS.Clock.Model.Clientele.CL_ClientelePerson, GTS.Clock.Model" column="prsOffish_PersonId"></many-to-many>
+    </bag>
+
+    <many-to-one name="MeetingPerson" class="GTS.Clock.Model.Person, GTS.Clock.Model"  column="offish_MeetingPersonId" lazy="proxy"/>
+
+    <many-to-one name="SubstituteMeetingPerson" class="GTS.Clock.Model.Person, GTS.Clock.Model"  column="offish_SubstituteMeetingPersonId" lazy="proxy"/>
+
+    <many-to-one name="ControlStation" class="GTS.Clock.Model.BaseInformation.ControlStation, GTS.Clock.Model" column="offish_ControlStationId" lazy="proxy"/>
+
+    <many-to-one name="User" class="GTS.Clock.Model.Security.User, GTS.Clock.Model" column="offish_UserID" lazy="proxy"/>
+
+    <bag name="OffishRequestStatusList" table="CL_OffishStatus" lazy="true" >
+      <key column="offishStatus_OffishID"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_OffishRequestStatus, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="EquipmentList" table="CL_Equipment" lazy="true" inverse="true" >
+      <key column="Eqp_OffishId"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_Equipment, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="CarList" table="CL_Car" lazy="true" inverse="true" >
+      <key column="Car_OffishId"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_Car, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

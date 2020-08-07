@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.DAOrganizationUnit, GTS.Clock.Model"
+         table ="TA_DataAccessOrganizationUnit" lazy="true">
+    <id name="ID" access="property"  column="DataAccessOrgUnit_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessOrgUnit_UserID" />
+    <property name="OrgUnitID"     access="property" column="DataAccessOrgUnit_OrgUnitID" />
+    <property name="All"     access="property" column="DataAccessOrgUnit_All" />
+
+    <many-to-one name="Organization" column="DataAccessOrgUnit_OrgUnitID" class="GTS.Clock.Model.Charts.OrganizationUnit, GTS.Clock.Model"  update="false" insert="false"/>
+
+  </class>
+</hibernate-mapping>

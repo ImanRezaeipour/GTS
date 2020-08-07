@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.Calendar, GTS.Clock.Model"
+         table ="TA_Calendar" lazy="true">
+    <id name="ID" access="property"  column="Calendar_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Date"     access="property" column="Calendar_Date" />
+
+    <many-to-one name="CalendarType" column="Calendar_CalendarTypeId" class="GTS.Clock.Model.Concepts.CalendarType, GTS.Clock.Model" fetch="join" />
+
+  </class>
+</hibernate-mapping>

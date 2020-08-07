@@ -1,0 +1,207 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.LeaveYear, GTS.Clock.Model"
+         table ="TA_LeaveYear" lazy="true">
+
+    <id name="ID" access="property"  column="LeaveYear_ID" >
+      <generator class="native" />
+    </id>
+    <discriminator column="LeaveYear_Kind" type ="string"/>
+        
+    <property name="CalculatedDemandLeave" access="property" column="LeaveYear_CalculatedDemandTime"/>
+    <property name="DemandLeaveReal" access="property" column="LeaveYear_DemandTimeReal"/>
+    <property name="DemandLeaveOK" access="property" column="LeaveYear_DemandTimeOK"/>
+    <property name="Year" access="property" column="LeaveYear_Year"/>
+    <property name="MaxBorrow" access="property" column="LeaveYear_Maxborrow"/>
+    <property name="Debit" access="property" column="LeaveYear_Debit"/>
+    <property name="PersonId" access="property" column="LeaveYear_PersonId" insert="false" update="false"/>
+
+    <many-to-one name="Person" column="LeaveYear_PersonId"  class="GTS.Clock.Model.Person, GTS.Clock.Model"  not-null="true"/>
+
+    <one-to-one name="BudgetYear" class="GTS.Clock.Model.Concepts.BudgetYear, GTS.Clock.Model" lazy="false"  cascade="none" access="property"  />
+    
+    <one-to-one name="UsedBudget" class="GTS.Clock.Model.Concepts.UsedBudget, GTS.Clock.Model"   cascade="none" access="property" />
+
+
+    <bag name="LeaveIncDecList" table="TA_LeaveIncDec" lazy="true">
+      <key column="LeaveIncDec_LeaveYearID"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.LeaveIncDec, GTS.Clock.Model"/>
+    </bag>
+    
+    <subclass name="GTS.Clock.Model.Concepts.LeaveBudgetYear, GTS.Clock.Model">
+    </subclass>
+
+  </class>
+
+  <sql-query name="GetRemainLeaveToEndOfYear">
+    <![CDATA[ 
+
+declare @total int,@maxBorrow int,@debit int ,@personId numeric,@budgetId numeric,
+    		@year int
+set @total=0
+set @year=:curentYear
+set @personId=:personId
+
+select @budgetId=LeaveYear_ID ,@total=LeaveYear_CalculatedDemandTime,@maxBorrow=LeaveYear_Maxborrow,@debit=LeaveYear_Debit
+from TA_LeaveYear where LeaveYear_PersonId=@personId and LeaveYear_Year=@year
+
+select @total=@total+ (BudgetYear_Calc_t1-UsedBudget_t1) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+
+select @total=@total+ (BudgetYear_Calc_t2-UsedBudget_t2) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+select @total=@total+ (BudgetYear_Calc_t3-UsedBudget_t3) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+select @total=@total+ (BudgetYear_Calc_t4-UsedBudget_t4) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+select @total=@total+ (BudgetYear_Calc_t5-UsedBudget_t5) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+select @total=@total+ (BudgetYear_Calc_t6-UsedBudget_t6) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+select @total=@total+ (BudgetYear_Calc_t7-UsedBudget_t7) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+select @total=@total+ (BudgetYear_Calc_t8-UsedBudget_t8) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+select @total=@total+ (BudgetYear_Calc_t9-UsedBudget_t9) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+select @total=@total+ (BudgetYear_Calc_t10-UsedBudget_t10) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+
+select @total=@total+ (BudgetYear_Calc_t11-UsedBudget_t11) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+
+select @total=@total+ (BudgetYear_Calc_t12-UsedBudget_t12) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId									
+	
+set @total=@total + (@maxBorrow - @debit)	
+	
+select @total
+
+    ]]>
+  </sql-query>
+
+  <sql-query name="GetRemainLeaveToEndOfMonth">
+    <![CDATA[ 
+
+declare @total int,@maxBorrow int,@debit int ,@month int,@personId numeric,@budgetId numeric,
+        @year int
+set @total=0
+set @year=:curentYear
+set @month=:curentMonth
+set @personId=:personId
+
+select @budgetId=LeaveYear_ID ,@total=LeaveYear_CalculatedDemandTime,@maxBorrow=LeaveYear_Maxborrow,@debit=LeaveYear_Debit
+from TA_LeaveYear where LeaveYear_PersonId=@personId and LeaveYear_year=@year
+
+if @month>=1
+	select @total=@total+ (BudgetYear_Calc_t1-UsedBudget_t1) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=2
+	select @total=@total+ (BudgetYear_Calc_t2-UsedBudget_t2) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=3
+	select @total=@total+ (BudgetYear_Calc_t3-UsedBudget_t3) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=4
+	select @total=@total+ (BudgetYear_Calc_t4-UsedBudget_t4) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=5
+	select @total=@total+ (BudgetYear_Calc_t5-UsedBudget_t5) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=6
+	select @total=@total+ (BudgetYear_Calc_t6-UsedBudget_t6) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=7
+	select @total=@total+ (BudgetYear_Calc_t7-UsedBudget_t7) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=8
+	select @total=@total+ (BudgetYear_Calc_t8-UsedBudget_t8) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=9
+	select @total=@total+ (BudgetYear_Calc_t9-UsedBudget_t9) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	
+if @month>=10
+	select @total=@total+ (BudgetYear_Calc_t10-UsedBudget_t10) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+
+if @month>=11
+	select @total=@total+ (BudgetYear_Calc_t11-UsedBudget_t11) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+
+if @month=12
+	select @total=@total+ (BudgetYear_Calc_t12-UsedBudget_t12) from TA_BudgetYear join TA_UsedBudget
+	on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId									
+
+
+if Exists(select * from TA_LeaveSettings where LeaveSet_PersonId=@personId and LeaveSet_DoNotUseFutureMounth=0)
+	begin
+		if @month<2
+			select @total=@total+ (BudgetYear_Calc_t2-UsedBudget_t2) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<3
+			select @total=@total+ (BudgetYear_Calc_t3-UsedBudget_t3) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<4
+			select @total=@total+ (BudgetYear_Calc_t4-UsedBudget_t4) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<5
+			select @total=@total+ (BudgetYear_Calc_t5-UsedBudget_t5) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<6
+			select @total=@total+ (BudgetYear_Calc_t6-UsedBudget_t6) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<7
+			select @total=@total+ (BudgetYear_Calc_t7-UsedBudget_t7) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<8
+			select @total=@total+ (BudgetYear_Calc_t8-UsedBudget_t8) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+
+		if @month<9
+			select @total=@total+ (BudgetYear_Calc_t9-UsedBudget_t9) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<10
+			select @total=@total+ (BudgetYear_Calc_t10-UsedBudget_t10) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<11
+			select @total=@total+ (BudgetYear_Calc_t11-UsedBudget_t11) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+			
+		if @month<12
+			select @total=@total+ (BudgetYear_Calc_t12-UsedBudget_t12) from TA_BudgetYear join TA_UsedBudget
+			on BudgetYear_ID=UsedBudget_ID where BudgetYear_ID=@budgetId
+	end
+	
+set @total=@total + (@maxBorrow - @debit)	
+	
+select @total
+
+    ]]>
+  </sql-query>
+  
+</hibernate-mapping>

@@ -1,0 +1,7 @@
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.RuleDesigner.UI.Web\obj\Debug\ResolveAssemblyReference.cache
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.RuleDesigner.UI.Web\obj\Debug\GTS.Clock.RuleDesigner.UI.Web.PersonnelMasterMonthlyOperation.resources
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.RuleDesigner.UI.Web\obj\Debug\GTS.Clock.RuleDesigner.UI.Web.PersonnelMasterMonthlyOperation.fa.resources
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.RuleDesigner.UI.Web\obj\Debug\GenerateResource.read.1.tlog
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.RuleDesigner.UI.Web\obj\Debug\GenerateResource.write.1.tlog
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.RuleDesigner.UI.Web\obj\Debug\GTS.Clock.RuleDesigner.UI.Web.csprojResolveAssemblyReference.cache
+E:\GhadirTFs\Atlas\GTS.Clock\GTS.Clock.RuleDesigner.UI.Web\obj\Debug\GTS.Clock.RuleDesigner.UI.Web.csproj.GenerateResource.Cache

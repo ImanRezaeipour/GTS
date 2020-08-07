@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Help, GTS.Clock.Model" lazy="true"
+         table="TA_Help">
+    <id name="ID" access="property"  column="Help_ID">
+      <generator class="native"/>
+    </id>
+    
+    <property name="FaName"       access="property" column="Help_FaName" />
+    <property name="EnName"       access="property" column="Help_EnName" />
+    <property name="EnHTMLContent" access="property" column="Help_EnHTMLContent" />
+    <property name="FaHTMLContent" access="property" column="Help_FaHTMLContent" />
+    <property name="FormKey"    access="property" column="Help_FormKey" />
+    <property name="LevelOrder"    access="property" column="Help_LevelOrder" />
+    
+    <many-to-one name="Parent" class="GTS.Clock.Model.Help, GTS.Clock.Model" column="Help_ParantID"/>
+
+    <bag name="ChildList" table="TA_Help" lazy="true" inverse="true" batch-size="300">
+      <key column="Help_ParantID"></key>
+      <one-to-many class="GTS.Clock.Model.Help, GTS.Clock.Model"/>
+    </bag>
+    
+  </class>
+
+</hibernate-mapping>

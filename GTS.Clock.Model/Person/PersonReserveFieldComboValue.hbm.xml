@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" 
+         table ="TA_PersonReserveFieldComboValue" lazy="true">
+    <id name="ID" access="property"  column="ReserveComboValue_ID" >
+           <generator class="native" />
+      </id> 
+    <property name="ReserveFieldID"     access="property" column="ReserveComboValue_ReserveFieldID" />
+      <property name="ComboValue"     access="property" column="ReserveComboValue_ComboValue" />
+      <property name="ComboText"     access="property" column="ReserveComboValue_ComboText" />
+   
+   
+  </class> 
+</hibernate-mapping>

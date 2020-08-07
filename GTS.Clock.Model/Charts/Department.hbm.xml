@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Charts.Department, GTS.Clock.Model"
+         table ="TA_Department" lazy="true">
+    <id name="ID" access="property"  column="dep_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="dep_Name" />
+    <property name="CustomCode"     access="property" column="dep_CustomCode" />
+    <property name="ParentPath"     access="property" column="dep_ParentPath" />
+
+    <many-to-one name="Parent" column="dep_ParentID" class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model" />
+
+    <bag name="ChildList" table="TA_Department" lazy="true" inverse="true" batch-size="300">
+      <key column="dep_ParentId"></key>
+      <one-to-many class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="PersonList" table="TA_Person" lazy="extra" cascade="all" inverse="true" batch-size="3000">
+      <key column="prs_departmentID"></key>
+      <one-to-many class="GTS.Clock.Model.Person, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="PositionList" table="TA_DepartmentPosition" lazy="true" inverse="true">
+      <key column="pos_DepartmentId"></key>
+      <one-to-many class="GTS.Clock.Model.Charts.DepartmentPosition, GTS.Clock.Model"/>
+    </bag>
+    
+  </class>
+</hibernate-mapping>

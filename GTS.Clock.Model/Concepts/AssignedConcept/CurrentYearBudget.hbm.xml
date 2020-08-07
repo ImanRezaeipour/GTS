@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.CurrentYearBudget, GTS.Clock.Model" lazy="true">
+
+    <id name="ID" access="property"  column="CurrentYearBudget_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="PersonId"    access="property" column="CurrentYearBudget_PersonId" />
+    <property name="Date"        access="property" column="CurrentYearBudget_Date" />
+    <property name="Day"         access="property" column="CurrentYearBudget_Day" />
+    <property name="Minutes"     access="property" column="CurrentYearBudget_Minute" />
+    <property name="Type"        access="property" column="CurrentYearBudget_Type" />
+    <property name="AsgFromDate" access="property" column="CurrentYearBudget_AsgFromDate" />
+    <property name="AsgToDate"   access="property" column="CurrentYearBudget_AsgToDate" />
+    <property name="BudgetId"   access="property" column="CurrentYearBudget_BudgetId" />
+    <property name="MinutesInDay"   access="property" column="CurrentYearBudget_MinutesInDay" />
+    <property name="UseFutureLeave"   access="property" column="CurrentYearBudget_UseFutureLeave" />
+
+    <many-to-one name="RuleCategory" column="CurrentYearBudget_RuleCatId"  class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model" not-null="true" lazy="proxy"/>
+
+  </class>
+</hibernate-mapping>

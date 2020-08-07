@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RequestFlow.RequestStatus, GTS.Clock.Model"
+         table ="TA_RequestStatus" lazy="true">
+    <id name="ID" access="property"  column="reqStat_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Confirm"     access="property" column="reqStat_Confirm" />
+    <property name="EndFlow"     access="property" column="reqStat_EndFlow" />
+    <property name ="Description" access="property" column="reqStat_Description"/>
+    <property name ="Date" access="property" column="reqStat_Date"/>
+    <property name ="IsDeleted" access="property" column="reqStat_IsDeleted"/>
+    
+    <many-to-one name="Request" column="reqStat_RequestID" class="GTS.Clock.Model.RequestFlow.Request, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="ManagerFlow" column="reqStat_MnagerFlowID" class="GTS.Clock.Model.RequestFlow.ManagerFlow, GTS.Clock.Model" not-null="true" lazy="proxy"/>
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="clmnParameterName_GridReportParameters_ReportParameters.HeadingText" xml:space="preserve">
+    <value>نام پارامتر</value>
+  </data>
+  <data name="clmnParameterValue_GridReportParameters_ReportParameters.HeadingText" xml:space="preserve">
+    <value>مقدار پارامتر</value>
+  </data>
+  <data name="DefaultTabLook.LeftIconUrl" xml:space="preserve">
+    <value>tab_right_icon.gif</value>
+  </data>
+  <data name="DefaultTabLook.RightIconUrl" xml:space="preserve">
+    <value>tab_left_icon.gif</value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel_PersonalFilter_ReportParameters.Value" xml:space="preserve">
+    <value>شماره پرسنلی</value>
+  </data>
+  <data name="hfclmnCardNum_cmbPersonnel_PersonalFilter_ReportParameters.Value" xml:space="preserve">
+    <value>شماره کارت</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel_PersonalFilter_ReportParameters.Value" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="hfheaderPersonnelFilter_GroupFilter_ReportParameters.Value" xml:space="preserve">
+    <value>فیلتر پرسنل</value>
+  </data>
+  <data name="hfheaderPersonnelFilter_PersonalFilter_ReportParameters.Value" xml:space="preserve">
+    <value>فیلتر پرسنل</value>
+  </data>
+  <data name="hfheaderReportParameters_ReportParameters.Value" xml:space="preserve">
+    <value>پارامتر های گزارش</value>
+  </data>
+  <data name="hfloadingPanel_GridReportParameters_ReportParameters.Value" xml:space="preserve">
+    <value>در حال بارگیری ...</value>
+  </data>
+  <data name="hfTitle_DialogReportParameters.Value" xml:space="preserve">
+    <value>تنظیم پارامترهای</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="lblCalculationRange_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>محدوده محاسبات :</value>
+  </data>
+  <data name="lblCardID_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>شماره کارت :</value>
+  </data>
+  <data name="lblControlStation_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>ایستگاه کنترل :</value>
+  </data>
+  <data name="lblDepartment_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>بخش :</value>
+  </data>
+  <data name="lblEducation_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>تحصیلات :</value>
+  </data>
+  <data name="lblEmployType_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>نوع استخدام :</value>
+  </data>
+  <data name="lblFamily_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>نام خانوادگی :</value>
+  </data>
+  <data name="lblFatherName_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>نام پدر :</value>
+  </data>
+  <data name="lblFromDate_RuleGroup_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>از تاریخ :</value>
+  </data>
+  <data name="lblFromDate_WorkGroup_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>از تاریخ :</value>
+  </data>
+  <data name="lblMarriageState_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>وضعیت تاهل :</value>
+  </data>
+  <data name="lblMilitaryState_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>وضعیت نظام وظیفه :</value>
+  </data>
+  <data name="lblName_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>نام :</value>
+  </data>
+  <data name="lblOrganizationPost_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>پست سازمانی :</value>
+  </data>
+  <data name="lblPersonnelNumber_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>شماره پرسنلی :</value>
+  </data>
+  <data name="lblRuleGroup_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>گروه قانون :</value>
+  </data>
+  <data name="lblRunfromDate_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>اجرا از تاریخ :</value>
+  </data>
+  <data name="lblSex_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>جنسیت :</value>
+  </data>
+  <data name="lblSortBy_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>بر اساس :</value>
+  </data>
+  <data name="lblSortDirection_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>جهت :</value>
+  </data>
+  <data name="lblToDate_RuleGroup_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>تا تاریخ :</value>
+  </data>
+  <data name="lblUnderDepartment_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>زیر بخش</value>
+  </data>
+  <data name="lblWorkGroup_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>گروه کاری :</value>
+  </data>
+  <data name="ReportParametersForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="SelectedTabLook.LeftIconUrl" xml:space="preserve">
+    <value>selected_tab_right_icon.gif</value>
+  </data>
+  <data name="SelectedTabLook.RightIconUrl" xml:space="preserve">
+    <value>selected_tab_left_icon.gif</value>
+  </data>
+  <data name="tbGroupFilter_TabStripReportParameters.Text" xml:space="preserve">
+    <value>فیلتر گروهی</value>
+  </data>
+  <data name="tbPersoanlFilter_TabStripReportParameters.Text" xml:space="preserve">
+    <value>فیلتر فردی</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_PersonnelSearch_PersonalFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="tlbItemClearList_TlbPersoanlFilter_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>پاک کردن لیست</value>
+  </data>
+  <data name="tlbItemClearList_TlbPersonalFilter_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>پاک کردن لیست</value>
+  </data>
+  <data name="tlbItemEdit_TlbReportParameters_ReportParameters.Text" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="tlbItemExit_TlbPersoanlFilter_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemExit_TlbPersonalFilter_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_PersonnelSearch_PersonalFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="tlbItemHelp_TlbPersoanlFilter_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemHelp_TlbPersonalFilter_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_PersonnelSearch_PersonalFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_PersonnelSearch_PersonalFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_PersonnelSearch_PersonalFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbCalculationRange_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbControlStation_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbDepartment_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbEmployType_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbOrganizationPost_PersonalFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbWorkGroup_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbReportParameters_ReportParameters.Text" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemReportView_TlbPersoanlFilter_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>نمایش گزارش</value>
+  </data>
+  <data name="tlbItemReportView_TlbPersonalFilter_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>نمایش گزارش</value>
+  </data>
+  <data name="hfheaderSort_GroupFilter_ReportParameters.Value" xml:space="preserve">
+    <value>مرتب سازی</value>
+  </data>
+  <data name="lblPersonnel_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>پرسنل :</value>
+  </data>
+  <data name="TlbClean_ToDateCalendars_RuleGroup_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbClean_cmbMarriageState_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbClean_cmbMilitaryState_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbClean_cmbSex_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbClean_FromDateCalendars_RuleGroup_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="TlbItemClean_TlbClean_WorkGroupCalendars_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbRefresh_cmbDepartment_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbRefresh_cmbOrganizationPost_PersonalFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbRefresh_cmbRuleGroup_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbRefresh_cmbWorkGroup_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemFilter_TlbFilter_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>فیلتر پرسنل</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_cmbRuleGroup_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="hfConnectionError_ReportParameters.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfErrorType_ReportParameters.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="tlbItemClean_TlbClean_ToDateCalendars_RuleGroup_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbRefresh_cmbCalculationRange_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbRefresh_cmbControlStation_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="tlbItemClean_TlbRefresh_cmbEmployType_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>زن</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>مرد</value>
+  </data>
+  <data name="OrgNode_trvOrganizationPost_PersonalFilter_ReportParameters" xml:space="preserve">
+    <value>سازمان</value>
+  </data>
+  <data name="trvOrganizationPost_PersonalFilter_ReportParameters.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/RightLines</value>
+  </data>
+  <data name="AmadeBeKhedmat" xml:space="preserve">
+    <value>آماده به خدمت</value>
+  </data>
+  <data name="DarayeKartePayanKhedmat" xml:space="preserve">
+    <value>کارت پایان خدمت</value>
+  </data>
+  <data name="GheireMashmool" xml:space="preserve">
+    <value>غیر مشمول</value>
+  </data>
+  <data name="header_CalculationRange_DialogPersonnelMainInformation" xml:space="preserve">
+    <value>محدوده محاسبات</value>
+  </data>
+  <data name="HeineKhedmat" xml:space="preserve">
+    <value>حین خدمت</value>
+  </data>
+  <data name="MoafiatPezeshki" xml:space="preserve">
+    <value>معافیت پزشکی</value>
+  </data>
+  <data name="MoafiatTahsili" xml:space="preserve">
+    <value>معافیت تحصیلی</value>
+  </data>
+  <data name="MoafiatTakafol" xml:space="preserve">
+    <value>معافیت کفالت</value>
+  </data>
+  <data name="Mojarad" xml:space="preserve">
+    <value>مجرد</value>
+  </data>
+  <data name="Motahel" xml:space="preserve">
+    <value>متاهل</value>
+  </data>
+  <data name="Motaleghe" xml:space="preserve">
+    <value>مطلقه</value>
+  </data>
+  <data name="OrgNode_trvDepartment_GroupFilter_ReportParameters" xml:space="preserve">
+    <value>سازمان</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="Sayer" xml:space="preserve">
+    <value>سایر موارد</value>
+  </data>
+  <data name="trvDepartment_GroupFilter_ReportParameters.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/RightLines</value>
+  </data>
+  <data name="EditComplete" xml:space="preserve">
+    <value>عملیات ویرایش با موفقیت به اتمام رسی</value>
+  </data>
+  <data name="hfCloseMessage_ReportParameters.Value" xml:space="preserve">
+    <value>آیا از فرم تنظیم پارامتر های قانون خارج می شوید ؟</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="tlbItemReportView_TlbReportParameters_ReportParameters.Text" xml:space="preserve">
+    <value>نمایش گزارش</value>
+  </data>
+  <data name="tlbItemClean_TlbClean_CalculationRangeCalendars_GroupFilter_ReportParameters.ToolTip" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="ReportParameterActionIdIsEmpty" xml:space="preserve">
+    <value>شناسه عملیات معتبر نمی باشد</value>
+  </data>
+  <data name="ReportParameterParsingIsNotMatch" xml:space="preserve">
+    <value>پارامترهای ارسالی معتبر نمی باشند</value>
+  </data>
+  <data name="ReportParametersIsEmpty" xml:space="preserve">
+    <value>پارامترهای گزارش مقدار نگرفته اند</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbPersoanlFilter_PersonalFilter_ReportParameters.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbPersonalFilter_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="ReportParameterPersonIsEmpty" xml:space="preserve">
+    <value>پرسنل انتخاب نگردیده است</value>
+  </data>
+  <data name="lblActive_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="lblAllPersonnel_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>کل پرسنل</value>
+  </data>
+  <data name="lblDeactive_GroupFilter_ReportParameters.Text" xml:space="preserve">
+    <value>غیر فعال</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی غیر مجاز به سرویس</value>
+  </data>
+  <data name="hfCloseMessage_PersonnelSelect.Value" xml:space="preserve">
+    <value>آیا از فرم انتخاب پرسنل خارج می شوید ؟</value>
+  </data>
+  <data name="hffooter_GridPersonnel_PersonnelSelect.Value" xml:space="preserve">
+    <value>صفحه 0 از 0</value>
+  </data>
+  <data name="hfloadingPanel_GridPersonnel_PersonnelSelect.Value" xml:space="preserve">
+    <value>بارگیری ...</value>
+  </data>
+  <data name="hfPersonnelCountTitle_GridPersonnel_PersonnelSelect.Value" xml:space="preserve">
+    <value>تعداد پرسنل انتخاب شده :</value>
+  </data>
+  <data name="hfTitle_DialogPersonnelSelect.Value" xml:space="preserve">
+    <value>انتخاب پرسنل</value>
+  </data>
+  <data name="lblAllPersonWithThisConditions_ReportParameters.Text" xml:space="preserve">
+    <value>کلیه پرسنل با این شرایط</value>
+  </data>
+  <data name="tlbItemExit_TlbPersonnelSelect.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemSave_TlbPersonnelSelect.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="hfheader_Personnel_PersonnelSelect.Value" xml:space="preserve">
+    <value>پرسنل</value>
+  </data>
+  <data name="lblAllInThisPage_PersonnelSelect.Text" xml:space="preserve">
+    <value>همه در این صفحه</value>
+  </data>
+</root>

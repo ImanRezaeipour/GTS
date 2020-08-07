@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.LeaveCalcResult, GTS.Clock.Model"
+         table ="TA_LeaveCalcResult" lazy="true">
+    <id name="ID" access="property"  column="LeaveCalcResult_ID" >
+      <generator class="native" />
+    </id>
+    <discriminator column="LeaveCalcResult_Type" type ="string"/>
+    
+    <property name="Date"   access="property" column="LeaveCalcResult_Date" />
+    <property name="Day"    access="property" column="LeaveCalcResult_Day" />
+    <property name="Minute" access="property" column="LeaveCalcResult_Minute" />
+    <property name="DayRemain"    access="property" column="LeaveCalcResult_DayRemain" />
+    <property name="MinuteRemain" access="property" column="LeaveCalcResult_MinuteRemain" />
+    <property name="DayUsed"    access="property" column="LeaveCalcResult_DayUsed" />
+    <property name="MinuteUsed" access="property" column="LeaveCalcResult_MinuteUsed" />
+    <property name="LeaveMinuteInDay" access="property" column="LeaveCalcResult_LeaveMinuteInDay" />
+    <property name="RefrenceId" access="property" column="LeaveCalcResult_ReferenceId" insert="false" update="false"/> 
+    <property name="Type" access="property" column="LeaveCalcResult_Type" insert="false" update="false"/>
+
+
+    <many-to-one name="Person" column="LeaveCalcResult_PersonId"  class="GTS.Clock.Model.Person, GTS.Clock.Model"  not-null="true"/>
+
+    <subclass name="GTS.Clock.Model.Concepts.UsedLeaveDetailLCR, GTS.Clock.Model"
+      discriminator-value="ULD">
+      <many-to-one name="UsedLeaveDetail" class="GTS.Clock.Model.Concepts.UsedLeaveDetail, GTS.Clock.Model" column="LeaveCalcResult_ReferenceId" unique="true" lazy="proxy" cascade="save-update" outer-join="false"/>
+    </subclass>
+    <subclass name="GTS.Clock.Model.Concepts.BudgetLCR, GTS.Clock.Model"
+  discriminator-value="CYB">
+      <many-to-one name="Budget" class="GTS.Clock.Model.Concepts.Budget, GTS.Clock.Model" column="LeaveCalcResult_ReferenceId" unique="true" lazy="proxy" cascade="save-update" outer-join="false"/>
+    </subclass>
+    <subclass name="GTS.Clock.Model.Concepts.LeaveIncDecLCR, GTS.Clock.Model"
+  discriminator-value="LID">
+      <many-to-one name="LeaveIncDec" class="GTS.Clock.Model.Concepts.LeaveIncDec, GTS.Clock.Model" column="LeaveCalcResult_ReferenceId" unique="true" lazy="proxy" cascade="save-update" outer-join="false"/>
+    </subclass>
+    <subclass name="GTS.Clock.Model.Concepts.LeaveYearRemainLCR, GTS.Clock.Model"
+  discriminator-value="LYR">
+      <many-to-one name="LeaveYearRemain" class="GTS.Clock.Model.Concepts.LeaveYearRemain, GTS.Clock.Model" column="LeaveCalcResult_ReferenceId" unique="true" lazy="proxy" cascade="save-update" outer-join="false"/>
+    </subclass>
+
+  </class>
+</hibernate-mapping>

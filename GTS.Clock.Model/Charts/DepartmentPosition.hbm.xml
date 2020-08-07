@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Charts.DepartmentPosition, GTS.Clock.Model"
+         table ="CL_DepartmentPosition" lazy="true">
+
+    <id name="ID" access="property"  column="pos_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="UnitName" access="property" column="pos_UnitName"/>
+    <property name="Location" access="property" column="pos_Location"/>
+
+   <many-to-one name="Department" column="pos_DepartmentId" class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model" />
+       
+  </class>
+</hibernate-mapping>

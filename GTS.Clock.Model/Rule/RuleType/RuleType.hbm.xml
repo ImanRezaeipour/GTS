@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RuleType, GTS.Clock.Model" 
+         table ="TA_RuleType" lazy="false">
+    <id name="ID" access="property"  column="RuleType_ID" >
+      <generator class="native" />
+    </id>
+    
+    <property name="Name" access="property" column="RuleType_Name" />
+
+    <bag name="RuleTemplateList" table="TA_RuleTemplate" access="property" lazy ="true" batch-size="500">
+      <key column="RuleTmp_RuleTypeId"/>
+      <one-to-many class="GTS.Clock.Model.RuleTemplate, GTS.Clock.Model"/>      
+    </bag>
+
+    <bag name="RuleList" table="TA_Rule" access="property" lazy ="extra" batch-size="500">
+      <key column="Rule_RuleTypeId"/>
+      <one-to-many class="GTS.Clock.Model.Rule, GTS.Clock.Model"/>
+    </bag>
+    
+  </class> 
+</hibernate-mapping>

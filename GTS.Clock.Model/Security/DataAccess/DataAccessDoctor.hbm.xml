@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.DADoctor, GTS.Clock.Model"
+         table ="TA_DataAccessDoctor" lazy="true">
+    <id name="ID" access="property"  column="DataAccessDoctor_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessDoctor_UserID" />
+    <property name="DoctorID"     access="property" column="DataAccessDoctor_DoctorID" />
+    <property name="All"     access="property" column="DataAccessDoctor_All" />
+
+
+  </class>
+</hibernate-mapping>

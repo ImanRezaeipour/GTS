@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.PrecardGroups, GTS.Clock.Model"
+         table ="TA_PrecardGroups" lazy="true">
+    <id name="ID" access="property"  column="PishcardGrp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="PishcardGrp_Name" />
+    <property name="LookupKey"     access="property" column="PishcardGrp_LookupKey" />
+    <property name="IntLookupKey"     access="property" column="PishcardGrp_IntLookupKey" />
+
+    <bag name="PrecardList" table="TA_Precard" inverse ="true" lazy="true" batch-size="3000">
+      <key column="precrd_pshcardGroupID"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

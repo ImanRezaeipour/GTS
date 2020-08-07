@@ -1,0 +1,33 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_Flow, GTS.Clock.Model"
+         table ="CL_Flow" lazy="true">
+    <id name="ID" access="property"  column="Flow_ID" >
+      <generator class="native" />
+    </id>
+    <property name="WorkFlow"     access="property" column="Flow_WorkFlow" />
+    <property name="ActiveFlow"     access="property" column="Flow_ActiveFlow" />
+    <property name="FlowName"     access="property" column="Flow_FlowName" />
+    <property name="MainFlow"     access="property" column="Flow_MainFlow" />
+    <property name="IsDeleted"     access="property" column="Flow_Deleted" />
+
+    <many-to-one name="AccessGroup" column="Flow_OffishTypeAccessGroupID" class="GTS.Clock.Model.Clientele.CL_OffishTypeAccessGroup, GTS.Clock.Model"/>   
+    <many-to-one name="FlowGroup" column="flow_GroupID" class="GTS.Clock.Model.Clientele.CL_FlowGroup, GTS.Clock.Model"/>    
+
+    <bag name="UnderManagementList" table="CL_UnderManagment" lazy="true" inverse="true" cascade="all">
+      <key column="underMng_FlowID"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_UnderManagement, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="ManagerFlowList" table="CL_ManagerFlow" lazy="true" inverse="true" cascade="all">
+      <key column="mngrFlow_FlowID"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_ManagerFlow, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="OperatorList" table="CL_Operator" lazy="false" batch-size="100" inverse="true">
+      <key column="opr_FlowId"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_Operator, GTS.Clock.Model"/>
+    </bag>
+    
+  </class>
+</hibernate-mapping>

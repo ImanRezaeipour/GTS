@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Report.Report, GTS.Clock.Model"
+         table ="TA_Report" lazy="true">
+    <id name="ID" access="property"  column="Report_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="Report_Name" />
+    <property name="ParentId"     access="property" column="Report_ParentId" />
+    <property name="ParentPath"     access="property" column="Report_ParentPath" />
+    <property name="IsReport"     access="property" column="Report_IsReport" />
+    <property name="Order"     access="property" column="Report_Order" />
+    <property name="SubSystemId"     access="property" column="Report_SubSystemId" />
+    <property name="IsDesignedReport"     access="property" column="Report_IsDesignedReport" />
+    <property name="Description"     access="property" column="Report_Description" />
+    <many-to-one name="DesignedType" column="Report_DesignedReportTypeID" class="GTS.Clock.Model.Report.DesignedReportType, GTS.Clock.Model" />
+    <many-to-one name="ReportFile"  column="Report_ReportFileId" class="GTS.Clock.Model.Report.ReportFile, GTS.Clock.Model" />
+    <many-to-one name="ReportParameterDesigned" column="ReportParameter_rptParamDesID" class="GTS.Clock.Model.Report.ReportParameterDesigned, GTS.Clock.Model" />
+    <bag name="ChildList" table="TA_Report" lazy="true" inverse="true" >
+      <key column="Report_ParentId"></key>
+      <one-to-many class="GTS.Clock.Model.Report.Report, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

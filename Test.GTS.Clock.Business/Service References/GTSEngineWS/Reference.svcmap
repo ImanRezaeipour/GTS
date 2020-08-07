@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c70f2c11-155a-4886-8e59-aa65b7448899" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/gtswebservice/TotalWebService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TotalWebService1.disco" MetadataType="Disco" ID="3597e831-2d30-4515-a52e-5a651081ba67" SourceId="1" SourceUrl="http://salavati1.ghadir.local/GTSWebservice/TotalWebService.svc?disco" />
+    <MetadataFile FileName="TotalWebService1.wsdl" MetadataType="Wsdl" ID="bce562c7-35b6-48f5-9010-081e7d6e6212" SourceId="1" SourceUrl="http://salavati1.ghadir.local/GTSWebservice/TotalWebService.svc?wsdl" />
+    <MetadataFile FileName="TotalWebService2.xsd" MetadataType="Schema" ID="d183f236-b9bd-4051-ba6d-ecf5f715202d" SourceId="1" SourceUrl="http://salavati1.ghadir.local/GTSWebservice/TotalWebService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TotalWebService21.xsd" MetadataType="Schema" ID="fe24710b-12ee-446a-8bed-8fb136510b97" SourceId="1" SourceUrl="http://salavati1.ghadir.local/GTSWebservice/TotalWebService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

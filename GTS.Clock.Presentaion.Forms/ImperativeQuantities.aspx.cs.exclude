@@ -1,0 +1,29 @@
+﻿using GTS.Clock.Business.UI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using ComponentArt.Web.UI;
+
+public partial class ImperativeQuantities : GTSBasePage
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if(!this.CallBack_cmbPersonnel_ImperativeQuantities.IsCallback && !this.CallBack_GridImperativeQuantities_ImperativeQuantities.IsCallback)
+        {
+        }
+    }
+
+    protected void CallBack_cmbPersonnel_ImperativeQuantities_onCallBack(object sender, CallBackEventArgs e)
+    {
+    }
+
+    protected void CallBack_GridImperativeQuantities_ImperativeQuantities_onCallBack(object sender, CallBackEventArgs e)
+    {
+    }
+
+
+
+}

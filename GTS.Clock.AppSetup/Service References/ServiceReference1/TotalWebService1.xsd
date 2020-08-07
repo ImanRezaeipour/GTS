@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://salavati1.ghadir.local/GTSWebservice/TotalWebService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GTS_ExecuteByPersonID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CallerIdentity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PersonId" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GTS_ExecuteByPersonIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GTS_ExecuteByPersonIdAndToDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CallerIdentity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PersonId" type="xs:decimal" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GTS_ExecuteByPersonIdAndToDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GTS_ExecuteByPersonIdAndToDateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GTS_ExecuteAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CallerIdentity" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GTS_ExecuteAllByToDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CallerIdentity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GTS_ExecutePersonsByToDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CallerIdentity" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Persons" nillable="true" type="q1:ArrayOfdecimal" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Clock_FillByPersonID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PersonId" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Clock_FillByPersonIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Clock_ExecuteByToDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

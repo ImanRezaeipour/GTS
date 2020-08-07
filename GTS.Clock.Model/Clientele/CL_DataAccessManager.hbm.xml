@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_DataAccessManager, GTS.Clock.Model"
+         table ="CL_DataAccessManager" lazy="true">
+    <id name="ID" access="property"  column="DataAccessManager_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessManager_UserID" />
+    <property name="ManagerID"     access="property" column="DataAccessManager_ManagerID" />
+    <property name="All"     access="property" column="DataAccessManager_All" />
+
+
+  </class>
+</hibernate-mapping>

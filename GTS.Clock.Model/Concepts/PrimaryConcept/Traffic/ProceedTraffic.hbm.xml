@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.ProceedTraffic, GTS.Clock.Model"
+         table ="TA_ProceedTraffic" lazy="true">
+    <id name="ID" access="property" column="ProceedTraffic_ID">
+      <generator class="native" />
+    </id>
+
+    <many-to-one name="Person" column="ProceedTraffic_PersonId"  class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true"/>
+
+    <property name="Value" access="property" column="ProceedTraffic_Value"/>
+    <property name="FromDate" access="property" column="ProceedTraffic_FromDate"/>
+    <property name="ToDate" access="property" column="ProceedTraffic_ToDate"/>
+    <property name="IsNotDaily" access="property" column="ProceedTraffic_IsPairly"/>
+    <property name="HasDailyItem" access="property" column="ProceedTraffic_HasDailyItem"/>
+    <property name="HasHourlyItem" access="property" column="ProceedTraffic_HasHourlyItem"/>
+
+    <bag name="Pairs" table="TA_ProceedTrafficPair" cascade="all-delete-orphan" inverse="true" lazy="true" batch-size="100">
+      <key column="ProceedTrafficPair_ProceedTrafficId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.ProceedTrafficPair, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

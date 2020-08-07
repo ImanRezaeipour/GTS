@@ -1,0 +1,40 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_ClientelePerson, GTS.Clock.Model"
+         table ="CL_ClientelePerson" lazy="true">
+    <id name="ID" access="property"  column="clientelePrs_ID" >
+      <generator class="native" />
+    </id>
+    <property name="IsDeleted" access="property" column="clientelePrs_Deleted" />
+    <property name="Name" access="property" column="clientelePrs_Name"/>
+    <property name="MeliCode" access="property" column="clientelePrs_MeliCode" />
+    <property name="Sex" access="property" column="clientelePrs_Sex" />
+    <property name="Post" access="property" column="clientelePrs_Post" />
+    <property name="TrafficCode" access="property" column="clientelePrs_TrafficCode" />
+    <property name="Tel1" access="property" column="clientelePrs_Tel1" />
+    <property name="Tel2" access="property" column="clientelePrs_Tel2" />
+    <property name="Tel3" access="property" column="clientelePrs_Tel3" />
+    <property name="Email" access="property" column="clientelePrs_Email" />
+    <property name="Address" access="property" column="clientelePrs_Address" />
+    <property name="Description" access="property" column="clientelePrs_Description" />
+    <property name="Image" access="property" column="clientelePrs_Image" />
+
+    <!--<many-to-one name="Offish" class="GTS.Clock.Model.Clientele.CL_OffishRequest, GTS.Clock.Model"  column="clientelePrs_OffishID" lazy="proxy"/>-->
+   
+    <bag name="OffishList" table="CL_PersonOffish" lazy="true">
+      <key column="prsOffish_PersonId"></key>
+      <many-to-many class="GTS.Clock.Model.Clientele.CL_OffishRequest, GTS.Clock.Model" column="prsOffish_OffishId"></many-to-many>
+    </bag>
+
+    <bag name="ContractorList" table="CL_PersonContractor" lazy="true" >
+      <key column="prsContractor_PersonId"></key>
+      <many-to-many class="GTS.Clock.Model.Clientele.CL_Contractor, GTS.Clock.Model" column="prsContractor_ContractorID"></many-to-many>
+    </bag>
+    
+    <bag name="PersonTrafficList" table="CL_ClientelePersonTraffic" lazy="true" >
+      <key column="ClientelePersonTraffic_ClientelePersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_ClientelePersonTraffic"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

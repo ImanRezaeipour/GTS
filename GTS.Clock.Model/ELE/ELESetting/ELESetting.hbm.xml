@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.ELESetting, GTS.Clock.Model"
+         table ="TA_ELESetting" lazy="true">
+    <id name="ID" access="property" column="ELESetting_ID">
+      <generator class="native" />
+    </id>
+    
+    <property name="LastExecuteDate" access="property" column="ELESetting_LastExecuteDate"/>
+    <!--<property name="Value" access="property" column="Value"/>-->
+  </class>
+</hibernate-mapping>

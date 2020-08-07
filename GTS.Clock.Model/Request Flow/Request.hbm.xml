@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RequestFlow.Request, GTS.Clock.Model"
+         table ="TA_Request" lazy="true">
+    <id name="ID" access="property"  column="request_ID" >
+      <generator class="native" />
+    </id>
+    <property name="FromDate"     access="property" column="request_FromDate" />
+    <property name="ToDate"     access="property" column="request_ToDate" />
+    <property name="FromTime"     access="property" column="request_FromTime" />
+    <property name="ToTime"     access="property" column="request_ToTime" />
+    <property name="TimeDuration"     access="property" column="request_TimeDuration" />
+    <property name="Description"     access="property" column="request_Description" />
+    <property name="RegisterDate"     access="property" column="request_RegisterDate" />
+    <property name="OperatorUser"     access="property" column="request_OperatorUser" />
+    <property name="AttachmentFile"     access="property" column="request_AttachmentFile" />
+    <property name="EndFlow"     access="property" column="request_EndFlow" />
+    
+    <many-to-one name="Precard" column="request_PrecardID" class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model" />
+    <many-to-one name="Person" column="request_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+    <many-to-one name="User" column="request_UserID" class="GTS.Clock.Model.Security.User, GTS.Clock.Model" />    
+
+    <bag name="RequestStatusList" table="TA_RequestStatus" lazy="true" >
+      <key column="reqStat_RequestID"></key>
+      <one-to-many class="GTS.Clock.Model.RequestFlow.RequestStatus, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="DoctorList" table="TA_RequestDetail" lazy="true" >
+      <key column="reqDtl_RequestID"></key>
+      <many-to-many class="GTS.Clock.Model.BaseInformation.Doctor, GTS.Clock.Model" column="reqDtl_DoctorID"></many-to-many>
+    </bag>
+
+    <bag name="IllnessList" table="TA_RequestDetail" lazy="true" >
+      <key column="reqDtl_RequestID"></key>
+      <many-to-many class="GTS.Clock.Model.BaseInformation.Illness, GTS.Clock.Model" column="reqDtl_IllnessID"></many-to-many>
+    </bag>
+
+    <bag name="DutyPlaceList" table="TA_RequestDetail" lazy="true" >
+      <key column="reqDtl_RequestID"></key>
+      <many-to-many class="GTS.Clock.Model.BaseInformation.DutyPlace, GTS.Clock.Model" column="reqDtl_DutyPositionID"></many-to-many>
+    </bag>
+
+  </class>
+</hibernate-mapping>

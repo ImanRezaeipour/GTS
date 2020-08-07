@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.PersonDetail, GTS.Clock.Model"
+         table ="TA_PersonDetail" lazy="false">
+    <id name="ID" access="property"  column="PrsDtl_ID" >
+    </id>
+
+    <property name="MeliCode"     access="property" column="PrsDtl_MeliCode" />
+    <property name="ShomareShenasname" access="property" column="PrsDtl_ShomareShenasname"/>
+    <property name="BirthCertificate"     access="property" column="PrsDtl_BirthCertificate" />
+    <property name="Grade"     access="property" column="PrsDtl_Grade" />
+    <property name="EmailAddress"     access="property" column="PrsDtl_EmailAddress" />
+    <property name="FatherName"     access="property" column="PrsDtl_FatherName" />
+    <property name="MilitaryStatus"     access="property" column="PrsDtl_MilitaryStatus" />
+    <property name="PlaceIssued"     access="property" column="PrsDtl_PlaceIssued" />
+    <property name="Tel"     access="property" column="PrsDtl_Tel" />
+    <property name="MobileNumber"     access="property" column="PrsDtl_MobileNumber" />
+    <property name="Address"     access="property" column="PrsDtl_Address" />
+    <property name="BirthPlace"     access="property" column="PrsDtl_BirthPlace" />
+    <property name="BirthDate"     access="property" column="PrsDtl_BirthDate" />
+    <property name="Image"  access="property" column="PrsDtl_Image" lazy="true" length="819200"/>
+    
+  </class>
+</hibernate-mapping>

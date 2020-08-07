@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.BaseInformation.Dashboards, GTS.Clock.Model"
+         table ="TA_Dashboards" lazy="true">
+    <id name="ID" access="property"  column="Dashboards_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="Dashboards_Name" />
+    <property name="Title"     access="property" column="Dashboards_Title" />
+    <property name="Description"     access="property" column="Dashboards_Description" />
+    <property name="SubSystemID"     access="property" column="Dashboards_SubSystemID" />
+    
+  </class>
+</hibernate-mapping>

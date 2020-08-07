@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RuleTemplateParameter, GTS.Clock.Model" 
+         table ="TA_RuleTemplateParameter" lazy="true">
+    <id name="ID" access="property"  column="RuleTmpParam_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"  access="property" column="RuleTmpParam_Name" />
+    <property name="Title"  access="property" column="RuleTmpParam_Title"  />
+    <property name="Type"  access="property" column="RuleTmpParam_Type"  />
+    <property name="RuleTemplateId"  access="property" column="RuleTmpParam_RuleTemplateId"  />
+    
+     
+  </class> 
+</hibernate-mapping>

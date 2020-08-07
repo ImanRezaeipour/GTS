@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.LeaveSettings, GTS.Clock.Model"
+         table ="TA_LeaveSettings" lazy="true">
+
+    <id name="ID" access="property"  column="LeaveSet_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="From"                      access="property" column="LeaveSet_From" />  
+    <property name="DoNotUseFutureMounthLeave" access="property" column="LeaveSet_DoNotUseFutureMounth" />
+    <property name="MinutesInDay"              access="property" column="LeaveSet_MinutesInDay" />
+
+
+    <many-to-one name="Person" column="LeaveSet_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true"/>
+
+
+  </class>
+</hibernate-mapping>

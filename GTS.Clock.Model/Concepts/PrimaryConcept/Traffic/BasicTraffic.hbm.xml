@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.BasicTraffic, GTS.Clock.Model"
+         table ="TA_BaseTraffic" lazy="false">
+    <id name="ID" access="property" column="BasicTraffic_ID">
+      <generator class="native" />
+    </id>
+
+    <many-to-one name="Person"  column="BasicTraffic_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model"  not-null="true"/>
+    <many-to-one name="OperatorPerson"  column="BasicTraffic_OperatorPersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+    <many-to-one name="Precard" column="BasicTraffic_PrecardId" class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="Clock" column="BasicTraffic_ClockCustomCode" property-ref="CustomCode" class="GTS.Clock.Model.BaseInformation.Clock, GTS.Clock.Model"  not-found="ignore" />
+
+    <property name="Date" access="property" column="BasicTraffic_Date"/>
+    <property name="Description" access="property" column="BasicTraffic_Description"/>
+    <property name="Time" access="property" column="BasicTraffic_Time"/>   
+    <property name="Used" access="property" column="BasicTraffic_Used"/>
+    <property name="Active" access="property" column="BasicTraffic_Active"/>
+    <property name="Manual" access="property" column="BasicTraffic_Manual"/>
+    <property name="EntryState" access="property" column="BasicTraffic_State"/>
+    <property name="Transferred" access="property" column="BasicTraffic_Transferred"/>  
+  </class>
+</hibernate-mapping>

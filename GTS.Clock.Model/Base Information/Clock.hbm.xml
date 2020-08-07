@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.BaseInformation.Clock, GTS.Clock.Model"
+         table ="TA_Clock" lazy="false">
+    <id name="ID" access="property"  column="clock_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="clock_Name" />
+    <property name="CustomCode"     access="property" column="clock_CustomCode" />
+    <property name="Tel"     access="property" column="clock_Tel" />
+    <property name="Active"     access="property" column="clock_Active" />
+
+    <many-to-one name="Station" column="clock_Station" class="GTS.Clock.Model.BaseInformation.ControlStation, GTS.Clock.Model" />
+    <many-to-one name="Clocktype" column="clock_Clocktype" class="GTS.Clock.Model.BaseInformation.ClockType, GTS.Clock.Model" />
+
+  </class>
+</hibernate-mapping>

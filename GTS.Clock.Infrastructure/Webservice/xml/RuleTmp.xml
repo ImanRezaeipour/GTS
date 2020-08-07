@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Rules>
+  <Rule>
+    <RuleTitle>تعطیلات رسمی بین ماموریت ‌شبانه‌روزی جزو ماموریت حساب شود</RuleTitle>
+    <RuleDescription>
+      در هنگام درج یک ماموریت در صورتیکه روز قبل تعطیل باشد و روز قبلترش ماموریت باید
+      محاسبات را از دو روز قبل به بعد انجام داد.
+    </RuleDescription>
+    <RuleParasox>تناقضی یافت نشد</RuleParasox>
+    <RuleScript>
+      اگر(ماموریت‌روزانه = 1 و (تقویم.فردا.نوع("تعطیل‌رسمی") == درست یا تقویم.فردا.نوع("تعطیل
+      غیررسمی") == درست یا تقویم.فردا.نوع("غیرکاری") == درست) و تقویم.روزبعد(2).ماموریت‌روزانه
+      = 1)آنگاه{ تقویم.روزبعد(1).ماموریت‌روزانه += 1; }
+    </RuleScript>
+    <RuleTranslatedCode>
+      if(Mamooriat.Value>=1  Calender.Date =useterday){Mamooriat.Value ++}
+    </RuleTranslatedCode>
+  </Rule>
+</Rules>

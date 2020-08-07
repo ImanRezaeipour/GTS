@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UIValidation.UIValidationGrouping, GTS.Clock.Model"
+         table ="TA_UIValidationGrouping" lazy="true">
+    <id name="ID" access="property"  column="UIGrp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="RuleID"     access="property" column="UIGrp_RuleID" />
+    <property name="GroupID"     access="property" column="UIGrp_GroupID" />
+    <property name="OperatorRestriction"     access="property" column="UIGrp_OperatorRestriction" />
+    <property name="Active"     access="property" column="UIGrp_Active" />
+
+    <many-to-one name="ValidationGroup" column="UIGrp_GroupID" class="GTS.Clock.Model.UIValidation.UIValidationGroup, GTS.Clock.Model" cascade="none" insert="false" update="false" />
+
+    <many-to-one name="ValidationRule" column="UIGrp_RuleID" class="GTS.Clock.Model.UIValidation.UIValidationRule, GTS.Clock.Model" cascade="none" insert="false" update="false" />
+
+    <bag name="RuleParameters" table="TA_UIValidationRuleParameter" lazy="true" inverse="true" cascade="all" >
+      <key column="UIRleParam_GroupingID"></key>
+      <one-to-many class="GTS.Clock.Model.UIValidation.UIValidationRuleParameter, GTS.Clock.Model"></one-to-many>
+    </bag>
+  </class>
+</hibernate-mapping>

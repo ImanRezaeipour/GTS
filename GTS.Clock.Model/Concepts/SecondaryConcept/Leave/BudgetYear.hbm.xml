@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.BudgetYear, GTS.Clock.Model"
+         table ="TA_BudgetYear" lazy="true">
+
+    <id name="ID" access="property"  column="BudgetYear_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="CalcMinutesInFarvardin" access="property" column="BudgetYear_Calc_t1" />
+    <property name="CalcMinutesInOrdibehesht" access="property" column="BudgetYear_Calc_t2" />
+    <property name="CalcMinutesInKhordad" access="property" column="BudgetYear_Calc_t3" />
+    <property name="CalcMinutesInTir" access="property" column="BudgetYear_Calc_t4" />
+    <property name="CalcMinutesInMordad" access="property" column="BudgetYear_Calc_t5" />
+    <property name="CalcMinutesInShahrivar" access="property" column="BudgetYear_Calc_t6" />
+    <property name="CalcMinutesInMehr" access="property" column="BudgetYear_Calc_t7" />
+    <property name="CalcMinutesInAban" access="property" column="BudgetYear_Calc_t8" />
+    <property name="CalcMinutesInAzar" access="property" column="BudgetYear_Calc_t9" />
+    <property name="CalcMinutesInDey" access="property" column="BudgetYear_Calc_t10" />
+    <property name="CalcMinutesInBahman" access="property" column="BudgetYear_Calc_t11" />
+    <property name="CalcMinutesInEsfand" access="property" column="BudgetYear_Calc_t12" />
+
+   
+  </class>
+</hibernate-mapping>

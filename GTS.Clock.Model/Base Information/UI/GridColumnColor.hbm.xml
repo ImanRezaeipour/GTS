@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UI.GridColumnColor, GTS.Clock.Model"
+         table ="TA_GridColumnColor" lazy="true">
+    <id name="ID" access="property"  column="GridClmnClr_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Date"     access="property" column="GridClmnClr_Date" />
+    <property name="ColumnName"     access="property" column="GridClmnClr_ColumnName" />
+    <property name="Color"     access="property" column="GridClmnClr_Color" />
+
+    <many-to-one name="Person" column="GridClmnClr_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="Request" column="GridClmnClr_RequestID" class="GTS.Clock.Model.RequestFlow.Request, GTS.Clock.Model" not-null="true"/>
+
+  </class>
+</hibernate-mapping>

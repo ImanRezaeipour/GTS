@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_DataAccessDepartment, GTS.Clock.Model"
+         table ="CL_DataAccessDepartment" lazy="true">
+    <id name="ID" access="property"  column="DataAccessDep_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessDep_UserID" />
+    <property name="DepID"     access="property" column="DataAccessDep_DepID" />
+    <property name="All"     access="property" column="DataAccessDep_All" />
+
+    <many-to-one name="Department" column="DataAccessDep_DepID" class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model"  update="false" insert="false"/>
+
+
+  </class>
+</hibernate-mapping>

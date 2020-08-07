@@ -1,0 +1,54 @@
+.Rotator 
+{
+  cursor:default; 
+}
+
+.RotatorFrame 
+{
+  width:450px; 
+  height:25px; 
+  font-family:verdana; 
+  font-size:11px; 
+  background-image:url('../Images/Ghadir/shapes.jpg') ;
+  cursor:default;
+}
+
+.RotatorFrameOver 
+{
+  width:450px; 
+  height:25px; 
+  font-family:verdana; 
+  font-size:11px; 
+  background-image:url('../Images/Ghadir/shapes.jpg') ;  
+  cursor:default;
+}
+
+.ProductTitle
+{
+  font-family:Verdana;
+  font-size:12px;   
+  font-weight:bold; 
+  color:White;
+}
+
+.ProductText
+{
+  font-family:Verdana;
+  font-size:11px;   
+  color:White;
+  width:220px;
+}
+
+.ProductPrice
+{
+  font-family:Verdana;
+  font-size:12px;   
+  font-weight:bold; 
+  color:Red; 
+}
+
+.TickerStyle
+{
+    color:White;
+}
+

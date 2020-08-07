@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AppSetting.EmailSettings, GTS.Clock.Model"
+         table ="TA_EmailSettings" lazy="false">
+    <id name="ID" access="property"  column="email_ID" >
+    </id>
+    <property name="Active"     access="property" column="email_Active" />
+    <property name="SendByDay"     access="property" column="email_SendByDay" />
+    <property name="DayCount"     access="property" column="email_DayNum" />
+    <property name="DayHour"     access="property" column="email_DayHour" />
+    <property name="Hour"     access="property" column="email_Hour" />
+    
+    <many-to-one name="UserSetting" column="email_UserSettingsId" class="GTS.Clock.Model.AppSetting.UserSettings, GTS.Clock.Model" cascade="none"/>
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,2933 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Connection Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Connection</Alias>
+        <ConnectionString>Initial Catalog=GhadirGTS;Integrated Security=False;Password=gtsclock;User ID=salavati;Data Source=APPSRV\APP2005;Persist Security Info=True</ConnectionString>
+        <Name>Connection</Name>
+      </Connection>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <PersonnelOverTime Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>PersonnelOverTime</Alias>
+        <Columns isList="true" count="14">
+          <value>prs_FirstName,System.String</value>
+          <value>prs_LastName,System.String</value>
+          <value>prs_barcode,System.Decimal</value>
+          <value>gridFields_HourlyBeforeTimeOverTime,System.Decimal</value>
+          <value>gridFields_HourlyAfterTimeOverTime,System.Decimal</value>
+          <value>gridFields_HourlyNonWorkingDayOverTime,System.Decimal</value>
+          <value>gridFields_HourlyallowableNightOverTime,System.Decimal</value>
+          <value>gridFields_AllowableOverTime,System.Decimal</value>
+          <value>gridFields_UnallowableOverTime,System.Decimal</value>
+          <value>ShamsiDate,System.String</value>
+          <value>ScndCnpValue_PersonId,System.Decimal</value>
+          <value>miladiDate,System.DateTime</value>
+          <value>fromDateSelected,System.DateTime</value>
+          <value>toDateSelected,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>PersonnelOverTime</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="2">
+          <value>toDate,,4,0</value>
+          <value>fromDate,,4,0</value>
+        </Parameters>
+        <SqlCommand>SELECT 
+	gridFields_HourlyBeforeTimeOverTime
+	,gridFields_HourlyAfterTimeOverTime
+	,gridFields_HourlyNonWorkingDayOverTime
+	,gridFields_HourlyallowableNightOverTime
+	,gridFields_AllowableOverTime
+	,gridFields_UnallowableOverTime
+	,dbo.GTS_ASM_MiladiToShamsi(CONVERT(nvarchar(10), [Date], 111)) AS ShamsiDate
+	,([Date]) as miladiDate
+	,ScndCnpValue_PersonId
+	,prs_barcode
+	,prs_firstName
+	,prs_LastName
+	,(@fromDate) as fromDateSelected
+	,(@toDate) as toDateSelected
+FROM (SELECT ScndCnpValue_FromDate [Date]
+	    ,ISNULL(SUM(gridFields_HourlyBeforeTimeOverTime), -1000) gridFields_HourlyBeforeTimeOverTime
+      ,ISNULL(SUM(gridFields_HourlyAfterTimeOverTime), -1000) gridFields_HourlyAfterTimeOverTime
+       ,ISNULL(SUM(gridFields_HourlyNonWorkingDayOverTime), -1000) gridFields_HourlyNonWorkingDayOverTime
+      ,ISNULL(SUM(gridFields_HourlyallowableNightOverTime), -1000) gridFields_HourlyallowableNightOverTime
+      
+      ,ISNULL(SUM(gridFields_AllowableOverTime), -1000) gridFields_AllowableOverTime
+      ,ISNULL(SUM(gridFields_UnallowableOverTime), -1000) gridFields_UnallowableOverTime
+      
+      ,ScndCnpValue_PersonId
+      
+FROM (SELECT ScndCnpValues.ScndCnpValue_ID,
+	CnpTmp.ConceptTmp_FnName,
+	CnpTmp.ConceptTmp_EngName,
+	CnpTmp.ConceptTmp_KeyColumnName,		
+	ScndCnpValues.ScndCnpValue_FromDate,
+	ScndCnpValues.ScndCnpValue_ToDate,
+	ScndCnpValues.ScndCnpValue_Value,
+	ScndCnpValue_PersonId
+	FROM TA_ConceptTemplate CnpTmp
+inner join (select ScndCnpValue_ID, 
+	ScndCnpValue_SecondaryConceptId, 
+	ScndCnpValue_PersonId,
+	ScndCnpValue_Value,
+	ScndCnpValue_FromPairs,
+	ScndCnpValue_ToPairs,
+	ScndCnpValue_FromDate,
+	ScndCnpValue_ToDate
+	FROM TA_SecondaryConceptValue) AS  ScndCnpValues
+						ON CnpTmp.ConceptTmp_ID = ScndCnpValue_SecondaryConceptId
+			WHERE ScndCnpValue_PersonId IN ({ReportHelper.Instance().ModifiedIds()})
+					AND
+				  ScndCnpValue_FromDate &gt;= @fromDate
+					AND
+				  ScndCnpValue_ToDate &lt;= @toDate  
+					AND 
+				  CnpTmp.ConceptTmp_IsPeriodic = 0
+				    AND
+				  ScndCnpValues.ScndCnpValue_Value &lt;&gt; 0 
+	) AS [Source]		
+PIVOT
+(
+	SUM(ScndCnpValue_Value)
+	FOR ConceptTmp_KeyColumnName
+		IN (gridFields_HourlyBeforeTimeOverTime
+	,gridFields_HourlyAfterTimeOverTime
+	,gridFields_HourlyNonWorkingDayOverTime
+	,gridFields_HourlyallowableNightOverTime
+	,gridFields_AllowableOverTime
+	,gridFields_UnallowableOverTime
+			  )
+) AS Result			
+GROUP BY ScndCnpValue_PersonId, ScndCnpValue_FromDate 
+) ScndCnpValue
+
+INNER JOIN TA_Person Prs
+ON ScndCnpValue.ScndCnpValue_PersonId = Prs.Prs_ID
+WHERE gridFields_HourlyBeforeTimeOverTime &lt;&gt; -1000
+		OR 
+	  gridFields_HourlyAfterTimeOverTime &lt;&gt; -1000
+		OR
+	  gridFields_HourlyNonWorkingDayOverTime &lt;&gt; -1000
+		OR
+	  gridFields_HourlyallowableNightOverTime &lt;&gt; -1000
+		OR
+	  gridFields_AllowableOverTime &lt;&gt; -1000
+		OR
+	  gridFields_UnallowableOverTime &lt;&gt; -1000</SqlCommand>
+      </PersonnelOverTime>
+      <nameOrg Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>nameOrg</Alias>
+        <Columns isList="true" count="1">
+          <value>OrgDef_Name,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>nameOrg</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select  OrgDef_Name from TA_DataAccessOrgan
+
+join  TA_OrganDefine on DataAccessOrgan_ID=OrgDef_ID
+
+where DataAccessOrgan_UserID={ReportHelper.Instance().UserId}</SqlCommand>
+      </nameOrg>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="20">
+        <PageHeaderBand1 Ref="6" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,3.4</ClientRectangle>
+          <Components isList="true" count="14">
+            <Text1 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,0,9.4,1.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,24,Bold</Font>
+              <Guid>1b2987beec9e47449af7f7c260104e6c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{nameOrg.OrgDef_Name}
+گزارش اضافه کار پرسنل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="8" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>2.6,0.2,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>819b6f817045418f974410b3dc197f87</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: تاریخ تهیه گزارش</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text4 Ref="9" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>3.2,0.8,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>c14d800377ae40708721627000d62349</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: تهیه کننده</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text14 Ref="10" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.2,0.2,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>6227966fa3f34f49a69456030e754ba3</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().ShamsiGetNow()}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="11" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.2,0.8,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>3b7139d1977c458a88bfa04cc134c824</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().UserName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text45 Ref="12" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>12.8,2,2.79,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>1e39cc4e73e04f2ba7920ea3da345da2</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text45</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{PersonnelOverTime.prs_barcode}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text45>
+            <Text46 Ref="13" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>12.8,2.8,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>65409e12b9404b16b2887c87cd2467af</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text46</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{PersonnelOverTime.prs_FirstName + " " + PersonnelOverTime.prs_LastName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text46>
+            <Text11 Ref="14" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>3.6,2.6,1.5,0.61</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>ad53e8fc84c7414c86561b4581fe00d9</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: تا تاریخ</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text12 Ref="15" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.6,2.6,3,0.61</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>f6b1dbf782bb48a88a3a85c3a5a39801</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().MiladiToShamsi(PersonnelOverTime.toDateSelected)}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text19 Ref="16" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>10,2.6,1.5,0.61</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>a25daa646ce24e6d810777b4e4d7771f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: از تاریخ</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <Text26 Ref="17" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>7,2.6,3,0.61</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>f4017adad7334b93b4fae521e321d416</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().MiladiToShamsi(PersonnelOverTime.fromDateSelected)}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text7 Ref="18" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>15.8,2,2.74,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>b70711caf47343e1901571408986c31d</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: شماره پرسنلی</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text8 Ref="19" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>15.8,2.8,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>9291d998b20c4f04a6ba9b6854be4f18</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: نام و نام خانوادگی</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text37 Ref="20" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>15.8,0.4,3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>540cfdf74f624a6683cfcde10a61b21a</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().LicenseName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>e69a40f083874eb08388e50052c28201</Guid>
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </PageHeaderBand1>
+        <GroupHeaderBand1 Ref="21" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.6,19,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Condition>{PersonnelOverTime.prs_barcode}</Condition>
+          <Conditions isList="true" count="0" />
+          <Guid>de1daf12f93d470b850bb176c8ab912b</Guid>
+          <Name>GroupHeaderBand1</Name>
+          <NewPageBefore>True</NewPageBefore>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </GroupHeaderBand1>
+        <ColumnHeaderBand1 Ref="22" type="Stimulsoft.Report.Components.StiColumnHeaderBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>[216:216:216]</Brush>
+          <ClientRectangle>0,5.4,19,1</ClientRectangle>
+          <Components isList="true" count="9">
+            <Text18 Ref="23" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>9f81c3ddf2754f8aa3094325170a40bf</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>مجاز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="24" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text6 Ref="25" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.6,0.2,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>baa5f25707264fb8a9533c5752477956</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>ردیف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="26" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text3 Ref="27" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.2,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>d40d2e7f948e4d75872a91f00d250e1b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="28" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text13 Ref="29" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.4,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>82ecdd3df5a0464eb93884058b5716ea</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>روز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="30" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text9 Ref="31" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>cb80181182c8490fb4d646761e49ade6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>قبل از وقت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="32" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text17 Ref="33" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.8,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>cf98eac8c46d4cb59b1beb33d496100b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>بعد از وقت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="34" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text22 Ref="35" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>9081e75ca05c463ba2e918482f663f7d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>ایام غیرکاری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="36" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text28 Ref="37" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>c70e208e68024ea394317f1178a46cd0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>شب کاری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="38" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+            <Text27 Ref="39" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>5f8c240a5dfc4f86b1dc1d167529bddd</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>غیر مجاز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="40" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>90b5c83aea8c42e68e68203f95ba820a</Guid>
+          <Name>ColumnHeaderBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </ColumnHeaderBand1>
+        <DataBand2 Ref="41" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,7.2,19,1</ClientRectangle>
+          <Components isList="true" count="25">
+            <Text20 Ref="42" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>adb5f57c487449038c435f649f5b37b6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(PersonnelOverTime.gridFields_UnallowableOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text20>
+            <Text25 Ref="43" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>1c83faf138c74cb8b0f9d9e9dd3fdbf7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(PersonnelOverTime.gridFields_AllowableOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text25>
+            <Text5 Ref="44" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.2,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>f9e3f299e6624558b8a44943d46dc9c7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{PersonnelOverTime.ShamsiDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+            <Text16 Ref="45" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.4,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>911908c5b728433aa0ccf07977cf06b4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{ReportHelper.Instance().ShamsiDayName(PersonnelOverTime.miladiDate)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text16>
+            <Text24 Ref="46" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>11aa75491d924685915ca9c0447e8235</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(PersonnelOverTime.gridFields_HourlyBeforeTimeOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text24>
+            <Text21 Ref="47" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.8,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>988fd5580872474aad357cdf407584ac</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(PersonnelOverTime.gridFields_HourlyAfterTimeOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text21>
+            <Text23 Ref="48" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>d540b5391b98491d9feb9ec7c7d54472</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(PersonnelOverTime.gridFields_HourlyNonWorkingDayOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text23>
+            <Text29 Ref="49" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>5dd9e8d5e2944a388eb337f4772aec30</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(PersonnelOverTime.gridFields_HourlyallowableNightOverTime)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text29>
+            <Text10 Ref="50" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.6,0.3,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>c64c2a5ce2fb4d32812f4972765afdf3</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <Text>{Line}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+            <StartPointPrimitive6 Ref="51" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>13,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive6</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>1da4751f5d094beb8a76a4c3c32c855d</ReferenceToGuid>
+            </StartPointPrimitive6>
+            <StartPointPrimitive8 Ref="52" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>17.4,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive8</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>5ea8226039dc44c887df59ace418c0ac</ReferenceToGuid>
+            </StartPointPrimitive8>
+            <EndPointPrimitive8 Ref="53" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>17.4,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive8</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>5ea8226039dc44c887df59ace418c0ac</ReferenceToGuid>
+            </EndPointPrimitive8>
+            <EndPointPrimitive6 Ref="54" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>13,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive6</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>1da4751f5d094beb8a76a4c3c32c855d</ReferenceToGuid>
+            </EndPointPrimitive6>
+            <StartPointPrimitive2 Ref="55" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>15.2,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive2</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>5dd15868e37c40cd9fbaddc84045f703</ReferenceToGuid>
+            </StartPointPrimitive2>
+            <EndPointPrimitive2 Ref="56" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>15.2,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive2</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>5dd15868e37c40cd9fbaddc84045f703</ReferenceToGuid>
+            </EndPointPrimitive2>
+            <StartPointPrimitive1 Ref="57" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>10.8,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive1</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>4e21d5d1ea6f4470b47dc1b17b62c734</ReferenceToGuid>
+            </StartPointPrimitive1>
+            <EndPointPrimitive1 Ref="58" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>10.8,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive1</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>4e21d5d1ea6f4470b47dc1b17b62c734</ReferenceToGuid>
+            </EndPointPrimitive1>
+            <StartPointPrimitive3 Ref="59" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>8.6,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive3</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>5a233ecea7234d139c1b4fefce48e427</ReferenceToGuid>
+            </StartPointPrimitive3>
+            <EndPointPrimitive3 Ref="60" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>8.6,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive3</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>5a233ecea7234d139c1b4fefce48e427</ReferenceToGuid>
+            </EndPointPrimitive3>
+            <StartPointPrimitive4 Ref="61" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>6.4,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive4</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>87d91161af984e538c9c4e580b1acb62</ReferenceToGuid>
+            </StartPointPrimitive4>
+            <EndPointPrimitive4 Ref="62" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>6.4,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive4</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>87d91161af984e538c9c4e580b1acb62</ReferenceToGuid>
+            </EndPointPrimitive4>
+            <StartPointPrimitive5 Ref="63" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>4.2,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive5</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>969ec99d9e524537963807da67ff3efd</ReferenceToGuid>
+            </StartPointPrimitive5>
+            <EndPointPrimitive5 Ref="64" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>4.2,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive5</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>969ec99d9e524537963807da67ff3efd</ReferenceToGuid>
+            </EndPointPrimitive5>
+            <StartPointPrimitive7 Ref="65" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>2,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive7</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>6f475fcc61db4a47a3f8c9fe1223fad2</ReferenceToGuid>
+            </StartPointPrimitive7>
+            <EndPointPrimitive7 Ref="66" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>2,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive7</Name>
+              <Page isRef="5" />
+              <Parent isRef="41" />
+              <ReferenceToGuid>6f475fcc61db4a47a3f8c9fe1223fad2</ReferenceToGuid>
+            </EndPointPrimitive7>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_Line_x0025_2_x003D__x003D_0_x007D_,Red,PeachPuff,Arial_x002C_8,True,False,,,All</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>PersonnelOverTime</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataBand2</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="2">
+            <value>ASC</value>
+            <value>ShamsiDate</value>
+          </Sort>
+        </DataBand2>
+        <GroupFooterBand2 Ref="67" type="GroupFooterBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,9,19,1</ClientRectangle>
+          <Components isList="true" count="19">
+            <Text47 Ref="68" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>4024a942f17f493182c3dfda593f7e5a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text47</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(Sum(Replace(PersonnelOverTime.gridFields_HourlyNonWorkingDayOverTime,"-1000","0")))}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text47>
+            <Text54 Ref="69" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.8,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>04dbe145baa0453a9197319299e00514</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text54</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(Sum(Replace(PersonnelOverTime.gridFields_HourlyAfterTimeOverTime,"-1000","0")))}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text54>
+            <Text55 Ref="70" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>e39a2eb162d04a62b62b5e5e6a3221e8</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text55</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(Sum(Replace(PersonnelOverTime.gridFields_HourlyallowableNightOverTime,"-1000","0")))}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text55>
+            <Text56 Ref="71" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>fac0531458924894ab173ccac2da2979</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text56</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(Sum(Replace(PersonnelOverTime.gridFields_AllowableOverTime,"-1000","0")))}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text56>
+            <Text57 Ref="72" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>7cadcfe0d9fe49d4a439dfc6120ace2f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text57</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(Sum(Replace(PersonnelOverTime.gridFields_UnallowableOverTime,"-1000","0")))}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text57>
+            <Text59 Ref="73" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.2,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <Guid>2e4a942069b64aff93cdd4fc676435b5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text59</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <Text>مجموع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="74" type="CurrencyFormat" isKey="true">
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <PositivePattern>2</PositivePattern>
+                <Symbol>ريال</Symbol>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text59>
+            <Text30 Ref="75" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,0.3,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>cef9b6717040474eaf694d8958d364ba</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <Text>{ReportHelper.Instance().IntTimeToTime(Sum(Replace(PersonnelOverTime.gridFields_HourlyBeforeTimeOverTime,"-1000","0")))}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text30>
+            <StartPointPrimitive13 Ref="76" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>13,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive13</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>96a66236603d4930a28ed454b69a6edf</ReferenceToGuid>
+            </StartPointPrimitive13>
+            <EndPointPrimitive9 Ref="77" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>13,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive9</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>96a66236603d4930a28ed454b69a6edf</ReferenceToGuid>
+            </EndPointPrimitive9>
+            <StartPointPrimitive14 Ref="78" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>8.6,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive14</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>f74287525e7942e692621b0bc1c7559e</ReferenceToGuid>
+            </StartPointPrimitive14>
+            <EndPointPrimitive14 Ref="79" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>8.6,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive14</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>f74287525e7942e692621b0bc1c7559e</ReferenceToGuid>
+            </EndPointPrimitive14>
+            <StartPointPrimitive15 Ref="80" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>4.2,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive15</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>a13cafe3c6f9421b94a406f8b351fde6</ReferenceToGuid>
+            </StartPointPrimitive15>
+            <EndPointPrimitive16 Ref="81" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>4.2,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive16</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>a13cafe3c6f9421b94a406f8b351fde6</ReferenceToGuid>
+            </EndPointPrimitive16>
+            <StartPointPrimitive16 Ref="82" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>2,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive16</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>1644eb7b84dc4165a16b3c8085535754</ReferenceToGuid>
+            </StartPointPrimitive16>
+            <EndPointPrimitive17 Ref="83" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>2,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive17</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>1644eb7b84dc4165a16b3c8085535754</ReferenceToGuid>
+            </EndPointPrimitive17>
+            <StartPointPrimitive17 Ref="84" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>6.4,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive17</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>b1ca0b76e6654449a8f383feadd4a78b</ReferenceToGuid>
+            </StartPointPrimitive17>
+            <EndPointPrimitive18 Ref="85" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>6.4,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive18</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>b1ca0b76e6654449a8f383feadd4a78b</ReferenceToGuid>
+            </EndPointPrimitive18>
+            <StartPointPrimitive19 Ref="86" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>10.8,0,0,0</ClientRectangle>
+              <Name>StartPointPrimitive19</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>93098470dd6b46edbc3a3399c58a27ad</ReferenceToGuid>
+            </StartPointPrimitive19>
+            <EndPointPrimitive19 Ref="87" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>10.8,1,0,0</ClientRectangle>
+              <Name>EndPointPrimitive19</Name>
+              <Page isRef="5" />
+              <Parent isRef="67" />
+              <ReferenceToGuid>93098470dd6b46edbc3a3399c58a27ad</ReferenceToGuid>
+            </EndPointPrimitive19>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand2</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </GroupFooterBand2>
+        <VerticalLinePrimitive6 Ref="88" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>13,7.2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="89" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>1da4751f5d094beb8a76a4c3c32c855d</Guid>
+          <Name>VerticalLinePrimitive6</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="90" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive6>
+        <VerticalLinePrimitive8 Ref="91" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>17.4,7.2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="92" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>5ea8226039dc44c887df59ace418c0ac</Guid>
+          <Name>VerticalLinePrimitive8</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="93" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive8>
+        <VerticalLinePrimitive1 Ref="94" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>10.8,7.2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="95" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>4e21d5d1ea6f4470b47dc1b17b62c734</Guid>
+          <Name>VerticalLinePrimitive1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="96" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive1>
+        <VerticalLinePrimitive2 Ref="97" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>15.2,7.2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="98" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>5dd15868e37c40cd9fbaddc84045f703</Guid>
+          <Name>VerticalLinePrimitive2</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="99" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive2>
+        <VerticalLinePrimitive3 Ref="100" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>8.6,7.2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="101" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>5a233ecea7234d139c1b4fefce48e427</Guid>
+          <Name>VerticalLinePrimitive3</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="102" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive3>
+        <VerticalLinePrimitive4 Ref="103" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>6.4,7.2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="104" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>87d91161af984e538c9c4e580b1acb62</Guid>
+          <Name>VerticalLinePrimitive4</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="105" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive4>
+        <VerticalLinePrimitive5 Ref="106" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>4.2,7.2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="107" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>969ec99d9e524537963807da67ff3efd</Guid>
+          <Name>VerticalLinePrimitive5</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="108" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive5>
+        <VerticalLinePrimitive7 Ref="109" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>2,7.2,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="110" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>6f475fcc61db4a47a3f8c9fe1223fad2</Guid>
+          <Name>VerticalLinePrimitive7</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="111" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive7>
+        <EndPointPrimitive13 Ref="112" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+          <ClientRectangle>13,10.2,0,0</ClientRectangle>
+          <Guid>98164edda90749788c28f898d9473569</Guid>
+          <Name>EndPointPrimitive13</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <ReferenceToGuid>4ffd186c36414e4aba70a2abb08be168</ReferenceToGuid>
+        </EndPointPrimitive13>
+        <VerticalLinePrimitive9 Ref="113" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>13,9,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="114" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>96a66236603d4930a28ed454b69a6edf</Guid>
+          <Name>VerticalLinePrimitive9</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="115" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive9>
+        <VerticalLinePrimitive11 Ref="116" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>8.6,9,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="117" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>f74287525e7942e692621b0bc1c7559e</Guid>
+          <Name>VerticalLinePrimitive11</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="118" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive11>
+        <VerticalLinePrimitive17 Ref="119" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>4.2,9,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="120" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>a13cafe3c6f9421b94a406f8b351fde6</Guid>
+          <Name>VerticalLinePrimitive17</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="121" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive17>
+        <VerticalLinePrimitive10 Ref="122" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>2,9,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="123" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>1644eb7b84dc4165a16b3c8085535754</Guid>
+          <Name>VerticalLinePrimitive10</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="124" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive10>
+        <VerticalLinePrimitive12 Ref="125" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>6.4,9,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="126" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>b1ca0b76e6654449a8f383feadd4a78b</Guid>
+          <Name>VerticalLinePrimitive12</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="127" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive12>
+        <VerticalLinePrimitive13 Ref="128" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>10.8,9,0.0254,1</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="129" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>93098470dd6b46edbc3a3399c58a27ad</Guid>
+          <Name>VerticalLinePrimitive13</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <StartCap Ref="130" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive13>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>b3d384a135ae42df8383603f9a1aff64</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="131" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="132" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>10/27/2012 10:06:50 AM</ReportChanged>
+  <ReportCreated>1/11/2012 9:59:38 AM</ReportCreated>
+  <ReportFile>E:\new Report\PersonnelOverTime.mrt</ReportFile>
+  <ReportGuid>7ee0338f39534a1f9b422fc56e81ce53</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2011.3.1200</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        
+        public Report()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify
+        public Stimulsoft.Report.Components.StiPage Page1;
+        public Stimulsoft.Report.Components.StiPageHeaderBand PageHeaderBand1;
+        public Stimulsoft.Report.Components.StiText Text1;
+        public Stimulsoft.Report.Components.StiText Text2;
+        public Stimulsoft.Report.Components.StiText Text4;
+        public Stimulsoft.Report.Components.StiText Text14;
+        public Stimulsoft.Report.Components.StiText Text15;
+        public Stimulsoft.Report.Components.StiText Text7;
+        public Stimulsoft.Report.Components.StiText Text45;
+        public Stimulsoft.Report.Components.StiText Text8;
+        public Stimulsoft.Report.Components.StiText Text46;
+        public Stimulsoft.Report.Components.StiText Text11;
+        public Stimulsoft.Report.Components.StiText Text12;
+        public Stimulsoft.Report.Components.StiGroupHeaderBand GroupHeaderBand1;
+        public Stimulsoft.Report.Components.StiColumnHeaderBand ColumnHeaderBand1;
+        public Stimulsoft.Report.Components.StiText Text18;
+        public Stimulsoft.Report.Components.StiText Text6;
+        public Stimulsoft.Report.Components.StiText Text30;
+        public Stimulsoft.Report.Components.StiText Text31;
+        public Stimulsoft.Report.Components.StiText Text3;
+        public Stimulsoft.Report.Components.StiText Text13;
+        public Stimulsoft.Report.Components.StiText Text9;
+        public Stimulsoft.Report.Components.StiText Text17;
+        public Stimulsoft.Report.Components.StiText Text22;
+        public Stimulsoft.Report.Components.StiText Text28;
+        public Stimulsoft.Report.Components.StiDataBand DataBand2;
+        public Stimulsoft.Report.Components.StiText Text10;
+        public Stimulsoft.Report.Components.StiText Text20;
+        public Stimulsoft.Report.Components.StiText Text25;
+        public Stimulsoft.Report.Components.StiText Text5;
+        public Stimulsoft.Report.Components.StiText Text16;
+        public Stimulsoft.Report.Components.StiText Text24;
+        public Stimulsoft.Report.Components.StiText Text21;
+        public Stimulsoft.Report.Components.StiText Text23;
+        public Stimulsoft.Report.Components.StiText Text29;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive6;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive8;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive8;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive6;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive2;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive2;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive1;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive1;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive3;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive3;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive4;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive4;
+        public Stimulsoft.Report.Components.StiVerticalLinePrimitive VerticalLinePrimitive6;
+        public Stimulsoft.Report.Components.StiVerticalLinePrimitive VerticalLinePrimitive8;
+        public Stimulsoft.Report.Components.StiVerticalLinePrimitive VerticalLinePrimitive1;
+        public Stimulsoft.Report.Components.StiVerticalLinePrimitive VerticalLinePrimitive2;
+        public Stimulsoft.Report.Components.StiVerticalLinePrimitive VerticalLinePrimitive3;
+        public Stimulsoft.Report.Components.StiVerticalLinePrimitive VerticalLinePrimitive4;
+        public Stimulsoft.Report.Components.StiWatermark Page1_Watermark;
+        public Stimulsoft.Report.Print.StiPrinterSettings Report_PrinterSettings;
+        public Stimulsoft.Report.StiStyle StyleMaster;
+        public PersonnelAbsenceDataSource PersonnelAbsence;
+        
+        public void Text1__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, ReportHelper.Instance().LicenseName, true) + "\r\nکاردکس مرخصی";
+        }
+        
+        public void Text2__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ": تاریخ تهیه گزارش";
+        }
+        
+        public void Text4__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ": تهیه کننده";
+        }
+        
+        public void Text14__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, ReportHelper.Instance().ShamsiGetNow(), true);
+        }
+        
+        public void Text15__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, ReportHelper.Instance().UserName, true);
+        }
+        
+        public void Text7__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ": شماره پرسنلی";
+        }
+        
+        public void Text45__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.prs_barcode, true);
+        }
+        
+        public void Text8__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ": نام و نام خانوادگی";
+        }
+        
+        public void Text46__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.prs_FirstName + " " + PersonnelAbsence.prs_LastName, true);
+        }
+        
+        public void Text11__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ": تا تاریخ";
+        }
+        
+        public void GroupHeaderBand1__GetValue(object sender, Stimulsoft.Report.Events.StiValueEventArgs e)
+        {
+            e.Value = PersonnelAbsence.prs_barcode;
+        }
+        
+        public void Text18__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text18.TextFormat.Format(CheckExcelValue(sender, "مجموع"));
+        }
+        
+        public void Text6__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text6.TextFormat.Format(CheckExcelValue(sender, "ردیف"));
+        }
+        
+        public void Text30__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text30.TextFormat.Format(CheckExcelValue(sender, "روز"));
+        }
+        
+        public void Text31__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text31.TextFormat.Format(CheckExcelValue(sender, "ساعت"));
+        }
+        
+        public void Text3__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text3.TextFormat.Format(CheckExcelValue(sender, "تاریخ"));
+        }
+        
+        public void Text13__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text13.TextFormat.Format(CheckExcelValue(sender, "روز"));
+        }
+        
+        public void Text9__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text9.TextFormat.Format(CheckExcelValue(sender, "تاخیر مجاز"));
+        }
+        
+        public void Text17__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text17.TextFormat.Format(CheckExcelValue(sender, "تاخیر غیرمجاز"));
+        }
+        
+        public void Text22__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text22.TextFormat.Format(CheckExcelValue(sender, "بین وقت"));
+        }
+        
+        public void Text28__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = this.Text28.TextFormat.Format(CheckExcelValue(sender, "تعجیل غیر مجاز"));
+        }
+        
+        private void DataBand2_Conditions(object sender, System.EventArgs e)
+        {
+            if (Line%2==0)
+            {
+                ((Stimulsoft.Report.Components.IStiBrush)(sender)).Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.PeachPuff);
+                ((Stimulsoft.Report.Components.IStiBorder)(sender)).Border = ((Stimulsoft.Base.Drawing.StiBorder)(((Stimulsoft.Report.Components.IStiBorder)(sender)).Border.Clone()));
+                ((Stimulsoft.Report.Components.IStiBorder)(sender)).Border.Side = Stimulsoft.Base.Drawing.StiBorderSides.All;
+                ((Stimulsoft.Report.Components.StiComponent)(sender)).Enabled = true;
+                return;
+            }
+        }
+        
+        public void Text10__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, Line, true);
+        }
+        
+        public void Text20__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.gridFields_DailyAbsence, true);
+        }
+        
+        public void Text25__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.gridFields_HourlyUnallowableAbsence, true);
+        }
+        
+        public void Text5__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.ShamsiDate, true);
+        }
+        
+        public void Text24__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.gridFields_HourlyAllowableAbsence, true);
+        }
+        
+        public void Text21__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.gridFields_HourlyAllowableAbsence, true);
+        }
+        
+        public void Text23__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.gridFields_HourlyBetweenTimeUnallowableAbsence, true);
+        }
+        
+        public void Text29__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, PersonnelAbsence.gridFields_HourlyUnallowableAcceleration, true);
+        }
+        
+        private void InitializeComponent()
+        {
+            this.PersonnelAbsence = new PersonnelAbsenceDataSource();
+            this.NeedsCompiling = false;
+            this.EngineVersion = Stimulsoft.Report.Engine.StiEngineVersion.EngineV2;
+            this.ReferencedAssemblies = new System.String[] {
+                    "System.Dll",
+                    "System.Drawing.Dll",
+                    "System.Windows.Forms.Dll",
+                    "System.Data.Dll",
+                    "System.Xml.Dll",
+                    "Stimulsoft.Controls.Dll",
+                    "Stimulsoft.Base.Dll",
+                    "Stimulsoft.Report.Dll"};
+            this.ReportAlias = "Report";
+            // 
+            // ReportChanged
+            // 
+            this.ReportChanged = new DateTime(2012, 6, 6, 16, 54, 53, 799);
+            // 
+            // ReportCreated
+            // 
+            this.ReportCreated = new DateTime(2012, 1, 11, 9, 59, 38, 0);
+            this.ReportFile = "E:\\PersonnelAbsence.mrt";
+            this.ReportGuid = "272b064ecdef43df852a6331e118e8fe";
+            this.ReportName = "Report";
+            this.ReportUnit = Stimulsoft.Report.StiReportUnitType.Centimeters;
+            this.ReportVersion = "2011.3.1200";
+            this.ScriptLanguage = Stimulsoft.Report.StiReportLanguageType.CSharp;
+            // 
+            // Page1
+            // 
+            this.Page1 = new Stimulsoft.Report.Components.StiPage();
+            this.Page1.Guid = "b3d384a135ae42df8383603f9a1aff64";
+            this.Page1.Name = "Page1";
+            this.Page1.PageHeight = 29.7;
+            this.Page1.PageWidth = 24;
+            this.Page1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 2, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Page1.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            // 
+            // PageHeaderBand1
+            // 
+            this.PageHeaderBand1 = new Stimulsoft.Report.Components.StiPageHeaderBand();
+            this.PageHeaderBand1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(0, 0.4, 22, 3.4);
+            this.PageHeaderBand1.Guid = "e69a40f083874eb08388e50052c28201";
+            this.PageHeaderBand1.Name = "PageHeaderBand1";
+            this.PageHeaderBand1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.PageHeaderBand1.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            // 
+            // Text1
+            // 
+            this.Text1 = new Stimulsoft.Report.Components.StiText();
+            this.Text1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(5.6, 0, 8.4, 1.6);
+            this.Text1.Guid = "1b2987beec9e47449af7f7c260104e6c";
+            this.Text1.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text1.Name = "Text1";
+            this.Text1.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text1__GetValue);
+            this.Text1.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text1.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text1.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
+            this.Text1.Indicator = null;
+            this.Text1.Interaction = null;
+            this.Text1.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text1.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text1.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text2
+            // 
+            this.Text2 = new Stimulsoft.Report.Components.StiText();
+            this.Text2.AllowHtmlTags = true;
+            this.Text2.AutoWidth = true;
+            this.Text2.CanBreak = true;
+            this.Text2.CanGrow = true;
+            this.Text2.CanShrink = true;
+            this.Text2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(2.6, 0.2, 2.6, 0.6);
+            this.Text2.Guid = "819b6f817045418f974410b3dc197f87";
+            this.Text2.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text2.Name = "Text2";
+            this.Text2.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text2__GetValue);
+            this.Text2.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text2.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text2.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text2.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text2.Indicator = null;
+            this.Text2.Interaction = null;
+            this.Text2.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text2.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 89, 89, 89));
+            this.Text2.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text4
+            // 
+            this.Text4 = new Stimulsoft.Report.Components.StiText();
+            this.Text4.AllowHtmlTags = true;
+            this.Text4.AutoWidth = true;
+            this.Text4.CanBreak = true;
+            this.Text4.CanGrow = true;
+            this.Text4.CanShrink = true;
+            this.Text4.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(3.2, 0.8, 2, 0.6);
+            this.Text4.Guid = "c14d800377ae40708721627000d62349";
+            this.Text4.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text4.Name = "Text4";
+            this.Text4.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text4__GetValue);
+            this.Text4.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text4.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text4.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text4.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text4.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text4.Indicator = null;
+            this.Text4.Interaction = null;
+            this.Text4.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text4.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 89, 89, 89));
+            this.Text4.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text14
+            // 
+            this.Text14 = new Stimulsoft.Report.Components.StiText();
+            this.Text14.AllowHtmlTags = true;
+            this.Text14.AutoWidth = true;
+            this.Text14.CanBreak = true;
+            this.Text14.CanGrow = true;
+            this.Text14.CanShrink = true;
+            this.Text14.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(0.2, 0.2, 2.4, 0.6);
+            this.Text14.Guid = "6227966fa3f34f49a69456030e754ba3";
+            this.Text14.Name = "Text14";
+            this.Text14.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text14__GetValue);
+            this.Text14.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text14.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text14.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text14.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text14.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text14.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text14.Indicator = null;
+            this.Text14.Interaction = null;
+            this.Text14.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text14.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 183, 117, 64));
+            this.Text14.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text15
+            // 
+            this.Text15 = new Stimulsoft.Report.Components.StiText();
+            this.Text15.AllowHtmlTags = true;
+            this.Text15.AutoWidth = true;
+            this.Text15.CanBreak = true;
+            this.Text15.CanGrow = true;
+            this.Text15.CanShrink = true;
+            this.Text15.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(0.2, 0.8, 3, 0.6);
+            this.Text15.Guid = "3b7139d1977c458a88bfa04cc134c824";
+            this.Text15.Name = "Text15";
+            this.Text15.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text15__GetValue);
+            this.Text15.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text15.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text15.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text15.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text15.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text15.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text15.Indicator = null;
+            this.Text15.Interaction = null;
+            this.Text15.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text15.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 183, 117, 64));
+            this.Text15.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text7
+            // 
+            this.Text7 = new Stimulsoft.Report.Components.StiText();
+            this.Text7.AllowHtmlTags = true;
+            this.Text7.AutoWidth = true;
+            this.Text7.CanBreak = true;
+            this.Text7.CanGrow = true;
+            this.Text7.CanShrink = true;
+            this.Text7.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(15.4, 1.8, 2.54, 0.51);
+            this.Text7.Guid = "b70711caf47343e1901571408986c31d";
+            this.Text7.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text7.Name = "Text7";
+            this.Text7.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text7__GetValue);
+            this.Text7.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text7.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text7.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text7.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text7.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text7.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text7.Indicator = null;
+            this.Text7.Interaction = null;
+            this.Text7.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text7.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 89, 89, 89));
+            this.Text7.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text45
+            // 
+            this.Text45 = new Stimulsoft.Report.Components.StiText();
+            this.Text45.AllowHtmlTags = true;
+            this.Text45.AutoWidth = true;
+            this.Text45.CanBreak = true;
+            this.Text45.CanGrow = true;
+            this.Text45.CanShrink = true;
+            this.Text45.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(12.4, 1.8, 2.79, 0.51);
+            this.Text45.Guid = "1e39cc4e73e04f2ba7920ea3da345da2";
+            this.Text45.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text45.Name = "Text45";
+            this.Text45.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text45__GetValue);
+            this.Text45.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text45.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text45.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text45.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text45.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text45.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text45.Indicator = null;
+            this.Text45.Interaction = null;
+            this.Text45.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text45.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 183, 117, 64));
+            this.Text45.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text8
+            // 
+            this.Text8 = new Stimulsoft.Report.Components.StiText();
+            this.Text8.AllowHtmlTags = true;
+            this.Text8.AutoWidth = true;
+            this.Text8.CanBreak = true;
+            this.Text8.CanGrow = true;
+            this.Text8.CanShrink = true;
+            this.Text8.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(15.2, 2.6, 2.8, 0.6);
+            this.Text8.Guid = "9291d998b20c4f04a6ba9b6854be4f18";
+            this.Text8.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text8.Name = "Text8";
+            this.Text8.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text8__GetValue);
+            this.Text8.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text8.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text8.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text8.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text8.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text8.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text8.Indicator = null;
+            this.Text8.Interaction = null;
+            this.Text8.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text8.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 89, 89, 89));
+            this.Text8.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text46
+            // 
+            this.Text46 = new Stimulsoft.Report.Components.StiText();
+            this.Text46.AllowHtmlTags = true;
+            this.Text46.AutoWidth = true;
+            this.Text46.CanBreak = true;
+            this.Text46.CanGrow = true;
+            this.Text46.CanShrink = true;
+            this.Text46.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(12.4, 2.6, 2.8, 0.6);
+            this.Text46.Guid = "65409e12b9404b16b2887c87cd2467af";
+            this.Text46.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text46.Name = "Text46";
+            this.Text46.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text46__GetValue);
+            this.Text46.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text46.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text46.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text46.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text46.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text46.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text46.Indicator = null;
+            this.Text46.Interaction = null;
+            this.Text46.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text46.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 183, 117, 64));
+            this.Text46.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text11
+            // 
+            this.Text11 = new Stimulsoft.Report.Components.StiText();
+            this.Text11.AllowHtmlTags = true;
+            this.Text11.AutoWidth = true;
+            this.Text11.CanBreak = true;
+            this.Text11.CanGrow = true;
+            this.Text11.CanShrink = true;
+            this.Text11.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(9.4, 2.6, 1.5, 0.61);
+            this.Text11.Guid = "ad53e8fc84c7414c86561b4581fe00d9";
+            this.Text11.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text11.Name = "Text11";
+            this.Text11.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text11__GetValue);
+            this.Text11.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text11.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text11.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text11.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text11.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text11.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text11.Indicator = null;
+            this.Text11.Interaction = null;
+            this.Text11.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text11.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 89, 89, 89));
+            this.Text11.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text12
+            // 
+            this.Text12 = new Stimulsoft.Report.Components.StiText();
+            this.Text12.AllowHtmlTags = true;
+            this.Text12.AutoWidth = true;
+            this.Text12.CanBreak = true;
+            this.Text12.CanGrow = true;
+            this.Text12.CanShrink = true;
+            this.Text12.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(6.4, 2.6, 3, 0.61);
+            this.Text12.Guid = "f6b1dbf782bb48a88a3a85c3a5a39801";
+            this.Text12.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text12.Name = "Text12";
+            this.Text12.TextQuality = Stimulsoft.Report.Components.StiTextQuality.Wysiwyg;
+            this.Text12.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text12.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text12.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text12.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text12.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text12.Indicator = null;
+            this.Text12.Interaction = null;
+            this.Text12.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text12.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 183, 117, 64));
+            this.Text12.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            this.PageHeaderBand1.Interaction = null;
+            // 
+            // GroupHeaderBand1
+            // 
+            this.GroupHeaderBand1 = new Stimulsoft.Report.Components.StiGroupHeaderBand();
+            this.GroupHeaderBand1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(0, 4.6, 22, 0);
+            this.GroupHeaderBand1.GetValue += new Stimulsoft.Report.Events.StiValueEventHandler(this.GroupHeaderBand1__GetValue);
+            this.GroupHeaderBand1.Guid = "de1daf12f93d470b850bb176c8ab912b";
+            this.GroupHeaderBand1.Name = "GroupHeaderBand1";
+            this.GroupHeaderBand1.NewPageBefore = true;
+            this.GroupHeaderBand1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.GroupHeaderBand1.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.GroupHeaderBand1.Interaction = null;
+            // 
+            // ColumnHeaderBand1
+            // 
+            this.ColumnHeaderBand1 = new Stimulsoft.Report.Components.StiColumnHeaderBand();
+            this.ColumnHeaderBand1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(0, 5.4, 22, 1.2);
+            this.ColumnHeaderBand1.Guid = "90b5c83aea8c42e68e68203f95ba820a";
+            this.ColumnHeaderBand1.Name = "ColumnHeaderBand1";
+            this.ColumnHeaderBand1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.All, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.ColumnHeaderBand1.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 216, 216, 216));
+            // 
+            // Text18
+            // 
+            this.Text18 = new Stimulsoft.Report.Components.StiText();
+            this.Text18.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 0.2, 1.8, 0.6);
+            this.Text18.Guid = "9f81c3ddf2754f8aa3094325170a40bf";
+            this.Text18.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text18.Name = "Text18";
+            this.Text18.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text18__GetValue);
+            this.Text18.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text18.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text18.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text18.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Text18.Indicator = null;
+            this.Text18.Interaction = null;
+            this.Text18.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text18.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text18.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text18.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text6
+            // 
+            this.Text6 = new Stimulsoft.Report.Components.StiText();
+            this.Text6.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20.4, 0.2, 1.4, 0.6);
+            this.Text6.Guid = "baa5f25707264fb8a9533c5752477956";
+            this.Text6.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text6.Name = "Text6";
+            this.Text6.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text6__GetValue);
+            this.Text6.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text6.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text6.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text6.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Text6.Indicator = null;
+            this.Text6.Interaction = null;
+            this.Text6.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text6.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text6.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text6.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text30
+            // 
+            this.Text30 = new Stimulsoft.Report.Components.StiText();
+            this.Text30.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(3.6, 0.8, 1.2, 0.4);
+            this.Text30.Guid = "a92e00fc08a4494a9d8498de04add759";
+            this.Text30.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text30.Name = "Text30";
+            this.Text30.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text30__GetValue);
+            this.Text30.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text30.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text30.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text30.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text30.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.Text30.Indicator = null;
+            this.Text30.Interaction = null;
+            this.Text30.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text30.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text30.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text30.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text31
+            // 
+            this.Text31 = new Stimulsoft.Report.Components.StiText();
+            this.Text31.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4.8, 0.8, 1.4, 0.4);
+            this.Text31.Guid = "da506a3b4ab34a22a8a37bf0f608d470";
+            this.Text31.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text31.Name = "Text31";
+            this.Text31.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text31__GetValue);
+            this.Text31.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text31.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text31.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text31.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text31.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.Text31.Indicator = null;
+            this.Text31.Interaction = null;
+            this.Text31.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text31.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text31.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text31.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text3
+            // 
+            this.Text3 = new Stimulsoft.Report.Components.StiText();
+            this.Text3.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(15.4, 0.2, 2, 0.6);
+            this.Text3.Guid = "d40d2e7f948e4d75872a91f00d250e1b";
+            this.Text3.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text3.Name = "Text3";
+            this.Text3.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text3__GetValue);
+            this.Text3.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text3.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text3.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text3.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Text3.Indicator = null;
+            this.Text3.Interaction = null;
+            this.Text3.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text3.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text3.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text3.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text13
+            // 
+            this.Text13 = new Stimulsoft.Report.Components.StiText();
+            this.Text13.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 0.2, 2, 0.6);
+            this.Text13.Guid = "82ecdd3df5a0464eb93884058b5716ea";
+            this.Text13.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text13.Name = "Text13";
+            this.Text13.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text13__GetValue);
+            this.Text13.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text13.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text13.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text13.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Text13.Indicator = null;
+            this.Text13.Interaction = null;
+            this.Text13.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text13.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text13.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text13.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text9
+            // 
+            this.Text9 = new Stimulsoft.Report.Components.StiText();
+            this.Text9.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(13.2, 0.2, 1.6, 0.6);
+            this.Text9.Guid = "cb80181182c8490fb4d646761e49ade6";
+            this.Text9.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text9.Name = "Text9";
+            this.Text9.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text9__GetValue);
+            this.Text9.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text9.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text9.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text9.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Text9.Indicator = null;
+            this.Text9.Interaction = null;
+            this.Text9.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text9.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text9.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text9.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text17
+            // 
+            this.Text17 = new Stimulsoft.Report.Components.StiText();
+            this.Text17.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(11, 0.2, 1.8, 0.8);
+            this.Text17.Guid = "cf98eac8c46d4cb59b1beb33d496100b";
+            this.Text17.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text17.Name = "Text17";
+            this.Text17.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text17__GetValue);
+            this.Text17.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text17.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text17.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text17.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Text17.Indicator = null;
+            this.Text17.Interaction = null;
+            this.Text17.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text17.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text17.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text17.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, true, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text22
+            // 
+            this.Text22 = new Stimulsoft.Report.Components.StiText();
+            this.Text22.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(8.8, 0.2, 1.8, 0.6);
+            this.Text22.Guid = "9081e75ca05c463ba2e918482f663f7d";
+            this.Text22.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text22.Name = "Text22";
+            this.Text22.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text22__GetValue);
+            this.Text22.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text22.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text22.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text22.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Text22.Indicator = null;
+            this.Text22.Interaction = null;
+            this.Text22.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text22.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text22.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text22.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text28
+            // 
+            this.Text28 = new Stimulsoft.Report.Components.StiText();
+            this.Text28.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(6.6, 0.2, 1.8, 0.8);
+            this.Text28.Guid = "c70e208e68024ea394317f1178a46cd0";
+            this.Text28.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text28.Name = "Text28";
+            this.Text28.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text28__GetValue);
+            this.Text28.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text28.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text28.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.None, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text28.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text28.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.Text28.Indicator = null;
+            this.Text28.Interaction = null;
+            this.Text28.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text28.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text28.TextFormat = new Stimulsoft.Report.Components.TextFormats.StiCurrencyFormatService(2, 3, "/", 2, ",", 3, "ريال", true, false, " ");
+            this.Text28.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, true, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            this.ColumnHeaderBand1.Interaction = null;
+            // 
+            // DataBand2
+            // 
+            this.DataBand2 = new Stimulsoft.Report.Components.StiDataBand();
+            this.DataBand2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(0, 7.4, 22, 1);
+            this.DataBand2.BeforePrint += new System.EventHandler(this.DataBand2_Conditions);
+            this.DataBand2.DataSourceName = "PersonnelAbsence";
+            this.DataBand2.Name = "DataBand2";
+            this.DataBand2.Sort = new System.String[] {
+                    "ASC",
+                    "dateRecord"};
+            this.DataBand2.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.All, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.DataBand2.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.DataBand2.BusinessObjectGuid = null;
+            // 
+            // Text10
+            // 
+            this.Text10 = new Stimulsoft.Report.Components.StiText();
+            this.Text10.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20.4, 0.3, 1.4, 0.6);
+            this.Text10.Guid = "c64c2a5ce2fb4d32812f4972765afdf3";
+            this.Text10.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text10.Name = "Text10";
+            this.Text10.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text10__GetValue);
+            this.Text10.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text10.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text10.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text10.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text10.Indicator = null;
+            this.Text10.Interaction = null;
+            this.Text10.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text10.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text10.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text20
+            // 
+            this.Text20 = new Stimulsoft.Report.Components.StiText();
+            this.Text20.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(3.8, 0.3, 1.2, 0.6);
+            this.Text20.Guid = "adb5f57c487449038c435f649f5b37b6";
+            this.Text20.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text20.Name = "Text20";
+            this.Text20.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text20__GetValue);
+            this.Text20.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text20.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text20.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text20.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text20.Indicator = null;
+            this.Text20.Interaction = null;
+            this.Text20.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text20.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text20.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text25
+            // 
+            this.Text25 = new Stimulsoft.Report.Components.StiText();
+            this.Text25.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(5, 0.3, 1.4, 0.6);
+            this.Text25.Guid = "1c83faf138c74cb8b0f9d9e9dd3fdbf7";
+            this.Text25.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text25.Name = "Text25";
+            this.Text25.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text25__GetValue);
+            this.Text25.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text25.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text25.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text25.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text25.Indicator = null;
+            this.Text25.Interaction = null;
+            this.Text25.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text25.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text25.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text5
+            // 
+            this.Text5 = new Stimulsoft.Report.Components.StiText();
+            this.Text5.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(15.4, 0.3, 2, 0.6);
+            this.Text5.Guid = "f9e3f299e6624558b8a44943d46dc9c7";
+            this.Text5.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text5.Name = "Text5";
+            this.Text5.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text5__GetValue);
+            this.Text5.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text5.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text5.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text5.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text5.Indicator = null;
+            this.Text5.Interaction = null;
+            this.Text5.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text5.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text5.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text16
+            // 
+            this.Text16 = new Stimulsoft.Report.Components.StiText();
+            this.Text16.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 0.3, 2, 0.6);
+            this.Text16.Guid = "911908c5b728433aa0ccf07977cf06b4";
+            this.Text16.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text16.Name = "Text16";
+            this.Text16.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text16.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text16.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text16.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text16.Indicator = null;
+            this.Text16.Interaction = null;
+            this.Text16.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text16.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text16.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text24
+            // 
+            this.Text24 = new Stimulsoft.Report.Components.StiText();
+            this.Text24.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(13.2, 0.3, 1.6, 0.6);
+            this.Text24.Guid = "11aa75491d924685915ca9c0447e8235";
+            this.Text24.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text24.Name = "Text24";
+            this.Text24.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text24__GetValue);
+            this.Text24.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text24.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text24.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text24.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text24.Indicator = null;
+            this.Text24.Interaction = null;
+            this.Text24.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text24.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text24.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text21
+            // 
+            this.Text21 = new Stimulsoft.Report.Components.StiText();
+            this.Text21.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(11, 0.3, 1.8, 0.6);
+            this.Text21.Guid = "988fd5580872474aad357cdf407584ac";
+            this.Text21.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text21.Name = "Text21";
+            this.Text21.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text21__GetValue);
+            this.Text21.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text21.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text21.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text21.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text21.Indicator = null;
+            this.Text21.Interaction = null;
+            this.Text21.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text21.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text21.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text23
+            // 
+            this.Text23 = new Stimulsoft.Report.Components.StiText();
+            this.Text23.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(8.8, 0.2, 1.8, 0.6);
+            this.Text23.Guid = "d540b5391b98491d9feb9ec7c7d54472";
+            this.Text23.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text23.Name = "Text23";
+            this.Text23.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text23__GetValue);
+            this.Text23.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text23.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text23.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text23.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text23.Indicator = null;
+            this.Text23.Interaction = null;
+            this.Text23.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text23.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text23.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text29
+            // 
+            this.Text29 = new Stimulsoft.Report.Components.StiText();
+            this.Text29.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(6.6, 0.2, 1.8, 0.6);
+            this.Text29.Guid = "5dd9e8d5e2944a388eb337f4772aec30";
+            this.Text29.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text29.Name = "Text29";
+            this.Text29.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text29__GetValue);
+            this.Text29.Type = Stimulsoft.Report.Components.StiSystemTextType.DataColumn;
+            this.Text29.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(255, 105, 105, 105)), false);
+            this.Text29.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text29.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Text29.Indicator = null;
+            this.Text29.Interaction = null;
+            this.Text29.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text29.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text29.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // StartPointPrimitive6
+            // 
+            this.StartPointPrimitive6 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive6.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(15, 0, 0, 0);
+            this.StartPointPrimitive6.Name = "StartPointPrimitive6";
+            this.StartPointPrimitive6.ReferenceToGuid = "1da4751f5d094beb8a76a4c3c32c855d";
+            this.StartPointPrimitive6.Guid = null;
+            this.StartPointPrimitive6.Interaction = null;
+            // 
+            // StartPointPrimitive8
+            // 
+            this.StartPointPrimitive8 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive8.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20.2, 0, 0, 0);
+            this.StartPointPrimitive8.Name = "StartPointPrimitive8";
+            this.StartPointPrimitive8.ReferenceToGuid = "5ea8226039dc44c887df59ace418c0ac";
+            this.StartPointPrimitive8.Guid = null;
+            this.StartPointPrimitive8.Interaction = null;
+            // 
+            // EndPointPrimitive8
+            // 
+            this.EndPointPrimitive8 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive8.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20.2, 1, 0, 0);
+            this.EndPointPrimitive8.Name = "EndPointPrimitive8";
+            this.EndPointPrimitive8.ReferenceToGuid = "5ea8226039dc44c887df59ace418c0ac";
+            this.EndPointPrimitive8.Guid = null;
+            this.EndPointPrimitive8.Interaction = null;
+            // 
+            // EndPointPrimitive6
+            // 
+            this.EndPointPrimitive6 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive6.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(15, 1, 0, 0);
+            this.EndPointPrimitive6.Name = "EndPointPrimitive6";
+            this.EndPointPrimitive6.ReferenceToGuid = "1da4751f5d094beb8a76a4c3c32c855d";
+            this.EndPointPrimitive6.Guid = null;
+            this.EndPointPrimitive6.Interaction = null;
+            // 
+            // StartPointPrimitive2
+            // 
+            this.StartPointPrimitive2 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(17.6, 0, 0, 0);
+            this.StartPointPrimitive2.Name = "StartPointPrimitive2";
+            this.StartPointPrimitive2.ReferenceToGuid = "5dd15868e37c40cd9fbaddc84045f703";
+            this.StartPointPrimitive2.Guid = null;
+            this.StartPointPrimitive2.Interaction = null;
+            // 
+            // EndPointPrimitive2
+            // 
+            this.EndPointPrimitive2 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(17.6, 1, 0, 0);
+            this.EndPointPrimitive2.Name = "EndPointPrimitive2";
+            this.EndPointPrimitive2.ReferenceToGuid = "5dd15868e37c40cd9fbaddc84045f703";
+            this.EndPointPrimitive2.Guid = null;
+            this.EndPointPrimitive2.Interaction = null;
+            // 
+            // StartPointPrimitive1
+            // 
+            this.StartPointPrimitive1 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(13, 0, 0, 0);
+            this.StartPointPrimitive1.Name = "StartPointPrimitive1";
+            this.StartPointPrimitive1.ReferenceToGuid = "4e21d5d1ea6f4470b47dc1b17b62c734";
+            this.StartPointPrimitive1.Guid = null;
+            this.StartPointPrimitive1.Interaction = null;
+            // 
+            // EndPointPrimitive1
+            // 
+            this.EndPointPrimitive1 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(13, 1, 0, 0);
+            this.EndPointPrimitive1.Name = "EndPointPrimitive1";
+            this.EndPointPrimitive1.ReferenceToGuid = "4e21d5d1ea6f4470b47dc1b17b62c734";
+            this.EndPointPrimitive1.Guid = null;
+            this.EndPointPrimitive1.Interaction = null;
+            // 
+            // StartPointPrimitive3
+            // 
+            this.StartPointPrimitive3 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive3.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(10.8, 0, 0, 0);
+            this.StartPointPrimitive3.Name = "StartPointPrimitive3";
+            this.StartPointPrimitive3.ReferenceToGuid = "5a233ecea7234d139c1b4fefce48e427";
+            this.StartPointPrimitive3.Guid = null;
+            this.StartPointPrimitive3.Interaction = null;
+            // 
+            // EndPointPrimitive3
+            // 
+            this.EndPointPrimitive3 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive3.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(10.8, 1, 0, 0);
+            this.EndPointPrimitive3.Name = "EndPointPrimitive3";
+            this.EndPointPrimitive3.ReferenceToGuid = "5a233ecea7234d139c1b4fefce48e427";
+            this.EndPointPrimitive3.Guid = null;
+            this.EndPointPrimitive3.Interaction = null;
+            // 
+            // StartPointPrimitive4
+            // 
+            this.StartPointPrimitive4 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive4.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(8.6, 0, 0, 0);
+            this.StartPointPrimitive4.Name = "StartPointPrimitive4";
+            this.StartPointPrimitive4.ReferenceToGuid = "87d91161af984e538c9c4e580b1acb62";
+            this.StartPointPrimitive4.Guid = null;
+            this.StartPointPrimitive4.Interaction = null;
+            // 
+            // EndPointPrimitive4
+            // 
+            this.EndPointPrimitive4 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive4.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(8.6, 1, 0, 0);
+            this.EndPointPrimitive4.Name = "EndPointPrimitive4";
+            this.EndPointPrimitive4.ReferenceToGuid = "87d91161af984e538c9c4e580b1acb62";
+            this.EndPointPrimitive4.Guid = null;
+            this.EndPointPrimitive4.Interaction = null;
+            this.DataBand2.DataRelationName = null;
+            this.DataBand2.Guid = null;
+            this.DataBand2.Interaction = null;
+            this.DataBand2.MasterComponent = null;
+            // 
+            // VerticalLinePrimitive6
+            // 
+            this.VerticalLinePrimitive6 = new Stimulsoft.Report.Components.StiVerticalLinePrimitive();
+            this.VerticalLinePrimitive6.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(15, 7.4, 0.0254, 1);
+            this.VerticalLinePrimitive6.Color = System.Drawing.Color.Black;
+            this.VerticalLinePrimitive6.Guid = "1da4751f5d094beb8a76a4c3c32c855d";
+            this.VerticalLinePrimitive6.Name = "VerticalLinePrimitive6";
+            this.VerticalLinePrimitive6.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.VerticalLinePrimitive6.Interaction = null;
+            this.VerticalLinePrimitive6.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            // 
+            // VerticalLinePrimitive8
+            // 
+            this.VerticalLinePrimitive8 = new Stimulsoft.Report.Components.StiVerticalLinePrimitive();
+            this.VerticalLinePrimitive8.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20.2, 7.4, 0.0254, 1);
+            this.VerticalLinePrimitive8.Color = System.Drawing.Color.Black;
+            this.VerticalLinePrimitive8.Guid = "5ea8226039dc44c887df59ace418c0ac";
+            this.VerticalLinePrimitive8.Name = "VerticalLinePrimitive8";
+            this.VerticalLinePrimitive8.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.VerticalLinePrimitive8.Interaction = null;
+            this.VerticalLinePrimitive8.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            // 
+            // VerticalLinePrimitive1
+            // 
+            this.VerticalLinePrimitive1 = new Stimulsoft.Report.Components.StiVerticalLinePrimitive();
+            this.VerticalLinePrimitive1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(13, 7.4, 0.0254, 1);
+            this.VerticalLinePrimitive1.Color = System.Drawing.Color.Black;
+            this.VerticalLinePrimitive1.Guid = "4e21d5d1ea6f4470b47dc1b17b62c734";
+            this.VerticalLinePrimitive1.Name = "VerticalLinePrimitive1";
+            this.VerticalLinePrimitive1.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.VerticalLinePrimitive1.Interaction = null;
+            this.VerticalLinePrimitive1.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            // 
+            // VerticalLinePrimitive2
+            // 
+            this.VerticalLinePrimitive2 = new Stimulsoft.Report.Components.StiVerticalLinePrimitive();
+            this.VerticalLinePrimitive2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(17.6, 7.4, 0.0254, 1);
+            this.VerticalLinePrimitive2.Color = System.Drawing.Color.Black;
+            this.VerticalLinePrimitive2.Guid = "5dd15868e37c40cd9fbaddc84045f703";
+            this.VerticalLinePrimitive2.Name = "VerticalLinePrimitive2";
+            this.VerticalLinePrimitive2.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.VerticalLinePrimitive2.Interaction = null;
+            this.VerticalLinePrimitive2.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            // 
+            // VerticalLinePrimitive3
+            // 
+            this.VerticalLinePrimitive3 = new Stimulsoft.Report.Components.StiVerticalLinePrimitive();
+            this.VerticalLinePrimitive3.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(10.8, 7.4, 0.0254, 1);
+            this.VerticalLinePrimitive3.Color = System.Drawing.Color.Black;
+            this.VerticalLinePrimitive3.Guid = "5a233ecea7234d139c1b4fefce48e427";
+            this.VerticalLinePrimitive3.Name = "VerticalLinePrimitive3";
+            this.VerticalLinePrimitive3.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.VerticalLinePrimitive3.Interaction = null;
+            this.VerticalLinePrimitive3.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            // 
+            // VerticalLinePrimitive4
+            // 
+            this.VerticalLinePrimitive4 = new Stimulsoft.Report.Components.StiVerticalLinePrimitive();
+            this.VerticalLinePrimitive4.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(8.6, 7.4, 0.0254, 1);
+            this.VerticalLinePrimitive4.Color = System.Drawing.Color.Black;
+            this.VerticalLinePrimitive4.Guid = "87d91161af984e538c9c4e580b1acb62";
+            this.VerticalLinePrimitive4.Name = "VerticalLinePrimitive4";
+            this.VerticalLinePrimitive4.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.VerticalLinePrimitive4.Interaction = null;
+            this.VerticalLinePrimitive4.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.Page1.ExcelSheetValue = null;
+            this.Page1.Interaction = null;
+            this.Page1.Margins = new Stimulsoft.Report.Components.StiMargins(1, 1, 1, 1);
+            this.Page1_Watermark = new Stimulsoft.Report.Components.StiWatermark();
+            this.Page1_Watermark.Font = new System.Drawing.Font("Arial", 100F);
+            this.Page1_Watermark.Image = null;
+            this.Page1_Watermark.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(50, 0, 0, 0));
+            this.Report_PrinterSettings = new Stimulsoft.Report.Print.StiPrinterSettings();
+            // 
+            // StyleMaster
+            // 
+            this.StyleMaster = new Stimulsoft.Report.StiStyle();
+            this.StyleMaster.Description = "";
+            this.StyleMaster.Name = "Master";
+            this.StyleMaster.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.StyleMaster.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.NavajoWhite);
+            this.StyleMaster.Font = new System.Drawing.Font("Arial", 8F);
+            this.StyleMaster.Image = null;
+            this.StyleMaster.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.PrinterSettings = this.Report_PrinterSettings;
+            this.Page1.Report = this;
+            this.Page1.Watermark = this.Page1_Watermark;
+            this.PageHeaderBand1.Page = this.Page1;
+            this.PageHeaderBand1.Parent = this.Page1;
+            this.Text1.Page = this.Page1;
+            this.Text1.Parent = this.PageHeaderBand1;
+            this.Text2.Page = this.Page1;
+            this.Text2.Parent = this.PageHeaderBand1;
+            this.Text4.Page = this.Page1;
+            this.Text4.Parent = this.PageHeaderBand1;
+            this.Text14.Page = this.Page1;
+            this.Text14.Parent = this.PageHeaderBand1;
+            this.Text15.Page = this.Page1;
+            this.Text15.Parent = this.PageHeaderBand1;
+            this.Text7.Page = this.Page1;
+            this.Text7.Parent = this.PageHeaderBand1;
+            this.Text45.Page = this.Page1;
+            this.Text45.Parent = this.PageHeaderBand1;
+            this.Text8.Page = this.Page1;
+            this.Text8.Parent = this.PageHeaderBand1;
+            this.Text46.Page = this.Page1;
+            this.Text46.Parent = this.PageHeaderBand1;
+            this.Text11.Page = this.Page1;
+            this.Text11.Parent = this.PageHeaderBand1;
+            this.Text12.Page = this.Page1;
+            this.Text12.Parent = this.PageHeaderBand1;
+            this.GroupHeaderBand1.Page = this.Page1;
+            this.GroupHeaderBand1.Parent = this.Page1;
+            this.ColumnHeaderBand1.Page = this.Page1;
+            this.ColumnHeaderBand1.Parent = this.Page1;
+            this.Text18.Page = this.Page1;
+            this.Text18.Parent = this.ColumnHeaderBand1;
+            this.Text6.Page = this.Page1;
+            this.Text6.Parent = this.ColumnHeaderBand1;
+            this.Text30.Page = this.Page1;
+            this.Text30.Parent = this.ColumnHeaderBand1;
+            this.Text31.Page = this.Page1;
+            this.Text31.Parent = this.ColumnHeaderBand1;
+            this.Text3.Page = this.Page1;
+            this.Text3.Parent = this.ColumnHeaderBand1;
+            this.Text13.Page = this.Page1;
+            this.Text13.Parent = this.ColumnHeaderBand1;
+            this.Text9.Page = this.Page1;
+            this.Text9.Parent = this.ColumnHeaderBand1;
+            this.Text17.Page = this.Page1;
+            this.Text17.Parent = this.ColumnHeaderBand1;
+            this.Text22.Page = this.Page1;
+            this.Text22.Parent = this.ColumnHeaderBand1;
+            this.Text28.Page = this.Page1;
+            this.Text28.Parent = this.ColumnHeaderBand1;
+            this.DataBand2.Page = this.Page1;
+            this.DataBand2.Parent = this.Page1;
+            this.Text10.Page = this.Page1;
+            this.Text10.Parent = this.DataBand2;
+            this.Text20.Page = this.Page1;
+            this.Text20.Parent = this.DataBand2;
+            this.Text25.Page = this.Page1;
+            this.Text25.Parent = this.DataBand2;
+            this.Text5.Page = this.Page1;
+            this.Text5.Parent = this.DataBand2;
+            this.Text16.Page = this.Page1;
+            this.Text16.Parent = this.DataBand2;
+            this.Text24.Page = this.Page1;
+            this.Text24.Parent = this.DataBand2;
+            this.Text21.Page = this.Page1;
+            this.Text21.Parent = this.DataBand2;
+            this.Text23.Page = this.Page1;
+            this.Text23.Parent = this.DataBand2;
+            this.Text29.Page = this.Page1;
+            this.Text29.Parent = this.DataBand2;
+            this.StartPointPrimitive6.Page = this.Page1;
+            this.StartPointPrimitive6.Parent = this.DataBand2;
+            this.StartPointPrimitive8.Page = this.Page1;
+            this.StartPointPrimitive8.Parent = this.DataBand2;
+            this.EndPointPrimitive8.Page = this.Page1;
+            this.EndPointPrimitive8.Parent = this.DataBand2;
+            this.EndPointPrimitive6.Page = this.Page1;
+            this.EndPointPrimitive6.Parent = this.DataBand2;
+            this.StartPointPrimitive2.Page = this.Page1;
+            this.StartPointPrimitive2.Parent = this.DataBand2;
+            this.EndPointPrimitive2.Page = this.Page1;
+            this.EndPointPrimitive2.Parent = this.DataBand2;
+            this.StartPointPrimitive1.Page = this.Page1;
+            this.StartPointPrimitive1.Parent = this.DataBand2;
+            this.EndPointPrimitive1.Page = this.Page1;
+            this.EndPointPrimitive1.Parent = this.DataBand2;
+            this.StartPointPrimitive3.Page = this.Page1;
+            this.StartPointPrimitive3.Parent = this.DataBand2;
+            this.EndPointPrimitive3.Page = this.Page1;
+            this.EndPointPrimitive3.Parent = this.DataBand2;
+            this.StartPointPrimitive4.Page = this.Page1;
+            this.StartPointPrimitive4.Parent = this.DataBand2;
+            this.EndPointPrimitive4.Page = this.Page1;
+            this.EndPointPrimitive4.Parent = this.DataBand2;
+            this.VerticalLinePrimitive6.Page = this.Page1;
+            this.VerticalLinePrimitive6.Parent = this.Page1;
+            this.VerticalLinePrimitive8.Page = this.Page1;
+            this.VerticalLinePrimitive8.Parent = this.Page1;
+            this.VerticalLinePrimitive1.Page = this.Page1;
+            this.VerticalLinePrimitive1.Parent = this.Page1;
+            this.VerticalLinePrimitive2.Page = this.Page1;
+            this.VerticalLinePrimitive2.Parent = this.Page1;
+            this.VerticalLinePrimitive3.Page = this.Page1;
+            this.VerticalLinePrimitive3.Parent = this.Page1;
+            this.InitializeComponent2();
+        }
+        
+        public void InitializeComponent2()
+        {
+            this.VerticalLinePrimitive4.Page = this.Page1;
+            this.VerticalLinePrimitive4.Parent = this.Page1;
+            // 
+            // Add to PageHeaderBand1.Components
+            // 
+            this.PageHeaderBand1.Components.Clear();
+            this.PageHeaderBand1.Components.AddRange(new Stimulsoft.Report.Components.StiComponent[] {
+                        this.Text1,
+                        this.Text2,
+                        this.Text4,
+                        this.Text14,
+                        this.Text15,
+                        this.Text7,
+                        this.Text45,
+                        this.Text8,
+                        this.Text46,
+                        this.Text11,
+                        this.Text12});
+            // 
+            // Add to ColumnHeaderBand1.Components
+            // 
+            this.ColumnHeaderBand1.Components.Clear();
+            this.ColumnHeaderBand1.Components.AddRange(new Stimulsoft.Report.Components.StiComponent[] {
+                        this.Text18,
+                        this.Text6,
+                        this.Text30,
+                        this.Text31,
+                        this.Text3,
+                        this.Text13,
+                        this.Text9,
+                        this.Text17,
+                        this.Text22,
+                        this.Text28});
+            // 
+            // Add to DataBand2.Components
+            // 
+            this.DataBand2.Components.Clear();
+            this.DataBand2.Components.AddRange(new Stimulsoft.Report.Components.StiComponent[] {
+                        this.Text10,
+                        this.Text20,
+                        this.Text25,
+                        this.Text5,
+                        this.Text16,
+                        this.Text24,
+                        this.Text21,
+                        this.Text23,
+                        this.Text29,
+                        this.StartPointPrimitive6,
+                        this.StartPointPrimitive8,
+                        this.EndPointPrimitive8,
+                        this.EndPointPrimitive6,
+                        this.StartPointPrimitive2,
+                        this.EndPointPrimitive2,
+                        this.StartPointPrimitive1,
+                        this.EndPointPrimitive1,
+                        this.StartPointPrimitive3,
+                        this.EndPointPrimitive3,
+                        this.StartPointPrimitive4,
+                        this.EndPointPrimitive4});
+            // 
+            // Add to Page1.Components
+            // 
+            this.Page1.Components.Clear();
+            this.Page1.Components.AddRange(new Stimulsoft.Report.Components.StiComponent[] {
+                        this.PageHeaderBand1,
+                        this.GroupHeaderBand1,
+                        this.ColumnHeaderBand1,
+                        this.DataBand2,
+                        this.VerticalLinePrimitive6,
+                        this.VerticalLinePrimitive8,
+                        this.VerticalLinePrimitive1,
+                        this.VerticalLinePrimitive2,
+                        this.VerticalLinePrimitive3,
+                        this.VerticalLinePrimitive4});
+            // 
+            // Add to Pages
+            // 
+            this.Pages.Clear();
+            this.Pages.AddRange(new Stimulsoft.Report.Components.StiPage[] {
+                        this.Page1});
+            // 
+            // Add to Styles
+            // 
+            this.Styles.Clear();
+            this.Styles.AddRange(new Stimulsoft.Report.StiBaseStyle[] {
+                        this.StyleMaster});
+            this.PersonnelAbsence.Columns.AddRange(new Stimulsoft.Report.Dictionary.StiDataColumn[] {
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("prs_FirstName", "prs_FirstName", "prs_FirstName", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("prs_LastName", "prs_LastName", "prs_LastName", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("prs_barcode", "prs_barcode", "prs_barcode", typeof(decimal)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("gridFields_HourlyAllowableAbsence", "gridFields_HourlyAllowableAbsence", "gridFields_HourlyAllowableAbsence", typeof(decimal)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("gridFields_HourlyUnallowableAbsence", "gridFields_HourlyUnallowableAbsence", "gridFields_HourlyUnallowableAbsence", typeof(decimal)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("gridFields_DailyAbsence", "gridFields_DailyAbsence", "gridFields_DailyAbsence", typeof(DateTime)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("gridFields_HourlyUnallowableDelay", "gridFields_HourlyUnallowableDelay", "gridFields_HourlyUnallowableDelay", typeof(decimal)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("gridFields_HourlyUnallowableAcceleration", "gridFields_HourlyUnallowableAcceleration", "gridFields_HourlyUnallowableAcceleration", typeof(decimal)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("gridFields_HourlyBetweenTimeUnallowableAbsence", "gridFields_HourlyBetweenTimeUnallowableAbsence", "gridFields_HourlyBetweenTimeUnallowableAbsence", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("ShamsiDate", "ShamsiDate", "ShamsiDate", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("ScndCnpValue_PersonId", "ScndCnpValue_PersonId", "ScndCnpValue_PersonId", typeof(decimal))});
+            this.PersonnelAbsence.Parameters.AddRange(new Stimulsoft.Report.Dictionary.StiDataParameter[] {
+                        new Stimulsoft.Report.Dictionary.StiDataParameter("toDate", 4, 0),
+                        new Stimulsoft.Report.Dictionary.StiDataParameter("fromDate", 4, 0)});
+            this.DataSources.Add(this.PersonnelAbsence);
+            this.Dictionary.Databases.Add(new Stimulsoft.Report.Dictionary.StiSqlDatabase("Connection", "Connection", "Initial Catalog=GhadirGTS;Integrated Security=False;Password=gtsclock;User ID=salavati;Data Source=APPSRV\\APP2005;Persist Security Info=True", false));
+            this.PersonnelAbsence.Connecting += new System.EventHandler(this.GetPersonnelAbsence_SqlCommand);
+        }
+        
+        public void GetPersonnelAbsence_SqlCommand(object sender, System.EventArgs e)
+        {
+            this.PersonnelAbsence.SqlCommand = "\r\ndeclare @PersonId decimal\r\nset @PersonId = \'32660\'\r\n\r\nSELECT \r\n\tgridFields_HourlyAllowableAbsence\r\n\t,gridFields_HourlyUnallowableAbsence\r\n\t,gridFields_DailyAbsence\r\n\t,gridFields_HourlyUnallowableDelay\r\n\t,gridFields_HourlyUnallowableAcceleration\r\n\t,gridFields_HourlyBetweenTimeUnallowableAbsence\r\n\t,dbo.GTS_ASM_MiladiToShamsi(CONVERT(nvarchar(10), [Date], 111)) AS ShamsiDate\r\n\t,ScndCnpValue_PersonId\r\n\t,prs_barcode\r\n\t,prs_firstName\r\n\t,prs_LastName\r\n\t\r\nFROM (SELECT ScndCnpValue_FromDate [Date]\r\n\r\n\t  ,ISNULL(SUM([gridFields_HourlyAllowableAbsence]), -1000) [gridFields_HourlyAllowableAbsence]\r\n      ,ISNULL(SUM([gridFields_HourlyUnallowableAbsence]), -1000) [gridFields_HourlyUnallowableAbsence]\r\n      ,ISNULL(SUM([gridFields_DailyAbsence]), -1000) [gridFields_DailyAbsence]\r\n      ,ISNULL(SUM([gridFields_HourlyUnallowableDelay]), -1000) [gridFields_HourlyUnallowableDelay]\r\n      ,ISNULL(SUM([gridFields_HourlyUnallowableAcceleration]), -1000) [gridFields_HourlyUnallowableAcceleration]\r\n      ,ISNULL(SUM([gridFields_H" +
+"ourlyBetweenTimeUnallowableAbsence]), -1000) [gridFields_HourlyBetweenTimeUnallowableAbsence]\r\n      ,ScndCnpValue_PersonId\r\n      \r\nFROM (SELECT ScndCnpValues.ScndCnpValue_ID,\r\n\t\t\t\r\n\tCnpTmp.ConceptTmp_FnName,\r\n\tCnpTmp.ConceptTmp_EngName,\r\n\tCnpTmp.ConceptTmp_KeyColumnName,\t\t\r\n\tScndCnpValues.ScndCnpValue_FromDate,\r\n\tScndCnpValues.ScndCnpValue_ToDate,\r\n\tScndCnpValues.ScndCnpValue_Value\r\n\t,ScndCnpValue_PersonId\r\n\tFROM TA_ConceptTemplate CnpTmp\r\n\t       CROSS APPLY dbo.TA_GetScndCnpValues(@PersonId,\r\n\t\t\t\t\t\t\t\t\t\t\t   CnpTmp.ConceptTmp_ID,\r\n\t\t\t\t\t\t\t\t\t\t\t   @fromDate,\r\n\t\t\t\t\t\t\t\t\t\t\t   @toDate) AS  ScndCnpValues \t\t\r\n\t\t\t\t\t\t\t\t\t\t\t   \t\t\t\t        \r\n\t) AS [Source]\t\r\nPIVOT\r\n(\r\n\tSUM(ScndCnpValue_Value)\r\n\tFOR ConceptTmp_KeyColumnName\r\n\t\tIN ([gridFields_HourlyAllowableAbsence]\r\n\t\t\t  ,[gridFields_HourlyUnallowableAbsence]\r\n\t\t\t  ,[gridFields_DailyAbsence]\r\n\t\t\t  ,[gridFields_HourlyUnallowableDelay]\r\n\t\t\t  ,[gridFields_HourlyUnallowableAcceleration]\r\n\t\t\t  ,[gridFields_HourlyBetweenTimeUnallowableAbsence]\r\n\t\t\t  \r\n\t\t\t  )\r\n) AS Result\t\t\t\r\nG" +
+"ROUP BY ScndCnpValue_PersonId,ScndCnpValue_FromDate \r\n) ScndCnpValue\r\nINNER JOIN TA_Person Prs\r\nON ScndCnpValue.ScndCnpValue_PersonId = Prs.Prs_ID\r\n";
+        }
+        
+        #region DataSource PersonnelAbsence
+        public class PersonnelAbsenceDataSource : Stimulsoft.Report.Dictionary.StiSqlSource
+        {
+            
+            public PersonnelAbsenceDataSource() : 
+                    base("Connection", "PersonnelAbsence", "PersonnelAbsence", "", true, false, 30)
+            {
+            }
+            
+            public virtual string prs_FirstName
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["prs_FirstName"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string prs_LastName
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["prs_LastName"], typeof(string), true)));
+                }
+            }
+            
+            public virtual decimal prs_barcode
+            {
+                get
+                {
+                    return ((decimal)(StiReport.ChangeType(this["prs_barcode"], typeof(decimal), true)));
+                }
+            }
+            
+            public virtual decimal gridFields_HourlyAllowableAbsence
+            {
+                get
+                {
+                    return ((decimal)(StiReport.ChangeType(this["gridFields_HourlyAllowableAbsence"], typeof(decimal), true)));
+                }
+            }
+            
+            public virtual decimal gridFields_HourlyUnallowableAbsence
+            {
+                get
+                {
+                    return ((decimal)(StiReport.ChangeType(this["gridFields_HourlyUnallowableAbsence"], typeof(decimal), true)));
+                }
+            }
+            
+            public virtual DateTime gridFields_DailyAbsence
+            {
+                get
+                {
+                    return ((DateTime)(StiReport.ChangeType(this["gridFields_DailyAbsence"], typeof(DateTime), true)));
+                }
+            }
+            
+            public virtual decimal gridFields_HourlyUnallowableDelay
+            {
+                get
+                {
+                    return ((decimal)(StiReport.ChangeType(this["gridFields_HourlyUnallowableDelay"], typeof(decimal), true)));
+                }
+            }
+            
+            public virtual decimal gridFields_HourlyUnallowableAcceleration
+            {
+                get
+                {
+                    return ((decimal)(StiReport.ChangeType(this["gridFields_HourlyUnallowableAcceleration"], typeof(decimal), true)));
+                }
+            }
+            
+            public virtual string gridFields_HourlyBetweenTimeUnallowableAbsence
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["gridFields_HourlyBetweenTimeUnallowableAbsence"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string ShamsiDate
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["ShamsiDate"], typeof(string), true)));
+                }
+            }
+            
+            public virtual decimal ScndCnpValue_PersonId
+            {
+                get
+                {
+                    return ((decimal)(StiReport.ChangeType(this["ScndCnpValue_PersonId"], typeof(decimal), true)));
+                }
+            }
+        }
+        #endregion DataSource PersonnelAbsence
+        #endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="1">
+    <Master Ref="133" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>NavajoWhite</Brush>
+      <Conditions isList="true" count="0" />
+      <Description />
+      <Font>Arial,8</Font>
+      <Name>Master</Name>
+      <TextBrush>Black</TextBrush>
+    </Master>
+  </Styles>
+</StiSerializer>

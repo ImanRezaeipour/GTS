@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_ClienteleBlackList, GTS.Clock.Model"
+         table ="CL_ClienteleBlackList" lazy="true">
+    <id name="ID" access="property"  column="cbl_ID" >
+      <generator class="native" />
+    </id>
+    <property name="IsDeleted" access="property" column="cbl_Deleted" />
+    <property name="TemporarilyOutOfList" access="property" column="cbl_TemporarilyOutOfList" />
+    <property name="BlackListDate" access="property" column="cbl_AddDate" />
+    <property name="FromDate" access="property" column="cbl_FromDate" />
+    <property name="ToDate" access="property" column="cbl_ToDate" />
+    <property name="Description" access="property" column="cbl_Description" />
+
+    <many-to-one name="ClientelePerson" class="GTS.Clock.Model.Clientele.CL_ClientelePerson, GTS.Clock.Model"  column="cbl_ClientelePersonId" lazy="proxy"/>
+    
+  </class>
+</hibernate-mapping>

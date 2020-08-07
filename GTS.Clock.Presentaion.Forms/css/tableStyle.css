@@ -1,0 +1,119 @@
+﻿.borderStyle
+{
+   border-top: gray 1px double;
+   border-bottom:gray 1px double;
+   border-left:gray 1px double;
+   border-right:gray 1px double;
+   font-size:small;
+}
+
+.MainTableBorderStyle
+{
+   border-top : gray 1px double;
+   border-bottom:gray 1px double;
+   border-left:black 1px groove;
+   border-right:black 1px groove;
+   font-size:small;
+}
+
+.MonthTitleStyle
+{
+   border-top : gray 1px double;
+   border-bottom:gray 1px double;
+   border-left:gray 1px double;
+   border-right:gray 1px double;
+   background-color:#9FBEF4
+}
+
+.DayTitleStyle
+{
+   background-color:#e1ecfc	;
+}
+
+
+.BodyStyle
+{
+	background-image:url('../Images/Ghadir/bg-body.jpg');
+	background-repeat:repeat;
+	font-size: small;
+    Font-family: Tahoma;
+	height:100%;
+	background-position:right;	
+}
+
+.BoxStyle
+{
+    background-position: right;
+    background-repeat: repeat;
+    color:Black;
+    font-size: small;
+    font-family: Tahoma;
+    border-top-color: #FFFFFF;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-color: #666672;
+    border-bottom-width: 3px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-right-color: #FFFFFF;
+    border-left-color: #737282;
+    border-right-style: solid;
+    border-left-style: solid;
+    background-image: url('../Images/TabStrip/boxstyle_13.png');
+}
+
+.ConfirmStyle
+{
+    background-position: right;
+    border: 1px outset white;
+    font-size: small;
+    font-weight: bold;
+    font-family: Tahoma;
+    color: White;
+    background-image: url('../Images/TabStrip/boxstyle_darker.png');
+}
+
+.SettingStyle
+{
+    Font-family: Tahoma;
+    font-size:small;
+    background-color: White;
+    border:1px solid gray;
+    background-image: url('../Images/Ghadir/bg-body.jpg')    
+}
+
+.DetailsBoxHeaderStyle
+{
+    height:23px;
+}
+
+.MainBodyStyle
+{
+    background-image:url('../Images/Ghadir/main_body.jpg');
+	background-repeat:repeat;
+	font-size: small;
+    Font-family: Tahoma;
+	height:100%;
+}
+
+.ContainerHeader
+{
+    background-image:url('../Images/TabStrip/item_bg.gif');
+}
+
+.BoxContainerHeader
+{
+    background-image:url('../Images/TabStrip/item_bg.gif');    
+    color:white;
+	background-color: transparent;
+	font-weight:bold;
+	Font-family: Tahoma;
+	font-size:12px;
+}
+
+.MainHeaderStyle
+{
+    background-image:url('../Images/TopToolBar/header_bg.gif');    
+}
+

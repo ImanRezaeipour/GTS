@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.PermitPair, GTS.Clock.Model"
+         table ="TA_PermitPair" lazy="false">
+    <id name="ID" access="property" column="PermitPair_ID">
+      <generator class="native" />
+    </id>
+
+    <many-to-one name="Permit" column="PermitPair_PermitId" class="GTS.Clock.Model.Concepts.Permit, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="Precard" column="PermitPair_PishCardID" class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model" lazy="proxy" outer-join="false" cascade="none" update="false" insert="false" />
+
+    <property name="PreCardID" access="property" column="PermitPair_PishCardID"/>
+    <property name="From" access="property" column="PermitPair_From"/>
+    <property name="To" access="property" column="PermitPair_To"/>
+    <property name="value" access="field" column="PermitPair_Value"/>
+    <property name="IsFilled" access="property" column="PermitPair_IsFilled"/>
+    <property name="RequestID" access="property" column="PermitPair_RequestId" />
+    <property name="IsApplyedOnTraffic" access="property" column="PermitPair_IsApplyedOnTraffic" />
+
+  
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="clmnDate_GridMasterExceptionShifts_MasterExceptionShifts.HeadingText" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="clmnPersonnelName_GridMasterExceptionShifts_MasterExceptionShifts.HeadingText" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="clmnShiftName_GridMasterExceptionShifts_MasterExceptionShifts.HeadingText" xml:space="preserve">
+    <value>نام شیفت</value>
+  </data>
+  <data name="lblFromDate_MasterExceptionShifts.Text" xml:space="preserve">
+    <value>از  :</value>
+  </data>
+  <data name="lblMasterPersonnel_MasterExceptionShifts.Text" xml:space="preserve">
+    <value>پرسنل :</value>
+  </data>
+  <data name="lblMasterWorkGroup_MasterExceptionShifts.Text" xml:space="preserve">
+    <value>گروه کاری :</value>
+  </data>
+  <data name="lblToDate_MasterExceptionShifts.Text" xml:space="preserve">
+    <value>تا :</value>
+  </data>
+  <data name="MasterExceptionShiftsForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="tlbItemDelete_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="tlbItemEdit_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="tlbItemExit_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemHelp_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemMessage_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>پیغام</value>
+  </data>
+  <data name="tlbItemNew_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="tlbItemPersonnelSearch_TlbMasterSearchPersonnel_MasterExceptionShifts.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="tlbItemTwoDayReplacement_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>جابجایی دو روز</value>
+  </data>
+  <data name="tlbItemTwoPersonnelReplacement_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>جابجایی دو نفر</value>
+  </data>
+  <data name="VAlignObj.valign" xml:space="preserve">
+    <value>bottom</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="clmnBarCode_cmbPersonnel_MasterExceptionShifts" xml:space="preserve">
+    <value>بارکد</value>
+  </data>
+  <data name="clmnName_cmbPersonnel_MasterExceptionShifts" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="header_SearchByPersonnelBox_MasterExceptionShifts" xml:space="preserve">
+    <value>انتخاب پرسنل </value>
+  </data>
+  <data name="lblPersonnel_MasterExceptionShifts.Text" xml:space="preserve">
+    <value>پرسنل :</value>
+  </data>
+  <data name="tlbItemAdvancedSearch_TlbAdvancedSearch_MasterExceptionShifts.ToolTip" xml:space="preserve">
+    <value>جستجوی پیشرفته</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_PersonnelSearch_MasterExceptionShifts.ToolTip" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_PersonnelSearch_MasterExceptionShifts.ToolTip" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_PersonnelSearch_MasterExceptionShifts.ToolTip" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_PersonnelSearch_MasterExceptionShifts.ToolTip" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_PersonnelSearch_MasterExceptionShifts.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemSearch_TlbSearchPersonnel_MasterExceptionShifts.ToolTip" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="CustomAlignObj.align" xml:space="preserve">
+    <value>center</value>
+  </data>
+  <data name="tlbItemView_TlbView_MasterExceptionShifts.Text" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>عملیات حذف با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="hfAdd_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>درج</value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>شماره پرسنلی</value>
+  </data>
+  <data name="hfclmnCardNum_cmbPersonnel_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>شماره کارت</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="hfCloseMessage_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>آیا از فرم شیفت های استثناء خارج می شوید ؟</value>
+  </data>
+  <data name="hfConnectionError_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfDeleteMessage_ExceptionShifts.Value" xml:space="preserve">
+    <value>آیا این شیفت استثناء را حذف می کنید ؟</value>
+  </data>
+  <data name="hfDelete_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="hfEdit_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="hfErrorType_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="hfheader_ExceptionShifts_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>شیفت های استثناء</value>
+  </data>
+  <data name="hfheader_SearchByPersonnelBox_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>انتخاب پرسنل</value>
+  </data>
+  <data name="hfloadingPanel_GridExceptionShifts_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>بارگیری ...</value>
+  </data>
+  <data name="hfView_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="tlbItemRefresh_TlbRefresh_GridExceptionShifts_ExceptionShifts.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="NoExceptionShiftSelectedforDelete" xml:space="preserve">
+    <value>شیفت استثناء جهت حذف انتخاب نگردیده است</value>
+  </data>
+  <data name="hfDeleteMessage_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>آیا این شیفت استثناء را حذف می کنید ؟</value>
+  </data>
+  <data name="hfTwoDayReplacement_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>جابجایی دو روز</value>
+  </data>
+  <data name="hfTwoPersonnelReplacement_MasterExceptionShifts.Value" xml:space="preserve">
+    <value>جابجایی دو نفر</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="ExceptionShiftPersonIdRequierd" xml:space="preserve">
+    <value>پرسنل مقدار نگرفته است</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی غیر مجاز به سرویس</value>
+  </data>
+  <data name="tlbItemMonthlyExceptionShifts_TlbMasterExceptionShifts.Text" xml:space="preserve">
+    <value>شیفت های استثناء ماهیانه</value>
+  </data>
+</root>

@@ -1,0 +1,1102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37E4D835-D2F3-4C80-BEC7-CD2B535BC067}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GTS.Clock.Presentaion.Forms</RootNamespace>
+    <AssemblyName>GTS.Clock.Presentaion.Forms</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ajax, Version=5.7.22.2, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Ajax\v2.0.50727\Ajax.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\kamz\Desktop\GTS DLL\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="App_Licenses, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Presentation\Bin\App_Licenses.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNetPersianDatePickup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Presentation\Bin\AspNetPersianDatePickup.dll</HintPath>
+    </Reference>
+    <Reference Include="Bytescout.Spreadsheet, Version=2.2.0.517, Culture=neutral, PublicKeyToken=f7dd1bd9d40a50eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Bytescout.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Presentation\Bin\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Presentation\Bin\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentArt.Web.UI, Version=2009.3.1762.35, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Presentation\Bin\ComponentArt.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DundasWebChart, Version=7.1.0.1810, Culture=neutral, PublicKeyToken=90d06b0c62d592d0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Dundas Software\Charting\WebControlVS2008\bin\DundasWebChart.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControl, Version=2.4.2276.31815, Culture=neutral, PublicKeyToken=0066be59ecd613cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Components\FlashControl\FlashControl.dll</HintPath>
+    </Reference>
+    <Reference Include="FUA, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Presentation\Bin\FUA.dll</HintPath>
+    </Reference>
+    <Reference Include="GTS.Clock.Infrastructure, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\kamz\Desktop\GTS DLL\GTS.Clock.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="GTS.Clock.Infrastructure.Repository, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\kamz\Desktop\GTS DLL\GTS.Clock.Infrastructure.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="GTS.Clock.Model, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\kamz\Desktop\GTS DLL\GTS.Clock.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="GTS.Clock.Presentation.Presenter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\kamz\Desktop\GTS DLL\GTS.Clock.Presentation.Presenter.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\kamz\Desktop\New Kamz\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Presentation\Bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Report, Version=2010.1.700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Report.Web, Version=2010.1.700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="Stimulsoft.Report.WebDesign, Version=2010.1.700.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="TimePicker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d25e9f59e49c4d2f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GTS.Clock.Presentation\Bin\TimePicker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessLevels.aspx.cs">
+      <DependentUpon>AccessLevels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessLevels.aspx.designer.cs">
+      <DependentUpon>AccessLevels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveDirectory.aspx.cs">
+      <DependentUpon>ActiveDirectory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveDirectory.aspx.designer.cs">
+      <DependentUpon>ActiveDirectory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_WebReferences\LanguageProvider.cs" />
+    <Compile Include="App_WebReferences\SimpleXMLConvertor.cs" />
+    <Compile Include="Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CollectiveTraffic.aspx.cs">
+      <DependentUpon>CollectiveTraffic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CollectiveTraffic.aspx.designer.cs">
+      <DependentUpon>CollectiveTraffic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStations.aspx.cs">
+      <DependentUpon>ControlStations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlStations.aspx.designer.cs">
+      <DependentUpon>ControlStations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DailyRequestOnAbsence.aspx.cs">
+      <DependentUpon>DailyRequestOnAbsence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DailyRequestOnAbsence.aspx.designer.cs">
+      <DependentUpon>DailyRequestOnAbsence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Departments.aspx.cs">
+      <DependentUpon>Departments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Departments.aspx.designer.cs">
+      <DependentUpon>Departments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployTypes.aspx.cs">
+      <DependentUpon>EmployTypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployTypes.aspx.designer.cs">
+      <DependentUpon>EmployTypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionShifts.aspx.cs">
+      <DependentUpon>ExceptionShifts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionShifts.aspx.designer.cs">
+      <DependentUpon>ExceptionShifts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GanttChart.aspx.cs">
+      <DependentUpon>GanttChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GanttChart.aspx.designer.cs">
+      <DependentUpon>GanttChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HourlyRequestOnAbsence.aspx.cs">
+      <DependentUpon>HourlyRequestOnAbsence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HourlyRequestOnAbsence.aspx.designer.cs">
+      <DependentUpon>HourlyRequestOnAbsence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Machines.aspx.cs">
+      <DependentUpon>Machines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Machines.aspx.designer.cs">
+      <DependentUpon>Machines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.aspx.cs">
+      <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.aspx.designer.cs">
+      <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterExceptionShifts.aspx.cs">
+      <DependentUpon>MasterExceptionShifts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterExceptionShifts.aspx.designer.cs">
+      <DependentUpon>MasterExceptionShifts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterGanttChart.aspx.cs">
+      <DependentUpon>MasterGanttChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterGanttChart.aspx.designer.cs">
+      <DependentUpon>MasterGanttChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterMonthlyOperation.aspx.cs">
+      <DependentUpon>MasterMonthlyOperation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterMonthlyOperation.aspx.designer.cs">
+      <DependentUpon>MasterMonthlyOperation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyOperationGridSchema.aspx.cs">
+      <DependentUpon>MonthlyOperationGridSchema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyOperationGridSchema.aspx.designer.cs">
+      <DependentUpon>MonthlyOperationGridSchema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterMeritLeaveRemains.aspx.cs">
+      <DependentUpon>MasterMeritLeaveRemains.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterMeritLeaveRemains.aspx.designer.cs">
+      <DependentUpon>MasterMeritLeaveRemains.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPersonnelMainInformation.aspx.cs">
+      <DependentUpon>MasterPersonnelMainInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPersonnelMainInformation.aspx.designer.cs">
+      <DependentUpon>MasterPersonnelMainInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MissionLocations.aspx.cs">
+      <DependentUpon>MissionLocations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MissionLocations.aspx.designer.cs">
+      <DependentUpon>MissionLocations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationPosts.aspx.cs">
+      <DependentUpon>OrganizationPosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationPosts.aspx.designer.cs">
+      <DependentUpon>OrganizationPosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OvertimeJustificationRequest.aspx.cs">
+      <DependentUpon>OvertimeJustificationRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OvertimeJustificationRequest.aspx.designer.cs">
+      <DependentUpon>OvertimeJustificationRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordChange.aspx.cs">
+      <DependentUpon>PasswordChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordChange.aspx.designer.cs">
+      <DependentUpon>PasswordChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MeritLeaveRemains.aspx.cs">
+      <DependentUpon>MeritLeaveRemains.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MeritLeaveRemains.aspx.designer.cs">
+      <DependentUpon>MeritLeaveRemains.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelMainInformation.aspx.cs">
+      <DependentUpon>PersonnelMainInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelMainInformation.aspx.designer.cs">
+      <DependentUpon>PersonnelMainInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelOrganizationFeaturesChange.aspx.cs">
+      <DependentUpon>PersonnelOrganizationFeaturesChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelOrganizationFeaturesChange.aspx.designer.cs">
+      <DependentUpon>PersonnelOrganizationFeaturesChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelSearch.aspx.cs">
+      <DependentUpon>PersonnelSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelSearch.aspx.designer.cs">
+      <DependentUpon>PersonnelSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreCard.aspx.cs">
+      <DependentUpon>PreCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreCard.aspx.designer.cs">
+      <DependentUpon>PreCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestOnTraffic.aspx.cs">
+      <DependentUpon>RequestOnTraffic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestOnTraffic.aspx.designer.cs">
+      <DependentUpon>RequestOnTraffic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestOnUnallowableOverTime.aspx.cs">
+      <DependentUpon>RequestOnUnallowableOverTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestOnUnallowableOverTime.aspx.designer.cs">
+      <DependentUpon>RequestOnUnallowableOverTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shifts.aspx.cs">
+      <DependentUpon>Shifts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shifts.aspx.designer.cs">
+      <DependentUpon>Shifts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftsView.aspx.cs">
+      <DependentUpon>ShiftsView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftsView.aspx.designer.cs">
+      <DependentUpon>ShiftsView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrafficOperationByOperator.aspx.cs">
+      <DependentUpon>TrafficOperationByOperator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrafficOperationByOperator.aspx.designer.cs">
+      <DependentUpon>TrafficOperationByOperator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\Convert\RuleEditor.ascx.cs">
+      <DependentUpon>RuleEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\Convert\RuleEditor.ascx.designer.cs">
+      <DependentUpon>RuleEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\Convert\RuleFinder.ascx.cs">
+      <DependentUpon>RuleFinder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\Convert\RuleFinder.ascx.designer.cs">
+      <DependentUpon>RuleFinder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\Convert\RuleViewer.ascx.cs">
+      <DependentUpon>RuleViewer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\Convert\RuleViewer.ascx.designer.cs">
+      <DependentUpon>RuleViewer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\TopToolbar.ascx.cs">
+      <DependentUpon>TopToolbar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\TopToolbar.ascx.designer.cs">
+      <DependentUpon>TopToolbar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkGroupsIntroductionAndPlanning.aspx.cs">
+      <DependentUpon>WorkGroupsIntroductionAndPlanning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkGroupsIntroductionAndPlanning.aspx.designer.cs">
+      <DependentUpon>WorkGroupsIntroductionAndPlanning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkHeat.aspx.cs">
+      <DependentUpon>WorkHeat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkHeat.aspx.designer.cs">
+      <DependentUpon>WorkHeat.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\web.config" />
+    <Content Include="Images\web.config" />
+    <None Include="bin\Dundas.Charting.WebControl.Chart.lic" />
+    <None Include="Farsi Font\ARSHIA.TTF" />
+    <None Include="Farsi Font\BADR.TTF" />
+    <None Include="Farsi Font\BADRBD.TTF" />
+    <None Include="Farsi Font\DAVAT.TTF" />
+    <None Include="Farsi Font\ELHAM.TTF" />
+    <None Include="Farsi Font\FARNAZ.TTF" />
+    <None Include="Farsi Font\FERDOSI.TTF" />
+    <None Include="Farsi Font\HOMA.TTF" />
+    <None Include="Farsi Font\HUSSF.TTF" />
+    <None Include="Farsi Font\IranNastaliq.ttf" />
+    <None Include="Farsi Font\KAMRANB.TTF" />
+    <None Include="Farsi Font\KAMRANO.TTF" />
+    <None Include="Farsi Font\KOODAKO.TTF" />
+    <None Include="Farsi Font\KOODB.TTF" />
+    <None Include="Farsi Font\KUFI.TTF" />
+    <None Include="Farsi Font\MAJIDSH.TTF" />
+    <None Include="Farsi Font\MAJIF.TTF" />
+    <None Include="Farsi Font\MAJIIF.TTF" />
+    <None Include="Farsi Font\MITRA.TTF" />
+    <None Include="Farsi Font\MITRABD.TTF" />
+    <None Include="Farsi Font\NASIMB.TTF" />
+    <None Include="Farsi Font\NAZANB.TTF" />
+    <None Include="Farsi Font\NAZANIN.TTF" />
+    <None Include="Farsi Font\naz___sf.TTF" />
+    <None Include="Farsi Font\ROYA.TTF" />
+    <None Include="Farsi Font\ROYABD.TTF" />
+    <None Include="Farsi Font\SIAV.TTF" />
+    <None Include="Farsi Font\TABASSO.TTF" />
+    <None Include="Farsi Font\TAWFF.TTF" />
+    <None Include="Farsi Font\TAWFIGO.TTF" />
+    <None Include="Farsi Font\Titr.ttf" />
+    <None Include="Farsi Font\TITRBD.TTF" />
+    <None Include="Farsi Font\TRA.TTF" />
+    <None Include="Farsi Font\TRAFB.TTF" />
+    <None Include="Farsi Font\TRAFFIC.TTF" />
+    <None Include="Farsi Font\YAGB.TTF" />
+    <None Include="Farsi Font\YAGHOTI.TTF" />
+    <None Include="Farsi Font\YEKAN.TTF" />
+    <None Include="Farsi Font\ZAR.TTF" />
+    <None Include="Farsi Font\ZARBOLD.TTF" />
+    <None Include="Images\other\Thumbs.db" />
+    <Content Include="JS\web.config" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Calendar.aspx.fa.resx" />
+    <Content Include="App_LocalResources\Calendar.aspx.resx" />
+    <Content Include="App_LocalResources\ExceptionShifts.aspx.fa.resx" />
+    <Content Include="App_LocalResources\ExceptionShifts.aspx.resx" />
+    <Content Include="App_LocalResources\MainPage.aspx.fa.resx" />
+    <Content Include="App_LocalResources\MainPage.aspx.resx" />
+    <Content Include="App_LocalResources\PersonnelMainInformation.aspx.fa.resx" />
+    <Content Include="App_LocalResources\PersonnelMainInformation.aspx.resx" />
+    <Content Include="App_LocalResources\PersonnelSearch.aspx.fa.resx" />
+    <Content Include="App_LocalResources\PersonnelSearch.aspx.resx" />
+    <Content Include="App_LocalResources\MeritLeaveRemains.aspx.fa.resx" />
+    <Content Include="App_LocalResources\MeritLeaveRemains.aspx.resx" />
+    <Content Include="App_LocalResources\TopToolbar.ascx.resx">
+    </Content>
+    <Content Include="App_LocalResources\TopToolbar.ascx.fa.resx" />
+    <Content Include="App_LocalResources\ActiveDirectory.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\ActiveDirectory.aspx.fa.resx" />
+    <Content Include="App_LocalResources\Departments.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\Departments.aspx.fa.resx" />
+    <Content Include="App_LocalResources\OrganizationPosts.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\OrganizationPosts.aspx.fa.resx" />
+    <Content Include="App_LocalResources\EmployTypes.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\EmployTypes.aspx.fa.resx" />
+    <Content Include="App_LocalResources\Shifts.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\Shifts.aspx.fa.resx" />
+    <Content Include="App_LocalResources\MissionLocations.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\MissionLocations.aspx.fa.resx" />
+    <Content Include="App_LocalResources\WorkGroupsIntroductionAndPlanning.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\WorkGroupsIntroductionAndPlanning.aspx.fa.resx" />
+    <Content Include="App_LocalResources\MasterExceptionShifts.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\MasterExceptionShifts.aspx.fa.resx" />
+    <Content Include="App_LocalResources\MasterPersonnelMainInformation.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\MasterPersonnelMainInformation.aspx.fa.resx" />
+    <Content Include="App_LocalResources\WorkHeat.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\WorkHeat.aspx.fa.resx" />
+    <Content Include="App_LocalResources\PreCard.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\PreCard.aspx.fa.resx" />
+    <Content Include="App_LocalResources\ControlStations.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\ControlStations.aspx.fa.resx" />
+    <Content Include="App_LocalResources\Machines.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\Machines.aspx.fa.resx" />
+    <Content Include="App_LocalResources\MasterMeritLeaveRemains.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\MasterMeritLeaveRemains.aspx.fa.resx" />
+    <Content Include="App_LocalResources\PersonnelOrganizationFeaturesChange.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\PersonnelOrganizationFeaturesChange.aspx.fa.resx" />
+    <Content Include="App_LocalResources\Users.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\Users.aspx.fa.resx" />
+    <Content Include="App_LocalResources\Roles.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\Roles.aspx.fa.resx" />
+    <Content Include="App_LocalResources\AccessLevels.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\AccessLevels.aspx.fa.resx" />
+    <Content Include="App_LocalResources\PasswordChange.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\PasswordChange.aspx.fa.resx" />
+    <Content Include="App_LocalResources\MonthlyOperationGridSchema.aspx.fa.resx">
+    </Content>
+    <Content Include="App_LocalResources\MonthlyOperationGridSchema.aspx.resx" />
+    <Content Include="App_LocalResources\MasterMonthlyOperation.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\MasterMonthlyOperation.aspx.fa.resx" />
+    <Content Include="App_LocalResources\RequestOnTraffic.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\RequestOnTraffic.aspx.fa.resx" />
+    <Content Include="App_LocalResources\HourlyRequestOnAbsence.aspx.fa.resx">
+    </Content>
+    <Content Include="App_LocalResources\HourlyRequestOnAbsence.aspx.resx" />
+    <Content Include="App_LocalResources\DailyRequestOnAbsence.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\DailyRequestOnAbsence.aspx.fa.resx" />
+    <Content Include="App_LocalResources\TrafficOperationByOperator.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\TrafficOperationByOperator.aspx.fa.resx" />
+    <Content Include="App_LocalResources\CollectiveTraffic.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\CollectiveTraffic.aspx.fa.resx" />
+    <Content Include="App_LocalResources\RequestOnUnallowableOverTime.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\RequestOnUnallowableOverTime.aspx.fa.resx" />
+    <Content Include="App_LocalResources\OvertimeJustificationRequest.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\OvertimeJustificationRequest.aspx.fa.resx" />
+    <Content Include="App_LocalResources\ShiftsView.aspx.resx">
+    </Content>
+    <Content Include="App_LocalResources\ShiftsView.aspx.fa.resx" />
+    <EmbeddedResource Include="licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccessLevels.aspx" />
+    <Content Include="ActiveDirectory.aspx" />
+    <Content Include="bin\App_Licenses.dll" />
+    <Content Include="bin\AspNetPersianDatePickup.dll" />
+    <Content Include="bin\ComponentArt.Web.UI.dll" />
+    <Content Include="bin\DundasWebChart.dll" />
+    <Content Include="bin\FUA.dll" />
+    <Content Include="bin\iucon.web.Controls.PartialUpdatePanel.dll" />
+    <Content Include="bin\log4net.dll" />
+    <Content Include="bin\TimePicker.dll" />
+    <Content Include="Calendar.aspx" />
+    <Content Include="CollectiveTraffic.aspx" />
+    <Content Include="Common\db\demo.mdb">
+    </Content>
+    <Content Include="ControlStations.aspx" />
+    <Content Include="css\alert_box.css" />
+    <Content Include="css\calendarStyle.css" />
+    <Content Include="css\colorPickerStyle.css" />
+    <Content Include="css\combobox.css" />
+    <Content Include="css\dialog.css" />
+    <Content Include="css\dropdowndive.css" />
+    <Content Include="css\gridStyle.css" />
+    <Content Include="css\hierarchicalGridStyle.css" />
+    <Content Include="css\iframe.css" />
+    <Content Include="css\inputStyle.css" />
+    <Content Include="css\keyboard.css" />
+    <Content Include="css\lable.css" />
+    <Content Include="css\login.css" />
+    <Content Include="css\mainpage.css" />
+    <Content Include="css\multiPage.css" />
+    <Content Include="css\navStyle.css" />
+    <Content Include="css\rotator.css" />
+    <Content Include="css\RuleEditor.css" />
+    <Content Include="css\RuleFinder.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\tableStyle.css" />
+    <Content Include="css\tabStyle.css" />
+    <Content Include="css\toolbar.css" />
+    <Content Include="css\treeStyle.css" />
+    <Content Include="css\upload.css" />
+    <Content Include="DailyRequestOnAbsence.aspx" />
+    <Content Include="Departments.aspx" />
+    <Content Include="EmployTypes.aspx" />
+    <Content Include="ExceptionShifts.aspx" />
+    <Content Include="GanttChart.aspx" />
+    <Content Include="HourlyRequestOnAbsence.aspx" />
+    <Content Include="Images\AlertBox\dialog_close.gif" />
+    <Content Include="Images\AlertBox\error_bg.jpg" />
+    <Content Include="Images\AlertBox\error_header.gif" />
+    <Content Include="Images\AlertBox\prompt_bg.jpg" />
+    <Content Include="Images\AlertBox\prompt_header.gif" />
+    <Content Include="Images\AlertBox\success_bg.jpg" />
+    <Content Include="Images\AlertBox\success_header.gif" />
+    <Content Include="Images\AlertBox\warning_bg.jpg" />
+    <Content Include="Images\AlertBox\warning_header.gif" />
+    <Content Include="Images\Calendar\btn_calendar.gif" />
+    <Content Include="Images\Calendar\cal_nextMonth.gif" />
+    <Content Include="Images\Calendar\cal_prevMonth.gif" />
+    <Content Include="Images\ColorPicker\blank.gif" />
+    <Content Include="Images\ColorPicker\crosshair.gif" />
+    <Content Include="Images\ColorPicker\dialog\horizontal.png" />
+    <Content Include="Images\ColorPicker\dialog\static.png" />
+    <Content Include="Images\ColorPicker\grip.gif" />
+    <Content Include="Images\ColorPicker\hsvwheel.png" />
+    <Content Include="Images\ColorPicker\hue.png" />
+    <Content Include="Images\ColorPicker\saturation.png" />
+    <Content Include="Images\ColorPicker\slider\static.png" />
+    <Content Include="Images\ColorPicker\_old\blank.gif" />
+    <Content Include="Images\ColorPicker\_old\checker.png" />
+    <Content Include="Images\ColorPicker\_old\crosshair.gif" />
+    <Content Include="Images\ColorPicker\_old\dialog\horizontal.png" />
+    <Content Include="Images\ColorPicker\_old\dialog\static.png" />
+    <Content Include="Images\ColorPicker\_old\dialog\vertical.png" />
+    <Content Include="Images\ColorPicker\_old\dialog\_blank.png" />
+    <Content Include="Images\ColorPicker\_old\grip.gif" />
+    <Content Include="Images\ColorPicker\_old\hsvbloom.png" />
+    <Content Include="Images\ColorPicker\_old\hsvwheel.png" />
+    <Content Include="Images\ColorPicker\_old\hue.png" />
+    <Content Include="Images\ColorPicker\_old\saturation.png" />
+    <Content Include="Images\ColorPicker\_old\slider\static.png" />
+    <Content Include="Images\ComboBox\comboItemBg.gif" />
+    <Content Include="Images\ComboBox\windows-7-wallpaper-1920x1200.jpg" />
+    <Content Include="Images\Dialog\alpha.png" />
+    <Content Include="Images\Dialog\bottom-left.png" />
+    <Content Include="Images\Dialog\bottom-mid.png" />
+    <Content Include="Images\Dialog\bottom-right.png" />
+    <Content Include="Images\Dialog\bottom.gif" />
+    <Content Include="Images\Dialog\bottom_content.gif" />
+    <Content Include="Images\Dialog\bottom_left.gif" />
+    <Content Include="Images\Dialog\bottom_right.gif" />
+    <Content Include="Images\Dialog\close-down.png" />
+    <Content Include="Images\Dialog\close-hover.png" />
+    <Content Include="Images\Dialog\close.gif" />
+    <Content Include="Images\Dialog\close.png" />
+    <Content Include="Images\Dialog\down.gif" />
+    <Content Include="Images\Dialog\down_left.gif" />
+    <Content Include="Images\Dialog\down_right.gif" />
+    <Content Include="Images\Dialog\close_down.png" />
+    <Content Include="Images\Dialog\left.gif" />
+    <Content Include="Images\Dialog\left.png" />
+    <Content Include="Images\Dialog\left_border.gif" />
+    <Content Include="Images\Dialog\loading1.gif" />
+    <Content Include="Images\Dialog\loading2.gif" />
+    <Content Include="Images\Dialog\loading3.gif" />
+    <Content Include="Images\Dialog\popup_bottom.gif" />
+    <Content Include="Images\Dialog\right.gif" />
+    <Content Include="Images\Dialog\right.png" />
+    <Content Include="Images\Dialog\right_border.gif" />
+    <Content Include="Images\Dialog\spacer.gif" />
+    <Content Include="Images\Dialog\top-left.png" />
+    <Content Include="Images\Dialog\top-mid.png" />
+    <Content Include="Images\Dialog\top-right.png" />
+    <Content Include="Images\Dialog\top.gif" />
+    <Content Include="Images\Dialog\top_left.gif" />
+    <Content Include="Images\Dialog\top_right.gif" />
+    <Content Include="Images\Ghadir\024.jpg" />
+    <Content Include="Images\Ghadir\03.jpg" />
+    <Content Include="Images\Ghadir\1-fill-the-background.jpg" />
+    <Content Include="Images\Ghadir\1.gif" />
+    <Content Include="Images\Ghadir\1.jpg" />
+    <Content Include="Images\Ghadir\5-full.jpg" />
+    <Content Include="Images\Ghadir\arrowDown.jpg" />
+    <Content Include="Images\Ghadir\arrowDown_silver.jpg" />
+    <Content Include="Images\Ghadir\arrowUp.jpg" />
+    <Content Include="Images\Ghadir\backrepeat.jpg" />
+    <Content Include="Images\Ghadir\bg-body.jpg" />
+    <Content Include="Images\Ghadir\bg-vertical-body.jpg" />
+    <Content Include="Images\Ghadir\ghadir.JPG" />
+    <Content Include="Images\Ghadir\gradient-background.jpg" />
+    <Content Include="Images\Ghadir\gradient.jpg" />
+    <Content Include="Images\Ghadir\GraphicalSchema.png" />
+    <Content Include="Images\Ghadir\GridSchema.png" />
+    <Content Include="Images\Ghadir\JPG3B4.JPG" />
+    <Content Include="Images\Ghadir\LargeGraphicalSchema.png" />
+    <Content Include="Images\Ghadir\LargeGridSchema.png" />
+    <Content Include="Images\Ghadir\purple-gradient.jpg" />
+    <Content Include="Images\Ghadir\shapes.jpg" />
+    <Content Include="Images\Ghadir\wallpaper2.jpg" />
+    <Content Include="Images\Ghadir\Web-background-1-filtered.jpg" />
+    <Content Include="Images\Ghadir\web-background.jpg" />
+    <Content Include="Images\Ghadir\windows-7-wallpaper-1920x1200.jpg" />
+    <Content Include="Images\Grid\asc.gif" />
+    <Content Include="Images\Grid\blue_bg.gif" />
+    <Content Include="Images\Grid\desc.gif" />
+    <Content Include="Images\Grid\green_bg.gif" />
+    <Content Include="Images\Grid\headerBg.gif" />
+    <Content Include="Images\Grid\LeftLines\dash.gif" />
+    <Content Include="Images\Grid\LeftLines\dashminus.gif" />
+    <Content Include="Images\Grid\LeftLines\dashplus.gif" />
+    <Content Include="Images\Grid\LeftLines\i.gif" />
+    <Content Include="Images\Grid\LeftLines\l.gif" />
+    <Content Include="Images\Grid\LeftLines\lminus.gif" />
+    <Content Include="Images\Grid\LeftLines\lplus.gif" />
+    <Content Include="Images\Grid\LeftLines\minus.gif" />
+    <Content Include="Images\Grid\LeftLines\noexpand.gif" />
+    <Content Include="Images\Grid\LeftLines\plus.gif" />
+    <Content Include="Images\Grid\LeftLines\r.gif" />
+    <Content Include="Images\Grid\LeftLines\rminus.gif" />
+    <Content Include="Images\Grid\LeftLines\rplus.gif" />
+    <Content Include="Images\Grid\LeftLines\t.gif" />
+    <Content Include="Images\Grid\LeftLines\tminus.gif" />
+    <Content Include="Images\Grid\LeftLines\tplus.gif" />
+    <Content Include="Images\Grid\pager\first.gif" />
+    <Content Include="Images\Grid\pager\last.gif" />
+    <Content Include="Images\Grid\pager\next.gif" />
+    <Content Include="Images\Grid\pager\prev.gif" />
+    <Content Include="Images\Grid\pager\slider_bg.gif" />
+    <Content Include="Images\Grid\pager\slider_grip.gif" />
+    <Content Include="Images\Grid\RightLines\dash.gif" />
+    <Content Include="Images\Grid\RightLines\dashminus.gif" />
+    <Content Include="Images\Grid\RightLines\dashplus.gif" />
+    <Content Include="Images\Grid\RightLines\i.gif" />
+    <Content Include="Images\Grid\RightLines\l.gif" />
+    <Content Include="Images\Grid\RightLines\lminus.gif" />
+    <Content Include="Images\Grid\RightLines\lplus.gif" />
+    <Content Include="Images\Grid\RightLines\minus.gif" />
+    <Content Include="Images\Grid\RightLines\noexpand.gif" />
+    <Content Include="Images\Grid\RightLines\plus.gif" />
+    <Content Include="Images\Grid\RightLines\r.gif" />
+    <Content Include="Images\Grid\RightLines\rminus.gif" />
+    <Content Include="Images\Grid\RightLines\rplus.gif" />
+    <Content Include="Images\Grid\RightLines\t.gif" />
+    <Content Include="Images\Grid\RightLines\tminus.gif" />
+    <Content Include="Images\Grid\RightLines\tplus.gif" />
+    <Content Include="Images\Grid\Scroller\bottom.gif" />
+    <Content Include="Images\Grid\Scroller\down.gif" />
+    <Content Include="Images\Grid\Scroller\down_disabled.gif" />
+    <Content Include="Images\Grid\Scroller\scroller_bg.gif" />
+    <Content Include="Images\Grid\Scroller\scroll_gripBg.gif" />
+    <Content Include="Images\Grid\Scroller\top.gif" />
+    <Content Include="Images\Grid\Scroller\up.gif" />
+    <Content Include="Images\Grid\Scroller\up_disabled.gif" />
+    <Content Include="Images\Grid\selector.gif" />
+    <Content Include="Images\Grid\spinner.gif" />
+    <Content Include="Images\Grid\thread_important_new.gif" />
+    <Content Include="Images\Grid\thread_locked_new.gif" />
+    <Content Include="Images\Grid\thread_new.gif" />
+    <Content Include="Images\Grid\thread_pinned_new.gif" />
+    <Content Include="Images\Grid\thread_pinned_read.gif" />
+    <Content Include="Images\Grid\thread_popular_new.gif" />
+    <Content Include="Images\Grid\thread_popular_read.gif" />
+    <Content Include="Images\Grid\thread_read.gif" />
+    <Content Include="Images\Input\static.png" />
+    <Content Include="Images\Menu\menuitem.gif" />
+    <Content Include="Images\Menu\menuitem_over.gif" />
+    <Content Include="Images\NavBar\arrow.gif" />
+    <Content Include="Images\NavBar\arrow_expanded.gif" />
+    <Content Include="Images\NavBar\gradient-background.jpg" />
+    <Content Include="Images\NavBar\group_bg.gif" />
+    <Content Include="Images\NavBar\item_bg.gif" />
+    <Content Include="Images\NavBar\item_hover_bg.gif" />
+    <Content Include="Images\other\banner_bottom_bg.jpg" />
+    <Content Include="Images\other\closeBtn.png" />
+    <Content Include="Images\other\closeBtnHover.png" />
+    <Content Include="Images\other\DownBtn.png" />
+    <Content Include="Images\other\DropBtn.png" />
+    <Content Include="Images\other\h_DownBtn.png" />
+    <Content Include="Images\other\h_DropBtn.png" />
+    <Content Include="Images\other\iucon.gif" />
+    <Content Include="Images\other\keyboard.png" />
+    <Content Include="Images\other\leftbotton.png" />
+    <Content Include="Images\other\lefttop.png" />
+    <Content Include="Images\other\loading.gif" />
+    <Content Include="Images\other\login1.jpg" />
+    <Content Include="Images\other\login1.png" />
+    <Content Include="Images\other\login2.png" />
+    <Content Include="Images\other\login3.png" />
+    <Content Include="Images\other\login4.png" />
+    <Content Include="Images\other\menu3.gif" />
+    <Content Include="Images\other\menu7.gif" />
+    <Content Include="Images\other\middlebotton.png" />
+    <Content Include="Images\other\middletop.png" />
+    <Content Include="Images\other\return.png" />
+    <Content Include="Images\other\returnHover.png" />
+    <Content Include="Images\other\rightbotton.png" />
+    <Content Include="Images\other\righttop.png" />
+    <Content Include="Images\other\tableft.gif" />
+    <Content Include="Images\other\tabright.gif" />
+    <Content Include="Images\other\titleBackground.png" />
+    <Content Include="Images\other\titleBackground1.png" />
+    <Content Include="Images\other\yek.jpg" />
+    <Content Include="Images\Rotator\braun_shaver.jpg" />
+    <Content Include="Images\Rotator\mp3_player.jpg" />
+    <Content Include="Images\Rotator\swiss_watch.jpg" />
+    <Content Include="Images\TabStrip\hover_scroll_item_bg.gif" />
+    <Content Include="Images\TabStrip\item_bg.gif" />
+    <Content Include="Images\TabStrip\scroll_item_bg.gif" />
+    <Content Include="Images\TabStrip\scroll_left.gif" />
+    <Content Include="Images\TabStrip\scroll_right.gif" />
+    <Content Include="Images\TabStrip\selected_tab_left_icon.gif" />
+    <Content Include="Images\TabStrip\selected_tab_right_icon.gif" />
+    <Content Include="Images\TabStrip\solid_blue.gif" />
+    <Content Include="Images\TabStrip\tab_left_icon.gif" />
+    <Content Include="Images\TabStrip\tab_right_icon.gif" />
+    <Content Include="Images\TimeSelector\CustomDown.gif" />
+    <Content Include="Images\TimeSelector\CustomUp.gif" />
+    <Content Include="Images\ToolBar\Excel.png" />
+    <Content Include="Images\ToolBar\access.png" />
+    <Content Include="Images\ToolBar\add.png" />
+    <Content Include="Images\ToolBar\add_silver.png" />
+    <Content Include="Images\ToolBar\arrowDown_silver.jpg" />
+    <Content Include="Images\ToolBar\backgroundgradient.gif" />
+    <Content Include="Images\ToolBar\BallClockAqua.png" />
+    <Content Include="Images\ToolBar\BallClockRed.png" />
+    <Content Include="Images\ToolBar\Before.png" />
+    <Content Include="Images\ToolBar\Blue message SH.gif" />
+    <Content Include="Images\ToolBar\Calendar.png" />
+    <Content Include="Images\ToolBar\cancel.png" />
+    <Content Include="Images\ToolBar\cancel_silver.png" />
+    <Content Include="Images\ToolBar\db-upload.png" />
+    <Content Include="Images\ToolBar\edit.png" />
+    <Content Include="Images\ToolBar\edit_silver.png" />
+    <Content Include="Images\ToolBar\exchange.png" />
+    <Content Include="Images\ToolBar\eyeglasses.png" />
+    <Content Include="Images\ToolBar\first.png" />
+    <Content Include="Images\ToolBar\folder_open.png" />
+    <Content Include="Images\ToolBar\Get message.gif" />
+    <Content Include="Images\ToolBar\help.gif" />
+    <Content Include="Images\ToolBar\last.png" />
+    <Content Include="Images\ToolBar\Next.png" />
+    <Content Include="Images\ToolBar\package_settings.png" />
+    <Content Include="Images\ToolBar\refresh.png" />
+    <Content Include="Images\ToolBar\remove.png" />
+    <Content Include="Images\ToolBar\remove_silver.png" />
+    <Content Include="Images\ToolBar\repeat-icon.png" />
+    <Content Include="Images\ToolBar\collection.png" />
+    <Content Include="Images\ToolBar\role.png" />
+    <Content Include="Images\ToolBar\save.png" />
+    <Content Include="Images\ToolBar\save_silver.png" />
+    <Content Include="Images\ToolBar\search.png" />
+    <Content Include="Images\ToolBar\toolbar_bg.gif" />
+    <Content Include="Images\ToolBar\upload.png" />
+    <Content Include="Images\ToolBar\user.png" />
+    <Content Include="Images\ToolBar\users.png" />
+    <Content Include="Images\ToolBar\view.png" />
+    <Content Include="Images\ToolBar\view_detailed.png" />
+    <Content Include="Images\TopToolBar\Iran_flag.png" />
+    <Content Include="Images\TopToolBar\uk-flag.png" />
+    <Content Include="Images\TreeView\bg-body.jpg" />
+    <Content Include="Images\TreeView\bg.gif" />
+    <Content Include="Images\TreeView\col.gif" />
+    <Content Include="Images\TreeView\exp.gif" />
+    <Content Include="Images\TreeView\folder.gif" />
+    <Content Include="Images\TreeView\LeftLines\dash.gif" />
+    <Content Include="Images\TreeView\LeftLines\dashminus.gif" />
+    <Content Include="Images\TreeView\LeftLines\dashplus.gif" />
+    <Content Include="Images\TreeView\LeftLines\i.gif" />
+    <Content Include="Images\TreeView\LeftLines\l.gif" />
+    <Content Include="Images\TreeView\LeftLines\lminus.gif" />
+    <Content Include="Images\TreeView\LeftLines\lplus.gif" />
+    <Content Include="Images\TreeView\LeftLines\minus.gif" />
+    <Content Include="Images\TreeView\LeftLines\noexpand.gif" />
+    <Content Include="Images\TreeView\LeftLines\plus.gif" />
+    <Content Include="Images\TreeView\LeftLines\r.gif" />
+    <Content Include="Images\TreeView\LeftLines\rminus.gif" />
+    <Content Include="Images\TreeView\LeftLines\rplus.gif" />
+    <Content Include="Images\TreeView\LeftLines\t.gif" />
+    <Content Include="Images\TreeView\LeftLines\tminus.gif" />
+    <Content Include="Images\TreeView\LeftLines\tplus.gif" />
+    <Content Include="Images\TreeView\RightLines\dash.gif" />
+    <Content Include="Images\TreeView\RightLines\dashminus.gif" />
+    <Content Include="Images\TreeView\RightLines\dashplus.gif" />
+    <Content Include="Images\TreeView\RightLines\i.gif" />
+    <Content Include="Images\TreeView\RightLines\l.gif" />
+    <Content Include="Images\TreeView\RightLines\lminus.gif" />
+    <Content Include="Images\TreeView\RightLines\lplus.gif" />
+    <Content Include="Images\TreeView\RightLines\minus.gif" />
+    <Content Include="Images\TreeView\RightLines\noexpand.gif" />
+    <Content Include="Images\TreeView\RightLines\plus.gif" />
+    <Content Include="Images\TreeView\RightLines\r.gif" />
+    <Content Include="Images\TreeView\RightLines\rminus.gif" />
+    <Content Include="Images\TreeView\RightLines\rplus.gif" />
+    <Content Include="Images\TreeView\RightLines\t.gif" />
+    <Content Include="Images\TreeView\RightLines\tminus.gif" />
+    <Content Include="Images\TreeView\RightLines\tplus.gif" />
+    <Content Include="Images\TreeView\spacer.gif" />
+    <Content Include="Images\TreeView\toolbar_bg.gif" />
+    <Content Include="Images\TreeView\treeview_headerBg.gif" />
+    <Content Include="Images\Weather Forecast\weather_purple_bottom.png" />
+    <Content Include="JS\API\AccessLevels_onPageLoad.js" />
+    <Content Include="JS\API\ActiveDirectory_onPageLoad.js" />
+    <Content Include="JS\API\Alert_Box.js" />
+    <Content Include="JS\API\Calendar.js" />
+    <Content Include="JS\API\CalendarForm_onKeyDown.js" />
+    <Content Include="JS\API\CalendarForm_onPageLoad.js" />
+    <Content Include="JS\API\CollectiveTraffic_onPageLoad.js" />
+    <Content Include="JS\API\ControlStations_onPageLoad.js" />
+    <Content Include="JS\API\curvycorners.src.js" />
+    <Content Include="JS\API\DailyRequestOnAbsence_onPageLoad.js" />
+    <Content Include="JS\API\Departments_onPageLoad.js" />
+    <Content Include="JS\API\DialogAccessLevelsAsign_Operations.js" />
+    <Content Include="JS\API\DialogAccessLevels_onPageLoad.js" />
+    <Content Include="JS\API\DialogActiveDirectory_onPageLoad.js" />
+    <Content Include="JS\API\DialogCollectiveTraffic_onPageLoad.js" />
+    <Content Include="JS\API\DialogCollectiveTraffic_Operations.js" />
+    <Content Include="JS\API\DialogDailyRequestOnAbsence_onPageLoad.js" />
+    <Content Include="JS\API\DialogDailyRequestOnAbsence_Operations.js" />
+    <Content Include="JS\API\DialogExceptionShifts_onPageLoad.js" />
+    <Content Include="JS\API\DialogHourlyRequestOnAbsence_onPageLoad.js" />
+    <Content Include="JS\API\DialogHourlyRequestOnAbsence_Operations.js" />
+    <Content Include="JS\API\DialogLoading_Operations.js" />
+    <Content Include="JS\API\DialogMonthlyOperationGridSchema_onPageLoad.js" />
+    <Content Include="JS\API\DialogOvertimeJustificationRequest_onPageLoad.js" />
+    <Content Include="JS\API\DialogOvertimeJustificationRequest_Operations.js" />
+    <Content Include="JS\API\DialogMeritLeaveRemains_onPageLoad.js" />
+    <Content Include="JS\API\DialogPersonnelMainInformation_onPageLoad.js" />
+    <Content Include="JS\API\DialogPersonnelSearch_onPageLoad.js" />
+    <Content Include="JS\API\DialogRequestOnTraffic_Operations.js" />
+    <Content Include="JS\API\DialogRequestOnUnallowableOverTime_onPageLoad.js" />
+    <Content Include="JS\API\DialogRequestOnUnallowableOverTime_Operations.js" />
+    <Content Include="JS\API\DialogShiftsView_onPageLoad.js" />
+    <Content Include="JS\API\DialogShiftsView_Operations.js" />
+    <Content Include="JS\API\DialogCalendar_onPageLoad.js" />
+    <Content Include="JS\API\DropDownDive.js" />
+    <Content Include="JS\API\GanttChart.js" />
+    <Content Include="JS\API\EmployTypes_onPageLoad.js" />
+    <Content Include="JS\API\GanttChart_onPageLoad.js" />
+    <Content Include="JS\API\DialogRequestOnTraffic_onPageLoad.js" />
+    <Content Include="JS\API\HourlyRequestOnAbsence_onPageLoad.js" />
+    <Content Include="JS\API\Machines_onPageLoad.js" />
+    <Content Include="JS\API\MasterExceptionShifts_onPageLoad.js" />
+    <Content Include="JS\API\MasterMonthlyOperation_onPageLoad.js" />
+    <Content Include="JS\API\tbMasterMonthlyOperation_Operations.js" />
+    <Content Include="JS\API\MasterMeritLeaveRemains_onPageLoad.js" />
+    <Content Include="JS\API\MasterPersonnelMainInformation_onPageLoad.js" />
+    <Content Include="JS\API\MissionLocations_onPageLoad.js" />
+    <Content Include="JS\API\MonthlyOperationGridSchema_onPageLoad.js" />
+    <Content Include="JS\API\OvertimeJustificationRequest_onPageLoad.js" />
+    <Content Include="JS\API\PasswordChange_onPageLoad.js" />
+    <Content Include="JS\API\PersonnelOrganizationFeaturesChange_onPageLoad.js" />
+    <Content Include="JS\API\PreCard_onPageLoad.js" />
+    <Content Include="JS\API\RequestOnTraffic_onPageLoad.js" />
+    <Content Include="JS\API\RequestOnUnallowableOverTime_onPageLoad.js" />
+    <Content Include="JS\API\Roles_onPageLoad.js" />
+    <Content Include="JS\API\ShiftsView_onPageLoad.js" />
+    <Content Include="JS\API\Shifts_onPageLoad.js" />
+    <Content Include="JS\API\OrganizationPosts_onPageLoad.js" />
+    <Content Include="JS\API\tbActiveDirectory_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\DialogCalendar_Operations.js" />
+    <Content Include="JS\API\DialogExceptionShifts_Operations.js" />
+    <Content Include="JS\API\DialogMeritLeaveRemains_Operations.js" />
+    <Content Include="JS\API\DialogPersonnelExtraInformation_Operations.js" />
+    <Content Include="JS\API\DialogPersonnelMainInformation_Operations.js" />
+    <Content Include="JS\API\DialogPersonnelSearch_Operations.js" />
+    <Content Include="JS\API\ExceptionShifts_onPageLoad.js" />
+    <Content Include="JS\API\tbAccessLevels_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\tbDepartmentsIntroduction_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\tbEmployTypesIntroduction_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\DialogMonthlyOperationGridSchema_Operations.js" />
+    <Content Include="JS\API\tbPersonnelOrganizationFeaturesChange_Operations.js" />
+    <Content Include="JS\API\keyboard.js" />
+    <Content Include="JS\API\MainForm_onPageLoad.js" />
+    <Content Include="JS\API\MainTabStrip_Operations.js" />
+    <Content Include="JS\API\NavBarMain_Operations.js" />
+    <Content Include="JS\API\MeritLeaveRemains_onPageLoad.js" />
+    <Content Include="JS\API\PersonnelMainInformation_onPageLoad.js" />
+    <Content Include="JS\API\PersonnelSearch_onPageLoad.js" />
+    <Content Include="JS\API\tbExceptionShifts_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\tbMeritLeaveRemains_TabStripMenus_Opeations.js" />
+    <Content Include="JS\API\tbPersonnelIntroduction_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\tbRoles_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\tbShiftIntroduction_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\tbTrafficOperationByOperator_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\tbUsers_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\tbWorkGroups_TabStripMenus_Operations.js" />
+    <Content Include="JS\API\TopToolBar_Operations.js" />
+    <Content Include="JS\API\TrafficOperationByOperator_onPageLoad.js" />
+    <Content Include="JS\API\Users_onPageLoad.js" />
+    <Content Include="JS\API\WorkGroups_onPageLoad.js" />
+    <Content Include="JS\API\WorkHeat_onPageLoad.js" />
+    <Content Include="JS\DAL\JSDAL.js" />
+    <Content Include="JS\jquery.js" />
+    <Content Include="JS\LeftMenuTabJS.js" />
+    <Content Include="JS\RuleEditorJS.js" />
+    <Content Include="JS\RuleFinderJS.js" />
+    <Content Include="JS\UCsMsgChanel.js" />
+    <Content Include="JS\Utility\jshashtable.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Machines.aspx" />
+    <Content Include="MainPage.aspx" />
+    <Content Include="MasterExceptionShifts.aspx" />
+    <Content Include="MasterGanttChart.aspx" />
+    <Content Include="MasterMonthlyOperation.aspx" />
+    <Content Include="MonthlyOperationGridSchema.aspx" />
+    <Content Include="MasterMeritLeaveRemains.aspx" />
+    <Content Include="MasterPersonnelMainInformation.aspx" />
+    <Content Include="MissionLocations.aspx" />
+    <Content Include="OrganizationPosts.aspx" />
+    <Content Include="OvertimeJustificationRequest.aspx" />
+    <Content Include="PasswordChange.aspx" />
+    <Content Include="MeritLeaveRemains.aspx" />
+    <Content Include="PersonnelMainInformation.aspx" />
+    <Content Include="PersonnelOrganizationFeaturesChange.aspx" />
+    <Content Include="PersonnelSearch.aspx" />
+    <Content Include="PreCard.aspx" />
+    <Content Include="RequestOnTraffic.aspx" />
+    <Content Include="RequestOnUnallowableOverTime.aspx" />
+    <Content Include="Roles.aspx" />
+    <Content Include="Shifts.aspx" />
+    <Content Include="ShiftsView.aspx" />
+    <Content Include="swf\clock1.swf" />
+    <Content Include="swf\clock10.swf" />
+    <Content Include="swf\clock11.swf" />
+    <Content Include="swf\clock12.swf" />
+    <Content Include="swf\clock13.swf" />
+    <Content Include="swf\clock14.swf" />
+    <Content Include="swf\clock15.swf" />
+    <Content Include="swf\clock16.swf" />
+    <Content Include="swf\clock2.swf" />
+    <Content Include="swf\clock3.swf" />
+    <Content Include="swf\clock4.swf" />
+    <Content Include="swf\clock5.swf" />
+    <Content Include="swf\clock6.swf" />
+    <Content Include="swf\clock7.swf" />
+    <Content Include="swf\clock8.swf" />
+    <Content Include="swf\clock9.swf" />
+    <Content Include="swf\my.swf" />
+    <Content Include="swf\weather_widget.swf" />
+    <Content Include="TrafficOperationByOperator.aspx" />
+    <Content Include="UC\Convert\RuleEditor.ascx" />
+    <Content Include="UC\Convert\RuleFinder.ascx" />
+    <Content Include="UC\Convert\RuleViewer.ascx" />
+    <Content Include="UC\TopToolbar.ascx" />
+    <Content Include="Users.aspx" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="Webservice\RuleEditor.asmx" />
+    <Content Include="Webservice\RuleFinder.asmx" />
+    <Content Include="Webservice\xml\RuleFinderTmp.xml" />
+    <Content Include="Webservice\xml\RuleTmp.xml" />
+    <Content Include="WorkGroupsIntroductionAndPlanning.aspx" />
+    <Content Include="WorkHeat.aspx" />
+    <Content Include="XML\products.xml" />
+    <Content Include="XML\tabDataMenus.xml" />
+    <Content Include="XML\treeData.xml" />
+    <Content Include="XML\treeDataCheckBox.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="XLS\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49363</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

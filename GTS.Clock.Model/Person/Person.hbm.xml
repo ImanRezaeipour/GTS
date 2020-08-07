@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Person, GTS.Clock.Model" 
+         table ="TA_Person" lazy="true">
+    <id name="ID" access="property"  column="Prs_ID" >
+      <generator class="native" />
+    </id>
+
+
+    <property name="BarCode"        access="property" column="Prs_BarCode" />
+    <property name="Active"         access="property" column="Prs_Active" />
+    <property name="CardNum"            access="property" column="Prs_CardNum" />
+    <property name="EmploymentNum"        access="property" column="Prs_EmploymentNum" />
+    <property name="EmploymentDate"     access="property" column="Prs_EmploymentDate" not-null="false" />
+    <property name="EndEmploymentDate"     access="property" column="Prs_EndEmploymentDate" not-null="false"/>
+    <property name="Sex"                access="property" column="Prs_Sex" not-null="false"/>
+    <property name="Education"     access="property" column="Prs_Education" />
+    <property name="FirstName"     access="property" column="Prs_FirstName" />
+    <property name="MaritalStatus"     access="property" column="Prs_MaritalStatus" not-null="false"/>
+    <property name="LastName"     access="property" column="Prs_LastName" />
+    <property name="IsDeleted"     access="property" column="prs_IsDeleted" />
+
+
+    <bag name="PersonRuleCatAssignList" lazy="extra" inverse ="true">
+      <key column="PrsRulCatAsg_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.PersonRuleCatAssignment, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="PersonRangeAssignList" lazy="extra" inverse ="true" cascade="all">
+      <key column="PrsRangeAsg_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.PersonRangeAssignment, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="ProceedTrafficList" cascade="all" inverse="true" lazy="true" batch-size="3000">
+      <key column="ProceedTraffic_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.ProceedTraffic, GTS.Clock.Model"/>
+      <filter name="effectiveDate" condition="ProceedTraffic_FromDate >= :fromDate AND :toDate >= ProceedTraffic_ToDate"/>
+    </bag>
+
+    <bag name="PermitList" lazy="true" inverse="true" cascade="all" batch-size="3000">
+      <key column="Permit_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.Permit, GTS.Clock.Model"/>
+      <!--<filter name="effectiveDate" condition="(Permit_FromDate >= :fromDate) AND :toDate >= Permit_ToDate"/>بعلت وجود مجوز های مدت دا مثلا اول سال تا پایان سال کامنت شد-->
+      <!--<filter name="effectiveDate" condition="( Permit_FromDate >= :fromDate AND :toDate >= Permit_FromDate ) OR ( Permit_ToDate >= :fromDate AND :toDate >= Permit_ToDate )"/>-->
+      </bag>
+
+    <bag name="BasicTrafficList" lazy="true" batch-size="3000"  inverse="true" cascade="all" >
+      <key column="BasicTraffic_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.BasicTraffic, GTS.Clock.Model"/>
+      <filter name="effectiveDate" condition="BasicTraffic_Date >= :fromDate AND :toDate >= BasicTraffic_Date"/>
+    </bag>
+
+    <bag name="LeaveIncDecList" lazy="true" inverse="true" cascade="all" >
+      <key column="LeaveIncDec_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.LeaveIncDec, GTS.Clock.Model"/>
+      <filter name="effectiveDate" condition="LeaveIncDec_Date BETWEEN :beginYear AND :toDate"/>
+    </bag>
+
+    <bag name="UsedLeaveDetailList" lazy="true" inverse="true" cascade="all-delete-orphan" >
+      <key column="UsedLeaveDetail_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.UsedLeaveDetail, GTS.Clock.Model"/>
+      <filter name="effectiveDate" condition="UsedLeaveDetail_Date BETWEEN :beginYear AND :toDate"/>
+    </bag>
+
+    <bag name="LeaveCalcResultList" lazy="true" inverse ="true" cascade="all-delete-orphan">
+      <key column="LeaveCalcResult_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.LeaveCalcResult, GTS.Clock.Model"/>
+      <filter name="effectiveDate" condition="LeaveCalcResult_Date BETWEEN :beginYear AND :toDate"/>
+    </bag>
+
+    <bag name="LeaveYearRemainList" lazy="true" inverse ="true" cascade="all-delete-orphan">
+      <key column="LeaveYearRemain_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.LeaveYearRemain, GTS.Clock.Model"/>
+      <filter name="effectiveDate" condition="LeaveYearRemain_Date BETWEEN :beginYear AND :toDate"/>
+    </bag>
+
+    <bag name="CurrentYearBudgetList" lazy="true" batch-size="3000" inverse ="true" cascade="none">
+      <key column="CurrentYearBudget_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.CurrentYearBudget, GTS.Clock.Model"/>
+      <loader query-ref="GetCurrentYearBudgetList"/>
+    </bag>
+    
+    <bag name="TrafficSettingsList" lazy="true" inverse ="true" batch-size="3000">
+      <key column="TrafficSet_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.TrafficSettings, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="AssignedScndCnpRangeList" lazy="true" batch-size="3000" inverse="true" cascade="none">
+      <key column="AsgScndCnpRange_PrsId"></key>
+      <one-to-many class="GTS.Clock.Model.AssignedScndCnpRange, GTS.Clock.Model"/>
+      <loader query-ref="GetAssignedScndCnpRangeList"/>
+    </bag>
+
+    <bag name="AssignedWGDShiftList" lazy="true" batch-size="3000" inverse="true" cascade="none">
+      <key column="AsgWGDShift_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.AssignedWGDShift, GTS.Clock.Model"/>
+      <loader query-ref="GetAsgWGDShiftList"/>
+    </bag>
+
+    <bag name="AssignedWorkGroupList"  lazy="true" batch-size="3000" inverse="true" cascade="none">
+      <key column="PersonWG_PersonId" ></key>
+      <one-to-many class="GTS.Clock.Model.PersonWorkGroup, GTS.Clock.Model"/>
+      <loader query-ref="GetAssignedWorkGroupList"/>
+    </bag>
+
+    <bag name="PersonWorkGroupList"  lazy="true" batch-size="3000" inverse="true" cascade="none">
+      <key column="AsgWorkGroup_PersonId" ></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.AssignWorkGroup, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="AssignedRuleList" lazy="true" batch-size="3000" inverse ="true" cascade="none">
+      <key column="AsgRle_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.AssignedRule, GTS.Clock.Model"/>
+      <loader query-ref="GetAssignedRuleList"/>
+    </bag>
+
+    <!--<bag name="RuleParameterList" lazy="true" batch-size="3000" inverse ="true" cascade="none">
+      <key column="AsgRle_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.AssignedRuleParameter, GTS.Clock.Model" ></one-to-many>
+      <loader query-ref="GetAssginedRuleParamList"></loader>
+    </bag>-->
+
+    <bag name="UserList" lazy="true" inverse="true" cascade="all" batch-size="30000">
+      <key column="user_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Security.User, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="OrganizationUnitList" lazy="true" inverse="true" cascade="all" batch-size="30000">
+      <key column="organ_PersonID"></key>
+      <one-to-many class="GTS.Clock.Model.Charts.OrganizationUnit, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="ShiftExceptionList" lazy="true" inverse="true" batch-size="30000" cascade="replicate">
+      <key column="exceptionshift_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.ShiftException, GTS.Clock.Model"/>
+      <filter name="effectiveDate" condition="exceptionshift_date >= :fromDate AND :toDate >= exceptionshift_date"/>
+    </bag>
+
+    <bag name="ManagerList" lazy="true" inverse="true" batch-size="30000">
+      <key column="MasterMng_PersonID"></key>
+      <one-to-many class="GTS.Clock.Model.RequestFlow.Manager, GTS.Clock.Model"/>
+    </bag>
+   
+    <!--<one-to-one name="PersonTASpec" class="GTS.Clock.Model.PersonTASpec, GTS.Clock.Model" fetch="join"
+			cascade="all"></one-to-one>-->
+    <bag name="PersonTASpecList" lazy="true" inverse="true" cascade="all" batch-size="3000" >
+      <key column="prsTA_Id"></key>
+      <one-to-many class="GTS.Clock.Model.PersonTASpec, GTS.Clock.Model"/>
+    </bag>
+        
+    <bag name="PersonCLSpecList" lazy="true" inverse="true" cascade="all" batch-size="3000" >
+      <key column="prsCL_Id"></key>
+      <one-to-many class="GTS.Clock.Model.PersonCLSpec, GTS.Clock.Model"/>
+    </bag>
+
+    <!--<one-to-one name="PersonDetail" class="GTS.Clock.Model.PersonDetail, GTS.Clock.Model" fetch="join"-->
+			<!--cascade="all"></one-to-one>-->
+    <bag name="PersonDetailList" lazy="true" inverse="true" cascade="all" batch-size="3000" >
+      <key column="PrsDtl_ID"></key>
+      <one-to-many class="GTS.Clock.Model.PersonDetail, GTS.Clock.Model"/>
+    </bag>
+
+    <many-to-one name="department" access="field" class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model" column="Prs_DepartmentID" cascade="none" lazy="proxy"/>
+    <many-to-one name="ExtDepartment" column="Prs_DepartmentID" class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model" lazy="proxy" update="false" insert="false" />
+    
+    <many-to-one name="employmentType" access="field" class="GTS.Clock.Model.BaseInformation.EmploymentType, GTS.Clock.Model" column="Prs_EmployID" cascade="none" lazy="proxy"/>
+    <many-to-one name="grade" access="field" class="GTS.Clock.Model.BaseInformation.Grade, GTS.Clock.Model" column="Prs_GradeID" cascade="none" lazy="proxy"/>
+  </class>
+
+  <sql-query name="GetAssignedScndCnpRangeList">
+    <load-collection alias="AssignedScndCnpRange" role="GTS.Clock.Model.Person.AssignedScndCnpRangeList" />
+    <![CDATA[
+  DECLARE @fromdate NVARCHAR(10)
+  DECLARE @enddate NVARCHAR(10)
+  DECLARE @personId NUMERIC
+
+  SET @fromdate= :effectiveDate.fromDate
+  SET @enddate= :effectiveDate.toDate
+  SET @personId = :effectiveDate.personId
+
+SELECT  CalcDateRange_ID		          AS AsgScndCnpRange_ID,
+          PrsRangeAsg_ID					    AS AsgScndCnpRange_AsgID,
+		      @personId					          AS AsgScndCnpRange_PrsId, 
+		      PrsRangeAsg_FromDate        AS AsgScndCnpRange_AsgFromDate,
+		      PrsRangeAsg_CalcRangeGrpId  AS AsgScndCnpRange_CalcRangeGrpId,         
+		      CalcDateRange_FromDay	      AS AsgScndCnpRange_FromDay, 
+		      CalcDateRange_FromMonth	    AS AsgScndCnpRange_FromMonth,
+		      CalcDateRange_ToDay		      AS AsgScndCnpRange_ToDay, 
+		      CalcDateRange_ToMonth	      AS AsgScndCnpRange_ToMonth,	
+          CalcDateRange_Order         AS AsgScndCnpRange_Order,
+          CalcRangeGroup_UsedCalendar AS AsgScndCnpRange_UsedCalendar,          
+		      ConceptTmp_IdentifierCode   AS AsgScndCnpRange_CnpIdentifierCode
+FROM (SELECT * 
+      FROM dbo.TA_PersonRangeAssignment 
+      WHERE  PrsRangeAsg_FromDate <= @enddate --به دلیل اینکه تاریخ پایان همیشه از تاریخ شروع بزرگتر است تنها تاریخ پایان استفاده می شود
+				AND
+				-- به منظور جلوگیری از واکشی انتساب های قبل از بزرگترین انتساب کوچکتر از تاریخ شروع این شرط اعمال میشود
+        -- در حالتی که تاریخ سی اف پی عقبتر از انتساب محدوده محاسبات باشد ولی انتساب محدوده نسبت به
+        -- انتساب گروه قانون درست باشد جواب بر میگرداند
+        -- اعمال در تاریخ 4 تیر 92
+			 PrsRangeAsg_FromDate >= (  SELECT TOP(1) PrsRangeAsg_FromDate From TA_PersonRangeAssignment 
+										LEFT OUTER JOIN TA_PersonRuleCategoryAssignment on PrsRangeAsg_PersonId=PrsRulCatAsg_PersonId
+									    WHERE PrsRangeAsg_PersonID = @personId AND
+												(PrsRangeAsg_FromDate <= @fromdate OR PrsRangeAsg_FromDate<=PrsRulCatAsg_FromDate)
+									    ORDER BY PrsRangeAsg_FromDate DESC)
+				AND
+			PrsRangeAsg_PersonID = @personId
+	   ) AS RangeAssignment
+    INNER JOIN dbo.TA_CalculationRangeGroup
+	  ON CalcRangeGroup_ID = PrsRangeAsg_CalcRangeGrpID     
+	  INNER JOIN dbo.TA_CalculationDateRange
+	  ON PrsRangeAsg_CalcRangeGrpID = CalcDateRange_CalcRangeGrpID
+	  INNER JOIN dbo.TA_ConceptTemplate
+	  ON ConceptTmp_ID = CalcDateRange_ConceptTmpId   
+    ]]>
+  </sql-query>
+
+  <sql-query name="GetAsgWGDShiftList">
+    <load-collection alias="AsgWGDShift" role="GTS.Clock.Model.Person.AssignedWGDShiftList" />
+    <![CDATA[
+  DECLARE @fromdate NVARCHAR(10)
+  DECLARE @enddate NVARCHAR(10)
+  DECLARE @PersonId DECIMAL
+
+  SET @fromdate= :effectiveDate.safeFromDate
+  SET @enddate= :effectiveDate.safeToDate 
+  SET @PersonId = :id
+
+  SELECT	WorkGroupDtl_ID           AS AsgWGDShift_ID,
+		      AWG.AsgWorkGroup_PersonId AS AsgWGDShift_PersonId,
+          Shift_ID              AS AsgWGDShift_ShiftId,     
+          Shift_Name            AS AsgWGDShift_ShiftName,
+          Shift_CustomCode      AS AsgWGDShift_CustomCode,
+		      WorkGroupDtl_Date     AS AsgWGDShift_Date,            
+		      Shift_Type            AS AsgWGDShift_Type,
+		      Shift_NobatKari       AS AsgWGDShift_NobatKariId,
+		      Shift_MinNobatKari    AS AsgWGDShift_MinNobatKari
+  FROM dbo.TA_AssignWorkGroup AS AWG
+  INNER JOIN dbo.TA_WorkGroupDetail
+  ON WorkGroupDtl_WorkGroupId = AWG.AsgWorkGroup_WorkGroupId
+      AND
+     WorkGroupDtl_Date >= AWG.AsgWorkGroup_FromDate
+      AND
+     WorkGroupDtl_Date < ISNULL((SELECT TOP(1) AsgWorkGroup_FromDate FROM dbo.TA_AssignWorkGroup WHERE AsgWorkGroup_PersonId = @PersonId AND AsgWorkGroup_FromDate > AWG.AsgWorkGroup_FromDate ORDER BY AsgWorkGroup_FromDate), '2122/01/01')
+  INNER JOIN dbo.TA_Shift 
+  ON Shift_ID = WorkGroupDtl_ShiftId
+  WHERE AsgWorkGroup_PersonId = @PersonId
+ 		      AND
+	      WorkGroupDtl_Date >= @fromdate
+          AND 
+        WorkGroupDtl_Date <= @enddate	
+  ORDER BY AsgWGDShift_Date        
+    ]]>
+  </sql-query>
+
+  <sql-query name="GetAssignedWorkGroupList">
+    <load-collection alias="AsgWG" role="GTS.Clock.Model.Person.AssignedWorkGroupList" />
+    <![CDATA[
+  SELECT     AsgWorkGroup_ID		   AS PersonWG_ID,
+             WorkGroup_Name		     AS PersonWG_WGName,
+             AsgWorkGroup_FromDate AS PersonWG_FromDate,
+             WorkGroup_ID			     AS PersonWG_WorkGroupID,
+             AsgWorkGroup_PersonId AS PersonWG_PersonId
+  FROM  dbo.TA_WorkGroup
+  INNER JOIN dbo.TA_AssignWorkGroup
+  ON AsgWorkGroup_WorkGroupId = WorkGroup_ID
+  WHERE AsgWorkGroup_PersonId = :id
+
+    ]]>
+  </sql-query>
+
+  <sql-query name="GetAssignedRuleList">
+    <load-collection alias="AsgRule" role="GTS.Clock.Model.Person.AssignedRuleList" />
+    <![CDATA[
+  DECLARE @fromdate NVARCHAR(10)
+  DECLARE @enddate NVARCHAR(10)
+  DECLARE @personId NUMERIC
+
+  SET @fromdate= :effectiveDate.fromDate
+  SET @enddate= :effectiveDate.toDate
+  SET @personId = :effectiveDate.personId
+
+  SELECT  row_number() over(order by (select 0))      AS AsgRle_ID,
+          Rle.Rule_ID				      AS AsgRle_RuleID,
+        
+          Rle.Rule_IdentifierCode  AS AsgRle_IdentifierCode,
+          Rle.Rule_Name			       AS AsgRle_Name,
+          Rle.Rule_Order			     AS AsgRle_Order,
+          PA.PrsRulCatAsg_PersonId AS AsgRle_PersonId,
+          PA.PrsRulCatAsg_FromDate AS AsgRle_FromDate,
+          PA.PrsRulCatAsg_ToDate   AS AsgRle_ToDate
+  FROM dbo.TA_PersonRuleCategoryAssignment AS PA
+  INNER JOIN dbo.TA_Rule AS Rle
+  ON Rle.Rule_RuleCategoryId = PA.PrsRulCatAsg_RuleCategoryId
+  WHERE PA.PrsRulCatAsg_PersonId = @personId
+          AND
+        ((@fromdate BETWEEN PA.PrsRulCatAsg_FromDate AND PA.PrsRulCatAsg_ToDate) 
+          OR 
+         (@enddate BETWEEN PA.PrsRulCatAsg_FromDate AND PA.PrsRulCatAsg_ToDate)
+          OR
+         (PA.PrsRulCatAsg_FromDate BETWEEN @fromdate AND @enddate) 
+          OR 
+         (PA.PrsRulCatAsg_ToDate BETWEEN @fromdate AND @enddate)) 
+  ORDER BY AsgRle_Order
+    ]]>
+  </sql-query>
+
+  <sql-query name="GetAssginedRuleParamList">
+    <!--<load-collection alias="AssginedRuleParam" role="GTS.Clock.Model.AssignedRule.RuleParameterList" />-->
+    <return alias="AssginedRuleParam" class="GTS.Clock.Model.AssignedRuleParameter, GTS.Clock.Model"/>
+    <![CDATA[
+DECLARE @fromdate NVARCHAR(10)
+DECLARE @enddate NVARCHAR(10)
+
+SET @fromdate= :fromDate
+SET @enddate= :toDate
+
+
+SELECT RuleParam_ID		       AS AsgRuleParam_ID,
+	     RuleParam_Name	       AS AsgRuleParam_Name,
+	     RuleParam_Value	     AS AsgRuleParam_Value,
+	     RuleParam_Type	       AS AsgRuleParam_Type,
+	     AsgRuleParam_FromDate AS AsgRuleParam_FromDate,
+	     AsgRuleParam_ToDate   AS AsgRuleParam_ToDate,
+	     AsgRuleParam_RuleId   AS AsgRuleParam_RuleId
+FROM TA_RuleParameter 
+		inner join 	(SELECT AsgRuleParam_ID, AsgRuleParam_RuleId, AsgRuleParam_FromDate, AsgRuleParam_ToDate
+					 FROM TA_AssignRuleParameter 
+					 WHERE AsgRuleParam_FromDate BETWEEN @fromdate AND @enddate
+							OR 
+						   AsgRuleParam_ToDate BETWEEN @fromdate AND @enddate
+							OR 
+						   @fromdate >= AsgRuleParam_FromDate AND AsgRuleParam_ToDate >= @enddate) AS AsgRleParam
+		ON RuleParam_AsgRuleParamId = AsgRleParam.AsgRuleParam_ID
+  
+    ]]>
+  </sql-query>
+
+  <sql-query name="GetPersonalMonthlyReport">
+    <return alias="PersonalMonthlyReport" class="GTS.Clock.Model.MonthlyReport.PersonalMonthlyReport, GTS.Clock.Model" />
+    <![CDATA[
+
+ DECLARE @personId numeric
+ DECLARE @date nvarchar(50)
+ DECLARE @order int
+ 
+ SET @personId = :PersonId
+ SET @date = :Date
+ SET @order = :Order
+ 
+ SELECT   CONVERT(nvarchar(50), @personId) + CONVERT(nvarchar(2), @order) AS PrsMonthlyRpt_ID,
+          @personId   AS PrsMonthlyRpt_PersonId,
+          @date       AS PrsMonthlyRpt_Date,
+          @order      AS PrsMonthlyRpt_Order, 
+          Min(PeriodicScndCnp_FromDate) AS PrsMonthlyRpt_MinDate, 
+          Max(PeriodicScndCnp_ToDate) AS PrsMonthlyRpt_MaxDate
+  FROM (SELECT dbo.TA_ASM_CalculateFromDateRange(@Date, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+									    AS PeriodicScndCnp_FromDate,
+			   dbo.TA_ASM_CalculateToDateRange(@Date, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+									    AS PeriodicScndCnp_ToDate,
+				PrsRangeAsg_FromDate AS PeriodicScndCnp_RangGrpAsgDate									              
+        FROM (SELECT * 
+	            FROM dbo.TA_CalculationDateRange 
+			        WHERE CalcDateRange_Order = @order
+			       ) AS CalcDateRng
+        INNER JOIN (SELECT * 
+			              FROM dbo.TA_ConceptTemplate 
+			              WHERE ConceptTmp_IsPeriodic = 1
+				           ) AS Concept
+        ON CalcDateRange_ConceptTmpId = Concept.ConceptTmp_ID		  
+        INNER JOIN (SELECT TOP(1) PrsRangeAsg_CalcRangeGrpId, PrsRangeAsg_PersonId, PrsRangeAsg_FromDate
+			              FROM dbo.TA_PersonRangeAssignment								 
+			              WHERE PrsRangeAsg_FromDate <=  @date
+			              AND PrsRangeAsg_PersonId = @personId
+			              ORDER BY PrsRangeAsg_FromDate DESC
+					         ) AS PrsRangeAsg
+        ON CalcDateRange_CalcRangeGrpId = PrsRangeAsg.PrsRangeAsg_CalcRangeGrpId
+        INNER JOIN dbo.TA_CalculationRangeGroup
+        ON CalcDateRange_CalcRangeGrpId = CalcRangeGroup_ID
+              WHERE ConceptTmp_KeyColumnName IS NOT NULL
+				              AND
+			              ConceptTmp_KeyColumnName <> ''
+	  ) AS CnpRange		
+  ]]>
+  </sql-query>
+
+  <sql-query name="GetCurrentYearBudgetList">
+    <load-collection alias="CurrentYearBudget" role="GTS.Clock.Model.Person.CurrentYearBudgetList" />
+    <![CDATA[
+
+ DECLARE @personId numeric
+ DECLARE @beginYear nvarchar(10)
+ --DECLARE @endYear nvarchar(10)
+  
+ SET @personId = :effectiveDate.personId
+ SET @beginYear = :effectiveDate.beginYear
+ --SET @endYear = :effectiveDate.endYear
+  
+  SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS CurrentYearBudget_ID, 
+		@personId								AS CurrentYearBudget_PersonId, 
+		PrsRulCatAsg.PrsRulCatAsg_FromDate		AS CurrentYearBudget_AsgFromDate, 
+		PrsRulCatAsg.PrsRulCatAsg_ToDate		AS CurrentYearBudget_AsgToDate, 
+		Budget_Id								  AS CurrentYearBudget_BudgetId, 	
+		Budget_RuleCatId					AS CurrentYearBudget_RuleCatId,    
+		Budget_Date								AS CurrentYearBudget_Date, 
+		Budget_Day							  AS CurrentYearBudget_Day, 
+    Budget_Minute  					  AS CurrentYearBudget_Minute, 
+		Budget_Type								AS CurrentYearBudget_Type
+		,minuesInDayParamParam.RuleParam_Value				AS CurrentYearBudget_MinutesInDay
+		,isnull(( select top(1)(Rule_ID-Rule_ID)+1  from TA_Rule AS useFutureLeaveRule 
+		   where useFutureLeaveRule.Rule_IdentifierCode=263
+		   AND Rule_RuleCategoryId = Budget_RuleCatId),0)		AS CurrentYearBudget_UseFutureLeave
+																   		
+ FROM (SELECT * 
+	     FROM TA_PersonRuleCategoryAssignment 
+	     WHERE PrsRulCatAsg_PersonId = @personId) AS PrsRulCatAsg
+ INNER JOIN TA_RuleCategory
+ ON PrsRulCatAsg.PrsRulCatAsg_RuleCategoryId = RuleCat_ID
+ INNER JOIN TA_Budget
+ ON RuleCat_ID = Budget_RuleCatId
+INNER JOIN TA_Rule AS minuesInDayRule
+ON minuesInDayRule.Rule_RuleCategoryId=RuleCat_ID
+INNER JOIN TA_AssignRuleParameter AS  minuesInDayParamAssgn
+ON minuesInDayRule.Rule_ID=minuesInDayParamAssgn.AsgRuleParam_RuleId  and (AsgRuleParam_FromDate<=Budget_Date and AsgRuleParam_ToDate>=Budget_Date)
+INNER JOIN TA_RuleParameter AS minuesInDayParamParam
+ON minuesInDayParamAssgn.AsgRuleParam_ID=minuesInDayParamParam.RuleParam_AsgRuleParamId
+
+WHERE Budget_Date >=@beginYear 
+ AND minuesInDayRule.Rule_IdentifierCode=3017
+
+  ]]>
+  </sql-query>
+
+  <filter-def name="effectiveDate">    
+    <filter-param name="beginYear" type="String"/>
+    <filter-param name="endYear" type="String"/>
+    <filter-param name="safeFromDate" type="String"/>
+    <filter-param name="safeToDate" type="String"/>
+    <filter-param name="fromDate" type="String"/>
+    <filter-param name="toDate" type="String"/>
+    <filter-param name="personId" type="Decimal"/>
+  </filter-def>
+
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AppSetting.UserSettings, GTS.Clock.Model"
+         table ="TA_UserSettings" lazy="false">
+    <id name="ID" access="property"  column="userSet_ID" >
+      <generator class="native" />
+    </id>
+    <property name="SubSystemID"     access="property" column="userSet_SubSystemID" />
+    <many-to-one name="Language" column="userSet_LangID" class="GTS.Clock.Model.AppSetting.Languages, GTS.Clock.Model" not-null="true" />
+    <many-to-one name="Skin" column="userSet_SkinID" class="GTS.Clock.Model.AppSetting.UISkin, GTS.Clock.Model" />
+    <many-to-one name="User" column="userSet_UserID" class="GTS.Clock.Model.Security.User, GTS.Clock.Model" not-null="true" />
+
+    <bag name="MonthlyOperationGridSettingList" table="TA_GridMonthlyOperationGridClientSettings" lazy="true" >
+      <key column="UserSettingId"></key>
+      <one-to-many class="GTS.Clock.Model.UI.MonthlyOperationGridClientSettings, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="emailSettingList" table="TA_EmailSettings" lazy="true" access="field" >
+      <key column="email_UserSettingsId"></key>
+      <one-to-many class="GTS.Clock.Model.AppSetting.EmailSettings, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="smsSettingList" table="TA_SMSSettings" lazy="true" access="field" >
+      <key column="sms_UserSettingsId"></key>
+      <one-to-many class="GTS.Clock.Model.AppSetting.SMSSettings, GTS.Clock.Model"/>
+    </bag>
+    <bag name="dashboardSettingList" table="TA_DashboardSettings" lazy="true" access="field" >
+      <key column="DashboardSet_SetID"></key>
+      <one-to-many class="GTS.Clock.Model.AppSetting.DashboardSettings, GTS.Clock.Model"/>
+    </bag>
+   
+  </class>
+</hibernate-mapping>

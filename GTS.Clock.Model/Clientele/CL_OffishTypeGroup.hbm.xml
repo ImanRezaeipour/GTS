@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_OffishTypeGroup, GTS.Clock.Model"
+         table ="CL_OffishTypeGroups" lazy="true">
+    <id name="ID" access="property"  column="offishTypeGrp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"          access="property" column="offishTypeGrp_Name" />
+    <property name="LookupKey"     access="property" column="offishTypeGrp_LookupKey" />
+    <property name="IntLookupKey"  access="property" column="offishTypeGrp_IntLookupKey" />
+    <property name="IsDeleted"    access="property" column="offishTypeGrp_Deleted" />
+
+    <bag name="OffishTypeList" table="CL_OffishType" lazy="true">
+      <key column="offishType_offishTypeGroupID"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_OffishType, OffishType" />
+    </bag>
+    
+  </class>
+</hibernate-mapping>

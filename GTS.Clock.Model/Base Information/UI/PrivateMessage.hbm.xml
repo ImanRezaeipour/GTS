@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.BaseInformation.PrivateMessage, GTS.Clock.Model"
+         table ="TA_PrivateMessage" lazy="true">
+    <id name="ID" access="property"  column="prvMsg_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Subject"     access="property" column="prvMsg_Subject" />
+    <property name="Message"     access="property" column="prvMsg_Message" />
+    <property name="Date"     access="property" column="prvMsg_Date" />
+    <property name="FromPersonID"     access="property" column="prvMsg_FromPersonID" />
+    <property name="ToPersonID"     access="property" column="prvMsg_ToPersonID" />
+    <property name="Status"     access="property" column="prvMsg_Status" />
+    <property name="FromActive"     access="property" column="prvMsg_FromActive" />
+    <property name="ToActive"     access="property" column="prvMsg_ToActive" />
+
+    <many-to-one name="FromPerson" column="prvMsg_FromPersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true" update="false" insert="false" />
+
+    <many-to-one name="ToPerson" column="prvMsg_ToPersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model"  not-null="true" update="false" insert="false" />
+
+  </class>
+</hibernate-mapping>

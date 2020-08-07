@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Report.DesignedReportCondition, GTS.Clock.Model"
+         table ="TA_DesignedReportCondition" lazy="true">
+    <id name="ID" access="property"  column="DesignedReportCondition_ID" >
+      <generator class="native" />
+    </id>
+    <property name="ConditionText"     access="property" column="DesignedReportCondition_ConditionText" />
+    <property name="ConditionValue"     access="property" column="DesignedReportCondition_ConditionValue" />
+    <property name="OrderText"     access="property" column="DesignedReportCondition_OrderText" />
+    <property name="OrderValue"     access="property" column="DesignedReportCondition_OrderValue" />
+    <many-to-one name="Report" column="DesignedReportCondition_ReportID" class="GTS.Clock.Model.Report.Report, GTS.Clock.Model" />
+    <many-to-one name="Person" column="DesignedReportCondition_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+
+
+  </class>
+</hibernate-mapping>

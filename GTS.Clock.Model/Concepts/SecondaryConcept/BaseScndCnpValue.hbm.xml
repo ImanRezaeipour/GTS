@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.BaseScndCnpValue, GTS.Clock.Model"
+         table ="TA_SecondaryConceptValue" lazy="false">
+    <id name="ID" access="property" column="ScndCnpValue_ID">
+      <generator class="native" />
+    </id>
+    <discriminator column="ScndCnpValue_Type" type ="string"/>
+
+    <property name="Value"           access="property" column="ScndCnpValue_Value"/>
+    <property name="FromPairs"       access="property" column="ScndCnpValue_FromPairs"/>
+    <property name="ToPairs"         access="property" column="ScndCnpValue_ToPairs"/>
+    <property name="FromDate"        access="property" column="ScndCnpValue_FromDate"/>
+    <property name="ToDate"          access="property" column="ScndCnpValue_ToDate"/>
+    <property name="IsValid"         access="property" column="ScndCnpValue_IsValid"/>
+    <property name="Index"           access="property" column="ScndCnpValue_Index"/>
+    <property name="CalcRangeGrpId"  access="property" column="ScndCnpValue_CalcRangeGrpId"/>
+    <property name="CalcDateRangeId"  access="property" column="ScndCnpValue_CalcDateRangeId"/>
+
+    <many-to-one name="Concept" column="ScndCnpValue_SecondaryConceptId" class="GTS.Clock.Model.Concepts.SecondaryConcept, GTS.Clock.Model" outer-join="true" not-null="true"/>
+    <many-to-one name="Person" column="ScndCnpValue_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true"/>
+
+    <subclass name="GTS.Clock.Model.Concepts.PairableScndCnpValue, GTS.Clock.Model"
+      discriminator-value="PSC">
+      <!--<bag name="Pairs" table="TA_PairableSecondaryConceptValuePair" cascade="all" inverse="true" lazy="true" batch-size="100">
+        <key column="PairScndCnpValuePair_PairableSecondaryConceptValueId"></key>
+        <one-to-many class="GTS.Clock.Model.Concepts.PairableScndCnpValuePair, GTS.Clock.Model"/>
+      </bag>-->
+    </subclass>
+    <subclass name="GTS.Clock.Model.Concepts.NonePairableScndCnpValue, GTS.Clock.Model"
+      discriminator-value="NPSC">
+    </subclass>
+  </class>
+  
+</hibernate-mapping>

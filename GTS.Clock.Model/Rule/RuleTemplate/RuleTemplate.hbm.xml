@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RuleTemplate, GTS.Clock.Model" 
+         table ="TA_RuleTemplate" lazy="true">
+    <id name="ID" access="property"  column="RuleTmp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"               access="property" column="RuleTmp_Name" />
+    <property name="IdentifierCode"     access="property" column="RuleTmp_IdentifierCode" />
+    <property name="Order"              access="property" column="RuleTmp_Order" />
+    <property name="TypeId"             access="property" column="RuleTmp_RuleTypeId" />
+    <property name="IsForcible"         access="property" column="RuleTmp_IsForcible" />
+    <property name="CustomCategoryCode" access="property" column="RuleTmp_CustomCategoryCode" />    
+    <property name="Script"             access="property" column="RuleTmp_Script"  />
+    <property name="CSharpCode"         access="property" column="RuleTmp_CSharpCode" />
+    <property name="UserDefined"        access="property" column="RuleTmp_UserDefined" />
+    <property name="JsonObject"         access="property" column="RuleTmp_JsonObject" />
+    
+    <!--<many-to-one name="Category" column="Rule_CategoryId" class="GTS.Clock.Model.Charts.Category, GTS.Clock.Model" not-null="true"/>-->
+
+    <bag name="RuleParameterList" table="TA_RuleTemplateParameter" lazy="extra" batch-size="30000" >
+      <key column="RuleTmpParam_RuleTemplateId"></key>
+      <one-to-many class="GTS.Clock.Model.RuleTemplateParameter, GTS.Clock.Model"></one-to-many>
+    </bag>
+    
+ </class> 
+</hibernate-mapping>

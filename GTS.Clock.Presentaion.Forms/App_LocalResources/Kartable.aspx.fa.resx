@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="KartableForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="clmnApplicant_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>درخواست کننده</value>
+  </data>
+  <data name="clmnExportDate_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>تاریخ صدور</value>
+  </data>
+  <data name="clmnExporter_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>صادر کننده</value>
+  </data>
+  <data name="clmnFromDate_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>از تاریخ</value>
+  </data>
+  <data name="clmnFromHour_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>از ساعت</value>
+  </data>
+  <data name="clmnPersonnelBarCode_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>کد پرسنلی</value>
+  </data>
+  <data name="clmnRefrence_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>منبع</value>
+  </data>
+  <data name="clmnRequestDescription_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>شرح درخواست</value>
+  </data>
+  <data name="clmnRequestTopic_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>عنوان درخواست</value>
+  </data>
+  <data name="clmnRow_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>ردیف</value>
+  </data>
+  <data name="clmnState_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>وضعیت</value>
+  </data>
+  <data name="clmnToDate_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>تا تاریخ</value>
+  </data>
+  <data name="clmnToHour_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>تا ساعت</value>
+  </data>
+  <data name="clmnType_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>نوع</value>
+  </data>
+  <data name="hfheader_Kartable_Kartable.Value" xml:space="preserve">
+    <value>کارتابل</value>
+  </data>
+  <data name="lblMonth_Kartable.Text" xml:space="preserve">
+    <value>ماه :</value>
+  </data>
+  <data name="lblSelectAllinthisPage_Kartable.Text" xml:space="preserve">
+    <value>انتخاب همه در این صفحه</value>
+  </data>
+  <data name="lblYear_Kartable.Text" xml:space="preserve">
+    <value>سال :</value>
+  </data>
+  <data name="hfTitle_DialogKartable.Value" xml:space="preserve">
+    <value>کارتابل</value>
+  </data>
+  <data name="tlbItemAllRequests_TlbKartableFilter_Kartable" xml:space="preserve">
+    <value>کل درخواست ها</value>
+  </data>
+  <data name="tlbItemDailyRequests_TlbKartableFilter_Kartable" xml:space="preserve">
+    <value> روزانه</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbKartable" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="tlbItemExit_TlbKartable" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemFilter_TlbKartable" xml:space="preserve">
+    <value>فیلتر</value>
+  </data>
+  <data name="tlbItemHelp_TlbKartable" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemHistory_TlbKartable" xml:space="preserve">
+    <value>پیشینه</value>
+  </data>
+  <data name="tlbItemHourlyRequests_TlbKartableFilter_Kartable" xml:space="preserve">
+    <value> ساعتی</value>
+  </data>
+  <data name="tlbItemOverTimeJustification_TlbKartableFilter_Kartable" xml:space="preserve">
+    <value>مجوز اضافه کاری</value>
+  </data>
+  <data name="tlbItemReject_TlbKartable" xml:space="preserve">
+    <value>رد</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="tlbItemCancel_TlbRequestReject_Kartable.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbRequestReject_Kartable.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="tlbItemExit_tlbExit_RequestReject_Kartable.ToolTip" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="hfheader_SurveyedRequests_Kartable.Value" xml:space="preserve">
+    <value>تاریخچه کارتابل</value>
+  </data>
+  <data name="hfTitle_DialogSurveyedRequests.Value" xml:space="preserve">
+    <value>تاریخچه کارتابل</value>
+  </data>
+  <data name="tlbItemConfirmedRequests_TlbKartableFilter_Kartable" xml:space="preserve">
+    <value>درخواست های تایید شده</value>
+  </data>
+  <data name="tlbItemRejectedRequests_TlbKartableFilter_Kartable" xml:space="preserve">
+    <value>درخواست های رد شده</value>
+  </data>
+  <data name="clmnSelect_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>انتخاب</value>
+  </data>
+  <data name="hfKartableCloseMessage_Kartable.Value" xml:space="preserve">
+    <value>آیا از فرم کارتابل خارج می شوید ؟</value>
+  </data>
+  <data name="hffooter_GridKartable_Kartable.Value" xml:space="preserve">
+    <value>صفحه 0 از 0</value>
+  </data>
+  <data name="hfloadingPanel_GridKartable_Kartable.Value" xml:space="preserve">
+    <value> بارگیری ...</value>
+  </data>
+  <data name="hfRejectMessage_Kartable.Value" xml:space="preserve">
+    <value>آیا در خواست های انتخاب شده را رد می نمائید ؟</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_GridKartable_Kartable.ToolTip" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_GridKartable_Kartable.ToolTip" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_GridKartable_Kartable.ToolTip" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_GridKartable_Kartable.ToolTip" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_GridKartable_Kartable.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemView_TlbView_Kartable.Text" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="clmnLevels_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>مراحل</value>
+  </data>
+  <data name="hfPageChange_Kartable.Value" xml:space="preserve">
+    <value>وضعیت درخواست های انتخاب شده در این صفحه را قبل از تغییر دادن آن مشخص کنید در غیر این صورت درخواست های انتخاب شده در این صفحه منقضی خواهند شد آیا ادامه می دهید ؟</value>
+  </data>
+  <data name="ConfirmComplete" xml:space="preserve">
+    <value>عملیات تائید درخواست ها با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>تائید شده</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>روزانه</value>
+  </data>
+  <data name="Hourly" xml:space="preserve">
+    <value>ساعتی</value>
+  </data>
+  <data name="lblDescription_RequestDescription_Kartable.Text" xml:space="preserve">
+    <value>شرح درخواست :</value>
+  </data>
+  <data name="Month10ef" xml:space="preserve">
+    <value>اکتبر</value>
+  </data>
+  <data name="Month10ff" xml:space="preserve">
+    <value>دی</value>
+  </data>
+  <data name="Month11ef" xml:space="preserve">
+    <value>نوامبر</value>
+  </data>
+  <data name="Month11ff" xml:space="preserve">
+    <value>بهمن</value>
+  </data>
+  <data name="Month12ef" xml:space="preserve">
+    <value>دسامبر</value>
+  </data>
+  <data name="Month12ff" xml:space="preserve">
+    <value>اسفند</value>
+  </data>
+  <data name="Month1ef" xml:space="preserve">
+    <value>ژانویه</value>
+  </data>
+  <data name="Month1ff" xml:space="preserve">
+    <value>فروردین</value>
+  </data>
+  <data name="Month2ef" xml:space="preserve">
+    <value>فوریه</value>
+  </data>
+  <data name="Month2ff" xml:space="preserve">
+    <value>اردیبهشت</value>
+  </data>
+  <data name="Month3ef" xml:space="preserve">
+    <value>مارس</value>
+  </data>
+  <data name="Month3ff" xml:space="preserve">
+    <value>خرداد</value>
+  </data>
+  <data name="Month4ef" xml:space="preserve">
+    <value>آوریل</value>
+  </data>
+  <data name="Month4ff" xml:space="preserve">
+    <value>تیر</value>
+  </data>
+  <data name="Month5ef" xml:space="preserve">
+    <value>مه</value>
+  </data>
+  <data name="Month5ff" xml:space="preserve">
+    <value>مرداد</value>
+  </data>
+  <data name="Month6ef" xml:space="preserve">
+    <value>ژوئن</value>
+  </data>
+  <data name="Month6ff" xml:space="preserve">
+    <value>شهریور</value>
+  </data>
+  <data name="Month7ef" xml:space="preserve">
+    <value>ژوئیه</value>
+  </data>
+  <data name="Month7ff" xml:space="preserve">
+    <value>مهر</value>
+  </data>
+  <data name="Month8ef" xml:space="preserve">
+    <value>اوت</value>
+  </data>
+  <data name="Month8ff" xml:space="preserve">
+    <value>آبان</value>
+  </data>
+  <data name="Month9ef" xml:space="preserve">
+    <value>سپتامبر</value>
+  </data>
+  <data name="Month9ff" xml:space="preserve">
+    <value>آذر</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>نامشخص</value>
+  </data>
+  <data name="NoRequestSelectedforConfirm" xml:space="preserve">
+    <value>درخواستی جهت تائید انتخاب نگردیده است</value>
+  </data>
+  <data name="NoRequestSelectedforReject" xml:space="preserve">
+    <value>درخواستی جهت رد انتخاب نگردیده است</value>
+  </data>
+  <data name="OverWork" xml:space="preserve">
+    <value>اضافه کاری</value>
+  </data>
+  <data name="RejectComplete" xml:space="preserve">
+    <value>عملیات رد درخواست ها با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="Substitute" xml:space="preserve">
+    <value>جانشین</value>
+  </data>
+  <data name="Unconfirmed" xml:space="preserve">
+    <value>تائید نشده</value>
+  </data>
+  <data name="Undermanagment" xml:space="preserve">
+    <value>تحت مدیریت</value>
+  </data>
+  <data name="UnderReview" xml:space="preserve">
+    <value>در حال بررسی</value>
+  </data>
+  <data name="UnKnown" xml:space="preserve">
+    <value>نامشخص</value>
+  </data>
+  <data name="hfSurveyCloseMessage_Kartable.Value" xml:space="preserve">
+    <value>آیا از فرم درخواست های بررسی شده خارج می شوید ؟</value>
+  </data>
+  <data name="hfConnectionError_Kartable.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfErrorType_Kartable.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbKartable" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>عملیات حذف درخواست ها با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>حذف شده</value>
+  </data>
+  <data name="NoRequestSelectedforDelete" xml:space="preserve">
+    <value>درخواستی جهت حذف انتخاب نگردیده است</value>
+  </data>
+  <data name="tlbItemDeletedRequests_TlbKartableFilter_Kartable" xml:space="preserve">
+    <value>درخواست های حذف شده</value>
+  </data>
+  <data name="tlbItemDelete_TlbKartable" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="hfRequestDeleteDescription_Kartable.Value" xml:space="preserve">
+    <value>توضیحات حذف درخواست :</value>
+  </data>
+  <data name="hfRequestRejectDescription_Kartable.Value" xml:space="preserve">
+    <value>توضیحات رد درخواست :</value>
+  </data>
+  <data name="lblQuickSearch_Kartable.Text" xml:space="preserve">
+    <value>جستجوی سریع :</value>
+  </data>
+  <data name="tlbItemSearch_TlbKartableQuickSearch.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="lblSortBy_Kartable.Text" xml:space="preserve">
+    <value>مرتب سازی :</value>
+  </data>
+  <data name="PersonCode" xml:space="preserve">
+    <value>شماره پرسنلی</value>
+  </data>
+  <data name="PersonName" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="RegisteredBy" xml:space="preserve">
+    <value>صادر کننده</value>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>از تاریخ</value>
+  </data>
+  <data name="RequestSubject" xml:space="preserve">
+    <value>عنوان درخواست</value>
+  </data>
+  <data name="tlbItemClosePicture_TlbApplicantPicture.ToolTip" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="hfheader_SentryKartable_Kartable.Value" xml:space="preserve">
+    <value>کارتابل نگهبانی</value>
+  </data>
+  <data name="hfSentryCloseMessage_Kartable.Value" xml:space="preserve">
+    <value>آیا از فرم نگهبانی خارج می شوید ؟</value>
+  </data>
+  <data name="hfTitle_DialogSentry.Value" xml:space="preserve">
+    <value>نگهبانی</value>
+  </data>
+  <data name="lblDate_Kartable.Text" xml:space="preserve">
+    <value>تاریخ :</value>
+  </data>
+  <data name="PermitSubject" xml:space="preserve">
+    <value>عنوان درخواست</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی غیر مجاز به سرویس</value>
+  </data>
+  <data name="clmnDuration_GridKartable_Kartable.HeadingText" xml:space="preserve">
+    <value>مقدار</value>
+  </data>
+  <data name="Imperative" xml:space="preserve">
+    <value>دستوری</value>
+  </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>ماهیانه</value>
+  </data>
+  <data name="tlbItemImperative_TlbKartableFilter_Kartable" xml:space="preserve">
+    <value>دستوری</value>
+  </data>
+</root>

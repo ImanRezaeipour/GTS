@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <GTSConnection Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>GTSConnection</Alias>
+        <ConnectionString>Password=123;Persist Security Info=True;Data Source=SALAVATI1\FARHADSQLSERVER;Integrated Security=False;Initial Catalog=GTSOrginInstance;User ID=farhad</ConnectionString>
+        <Name>GTSConnection</Name>
+      </GTSConnection>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <PersonEmp Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>PersonEmp</Alias>
+        <Columns isList="true" count="3">
+          <value>dep_Name,System.String</value>
+          <value>emply_Name,System.String</value>
+          <value>PersonCount,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>PersonEmp</Name>
+        <NameInSource>GTSConnection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select dep_Name,emply_Name,(select top(1)COUNT(*) from TA_Person where Prs_EmployId=emply_ID and Prs_DepartmentId=dep_ID) as PersonCount 
+
+from TA_Department
+, TA_EmploymentType 
+where dep_parentId&gt;0</SqlCommand>
+      </PersonEmp>
+      <nameOrg Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>nameOrg</Alias>
+        <Columns isList="true" count="1">
+          <value>OrgDef_Name,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>nameOrg</Name>
+        <NameInSource>GTSConnection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select  OrgDef_Name from TA_DataAccessOrgan
+
+join  TA_OrganDefine on DataAccessOrgan_ID=OrgDef_ID
+
+where DataAccessOrgan_UserID={ReportHelper.Instance().UserId}</SqlCommand>
+      </nameOrg>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="2">
+        <PageHeaderBand1 Ref="6" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.2,7.72,0.6</ClientRectangle>
+          <Components isList="true" count="6">
+            <Text2 Ref="7" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.94,0.1,1.32,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>05dd2019aa6b4ce78194ce178e169402</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <MinSize>1,0</MinSize>
+              <Name>Text2</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: تاریخ تهیه گزارش</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text4 Ref="8" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>1.48,0.33,0.79,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>989928547e3045f5acfd2af010b23713</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: تهیه کننده</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text1 Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>2.5,0,3.6,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,18,Bold</Font>
+              <Guid>95dce864a0de4a9f9684deb946121425</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{nameOrg.OrgDef_Name}
+گزارش آماری پرسنل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text1>
+            <Text3 Ref="10" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.1,0.1,0.9,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>78d27f91b4be4358a44a82c46e80d939</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().ShamsiGetNow()}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text5 Ref="11" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.1,0.3,1.2,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>949db178c4ea4b16ac679014066e845f</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().UserName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text37 Ref="12" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>6.3,0.1,1.38,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>e1a004caf4884988ac3b02c0971a6599</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().LicenseName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </PageHeaderBand1>
+        <CrossTab1 Ref="13" type="Stimulsoft.Report.CrossTab.StiCrossTab" isKey="true">
+          <Border>All;Transparent;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.1,0.9,7.52,9.22</ClientRectangle>
+          <Components isList="true" count="8">
+            <CrossTab1_Row1_Title Ref="14" type="CrossTitle" isKey="true">
+              <Border>All;[145:122:79];1;Solid;False;4;Black</Border>
+              <Brush>Wheat</Brush>
+              <ClientRectangle>0,0.22,0.6,0.2</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>52e150a3de5e473ab0b1a2d915639ee6</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Row1_Title</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>بخش</Text>
+              <TextBrush>[95:72:29]</TextBrush>
+              <TypeOfComponent>Row:CrossTab1_Row1</TypeOfComponent>
+            </CrossTab1_Row1_Title>
+            <CrossTab1_LeftTitle Ref="15" type="CrossTitle" isKey="true">
+              <Border>All;[145:122:79];1;Solid;False;4;Black</Border>
+              <Brush>Wheat</Brush>
+              <ClientRectangle>0,0,0.6,0.2</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>8b6a41ec1cb248fe91f114a9776c1e23</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_LeftTitle</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <TextBrush>[95:72:29]</TextBrush>
+              <Type>Expression</Type>
+              <TypeOfComponent>LeftTitle</TypeOfComponent>
+            </CrossTab1_LeftTitle>
+            <CrossTab1_RightTitle Ref="16" type="CrossTitle" isKey="true">
+              <Border>All;[145:122:79];1;Solid;False;4;Black</Border>
+              <Brush>Wheat</Brush>
+              <ClientRectangle>0.62,0,1.7,0.2</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>7cd8053d88c34a33aac81a272d5ac744</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_RightTitle</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>انواع استخدام</Text>
+              <TextBrush>[95:72:29]</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <TypeOfComponent>RightTitle</TypeOfComponent>
+            </CrossTab1_RightTitle>
+            <CrossTab1_RowTotal1 Ref="17" type="CrossRowTotal" isKey="true">
+              <Border>All;[145:122:79];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:229]</Brush>
+              <ClientRectangle>0,0.64,0.6,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>c2ce856d57bc4161919c53c2bcc086fe</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_RowTotal1</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>جمع</Text>
+              <TextBrush>Black</TextBrush>
+            </CrossTab1_RowTotal1>
+            <CrossTab1_Row1 Ref="18" type="CrossRow" isKey="true">
+              <Alias>dep_Name</Alias>
+              <Border>All;[145:122:79];1;Solid;False;4;Black</Border>
+              <Brush>Wheat</Brush>
+              <ClientRectangle>0,0.44,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DisplayValue>{PersonEmp.dep_Name}</DisplayValue>
+              <Font>Arial,8</Font>
+              <Guid>a9aa59d01bea46ffb5dabe870454cc19</Guid>
+              <Margins>0,0,0,0</Margins>
+              <MinSize>1,0.1</MinSize>
+              <Name>CrossTab1_Row1</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>dep_Name</Text>
+              <TextBrush>[95:72:29]</TextBrush>
+              <TotalGuid>c2ce856d57bc4161919c53c2bcc086fe</TotalGuid>
+              <Value>{PersonEmp.dep_Name}</Value>
+            </CrossTab1_Row1>
+            <CrossTab1_Column1 Ref="19" type="CrossColumn" isKey="true">
+              <Alias>emply_Name</Alias>
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <Border>All;[145:122:79];1;Solid;False;4;Black</Border>
+              <Brush>Wheat</Brush>
+              <ClientRectangle>0.62,0.22,0.5,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DisplayValue>{PersonEmp.emply_Name}</DisplayValue>
+              <Font>Arial,8</Font>
+              <Guid>7de126793afb461ebba67970bd90f02c</Guid>
+              <Margins>0,0,0,0</Margins>
+              <MaxSize>0,2</MaxSize>
+              <MinSize>0.5,0</MinSize>
+              <Name>CrossTab1_Column1</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>emply_Name</Text>
+              <TextBrush>[95:72:29]</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <TextQuality>Wysiwyg</TextQuality>
+              <TotalGuid>bf2528171135496ead8a2f1e72b35112</TotalGuid>
+              <Value>{PersonEmp.emply_Name}</Value>
+            </CrossTab1_Column1>
+            <CrossTab1_Sum1 Ref="20" type="CrossSummary" isKey="true">
+              <Alias>PersonCount</Alias>
+              <Border>All;[145:122:79];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>0.62,0.44,1,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>a5fdf12662f944be8b456c95f419e1e6</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Sum1</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>0</Text>
+              <TextBrush>Black</TextBrush>
+              <Value>{PersonEmp.PersonCount}</Value>
+            </CrossTab1_Sum1>
+            <CrossTab1_ColTotal1 Ref="21" type="CrossColumnTotal" isKey="true">
+              <Border>All;[145:122:79];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:229]</Brush>
+              <ClientRectangle>1.32,0.22,0.5,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>bf2528171135496ead8a2f1e72b35112</Guid>
+              <Margins>0,0,0,0</Margins>
+              <MinSize>0.5,0</MinSize>
+              <Name>CrossTab1_ColTotal1</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>جمع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+            </CrossTab1_ColTotal1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <CrossTabStyleIndex>9</CrossTabStyleIndex>
+          <DataRelationName />
+          <DataSourceName>PersonEmp</DataSourceName>
+          <EmptyValue />
+          <Filters isList="true" count="0" />
+          <GrowToHeight>True</GrowToHeight>
+          <Guid>0f332595cddb4fcaa3f509a90a01984c</Guid>
+          <Name>CrossTab1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <RightToLeft>True</RightToLeft>
+          <Sort isList="true" count="0" />
+          <Wrap>True</Wrap>
+        </CrossTab1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>4c653aecf0e14bcbae64eabe22daf10f</Guid>
+      <Margins>0.39,0.39,0.39,0.39</Margins>
+      <Name>Page1</Name>
+      <PageHeight>11</PageHeight>
+      <PageWidth>8.5</PageWidth>
+      <PaperSize>Letter</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="22" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="23" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>12/17/2012 3:23:21 PM</ReportChanged>
+  <ReportCreated>3/10/2012 3:58:08 PM</ReportCreated>
+  <ReportFile>E:\new Report\PersonStatistics.mrt</ReportFile>
+  <ReportGuid>d4884961a9104d88a730b466c70e5c1b</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Inches</ReportUnit>
+  <ReportVersion>2011.3.1200</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        
+        public Report()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="1">
+    <Style1 Ref="24" type="Stimulsoft.Report.StiCrossTabStyle" isKey="true">
+      <Color>White</Color>
+      <Conditions isList="true" count="0" />
+      <Description />
+      <Name>Style1</Name>
+    </Style1>
+  </Styles>
+</StiSerializer>

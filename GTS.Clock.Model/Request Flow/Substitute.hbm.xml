@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RequestFlow.Substitute, GTS.Clock.Model"
+         table ="TA_Substitute" lazy="true">
+    <id name="ID" access="property"  column="sub_ID" >
+      <generator class="native" />
+    </id>
+    <property name="FromDate"     access="property" column="sub_FromDate" />
+    <property name="ToDate"     access="property" column="sub_ToDate" />
+    <property name="Active"     access="property" column="sub_Active" />
+
+    <many-to-one name="Person" column="sub_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+    <many-to-one name="Manager" column="sub_ManagerId" class="GTS.Clock.Model.RequestFlow.Manager, GTS.Clock.Model"/>
+    
+    <bag name="PrecardList" table="TA_SubstitutePrecardAccess" lazy="true" >
+      <key column="subaccess_SubstituteId"></key>
+      <many-to-many class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model" column="subaccess_PrecardId"></many-to-many>
+    </bag>
+  </class>
+</hibernate-mapping>

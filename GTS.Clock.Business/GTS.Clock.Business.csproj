@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5788C982-1C90-401A-9F8B-32F2B19B5FF4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GTS.Clock.Business</RootNamespace>
+    <AssemblyName>GTS.Clock.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/GTS.Clock.Business/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\..\Farhad Public\Code\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\DLL\NH\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentArt.Web.UI, Version=2009.3.1701.35, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DependentDLLs\ComponentArt.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\DLL\NH\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\DLL\NH\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DependentDLLs\Microsoft Unity\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DependentDLLs\Microsoft Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DependentDLLs\Microsoft Unity\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\DLL\NH\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <HintPath>..\DLL\NH\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Base">
+      <HintPath>..\DLL\Stimulsoft\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report">
+      <HintPath>..\DLL\Stimulsoft\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Web">
+      <HintPath>..\DLL\Stimulsoft\Stimulsoft.Report.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationSettings\BApplicationSettings.cs" />
+    <Compile Include="ApplicationSettings\BLanguage.cs" />
+    <Compile Include="ApplicationSettings\BUserSettings.cs" />
+    <Compile Include="ArchiveCalculations\BArchiveCalculation.cs" />
+    <Compile Include="BaseBusiness.cs" />
+    <Compile Include="BaseInformation\BChangeOrganicInfo.cs" />
+    <Compile Include="BaseInformation\BClock.cs" />
+    <Compile Include="BaseInformation\BControlStation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseInformation\BCorporation.cs" />
+    <Compile Include="BaseInformation\BEmployment.cs" />
+    <Compile Include="BaseInformation\BIllness.cs" />
+    <Compile Include="BaseInformation\BDoctor.cs" />
+    <Compile Include="BaseInformation\BDutyPlace.cs" />
+    <Compile Include="BaseInformation\BPrivateMessage.cs" />
+    <Compile Include="BaseInformation\BPublicMessage.cs" />
+    <Compile Include="BaseInformation\BTraffic.cs" />
+    <Compile Include="BoxService\BMainPageBox.cs" />
+    <Compile Include="BoxService\BPersonelInfoBoxService.cs" />
+    <Compile Include="BusinessEntity.cs" />
+    <Compile Include="Concept\BConceptExpression.cs" />
+    <Compile Include="Engine\BEngineCalculator.cs" />
+    <Compile Include="GridSettings\BGanttChartClientSettings.cs" />
+    <Compile Include="Help\BHelp.cs" />
+    <Compile Include="Leave\BLeaveBudget.cs" />
+    <Compile Include="Leave\BLeaveIncDec.cs" />
+    <Compile Include="Leave\BRemainLeave.cs" />
+    <Compile Include="Leave\BUserInfo.cs" />
+    <Compile Include="Leave\ILeaveInfo.cs" />
+    <Compile Include="Person\BPersonReservedField.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ArchiveCalcValuesProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\BasicTrafficProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ChangeInfoErrorProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ContractKartablProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ImperativeUndermanagementInfoProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\RuleTemplateProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\UnderManagmentInfoProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\MonthlyExceptionShiftProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\PersonInfoProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\DailyReportProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\DayDateProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ProceedTrafficProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\RuleParametersValidationFeaturesProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\UIValidationGroupingProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\DataAccessProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\HelpProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\LeaveIncDecProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\LeaveBudgetProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\OrganicInfoProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\PersonDepartmentProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\RemainLeaveProxy.cs" />
+    <Compile Include="Report\BControlParameter_DateTime.cs" />
+    <Compile Include="Report\BControlParameter_ToDate_Explicit_StartOfYear_EndOfYear.cs" />
+    <Compile Include="Report\BSystemReports.cs" />
+    <Compile Include="Rules\BRuleTemp.cs" />
+    <Compile Include="Security\BDataAccess.cs" />
+    <Compile Include="Security\BusinessServiceBehavior.cs" />
+    <Compile Include="Security\IDataAccess.cs" />
+    <Compile Include="Security\ServiceAuthorizeBehavior.cs" />
+    <Compile Include="Service References\GTSEngineWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Shifts\BExceptionShift.cs" />
+    <Compile Include="TestBusiness.cs" />
+    <Compile Include="UIValidation\BUIValidationGroup.cs" />
+    <Compile Include="UIValidation\IUIRuleValidator.cs" />
+    <Compile Include="WorkFlow\Flow\BOperator.cs" />
+    <Compile Include="WorkFlow\Flow\BSentryPermits.cs" />
+    <Compile Include="WorkFlow\Flow\BSubstitute.cs" />
+    <Compile Include="Charts\BOrganizationUnit.cs" />
+    <Compile Include="GridSettings\BGridMonthlyOperationMasterSettings.cs" />
+    <Compile Include="GridSettings\BGridMonthlyOperationClientSettings.cs" />
+    <Compile Include="Karkerd\BPersonMonthlyWorkedTime.cs" />
+    <Compile Include="Person\ISearchPerson.cs" />
+    <Compile Include="Presentaion Helper\Proxy\DateRangeOrderProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\KartableSetStatusProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\KartablFlowLevelProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\KartablProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\KartablRequestHistoryProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\KartablSummaryProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\MonthlyDetailReportProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\PersonAdvanceSearchProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\PrecardAccessGroupProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ManagerProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\RequestFliterProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ShiftProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\UserRequestFilterProxy.cs" />
+    <Compile Include="Report\BReport.cs" />
+    <Compile Include="Report\BControlParameter_YearMonth.cs" />
+    <Compile Include="Report\BReportParameter.cs" />
+    <Compile Include="Report\BaseControlParameter.cs" />
+    <Compile Include="Report\IBControlParameter.cs" />
+    <Compile Include="Rules\BLeave.cs" />
+    <Compile Include="Security\LdapAuthentication.cs" />
+    <Compile Include="Shifts\BCalendarType.cs" />
+    <Compile Include="SyncHandler.cs" />
+    <Compile Include="WorkFlow\Flow\BFlow.cs" />
+    <Compile Include="WorkFlow\Flow\BManager.cs" />
+    <Compile Include="Karkerd\BWorkedTime.cs" />
+    <Compile Include="Person\BAssignWorkGroup.cs" />
+    <Compile Include="Person\BPerson.cs" />
+    <Compile Include="Person\BAssignDateRange.cs" />
+    <Compile Include="Person\BAssignRule.cs" />
+    <Compile Include="Presentaion Helper\Structure.cs" />
+    <Compile Include="Presentaion Helper\Proxy\CalendarCellInfo.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ChartNodeProxy.cs" />
+    <Compile Include="Presentaion Helper\Proxy\OnDemandTreeChilds.cs" />
+    <Compile Include="Rules\BDateRange.cs" />
+    <Compile Include="Rules\BConcepts.cs" />
+    <Compile Include="Rules\BRuleCategory.cs" />
+    <Compile Include="Rules\BRuleParameter.cs" />
+    <Compile Include="Rules\BRuleType.cs" />
+    <Compile Include="Rules\BRule.cs" />
+    <Compile Include="Rules\BRuleViewer.cs" />
+    <Compile Include="Security\AuthorizeValidation.cs" />
+    <Compile Include="Charts\BDepartment.cs" />
+    <Compile Include="GTSBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\BLogin.cs" />
+    <Compile Include="Security\BActiveDirectory.cs" />
+    <Compile Include="Security\BRole.cs" />
+    <Compile Include="Shifts\BNobarkari.cs" />
+    <Compile Include="Shifts\BShift.cs" />
+    <Compile Include="Security\BUser.cs" />
+    <Compile Include="Presentaion Helper\ResourceControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Presentaion Helper\Proxy\ResourceInfo.cs" />
+    <Compile Include="Presentaion Helper\Proxy\UserProxy.cs" />
+    <Compile Include="Shifts\BWorkgroup.cs" />
+    <Compile Include="Shifts\BWorkGroupCalendar.cs" />
+    <Compile Include="WorkFlow\Flow\ISubstituteReviewedRequests.cs" />
+    <Compile Include="WorkFlow\Request\BImperativeRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Request\BPermit.cs" />
+    <Compile Include="WorkFlow\Request\BPrecard.cs" />
+    <Compile Include="WorkFlow\Request\BPrecardAccessGroup.cs" />
+    <Compile Include="WorkFlow\Request\BRequest.cs" />
+    <Compile Include="WorkFlow\Flow\BUnderManagment.cs" />
+    <Compile Include="WorkFlow\Flow\IOperatorRegisteredRequests.cs" />
+    <Compile Include="WorkFlow\Flow\IUserRegisteredRequests.cs" />
+    <Compile Include="WorkFlow\Flow\IManagerReviewedRequests.cs" />
+    <Compile Include="WorkFlow\Flow\ISubstituteKartabl.cs" />
+    <Compile Include="WorkFlow\Flow\IManagerKartabl.cs" />
+    <Compile Include="WorkFlow\Flow\IKartablRequests.cs" />
+    <Compile Include="WorkFlow\Flow\IReviewedRequests.cs" />
+    <Compile Include="WorkFlow\Request\IPersonelBRequest.cs" />
+    <Compile Include="WorkFlow\Request\IOverTimeBRequest.cs" />
+    <Compile Include="WorkFlow\Flow\IRegisteredRequests.cs" />
+    <Compile Include="WorkFlow\Request\ITrafficBRequest.cs" />
+    <Compile Include="WorkFlow\Request\IDailyAbsenceBRequest.cs" />
+    <Compile Include="WorkFlow\Request\IHourlyAbsenceBRequest.cs" />
+    <Compile Include="WorkFlow\Flow\BKartabl.cs" />
+    <Compile Include="WorkFlow\Flow\IUnderManagmentTree.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Business CD.cd" />
+    <None Include="Rules\Rules ClassDiagram.cd" />
+    <None Include="Service References\GTSEngineWS\TotalWebService11.wsdl" />
+    <None Include="Service References\GTSEngineWS\TotalWebService33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GTSEngineWS\TotalWebService34.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GTSEngineWS\TotalWebService35.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Compiler\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure.NHibernate\GTS.Clock.Infrastructure.NHibernate.csproj">
+      <Project>{5909bfe7-93cf-4e5f-be22-6293368af01d}</Project>
+      <Name>GTS.Clock.Infrastructure.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure.Report\GTS.Clock.Infrastructure.Report.csproj">
+      <Project>{cae4cd8e-b025-4587-aacc-910adb8e07e4}</Project>
+      <Name>GTS.Clock.Infrastructure.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure.Repository\GTS.Clock.Infrastructure.Repository.csproj">
+      <Project>{722b8a8a-d626-446b-850d-ce8bcde316f7}</Project>
+      <Name>GTS.Clock.Infrastructure.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Infrastructure\GTS.Clock.Infrastructure.csproj">
+      <Project>{e9fceae6-0fbd-4996-9cd1-ed5f7fb308d6}</Project>
+      <Name>GTS.Clock.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTS.Clock.Model\GTS.Clock.Model.csproj">
+      <Project>{1bfa345b-4fb1-4618-9bf3-6bd1c5b1bbb6}</Project>
+      <Name>GTS.Clock.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GTSEngineWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GTSEngineWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GTSEngineWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GTSEngineWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GTSEngineWS\TotalWebService1.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

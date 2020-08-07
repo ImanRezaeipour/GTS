@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AppSetting.SMSSettings, GTS.Clock.Model"
+         table ="TA_SMSSettings" lazy="false">
+    <id name="ID" access="property"  column="sms_ID" >    
+    </id>
+    <property name="Active"     access="property" column="sms_Active" />
+    <property name="SendByDay"     access="property" column="sms_SendByDay" />
+    <property name="DayCount"     access="property" column="sms_DayNum" />
+    <property name="DayHour"     access="property" column="sms_DayHour" />
+    <property name="Hour"     access="property" column="sms_Hour" />
+
+    <many-to-one name="UserSetting" column="sms_UserSettingsId" class="GTS.Clock.Model.AppSetting.UserSettings, GTS.Clock.Model" cascade="none"/>
+
+
+  </class>
+</hibernate-mapping>

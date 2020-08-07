@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UpdatePTable, GTS.Clock.Model"
+         table ="UpdatePTalbe" lazy="true">
+
+    <id name="ID" access="property"  column="UpdatePTable_ID">
+      <generator class="native"/>
+    </id>
+
+    <property name="Result" access="property" column="UpdatePTalbe_Result" />
+
+    <loader query-ref="UpdatePTableQuery"/>
+    
+  </class>
+  <sql-query name="UpdatePTableQuery">
+    <return alias="UpdatePTableProc" class="GTS.Clock.Model.UpdatePTable, GTS.Clock.Model" lock-mode="upgrade-nowait">
+      <return-property name="id" column="UpdatePTable_ID"/>
+      <return-property name="Result" column="UpdatePTable_Result"/>
+    </return>
+    exec UpdatePTable :barCode, :year, :month, :day, :GregorianDate
+  </sql-query>
+</hibernate-mapping>

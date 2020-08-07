@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.PrecardAccessGroup, GTS.Clock.Model"
+         table ="TA_PrecardAccessGroup" lazy="true">
+    <id name="ID" access="property"  column="accessGrp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="accessGrp_Name" />
+    <property name="Description"     access="property" column="accessGrp_Description" />
+
+    <bag name="PrecardList" table="TA_PrecardAccessGroupDetail" lazy="true" inverse="false" cascade="none">
+      <key column="accessGrpDtl_AccessGrpId"></key>
+      <many-to-many class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model" column="accessGrpDtl_PrecardId"></many-to-many>
+    </bag>
+    
+    <bag name="FlowList" table="TA_Flow" lazy="true" inverse="true" >
+      <key column="flow_AccessGroupID"></key>
+      <one-to-many class="GTS.Clock.Model.RequestFlow.Flow, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

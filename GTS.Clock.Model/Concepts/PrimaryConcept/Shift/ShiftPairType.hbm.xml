@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.ShiftPairType, GTS.Clock.Model"
+         table ="TA_ShiftPairType" lazy="true">
+    <id name="ID" access="property"  column="shiftPairType_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Title"     access="property" column="shiftPairType_Title" />
+    <property name="CustomCode"     access="property" column="shiftPairType_CustomCode" />
+    <property name="Active"     access="property" column="shiftPairType_Active" />
+    <property name="Description"     access="property" column="shiftPairType_Description" />
+
+    <bag name="ShiftPairList" table="TA_ShiftPair" cascade="none">
+      <key column="Shiftpair_ShiftPairTypeId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.ShiftPair, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.LeaveIncDec, GTS.Clock.Model"
+         table ="TA_LeaveIncDec" lazy="true">
+
+    <id name="ID" access="property"  column="LeaveIncDec_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="Date"   access="property" column="LeaveIncDec_Date" />
+    <property name="Day"    access="property" column="LeaveIncDec_Day" />
+    <property name="Minute" access="property" column="LeaveIncDec_Minute" />
+    <property name="Applyed"     access="property" column="LeaveIncDec_Applyed" />
+    <property name="Description" access="property" column="LeaveIncDec_Description" />
+
+    <many-to-one name="Person" column="LeaveIncDec_PersonId"  class="GTS.Clock.Model.Person, GTS.Clock.Model"  not-null="false"/>
+  </class>
+</hibernate-mapping>

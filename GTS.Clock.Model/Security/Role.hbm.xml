@@ -1,0 +1,37 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.Role, GTS.Clock.Model"
+         table="TA_SecurityRole" lazy="true">
+
+    <id name="ID" access="property"  column="Role_ID" >
+      <generator class="native"/>
+    </id>
+
+    <property name="Active" access="property" column="Role_Active" />
+    <property name="Name" access="property" column="Role_Name"/>
+    <property name="ParentId" access="property" column="Role_ParentId"/>
+    <property name="Schema" access="property" column="Role_Schema"/>
+    <property name="CustomCode" access="property" column="Role_CustomCode"/>
+
+    <bag name="UserList" lazy="true" inverse="true" >
+      <key column="user_RoleId"></key>
+      <one-to-many class="GTS.Clock.Model.Security.User, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="ChildList" table="TA_SecurityRole" lazy="true" inverse="true" >
+      <key column="role_ParentId"></key>
+      <one-to-many class="GTS.Clock.Model.Security.Role, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="AuthorizeList" table="TA_SecurityAuthorize" lazy="true" inverse="true" cascade="all-delete-orphan">
+      <key column="Athorize_RoleID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.Authorize, GTS.Clock.Model"/>
+    </bag>
+
+    <!--<bag name="AccessPrecardList" table="TA_RolePrecard" lazy="true" cascade="none" >
+      <key column="RolPrecard_RoleId"></key>
+      <many-to-many class="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model" column="RolPrecard_PrecardId"></many-to-many>
+    </bag>-->
+    
+  </class>
+</hibernate-mapping>

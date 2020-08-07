@@ -1,0 +1,74 @@
+.TreeView
+{
+    background-position: bottom;
+    color:black;
+    border: #737282 1px solid;
+    padding-top: 2px;
+    cursor: pointer;
+    background-image: url('../Images/Ghadir/tab_body.png');
+    background-repeat: repeat-x;
+}
+
+.TreeNode 
+{ 
+  font-family: sans-serif, tahoma; 
+  font-size: 11px; 
+  padding:1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  cursor: pointer;   
+}
+
+.ComboTreeNode 
+{ 
+  font-family: sans-serif, tahoma; 
+  font-size: 11px; 
+  padding:1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  cursor: pointer;   
+  color:Black;
+}
+
+
+.HoverTreeNode 
+{ 
+  font-family: sans-serif, tahoma; 
+  font-size: 11px; 
+  padding:1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  color: Black; 
+  text-decoration: underline; 
+  cursor: pointer; 
+}
+
+.HoverNestingTreeNode
+{
+  font-family: sans-serif, tahoma; 
+  font-size: 11px; 
+  padding:1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  color: White; 
+  cursor: pointer; 
+}
+
+.SelectedTreeNode 
+{ 
+  font-family: sans-serif, tahoma; 
+  font-size: 11px; 
+  padding:1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  background-color: #a0a0a0; 
+  color:White;
+  cursor: pointer; 
+}
+
+.NodeEdit 
+{
+  border:1px silver solid;
+  font-family: tahoma; 
+  font-size: 11px;
+}

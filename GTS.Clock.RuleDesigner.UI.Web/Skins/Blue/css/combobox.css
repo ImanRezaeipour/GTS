@@ -1,0 +1,106 @@
+
+.comboBox 
+{
+    background-color: white;
+    color:black;   
+    Font-family: Arial;
+    border-style: solid solid solid none;
+    border-color: #7f9db9;    
+    border-width: 1px;
+   
+}
+
+.comboBoxHover
+{
+    background-color: white;
+    color: black;
+    Font-family: Arial;
+    border-style: solid solid solid none;
+    border-color: #7f9db9;
+    border-width: 1px;
+}
+
+.comboDropDown 
+{ 
+  border-style: solid solid solid none;
+  border-color: #7f9db9;
+  border-width: 1px;
+  background-color: white; 
+  padding: 1px;
+  padding-right: 0px;
+  cursor: pointer;
+  Font-family: Arial;
+  font-size:11px;
+}
+
+.comboTextBox
+{
+    border: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    Font-family: Arial;
+    background-color:transparent;
+    color: black;
+    
+}
+
+.comboTextBoxHover
+{
+  background-color: #B2B4BF; 
+}
+
+.comboItem
+{
+  Font-family: Arial; 
+  font-size: 11px; 
+  padding: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.comboItemHover
+{
+  background-color: #B2B4BF; 
+  background-image: url('../Images/ComboBox/comboItemBg.gif');
+  Font-family: Arial; 
+  font-size: 11px; 
+  border: 1px solid #DBCE99;
+  padding: 2px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+
+.headingRow 
+{ 
+  background-color: #E2E2E2; 
+}
+
+.headingCell 
+{ 
+  background-color: #E2E2E2; 
+  border: 1px solid #FFFFFF; 
+  border-right-color: #B5B5B5; 
+  border-bottom-color: #B5B5B5; 
+  padding: 3px;
+  Font-family: Arial; 
+  font-size: 10px; 
+  font-weight: bold; 
+  text-align: left;
+}
+
+.dataRow 
+{ 
+  background-color: #FFFFFF;   
+}
+
+.dataCell 
+{ 
+  cursor: pointer;
+  padding: 3px;
+  border: 1px solid #ffffff; 
+  border-right-color: #EAE9E1; 
+  border-bottom-color: #EAE9E1; 
+  Font-family: Arial; 
+  font-size: 11px; 
+} 

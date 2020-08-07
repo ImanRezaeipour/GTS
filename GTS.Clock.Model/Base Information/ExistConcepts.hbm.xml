@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.BaseInformation.ExistConcepts, GTS.Clock.Model"
+         table ="TA_ExistConcepts" lazy="true">
+    <id name="ID" access="property"  column="cnp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="ConceptColorName"     access="property" column="cnp_ConceptColorName" />
+    <property name="ConceptName"     access="property" column="cnp_ConceptName" />
+    <property name="LookupKey"     access="property" column="cnp_LookupKey" />
+
+  </class>
+</hibernate-mapping>

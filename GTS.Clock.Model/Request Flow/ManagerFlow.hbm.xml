@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RequestFlow.ManagerFlow, GTS.Clock.Model"
+         table ="TA_ManagerFlow" lazy="true">
+    <id name="ID" access="property"  column="mngrFlow_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Level"     access="property" column="mngrFlow_Level" />
+    <property name="Active"     access="property" column="mngrFlow_Active" />
+
+    <many-to-one name="Manager" column="mngrFlow_ManagerID" class="GTS.Clock.Model.RequestFlow.Manager, GTS.Clock.Model" not-null="true" fetch="join" lazy="proxy"/>
+    <many-to-one name="Flow" column="mngrFlow_FlowID" class="GTS.Clock.Model.RequestFlow.Flow, GTS.Clock.Model"/>
+
+    <bag name="StatusList" table="TA_RequestStatus" lazy="true" cascade="all-delete-orphan">
+      <key column="reqStat_MnagerFlowID"></key>
+      <one-to-many class="GTS.Clock.Model.RequestFlow.RequestStatus, GTS.Clock.Model"/>
+    </bag>
+  </class>
+</hibernate-mapping>

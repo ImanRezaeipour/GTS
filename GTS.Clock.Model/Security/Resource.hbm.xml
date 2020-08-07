@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.Resource, GTS.Clock.Model"
+         table="TA_SecurityResource" lazy="true">
+
+    <id name="ID" access="property"  column="resource_ID" >
+      <generator class="native"/>
+    </id>
+
+    <property name="ResourceID" access="property" column="resource_ResourceID" />
+    <property name="ParentId" access="property" column="resource_ParentId"/>
+    <property name="Description" access="property" column="resource_description"/>
+    <property name="MethodFullName" access="property" column="resource_MethodFullName"/>
+    <property name="MethodPath" access="property" column="resource_MethodPath"/>
+    <property name="ParentPath" access="property" column="resource_ParentPath"/>
+    <property name="CheckKey" access="property" column="resource_CheckKey"/>
+    <property name="SubSystemId" access="property" column="resource_SubSystemId"/>
+
+
+    <bag name="AuthorizeList" table="TA_SecurityAuthorize" lazy="true" >
+      <key column="Athorize_ResourceID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.Authorize, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="ChildList" table="TA_SecurityResource" lazy="true" >
+      <key column="Resource_ParentId"></key>
+      <one-to-many class="GTS.Clock.Model.Security.Resource, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

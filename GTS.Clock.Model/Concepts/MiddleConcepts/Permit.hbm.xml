@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.Permit, GTS.Clock.Model"
+         table ="TA_Permit" lazy="true">
+    <id name="ID" access="property" column="Permit_ID">
+      <generator class="native" />
+    </id>
+
+    <property name="FromDate" access="property" column="Permit_FromDate"/>
+    <property name="ToDate" access="property" column="Permit_ToDate"/>
+    <property name="IsPairly" access="property" column="Permit_IsPairly"/>
+    
+    <many-to-one name="Person" column="Permit_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true"/>
+    <!--<many-to-one name="Request" column="PermitPair_RequestId" class="GTS.Clock.Model.RequestFlow.Request, GTS.Clock.Model"/>-->
+
+    <bag name="Pairs" table="TA_PermitPair" cascade="all-delete-orphan" inverse="false" lazy="true" batch-size="100">
+      <key column="PermitPair_PermitId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.PermitPair, GTS.Clock.Model"/>
+    </bag>
+
+
+  </class>
+</hibernate-mapping>

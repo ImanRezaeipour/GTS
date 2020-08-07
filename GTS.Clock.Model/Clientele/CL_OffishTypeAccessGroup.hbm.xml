@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_OffishTypeAccessGroup, GTS.Clock.Model"
+         table ="CL_OffishTypeAccessGroup" lazy="true">
+    <id name="ID" access="property"  column="offishTypeAccessGroup_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="offishTypeAccessGroup_Name" />
+    <property name="Description"     access="property" column="offishTypeAccessGroup_Description" />
+    <property name="IsDeleted"     access="property" column="offishTypeAccessGroup_Deleted" />
+
+    
+
+    <bag name="OffishTypeList" table="CL_OffishTypeAccessGroupDetails" lazy="true" inverse="false" cascade="none">
+      <key column="offishTypeAccessGroupDetail_OffishTypeAccessGroupId"></key>
+      <many-to-many class="GTS.Clock.Model.Clientele.CL_OffishType, GTS.Clock.Model" column="offishTypeAccessGroupDetail_OffishTypeId"></many-to-many>
+    </bag>
+
+    <bag name="FlowList" table="CL_Flow" lazy="true" inverse="true" >
+      <key column="flow_AccessGroupID"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_Flow, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

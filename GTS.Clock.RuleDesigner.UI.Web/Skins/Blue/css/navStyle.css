@@ -1,0 +1,244 @@
+
+
+.NavBar_fa
+{
+    cursor:pointer;
+    font-family: tahoma;
+    font-size: 11px;
+    font-weight: bold;
+} 
+
+.TopItem_fa
+{
+    background-position: right top;
+    color: white;
+    background-image: url('../images/Navbar/menu_gradient_fa.png');
+    font-family: Tahoma;
+    font-size: 11px;
+    font-weight: bold;    
+    cursor: hand;
+    height: 20px;
+    background-repeat: no-repeat;
+}
+
+.TopItemHover_fa
+{
+    
+    background-position: right top;
+    color: #e8e6ff;
+    background-image: url('../images/Navbar/menu_gradient_fa.png');
+    font-family: tahoma;
+    font-size: 11px;
+    font-weight: bold;
+   
+    
+    cursor: hand;
+    height:20px;
+    background-repeat: no-repeat;
+}
+
+.TopItemActive_fa
+{
+    background-position: right top;
+    color:black;
+    background-image: url('../images/Navbar/menu_gradient_fa.png');
+    font-family: tahoma ;
+    font-size: 11px;
+    font-weight: bold;
+    padding-top: 2px;
+   
+    cursor: hand;
+    height:20px;
+}
+
+.Level2Item_fa
+{
+    font-family: tahoma;
+    background-color: transparent;
+    font-size: 11px;
+    color: black;
+    padding-right: 13px;
+    cursor: hand;
+    height: 20px;
+    background-image: url('../Images/NavBar/menu_fa.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+.Level2ItemHover_fa
+{
+    border-right-color: #CCCCCC;
+    border-bottom-color: #CCCCCC;
+    background-position: right;
+    
+    border-width: 1px;
+    border-color: white;
+    background-color: transparent;
+    color:black;
+    font-family: tahoma;
+    font-size: 11px;
+    padding-right: 13px;
+    cursor: hand;
+    background-image: url('../Images/NavBar/menu_hover_fa.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+    height: 20px;
+}
+.Level2ItemSelected_fa
+{
+    border-right-color: white;
+    border-bottom-color: white;
+    background-position: right;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    font-family: tahoma;
+    font-size: 11px;
+    cursor: hand;
+    background-image: url('../Images/NavBar/menu_selected_fa.png');
+    background-position: right top;
+    color:  black;
+    background-repeat: no-repeat;
+    height: 20px;
+    padding-right: 13px;
+}
+
+
+
+.TopItemExpanded_fa
+{
+  background-image: url('../images/Navbar/menu_gradient_fa.png');
+  color: black;  
+  font-family: tahoma ; 
+  font-size: 11px; 
+  font-weight: bold;  
+  padding-top: 4px; 
+  padding-bottom: 2px; 
+  cursor:hand;
+  height:20px;
+}
+
+
+
+
+
+
+
+
+
+
+.NavBar_en
+{
+    
+    
+    cursor: pointer;
+    font-family: tahoma;
+    font-size: 11px;
+    font-weight: bold;
+    
+} 
+
+.TopItem_en
+{
+    background-position: left top;
+    color: white;
+    background-image: url('../images/Navbar/menu_gradient_en.png');
+    font-family: Tahoma;
+    font-size: 11px;
+    font-weight: bold;    
+    cursor: hand;
+    height: 20px;
+    background-repeat: no-repeat;
+}
+
+.TopItemHover_en
+{
+    
+    background-position: left top;
+    color: #e8e6ff;
+    background-image: url('../images/Navbar/menu_gradient_en.png');
+    font-family: tahoma;
+    font-size: 11px;
+    font-weight: bold;
+   
+    
+    cursor: hand;
+    height:20px;
+    background-repeat: no-repeat;
+}
+
+.TopItemActive_en
+{
+    background-position: left top;
+    color:black;
+    background-image: url('../images/Navbar/menu_gradient_en.png');
+    font-family: tahoma ;
+    font-size: 11px;
+    font-weight: bold;
+    padding-top: 2px;
+   
+    cursor: hand;
+    height:20px;
+}
+
+.Level2Item_en
+{
+    font-family: tahoma;
+    background-color: transparent;
+    font-size: 11px;
+    color:black;
+   padding-right: 13px;
+    cursor: hand;
+    height: 20px;
+    background-image: url('../Images/NavBar/menu_en.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+.Level2ItemHover_en
+{
+    border-right-color: #CCCCCC;
+    border-bottom-color: #CCCCCC;
+    background-position: left;
+    border-width: 1px;
+    border-color: white;
+    background-color: transparent;
+    color:black;
+    font-family: tahoma;
+    font-size: 11px;
+    padding-right: 13px;
+    cursor: hand;
+    background-image: url('../Images/NavBar/menu_hover_en.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    height: 20px;
+}
+.Level2ItemSelected_en
+{
+    border-right-color: white;
+    border-bottom-color: white;
+    background-position: left;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    font-family: tahoma;
+    font-size: 11px;
+    cursor: hand;
+    background-image: url('../Images/NavBar/menu_selected_en.png');
+    background-position: left top;
+    color: black;
+    background-repeat: no-repeat;
+    height: 20px;
+    padding-right: 13px;
+}
+
+
+
+.TopItemExpanded_en
+{
+  background-image: url('../images/Navbar/menu_gradient_en.png');
+  color: black;  
+  font-family: tahoma ; 
+  font-size: 11px; 
+  font-weight: bold;  
+  padding-top: 4px; 
+  padding-bottom: 2px; 
+  cursor:hand;
+  height:20px;
+}

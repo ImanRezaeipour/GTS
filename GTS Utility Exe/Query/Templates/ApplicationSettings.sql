@@ -1,0 +1,1 @@
+INSERT TA_ApplicationSettings(appSet_ID,appSet_RuleDebug,appSet_RuleDurationDebug,appSet_BusinessLog,appSet_BusinessErrorLog) VALUES('1','0','0','1','1')

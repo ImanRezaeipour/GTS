@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.Precard, GTS.Clock.Model"
+         table ="TA_Precard" lazy="true">
+    <id name="ID" access="property"  column="precrd_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="precrd_Name" />
+    <property name="Active"   access="property" column="precrd_Active" />
+    <property name="IsHourly" access="property" column="precrd_Hourly" />
+    <property name="IsDaily"  access="property" column="precrd_Daily" />
+    <property name="IsPermit" access="property" column="precrd_Permit" />
+    <property name="IsLock" access="property" column="precrd_IsLock" />
+    <property name="Code" access="property" column="PreCrd_Code" />
+    <property name="RealName" access="property" column="Precrd_RealName" />
+    <property name="IsMonthly" access="property" column="Precrd_Monthly" />
+
+
+    <many-to-one name="PrecardGroup" column="precrd_pshcardGroupID" class="GTS.Clock.Model.Concepts.PrecardGroups, GTS.Clock.Model"/>
+
+    <bag name="AccessGroupList" table="TA_PrecardAccessGroupDetail" lazy="true" inverse="true" cascade="none">
+      <key column="accessGrpDtl_PrecardId"></key>
+      <many-to-many class="GTS.Clock.Model.Concepts.PrecardAccessGroup, GTS.Clock.Model" column="accessGrpDtl_AccessGrpId"></many-to-many>
+    </bag>
+
+    <bag name="AccessRoleList" table="TA_RolePrecard" lazy="true" >
+      <key column="RolPrecard_PrecardId"></key>
+      <many-to-many class="GTS.Clock.Model.Security.Role, GTS.Clock.Model" column="RolPrecard_RoleId"></many-to-many>
+    </bag>
+    
+  </class>
+</hibernate-mapping>

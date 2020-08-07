@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.PersonWorkGroup, GTS.Clock.Model"
+         table ="PersonWorkgroup_view" lazy="false">
+    <id name="ID" access="property" column="PersonWG_ID">
+      <generator class="native" />
+    </id>
+
+    <property name="WorkGroupName" access="property" column="PersonWG_WGName"/>
+    <property name="FromDate" access="property" column="PersonWG_FromDate"/>
+    <!--<property name="ToDate" access="property" column="PersonWG_ToDate"/>-->
+    <property name="WorkGroupID" access="property" column="PersonWG_WorkGroupID"/>
+
+  </class>
+
+
+
+</hibernate-mapping>

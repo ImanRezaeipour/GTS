@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.PersonRuleCatAssignment, GTS.Clock.Model"
+         table ="TA_PersonRuleCategoryAssignment" lazy="true">
+    <id name="ID" access="property"  column="PrsRulCatAsg_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="FromDate" access="property" column="PrsRulCatAsg_FromDate"/>
+    <property name="ToDate"   access="property" column="PrsRulCatAsg_ToDate"/>
+    <property name="PersonId"   access="property" column="PrsRulCatAsg_PersonId" insert="false" update="false"/>
+    
+    <many-to-one name="RuleCategory" column="PrsRulCatAsg_RuleCategoryId" class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model" />
+    <many-to-one name="Person"   column="PrsRulCatAsg_PersonId"   class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+  </class>
+</hibernate-mapping>

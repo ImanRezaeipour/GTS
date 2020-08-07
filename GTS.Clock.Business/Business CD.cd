@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GTS.Clock.Business.BaseBusiness&lt;T&gt;">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gEQBAEIQAoAAAAAAAAAAACcAAAFCCAAAAiAEhIAAgAA=</HashCode>
+      <FileName>BaseBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BEmployment" Collapsed="true">
+    <Position X="6.5" Y="5.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>BaseInformation\BEmployment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Shifts.BNobatkari" Collapsed="true">
+    <Position X="9" Y="5.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAQAAAAAAAAAAAAAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>Shifts\BNobarkari.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Shifts.BShift" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAAAAJAAoAAAgAAAAAAAgAAICQAAgIIAqAAQIAAIAA=</HashCode>
+      <FileName>Shifts\BShift.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Shifts.BWorkgroup" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAACAAAAAAAAAAAAAAAAAAAAqAAAIAAAAA=</HashCode>
+      <FileName>Shifts\BWorkgroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Charts.BDepartment" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAgAAMAAoAEAAAAAEAAAAAAAAAAAAAAAKAAAIAAIAA=</HashCode>
+      <FileName>Charts\BDepartment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Charts.BOrganizationUnit" Collapsed="true">
+    <Position X="13" Y="5.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAABIAAoAAAAAAAEIAAAAAAAAAAAgAAKAAAIoAAAA=</HashCode>
+      <FileName>Charts\BOrganizationUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.AppSettings.BApplicationSettings" Collapsed="true">
+    <Position X="102.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAgAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>ApplicationSettings\BApplicationSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.AppSettings.DateObj" Collapsed="true">
+    <Position X="101" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>ApplicationSettings\BLanguage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.AppSettings.BLanguage" Collapsed="true">
+    <Position X="99.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAACCCAAQBAAAAABAAAAAAAACEBAAAgE=</HashCode>
+      <FileName>ApplicationSettings\BLanguage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.AppSettings.BUserSettings" Collapsed="true">
+    <Position X="101" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAgAACAAIAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ApplicationSettings\BUserSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BHelp" Collapsed="true">
+    <Position X="15.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABBIAAIAAAAAAAAAAAAAAgAAAAAQACqAAAAAAAAA=</HashCode>
+      <FileName>Help\BHelp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BPerson" Collapsed="true">
+    <Position X="22" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAgKwIAAoBgBgBYBAAAgAACQ4BTiXQQgOEApAJABIA=</HashCode>
+      <FileName>Person\BPerson.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Business.BActiveDirectory" Collapsed="true">
+    <Position X="101" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAAAAgIA=</HashCode>
+      <FileName>Security\BActiveDirectory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BChangeOrganicInfo" Collapsed="true">
+    <Position X="106.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAIECAUIIAAAAgAAAAAAAAAAAIAAAIAAAIABAQAAAAE=</HashCode>
+      <FileName>BaseInformation\BChangeOrganicInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BClock" Collapsed="true">
+    <Position X="36.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAYAAIAAAAAAAAAAAAAAAAAAAAAAAKAAAAAABAA=</HashCode>
+      <FileName>BaseInformation\BClock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BControlStation" Collapsed="true">
+    <Position X="17.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAIAAIAAAAAAAAAAAAAAAAAAAAAAAqAAAIAAAAA=</HashCode>
+      <FileName>BaseInformation\BControlStation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BDoctor" Collapsed="true">
+    <Position X="24.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAIAAIAAAAAAAAAAAAAAAAAAAAAAAqAAAIAAAAA=</HashCode>
+      <FileName>BaseInformation\BDoctor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BDutyPlace" Collapsed="true">
+    <Position X="33.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAIAAAAAAEAAAAAAAAAAIAAAKAAAAAAAAA=</HashCode>
+      <FileName>BaseInformation\BDutyPlace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BIllness" Collapsed="true">
+    <Position X="45.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAIAAIAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>BaseInformation\BIllness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BPrivateMessage" Collapsed="true">
+    <Position X="52" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCgAAYAMIAAAAAAEAQAAAAAQAAgAAwAAKAAAAAIAAA=</HashCode>
+      <FileName>BaseInformation\BPrivateMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BPublicMessage" Collapsed="true">
+    <Position X="53" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAIAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>BaseInformation\BPublicMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BaseInformation.BTraffic" Collapsed="true">
+    <Position X="42" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEYAAIAAAAAAAAAAEAAYAAAAAAAAAKAgAgAAAAA=</HashCode>
+      <FileName>BaseInformation\BTraffic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.BoxService.BMainPageBox" Collapsed="true">
+    <Position X="104.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAIACgAAAAAA=</HashCode>
+      <FileName>BoxService\BMainPageBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Engine.BEngineCalculator" Collapsed="true">
+    <Position X="109.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAACAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Engine\BEngineCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.GridSettings.BGanttChartClientSettings" Collapsed="true">
+    <Position X="23" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEICAoAAAAAAAAIAAAAAAAAAAAAAGaAAAAAAAAA=</HashCode>
+      <FileName>GridSettings\BGanttChartClientSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.GridSettings.BGridMonthlyOperationClientSettings" Collapsed="true">
+    <Position X="29.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEICAoAAAAAAAIIAAAAAAAAAAAAAGaACAAAACAA=</HashCode>
+      <FileName>GridSettings\BGridMonthlyOperationClientSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.GridSettings.BGridMonthlyOperationMasterSettings" Collapsed="true">
+    <Position X="38.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAICAoAAAAAAAAAAAAAAAABAAAAACeACAAAACAA=</HashCode>
+      <FileName>GridSettings\BGridMonthlyOperationMasterSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.UI.GTSBasePage" Collapsed="true">
+    <Position X="106.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIAAAIACGCBQAAAgAAEAAAAAwBQAAgABAAAAAAAAAA=</HashCode>
+      <FileName>GTSBasePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.WorkedTime.BPersonMonthlyWorkedTime" Collapsed="true">
+    <Position X="106.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAQAIAAAAAAgQAQAAAAAUAhAACCEAAIAACAAAACA=</HashCode>
+      <FileName>Karkerd\BPersonMonthlyWorkedTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.WorkedTime.BWorkedTime" Collapsed="true">
+    <Position X="102.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAARAAAAAAAAAQAQAAAIIEgEAAACAAQIAAAIAAAAA=</HashCode>
+      <FileName>Karkerd\BWorkedTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Leave.BLeaveBudget" Collapsed="true">
+    <Position X="47.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEYAAIEAACAAAAAAAAAAAAAAAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>Leave\BLeaveBudget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Leave.BLeaveIncDec" Collapsed="true">
+    <Position X="54.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAIAAAAAEAAAAEAAAAAIAAAAAAKAgAAAAAAA=</HashCode>
+      <FileName>Leave\BLeaveIncDec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Leave.BRemainLeave" Collapsed="true">
+    <Position X="35.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAEAYAgIAAAAAEAAAAAAAAAACAAAQAAKQAAAAADAQ=</HashCode>
+      <FileName>Leave\BRemainLeave.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Business.Leave.BUserInfo" Collapsed="true">
+    <Position X="99.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAQAAAAAAAAABAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Leave\BUserInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Assignments.BAssignDateRange" Collapsed="true">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAIBAoAAAAAAAAAAAIAAAAAAAEAAAqAAgAABAAA=</HashCode>
+      <FileName>Person\BAssignDateRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Assignments.BAssignRule" Collapsed="true">
+    <Position X="25.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIBAoAAAAAAAQAAAIAAAAAAAEAAAqAAgAABAAA=</HashCode>
+      <FileName>Person\BAssignRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Assignments.BAssignWorkGroup" Collapsed="true">
+    <Position X="32" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAIBAoAAAAAAAAAAAIAAAAAAAEAAAqAAgAABAAA=</HashCode>
+      <FileName>Person\BAssignWorkGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Presentaion_Helper.Proxy.BasicTrafficProxy" Collapsed="true">
+    <Position X="104.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIARAAAAACAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\BasicTrafficProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Presentaion_Helper.Proxy.DailyReportProxy" Collapsed="true">
+    <Position X="109.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAIIAAAAEAAAaAAAAAAABAAEAAAAAABAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\DailyReportProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Presentaion_Helper.Proxy.DataAccessProxy" Collapsed="true">
+    <Position X="97.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAgAAAAAAAAAQAAAAAAAAAEIAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\DataAccessProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Presentaion_Helper.Proxy.DatabaseSetup" Collapsed="true">
+    <Position X="99.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\DatabaseSetup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Presentaion_Helper.Proxy.DayDateProxy" Collapsed="true">
+    <Position X="104.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAEAAAAAAAAAAAAAABAAAAAAgAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\DayDateProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Presentaion_Helper.Proxy.KartablSummaryProxy" Collapsed="true">
+    <Position X="102.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAABAACAAAAIAAAAAAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\KartablSummaryProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.CalendarCellInfo" Collapsed="true">
+    <Position X="104.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAEQAAAACBAAAAAAAAAAEAAAAgAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\CalendarCellInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.ChangeInfoErrorProxy" Collapsed="true">
+    <Position X="106.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\ChangeInfoErrorProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.ChartNodeProxy" Collapsed="true">
+    <Position X="108" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAQAAAAAAQAAAACAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\ChartNodeProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.DateRangeOrderProxy" Collapsed="true">
+    <Position X="102.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAABAAI=</HashCode>
+      <FileName>Presentaion Helper\Proxy\DateRangeOrderProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.HelpProxy" Collapsed="true">
+    <Position X="108" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAEgAAAAAAEAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\HelpProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.KartableSetStatusProxy" Collapsed="true">
+    <Position X="109.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\KartableSetStatusProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.KartablFlowLevelProxy" Collapsed="true">
+    <Position X="97.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgEAAAAAAAQAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\KartablFlowLevelProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.KartablProxy" Collapsed="true">
+    <Position X="99.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCIABAAAEggEQwQAAAAACAAwAAIkAAAAAIAAAAEAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\KartablProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.KartablRequestHistoryProxy" Collapsed="true">
+    <Position X="101" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAIAAAAAAAAAABYAAiAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\KartablRequestHistoryProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.LeaveBudgetProxy" Collapsed="true">
+    <Position X="106.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBEAAAAAFAEkgAACCAAQANC/SAAAAAACIIBAAAAAAAQ=</HashCode>
+      <FileName>Presentaion Helper\Proxy\LeaveBudgetProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.LeaveIncDecProxy" Collapsed="true">
+    <Position X="108" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAggAAAAAAAAAAABAAAAAIBAAAAAAAAAAQ=</HashCode>
+      <FileName>Presentaion Helper\Proxy\LeaveIncDecProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.ManagerProxy" Collapsed="true">
+    <Position X="109.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAiAAAAAAAAAQAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\ManagerProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.MonthlyDetailReportProxy" Collapsed="true">
+    <Position X="97.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAggAAAAAAAAAQAAAAIAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\MonthlyDetailReportProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.OrganicInfoProxy" Collapsed="true">
+    <Position X="99.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAkAAAAAAAAAEAIAAAAAAAAAIEACAAAIA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\OrganicInfoProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.PersonAdvanceSearchProxy" Collapsed="true">
+    <Position X="101" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\PersonAdvanceSearchProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.PersonDepartmentProxy" Collapsed="true">
+    <Position X="102.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\PersonDepartmentProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.AccessGroupProxy" Collapsed="true">
+    <Position X="97.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\PrecardAccessGroupProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.RemainLeaveProxy" Collapsed="true">
+    <Position X="104.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAAAAFAAAgAAAEABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\RemainLeaveProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.RequestFliterProxy" Collapsed="true">
+    <Position X="106.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\RequestFliterProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.ResourceProxy" Collapsed="true">
+    <Position X="109.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAIAAAAAgAAAAAAAAAAAAAAAAAAAAgAAACAABAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\ResourceInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.ShiftProxy" Collapsed="true">
+    <Position X="99.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAgAAAAAACAAAAAAAAAAABAAAAAAgAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\ShiftProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.ShiftPairProxy" Collapsed="true">
+    <Position X="97.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAgAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\ShiftProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.UIValidationGroupingProxy" Collapsed="true">
+    <Position X="104.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAAAAAgAAAAAAAAAAAAAAAAAAgAgAAAAAAAgA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\UIValidationGroupingProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.UserProxy" Collapsed="true">
+    <Position X="106.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAQAAIAAAEBgAAAAAAIBAAAAAAAAAAiAQAAEAAAIAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\UserProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Proxy.UserRequestFilterProxy" Collapsed="true">
+    <Position X="108" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAABAABCAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\UserRequestFilterProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceControl" Collapsed="true">
+    <Position X="108" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAEAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\ResourceControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Reporting.BaseControlParameter" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAIAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Report\BaseControlParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Reporting.BControlParameter_YearMonth" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Report\BControlParameter_YearMonth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Business.Reporting.BReport" Collapsed="true">
+    <Position X="34.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYAIAIAAsAAAAAAQAIAAAAAAgAAAAABAKAACIAAEAA=</HashCode>
+      <FileName>Report\BReport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Reporting.BReportParameter" Collapsed="true">
+    <Position X="108" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEAkAABAICACAAAAAIAEAAAAAAAAgMAAAKAAAAAQDCE=</HashCode>
+      <FileName>Report\BReportParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BConcept" Collapsed="true">
+    <Position X="26.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Rules\BConcepts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BDateRange" Collapsed="true">
+    <Position X="43" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAgAAAgAAoQAAAAAAAAEAKAAgAAAABA=</HashCode>
+      <FileName>Rules\BDateRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BLeave" Collapsed="true">
+    <Position X="101" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Rules\BLeave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BRule" Collapsed="true">
+    <Position X="48.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIBAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>Rules\BRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BRuleCategory" Collapsed="true">
+    <Position X="37.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gJAAAAIAAIAAAAAAAACAAAAAQAAAAAAAAbCAAIQQAAA=</HashCode>
+      <FileName>Rules\BRuleCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BRuleParameter" Collapsed="true">
+    <Position X="44.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAAIAQAAAQAAAAAAAEAAAASQAAAqAAAAAAAAA=</HashCode>
+      <FileName>Rules\BRuleParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BRuleType" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAAAAAAAAAQAAABAAAAAqAAAAAAAAA=</HashCode>
+      <FileName>Rules\BRuleType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Rules.BRuleViewer" Collapsed="true">
+    <Position X="109.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAABAABEAAAAAAAQIAAAAAAAAA=</HashCode>
+      <FileName>Rules\BRuleViewer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Security.AuthorizeValidation" Collapsed="true">
+    <Position X="99.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAIAABAA=</HashCode>
+      <FileName>Security\AuthorizeValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Security.BDataAccess" Collapsed="true">
+    <Position X="108" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gJQwIKEFYIIiAgEQQkIgRFJVIkagIglBApCAAYFYBAE=</HashCode>
+      <FileName>Security\BDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Security.BLogin" Collapsed="true">
+    <Position X="102.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAACAAgAAAAgAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Security\BLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Security.BRole" Collapsed="true">
+    <Position X="19.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAIAAoAAAAAAAAJABAAAAAIAAAAAAqgADMAAAAA=</HashCode>
+      <FileName>Security\BRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Security.BUser" Collapsed="true">
+    <Position X="28.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQCEBAYAAoABgAEUAEwABEECQABgEgAAAKAAFIACAhA=</HashCode>
+      <FileName>Security\BUser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Business.Security.LdapAuthentication" Collapsed="true">
+    <Position X="104.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgABAIAQAAACAAIAAAAAAAAgAACAAEAAAAIIAAAAAAA=</HashCode>
+      <FileName>Security\LdapAuthentication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.GTSEngineWS.TotalWebServiceClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="102.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAiAAAAAAQAAAAAAgACAAAAAAAAAQAA=</HashCode>
+      <FileName>Service References\GTSEngineWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GTS.Clock.Business.Shifts.BCalendarType" Collapsed="true">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAARABAAAAAAAAAAAIAAAAAQKAAAAAAAAA=</HashCode>
+      <FileName>Shifts\BCalendarType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Shifts.BExceptionShift" Collapsed="true">
+    <Position X="18.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAioBAAgCABAAAgAEAAAAAAAAkAKAAAAAAAAE=</HashCode>
+      <FileName>Shifts\BExceptionShift.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.Shifts.BWorkGroupCalendar" Collapsed="true">
+    <Position X="27.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAIABICAAAAAAAIAAAAAAAQAAAAAAqAAAAAAABA=</HashCode>
+      <FileName>Shifts\BWorkGroupCalendar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Business.SyncHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="101" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>SyncHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GTS.Clock.Business.UIValidation.BUIValidationGroup" Collapsed="true">
+    <Position X="41" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAoAAgBAAAAAAAAABAAABACAAAKAABgAAYAA=</HashCode>
+      <FileName>UIValidation\BUIValidationGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BFlow" Collapsed="true">
+    <Position X="31" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCgAAIAIIQAAAAAMEAABAAAIAAAAAAAAqAAAIEAAAA=</HashCode>
+      <FileName>WorkFlow\BFlow.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BKartabl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="97.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgSgAGiEADAAAggLQBAAoAhICgBAQMAAQqgAIBIYAWU=</HashCode>
+      <FileName>WorkFlow\BKartabl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BManager" Collapsed="true">
+    <Position X="49.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkCgBFMAIKQEAAAAAAAwAAAwIEBEEBgACKAEAYgAEAA=</HashCode>
+      <FileName>WorkFlow\BManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BOperator" Collapsed="true">
+    <Position X="50.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAYAAIAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\BOperator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BPrecard" Collapsed="true">
+    <Position X="39.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIEAIAAAAAAAgAAAAAAAAABAAAAAqAAAIAAgAA=</HashCode>
+      <FileName>WorkFlow\BPrecard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BPrecardAccessGroup" Collapsed="true">
+    <Position X="46.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAoAAAAAAAAAABAAAIAIAAAAAAKAAAAAIQAA=</HashCode>
+      <FileName>WorkFlow\BPrecardAccessGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BRequest" Collapsed="true">
+    <Position X="14" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAFAE5EAogAAIAiAYAAAJABCoSAbCCAUKAARAASABA=</HashCode>
+      <FileName>WorkFlow\BRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BSubstitute" Collapsed="true">
+    <Position X="20.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CACiAAYAMoAAAARAAAAABAAAAAgAAAAAAKAABAEIAAA=</HashCode>
+      <FileName>WorkFlow\BSubstitute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Business.RequestFlow.BUnderManagment" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="97.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgggAAAACCAAAgCEALAwgAE4AQABAAgAICAEMIACQA=</HashCode>
+      <FileName>WorkFlow\BUnderManagment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Struct Name="GTS.Clock.Business.Proxy.OnDemandTreeChilds" Collapsed="true">
+    <Position X="97.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAAAAAAgAACAAA=</HashCode>
+      <FileName>Presentaion Helper\Proxy\OnDemandTreeChilds.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="GTS.Clock.Business.ISearchPerson" Collapsed="true">
+    <Position X="106.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAGCAAAYAAAAAQAQIAAAAAAQAAAAIAAAABAQQAABIA=</HashCode>
+      <FileName>Person\ISearchPerson.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.Leave.ILeaveInfo" Collapsed="true">
+    <Position X="108" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Leave\ILeaveInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.Reporting.IBControlParameter" Collapsed="true">
+    <Position X="97.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Report\IBControlParameter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.Security.IDataAccess" Collapsed="true">
+    <Position X="102.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAACAQYgAAAAAAAgQAAABEAAAAAQQA=</HashCode>
+      <FileName>Security\IDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.GTSEngineWS.ITotalWebService" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAiAAAAAAQAAAAAAgACAAAAAAAAAQAA=</HashCode>
+      <FileName>Service References\GTSEngineWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.GTSEngineWS.ITotalWebServiceChannel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\GTSEngineWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.UIValidation.IUIRuleValidator" Collapsed="true">
+    <Position X="97.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>UIValidation\IUIRuleValidator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IDailyAbsenceBRequest" Collapsed="true">
+    <Position X="99.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAFAARAAAAAAIAAAAAAABAAAAAAAAAAQAAAAAACAAA=</HashCode>
+      <FileName>WorkFlow\IDailyAbsenceBRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IHourlyAbsenceBRequest" Collapsed="true">
+    <Position X="104.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAFAABAAAAAAIAAAAAAAJAACIAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\IHourlyAbsenceBRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IKartablRequests" Collapsed="true">
+    <Position X="106.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAgCAIAAAAAAAAAAAAAAAAABAAgAAAAAgAA=</HashCode>
+      <FileName>WorkFlow\IKartablRequests.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IManagerKartabl" Collapsed="true">
+    <Position X="109.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABgAAAAAAAAAAAAAAAAAAAABAAgAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\IManagerKartabl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IManagerReviewedRequests" Collapsed="true">
+    <Position X="97.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\IManagerReviewedRequests.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IOperatorRegisteredRequests" Collapsed="true">
+    <Position X="99.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABgAAAAAAAAAAAAAAAAAAAABAAgAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\IOperatorRegisteredRequests.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IOverTimeBRequest" Collapsed="true">
+    <Position X="101" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAIAAAAAAAAAAAgSAJAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\IOverTimeBRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IDashboardBRequest" Collapsed="true">
+    <Position X="101" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>WorkFlow\IPersonelBRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IRegisteredRequests" Collapsed="true">
+    <Position X="102.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IoAHAABAAAAEAIAEAAABABAAQAAAgAAABABAQAAIBIA=</HashCode>
+      <FileName>WorkFlow\IRegisteredRequests.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IReviewedRequests" Collapsed="true">
+    <Position X="104.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAgCAAAAAAAAAAAAAAAAAAABAAgAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\IReviewedRequests.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.ISubstituteKartabl" Collapsed="true">
+    <Position X="108" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABgAAAAAAAAAAAAAAAAAAAABAAgAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\ISubstituteKartabl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.ITrafficBRequest" Collapsed="true">
+    <Position X="109.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>WorkFlow\ITrafficBRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IUnderManagmentTree" Collapsed="true">
+    <Position X="99.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\IUnderManagmentTree.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Business.RequestFlow.IUserRegisteredRequests" Collapsed="true">
+    <Position X="101" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABgAAAAAAAAAAAAAAAAAAAABAAgAAAAAAAA=</HashCode>
+      <FileName>WorkFlow\IUserRegisteredRequests.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GTS.Clock.Business.AppSettings.SupportedLangs" Collapsed="true">
+    <Position X="104.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>ApplicationSettings\BLanguage.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GTS.Clock.Business.UIActionType" Collapsed="true">
+    <Position X="108" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Structure.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GTS.Clock.Business.SysLanguageResource" Collapsed="true">
+    <Position X="106.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Structure.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GTS.Clock.Business.LocalLanguageResource" Collapsed="true">
+    <Position X="99.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Structure.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GTS.Clock.Business.ManagerSearchFields" Collapsed="true">
+    <Position X="101" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAEAIAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Structure.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GTS.Clock.Business.FlowSearchFields" Collapsed="true">
+    <Position X="97.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentaion Helper\Structure.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GTS.Clock.Business.ManagerType" Collapsed="true">
+    <Position X="102.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAA=</HashCode>
+      <FileName>Presentaion Helper\Structure.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

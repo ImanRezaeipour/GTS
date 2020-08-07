@@ -1,0 +1,1292 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTS.Clock.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="M:GTS.Clock.Infrastructure.Log.BaseLog.LoadConfiguration(System.String)">
+            <summary>
+            بارگذاري فايل تنظيمات, در صورت عدم وجود فايل تنظيمات از فايل تنظيمات اصلي بارگذاري ميشود
+            </summary>
+            <param name="configPath">مسير فايل تنظيمات</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Log.BaseLog.Flush">
+            <summary>
+            مسئول خالي سازي لاگ هاي موجود در انباره مي باشد
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Log.BaseLog.ResetConfiguaraion">
+            <summary>
+            اگر سیستم تشخیص نداد که باید پیکربندی شود میتوان بصورت دستی این کار را انجام داد
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Log.GTSEngineLogger.#ctor">
+            <summary>
+            فقط برای لاگ گرفتن قوانین
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Exceptions.UI.ItemNotExists">
+            <summary>
+            معمولا وقتی اتفاق می افند که کلاینت مشغول ویرایش یا مشاهده آیتمی باشد و در همان زمان
+            شخص دیگری در سیستم آن  آیتم را از دیتابیس حذف کرده باشد
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.BaseException.#ctor(System.String,System.String)">
+            <summary>
+            سازنده کلاس پایه برای خطاها
+            </summary>
+            <param name="msg">پیغام خطا</param>
+            <param name="exceptionSrc">مکانی که در آن خطا پرتاب شده است</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.BaseException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            سازنده کلاس پایه برای خطاها
+            </summary>
+            <param name="msg">پیغام خطا</param>
+            <param name="exceptionSrc">مکانی که در آن خطا پرتاب شده است</param>
+            <param name="InnerException">خطای مسبب این خطا</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.BaseException.GetLogMessage">
+            <summary>
+            باید تمامی خصیصه ها که لازم است در هنگام لاگ گرفتن بیاید در اینجا بصورت بهمچسبیده
+            Concat
+            برگردانده شود
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.BaseException.ExceptionSource">
+            <summary>
+            مکانی که در آن این خطا پرتاب شده است
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.BaseException.InsertedLog">
+            <summary>
+            آیا این خطا در لاگ ذخیره شده است
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.UI.ItemNotExists.#ctor(System.String,System.String)">
+            <summary>
+            سازنده کلاس پایه برای خطاها
+            </summary>
+            <param name="msg">پیغام خطا</param>
+            <param name="exceptionSrc">مکانی که در آن خطا پرتاب شده است</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.ConfigNotProvided.#ctor(System.String,System.String,GTS.Clock.Infrastructure.Exceptions.ExceptionType,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="cnfgKey">AppSetting Key for example which was expected</param>
+            <param name="exType"></param>
+            <param name="exceptionSource">مکان فیزیکی که خطا پرتاب شده است</param>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.ConfigNotProvided.ConfigKey">
+            <summary>
+            returns Config Key which was expected but is not provided
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Log.BusinessServiceLogger.#ctor">
+            <summary>
+            فقط برای لاگ گرفتن خطاهای بیزینس
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Exceptions.UnforeseenState">
+            <summary>
+            حالت پیش بینی نشده در توسعI سیستم
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.UnforeseenState.#ctor(System.String,System.String)">
+            <summary>
+            سازنده کلاس پایه برای خطاها
+            </summary>
+            <param name="msg">پیغام خطا</param>
+            <param name="exceptionSrc">مکانی که در آن خطا پرتاب شده است</param>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Exceptions.UI.AthorizeServiceException">
+            <summary>
+            معمولا وقتی اتفاق می افند که کلاینت مشغول ویرایش یا مشاهده آیتمی باشد و در همان زمان
+            شخص دیگری در سیستم آن  آیتم را از دیتابیس حذف کرده باشد
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.UI.AthorizeServiceException.#ctor(System.String,System.String,System.String)">
+            <summary>
+            سازنده کلاس پایه برای خطاها
+            </summary>
+            <param name="msg">پیغام خطا</param>
+            <param name="exceptionSrc">مکانی که در آن خطا پرتاب شده است</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Validation.Configuration.UIValidationFactory.GetRepository``1">
+            <summary>
+            creates an instance of the requested interface.
+            </summary>
+            <typeparam name="TRepository">The interface of the repository 
+            to create.</typeparam>
+            <typeparam name="TEntity">The type of the Entity that the 
+            repository is for.</typeparam>
+            <returns>An instance of the interface requested.</returns>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.RepositoryFramework.IRepository`1">
+            <summary>
+            .رابط انباره پایه برای تمام رابطهای قابل تعریف در مدل
+            </summary>
+            <typeparam name="T">.نوع موجودیتی که انباره با آن کار می کند</typeparam>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.TranslatorFramework.BaseGTSSTranslator`1">
+            <summary>
+            .کلاس پایه برای مترجم ها
+            <typeparam name="TGTSSDictionary">.نوع دیکشنری مورد استفاده توسط مترجم</typeparam>
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.ExceptionHandler.HandleException(System.String,GTS.Clock.Infrastructure.Exceptions.BaseException)">
+            <summary>
+            بصورت پیش فرض Info Log
+            </summary>
+            <param name="logMessage"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.ExceptionHandler.HandleException(System.String)">
+            <summary>
+            بصورت پیش فرض Info Log
+            </summary>
+            <param name="logMessage"></param>       
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Exceptions.UI.ExecuteClockEngineException">
+            <summary>
+            اگر موتور محاسبات در اجرای قوانین با مشکلی روبرو شود این خطا را ایجاد می نماید
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.UI.ExecuteClockEngineException.#ctor(System.String,System.String)">
+            <summary>
+            سازنده کلاس پایه برای خطاها
+            </summary>
+            <param name="msg">پیغام خطا</param>
+            <param name="exceptionSrc">مکانی که در آن خطا پرتاب شده است</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.CustomeXMLConvertor.XMLConvertor.#ctor(System.Object)">
+            <summary>
+            Get a class object and convert it to xml document
+            </summary>
+            <param name="classFullName">class full name contains it's namespace</param>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.ConceptsKeys">
+            <summary>
+            جهت استخراج مفاهیم ساعتی
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.RequestState">
+            <summary>
+            تایید شده , ردشده,تحت بررسی
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.RequestType">
+            <summary>
+            روزانه, ساعتی,اضافه کار
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.PersonSearchProxy">
+            <summary>
+            پارمترهای جستجوی پیشرفته
+            جهت ارسال به انباره داده
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.PersonId">
+            <summary>
+            اگر مقداردهی شود تنها همین شخص جستجو میشود
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.Sex">
+            <summary>
+            جنسیت
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.Military">
+            <summary>
+            نظام وظیفه
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.Education">
+            <summary>
+            تحصیلات
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.MaritalStatus">
+            <summary>
+            وضعیت تاهل
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.DepartmentId">
+            <summary>
+            کد بخش
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.IncludeSubDepartments">
+            <summary>
+            شامل زیر بخش ها هم بشود
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.WorkGroupId">
+            <summary>
+            کد گروه کاری
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.WorkGroupFromDate">
+            <summary>
+            تاریخ شروع انتساب گروه کاری
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.RuleGroupId">
+            <summary>
+            کد گروه قوانین
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.RuleGroupFromDate">
+            <summary>
+            تاریخ شروع انتساب گروه قوانین
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.RuleGroupToDate">
+            <summary>
+            تاریخ انتهای انتساب گروه قوانین
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.CalculationDateRangeId">
+            <summary>
+            کد دوره محاسبات
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.CalculationFromDate">
+            <summary>
+            تاریخ شروع دوره محاسبات
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.ControlStationId">
+            <summary>
+            ایستگاه کنترل
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.EmploymentType">
+            <summary>
+            نوع استخدام
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.OrganizationUnitId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.FromBirthDate">
+            <summary>
+            تاریخ تولد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.ToBirthDate">
+            <summary>
+            تاریخ تولد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.FromEmploymentDate">
+            <summary>
+            تاریخ استخدام
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.ToEmploymentDate">
+            <summary>
+            تاریخ استخدام
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.EmployeeNumber">
+            <summary>
+            شماره استخدامی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.BirthPlace">
+            <summary>
+            محل تولد
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.CartNumber">
+            <summary>
+            شماره کارت
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.FirstName">
+            <summary>
+            نام
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.LastName">
+            <summary>
+            نام خانوادگی
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.FatherName">
+            <summary>
+            نام پدر
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.PersonSearchProxy.PersonCode">
+            <summary>
+            شماره پرسنلی
+            </summary>
+        </member>
+        <member name="F:GTS.Clock.Infrastructure.ScndCnpPeriodicType.Periodic">
+            <summary>
+            مفهوم دوره ای که از جمع مفاهیم روزانه بدست می آید
+            </summary>
+        </member>
+        <member name="F:GTS.Clock.Infrastructure.ScndCnpPeriodicType.PulePeriodic">
+            <summary>
+            مفهوم دوره ای که به هیچ مفهوم روزانه وابسته نیست و در قوانین مقداردهی می شود
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryFactory.GetRepository``2(System.Boolean)">
+            <summary>
+            creates an instance of the requested interface.
+            </summary>
+            <typeparam name="TRepository">The interface of the repository 
+            to create.</typeparam>
+            <typeparam name="TEntity">The type of the Entity that the 
+            repository is for.</typeparam>
+            <returns>An instance of the interface requested.</returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.CalculatorSchedulerFramework.CalculatorSchedulerFactory.GetCalculatorScheduler(GTS.Clock.Infrastructure.CalculatorSchedulerFramework.Configuration.CalculatorSchedulerSettings,System.String)">
+            <summary>
+            زمابندی که نام آن مشخص شده است را در تنظیمات پیدا نموده و یک نمونه از آن برمی گرداند
+            </summary>
+            <param name="Setting">فایل تنظیمات که مشخصات زمانبند در آن قرار دارد</param>
+            <param name="SchedulerName">نام زمانبند که باید یک نمونه از آن ساخته شود</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.CalculatorSchedulerFramework.CalculatorSchedulerFactory.GetSetting">
+            <summary>
+            تنظیمات زمانبند محاسبه گر را برمی گرداند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.CalculatorSchedulerFramework.CalculatorSchedulerFactory.IsConditionOccurenced(GTS.Clock.Infrastructure.CalculatorSchedulerFramework.Configuration.CalculatorSchedulerSettings,System.DateTime)">
+            <summary>
+            تابع بررسی وقوع شرط زمانبند هریک از زمانبدهای تعریف شده در فایل تنظیمات
+            را فراخوانی می نماید
+            </summary>
+            <param name="Setting">تنظیماتی که نام زمانبندها در آن قرار دارد</param>
+            <param name="Now">تاریخ/ساعتی که به عنوان پارامتر به توابع زمانبندها ارسال می گردد</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NhibernateFilter.Add(System.String,System.Object)">
+            <summary>
+            Add , Update
+            </summary>      
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.InvalidPersianDateException.#ctor(System.String,System.String)">
+            <summary>
+            سازنده کلاس پایه برای خطاها
+            </summary>
+            <param name="msg">پیغام خطا</param>
+            <param name="exceptionSrc">مکانی که در آن خطا پرتاب شده است</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.DataValidationException.#ctor(System.String,GTS.Clock.Infrastructure.Exceptions.UI.ExceptionKeyCodes)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="exceptionKeyCode">کد برای شناسایی پیغام به زبانهای مختلف در واسط کاربر</param>        
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.DataValidationException.ExceptionKeyCode">
+            <summary>
+            کد برای شناسایی پیغام به زبانهای مختلف در واسط کاربر
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.SimpleHash">
+            <summary>
+            This class generates and compares hashes using MD5, SHA1, SHA256, SHA384, 
+            and SHA512 hashing algorithms. Before computing a hash, it appends a
+            randomly generated salt to the plain text, and stores this salt appended
+            to the result. To verify another plain text value against the given hash,
+            this class will retrieve the salt value from the hash string and use it
+            when computing a new hash of the plain text. Appending a salt value to
+            the hash may not be the most efficient approach, so when using hashes in
+            a real-life application, you may choose to store them separately. You may
+            also opt to keep results as byte arrays instead of converting them into
+            base64-encoded strings.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.SimpleHash.ComputeHash(System.String,GTS.Clock.Infrastructure.HashStandards,System.Byte[])">
+            <summary>
+            Generates a hash for the given plain text value and returns a
+            base64-encoded result. Before the hash is computed, a random salt
+            is generated and appended to the plain text. This salt is stored at
+            the end of the hash value, so it can be used later for hash
+            verification.
+            </summary>
+            <param name="plainText">
+            Plaintext value to be hashed. The function does not check whether
+            this parameter is null.
+            </param>
+            <param name="hashAlgorithm">
+            Name of the hash algorithm. Allowed values are: "MD5", "SHA1",
+            "SHA256", "SHA384", and "SHA512" (if any other value is specified
+            MD5 hashing algorithm will be used). This value is case-insensitive.
+            </param>
+            <param name="saltBytes">
+            Salt bytes. This parameter can be null, in which case a random salt
+            value will be generated.
+            </param>
+            <returns>
+            Hash value formatted as a base64-encoded string.
+            </returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.SimpleHash.VerifyHash(System.String,GTS.Clock.Infrastructure.HashStandards,System.String)">
+            <summary>
+            Compares a hash of the specified plain text value to a given hash
+            value. Plain text is hashed with the same salt value as the original
+            hash.
+            </summary>
+            <param name="plainText">
+            Plain text to be verified against the specified hash. The function
+            does not check whether this parameter is null.
+            </param>
+            <param name="hashAlgorithm">
+            Name of the hash algorithm. Allowed values are: "MD5", "SHA1", 
+            "SHA256", "SHA384", and "SHA512" (if any other value is specified,
+            MD5 hashing algorithm will be used). This value is case-insensitive.
+            </param>
+            <param name="hashValue">
+            Base64-encoded hash value produced by ComputeHash function. This value
+            includes the original salt appended to it.
+            </param>
+            <returns>
+            If computed hash mathes the specified hash the function the return
+            value is true; otherwise, the function returns false.
+            </returns>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.SimpleHashTest">
+            <summary>
+            Illustrates the use of the SimpleHash class.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.SimpleHashTest.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.CalculatorSchedulerFramework.Configuration.CalculatorSchedulerSettings.BatchFlush">
+            <summary>
+            تنظیم انجام شده در فایل تنظیمات که نحوه لاگ نمودن اتفاقات را مشخص می نماید
+            مقدار "درست" به این معنی است که اتفاقات در زمان "ایستادن" سرویس لاگ شوند 
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.CalculatorSchedulerFramework.Configuration.CalculatorSchedulerSettings.ServiceableSchedulers">
+            <summary>
+            نام زمانبندهای تعریف شده که با "|" از هم جدا شده اند را نگهداری می نماید
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.CalculatorSchedulerFramework.Configuration.CalculatorSchedulerSettings.GTSWebServiceAddress">
+            <summary>
+            آدرس وب سرویس
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Log.GTSWinSvcLogger.#ctor">
+            <summary>
+            فقط برای لاگ گرفتن ویندوز سرویس انجام محاسبات
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Utility.ConditionOperations">
+            <summary>
+             برای اتصال شروط در کوئری استفاده میشود 
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Utility.CriteriaOperation">
+            <summary>
+             برای اتصال عملوندها در شروط استفاده میشود 
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.CriteriaStruct.#ctor(System.String,System.Object,GTS.Clock.Infrastructure.Utility.CriteriaOperation)">
+            <summary>
+            
+            </summary>
+            <param name="propertyName"></param>
+            <param name="value"></param>
+            <param name="operation">برای اتصال به عملوند قبلی استفاده میشود </param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetPageCount(System.Int32,System.Int32)">
+            <summary>
+            Get Page Count Used in GridView
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetPropertyName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            نام خصوصیت را برمی گرداند
+            </summary>
+            <remarks>var propertyName = GetPropertyName(() => myObject.AProperty); // returns "AProperty"</remarks>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetExecptionMessage(System.Exception)">
+            <summary>
+            یک استثنا میگیرد و پیام آن بهمراه تمام استثنا های داخلی را برمیگرداند
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ReadAppSetting(System.String)">
+            <summary>
+            Appsetting خواندن از
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetSimpleUsername(System.String)">
+            <summary>
+            حذف علامتهای اضافی در نام کاربری تا در دیتابیس قابل استفاده شود
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.CatchWrite(System.String,System.Object,System.Int32)">
+            <summary>
+            Write to ASP.NET cache
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="durationMinutes">دقیقه</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.CatchRead(System.String)">
+            <summary>
+            Read From ASP.NET cache
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetHashCode(System.String)">
+            <summary>
+            یک رشته را هش میکند
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.VerifyHashCode(System.String,System.String)">
+            <summary>
+            یک رشته هش نشده را با یک رشته هش شده مقایسه میکند
+            </summary>
+            <param name="value">رشته هش نشده</param>
+            <param name="hashedText">رشته هش شده</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IntTimeToRealTime(System.Int32)">
+            <summary>
+            دقیقه را به زمان واقعی تبدیل میکند
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+            <example>
+            IntTimeToRealTime(130); --> 2:10
+            IntTimeToRealTime(1450); --> +0:10
+            </example>/// 
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IntTimeToRealTimeWithZero(System.Int32)">
+            <summary>
+            دقیقه را به زمان واقعی تبدیل میکند
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+            <example>
+            IntTimeToRealTimeWithZero(130); --> 2:10
+            IntTimeToRealTimeWithZero(1450); --> +0:10
+            /// IntTimeToRealTimeWithZero(0); --> 00:00
+            </example>/// 
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IntTimeToRealTime(System.Decimal)">
+            <summary>
+            دقیقه را به زمان واقعی تبدیل میکند
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+            <example>
+            IntTimeToRealTime(130); --> 2:10
+            IntTimeToRealTime(1450); --> +0:10
+            </example>/// 
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IntTimeToTime(System.Int32)">
+            <summary>
+            .تبدیل دقیقه به زمان
+            </summary>
+            <param name="Minute">.میزان دقیقه ای که به زمان تبدیل می شود</param>
+            <returns>زمان محاسبه شده</returns>
+            <example>
+            MinuteToTime(130); --> 2:10
+            MinuteToTime(1450); --> 24:10
+            </example>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IntTimeToTime(System.Int32,System.Boolean)">
+            <summary>
+            .تبدیل دقیقه به زمان
+            </summary>
+            <param name="Minute">.میزان دقیقه ای که به زمان تبدیل می شود</param>
+            <param name="withoutSpace">اگر زمان صفر باشد فاصله قرار نمیدهد</param>
+            <returns>زمان محاسبه شده</returns>
+            <example>
+            MinuteToTime(130); --> 2:10
+            MinuteToTime(1450); --> 24:10
+            </example>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IntTimeToTime(System.Decimal)">
+            <summary>
+            .تبدیل دقیقه به زمان
+            </summary>
+            <param name="Minute">.میزان دقیقه ای که به زمان تبدیل می شود</param>
+            <returns>زمان محاسبه شده</returns>
+            <example>
+            MinuteToTime(130); --> 2:10
+            MinuteToTime(1450); --> 24:10
+            </example>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.RealTimeToIntTime(System.String)">
+            <summary>
+            زمان را به دقیقه تبدیل میکند
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+            <example>
+            TimeToMinute("2:10") --> 130
+            TimeToMinute("+0:10") --> 1450
+            </example>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToMildiDate(System.String)">
+            <summary>
+            تبدیل شمسی به میلادی
+            </summary>
+            <param name="persianDate">تاریخ شمسی</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToMildiDateTime(System.String)">
+            <summary>
+            تبدیل میلادی متنی به میلادی
+            </summary>
+            <param name="miladiDate">تاریخ میلادی</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToMildiDateString(System.String)">
+            <summary>
+            تبدیل شمسی متنی به میلادی متنی
+            </summary>
+            <param name="miladiDate">تاریخ میلادی</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToPersianDate(System.DateTime)">
+            <summary>
+            تبدیل میلادی به شمسی
+            </summary>
+            <param name="date">تاریخ میلادی</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToPersianDate(System.String)">
+            <summary>
+            تبدیل میلادی به شمسی
+            </summary>
+            <param name="date">تاریخ میلادی</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToPersianDateTime(System.DateTime)">
+            <summary>
+            تبدیل میلادی به شمسی
+            </summary>
+            <param name="date">تاریخ میلادی</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToString(System.DateTime)">
+            <summary>
+            تاریخ را با فرمت سال/ماه/روز برمیگرداند
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToString(System.Enum)">
+            <summary>
+            
+            </summary>
+            <param name="enumration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToString(System.Object)">
+            <summary>
+            اگر تهی باشد خالی برمیگرداند
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToInteger(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToInteger(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToBoolean(System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="bit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToDateRangeIndex(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            دوره محاسبات از روز و ماه تشکیل شده است که برای راحتی کار در مقایسه ها 
+            کلیدی ایجاد شده است که از ماه و روز یک عدد میسازد
+            این عدد 5 رقمی است و با فرمت زیر ساخته میشود
+            '2'+(MM).ToString()+(DD).ToString()
+            اگر ماه مربوط به سال قبل بود بجای 2 عدد یک و اگر مربوط به سال بعد عدد سه را میگزاریم
+            </summary> 
+            <param name="month">ماه </param>
+            <param name="day">روز </param>
+            <param name="yearStatus"> یک یعنی سال قبل - 2 یعنی سال جاری - 3 یعنی سال بعد </param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToDateRangeIndex(System.DateTime,GTS.Clock.Infrastructure.LanguagesName)">
+            <summary>
+            دوره محاسبات از روز و ماه تشکیل شده است که برای راحتی کار در مقایسه ها 
+            کلیدی ایجاد شده است که از ماه و روز یک عدد میسازد
+            این عدد 5 رقمی است و با فرمت زیر ساخته میشود
+            '2'+(MM).ToString()+(DD).ToString()
+            اگر ماه مربوط به سال قبل بود بجای 2 عدد یک و اگر مربوط به سال بعد عدد سه را میگزاریم
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToDateRangeIndex(System.DateTime)">
+            <summary>
+            دوره محاسبات از روز و ماه تشکیل شده است که برای راحتی کار در مقایسه ها 
+            کلیدی ایجاد شده است که از ماه و روز یک عدد میسازد
+            این عدد 5 رقمی است و با فرمت زیر ساخته میشود
+            '2'+(MM).ToString()+(DD).ToString()
+            اگر ماه مربوط به سال قبل بود بجای 2 عدد یک و اگر مربوط به سال بعد عدد سه را میگزاریم
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.ToParsiCharacter(System.String)">
+            <summary>
+            اعداد را به پارسی تبدیل میکند
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetEndOfPersianMonth(System.Int32,System.Int32)">
+            <summary>
+            تعداد روز ماههای شمسی را برمیگرداند
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetStartOfPersianMonth(System.DateTime)">
+            <summary>
+            ابتدای ماه شمسی را باتوجه به تاریخ میلادی برمیگرداند
+            </summary>
+            <param name="miladiDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetEndOfPersianMonth(System.DateTime)">
+            <summary>
+            انتهای ماه شمسی را باتوجه به تاریخ میلادی برمیگرداند
+            </summary>
+            <param name="miladiDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetEndOfMiladiMonth(System.Int32,System.Int32)">
+            <summary>
+            تعداد روزهای ماههای میلادی را برمیگرداند
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetStartOfMiladiMonth(System.DateTime)">
+            <summary>
+            ابتدای ماه میلادی را باتوجه به تاریخ میلادی برمیگرداند
+            </summary>
+            <param name="miladiDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetEndOfMiladiMonth(System.DateTime)">
+            <summary>
+            انتهای ماه میلادی را باتوجه به تاریخ میلادی برمیگرداند
+            </summary>
+            <param name="miladiDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetDateOfBeginYear(System.DateTime,GTS.Clock.Infrastructure.LanguagesName)">
+            <summary>
+            تاریخ اولین روز سال مشخص شده را برمیگرداند
+            </summary>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.GetDateOfEndYear(System.DateTime,GTS.Clock.Infrastructure.LanguagesName)">
+            <summary>
+            تاریخ آخرین روز سال مشخص شده را برمیگرداند
+            </summary>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IsEmpty(System.String)">
+            <summary>
+            obj==null || obj.Length==0
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IsEmpty(System.Object)">
+            <summary>
+            obj==null 
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IsEmpty(System.Boolean)">
+            <summary>
+            obj==null 
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IsEmpty(System.Nullable{System.Decimal})">
+            <summary>
+            obj==null || obj == 0
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IsEmpty(System.DateTime)">
+            <summary>
+            obj==null || obj == '0001/01/01'
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IsEmpty``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            list==null || list.count == 0
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.Utility.IsNumber(System.String)">
+            <summary>
+            آیا رشته ورودی یک شماره است
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Utility.Utility.GTSMinStandardDateTime">
+            <summary>
+            حداقل مقدار تاریخ جهت اعتبارسنجی تاریخ های ورودی در واسط کاربر
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Utility.Utility.GTSMinStandardShamsiDateTime">
+            <summary>
+            حداقل مقدار تاریخ شمسی جهت اعتبارسنجی تاریخ های ورودی در واسط کاربر
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Utility.Utility.CpuUsage">
+            <summary>
+            System CPU Usage
+            used in ELE Helper Class
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionModule">
+            <summary>
+            Implements the Open-Session-In-View pattern using <see cref="T:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager"/>.
+            Assumes that each HTTP request is given a single transaction for the entire page-lifecycle.
+            Inspiration for this class came from Ed Courtenay at 
+            http://sourceforge.net/forum/message.php?msg_id=2847509.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionModule.BeginTransaction(System.Object,System.EventArgs)">
+            <summary>
+            Opens a session within a transaction at the beginning of the HTTP request.
+            This doesn't actually open a connection to the database until needed.
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionModule.CommitAndCloseSession(System.Object,System.EventArgs)">
+            <summary>
+            Commits and closes the NHibernate session provided by the supplied <see cref="T:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager"/>.
+            Assumes a transaction was begun at the beginning of the request; but a transaction or session does
+            not *have* to be opened for this to operate successfully.
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.OutOfExpectedRangeException.StartOfExpectedRange">
+            <summary>
+            ابتدای بازه
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.OutOfExpectedRangeException.EndOfExpectedRange">
+            <summary>
+            انتهای بازه
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.OutOfExpectedRangeException.ProvidedValue">
+            <summary>
+            مقداری که خارج از بازه مد نظر بوده است و باعث این خطا شده است
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.SessionHelper">
+            <summary>
+            برروی دادهای کش شده مدیریت میکند
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.SessionHelper.HasSessionValue(System.String)">
+            <summary>
+            has session initilized
+            </summary>
+            <param name="sessionKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.SessionHelper.ClearAllCachedData">
+            <summary>
+            همه چیزهایی که در نشست ذخیره شده است حذف میشود
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Year">سال شمسی</param>
+            <param name="Month">ماه شمسی</param>
+            <param name="Day">روز شمسی</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Year">سال شمسی</param>
+            <param name="Month">ماه شمسی</param>
+            <param name="Day">روز شمسی</param>
+            <param name="Hour"></param>
+            <param name="Minute"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.NextMonthStart">
+            <summary>
+            ابتدای ماه بعد
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.Parse(System.String,System.Boolean)">
+            <summary>
+            یک رشته را برای تبدیل به یک نمونه از کلاس "تاریخ فارسی" پردازش می کند
+            </summary>
+            <exception cref="T:GTS.Clock.Infrastructure.Exceptions.InvalidPersianDateException"></exception>
+            <param name="value">رشته تاریخ مورد نظر</param>
+            <param name="includesTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.Parse(System.String,System.String)">
+            <summary>
+            یک رشته را برای تبدیل به یک نمونه از کلاس "تاریخ فارسی" پردازش می کند
+            </summary>
+            <exception cref="T:GTS.Clock.Infrastructure.Exceptions.InvalidPersianDateException"></exception>
+            <param name="value">رشته تاریخ مورد نظر</param>
+            <param name="includesTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.Parse(System.String)">
+            <summary>
+            یک رشته را برای تبدیل به یک نمونه از کلاس "تاریخ فارسی" پردازش می کند
+            </summary>
+            <exception cref="T:GTS.Clock.Infrastructure.Exceptions.InvalidPersianDateException"></exception>
+            <param name="value">رشته تاریخ مورد نظر</param>
+            <param name="includesTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.GetEnglishDayName(System.DayOfWeek)">
+            <summary>
+            نام روز هفته به انگلیسی
+            </summary>
+            <param name="WeekDay"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.GetPershianDayName(System.DayOfWeek)">
+            <summary>
+            نام روز هفته به فارسی
+            </summary>
+            <param name="WeekDay"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.PersianDateTime.GetEndOfShamsiYear(System.DateTime)">
+            <summary>
+            تاریخ انتهای سال شمسی را برمیگرداند
+            </summary>
+            <param name="date">تاریخ میلادی</param>      
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.GTSDateTime.ExMinuteToTime(System.Int32)">
+            <summary>
+            .تبدیل دقیقه به زمان
+            </summary>
+            <param name="Minute">.میزان دقیقه ای که به زمان تبدیل می شود</param>
+            <returns>زمان محاسبه شده</returns>
+            <example>
+            MinuteToTime(130); --> 2:10
+            MinuteToTime(1450); --> +0:10
+            </example>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.GTSDateTime.EXTimeToMinute(System.String)">
+            <summary>
+            .زمان وارد شده را به دقیقه تبدیل می نماید
+            </summary>
+            <param name="Time">.زمان مورد نظر برای تبدیل</param>
+            <returns>.میزان دقیقه ی محاسبه شده</returns>
+            <example>
+            TimeToMinute("2:10") --> 130
+            TimeToMinute("+0:10") --> 1450
+            </example>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.GTSDateTime.MinuteToTime(System.Int32)">
+            <summary>
+            .تبدیل دقیقه به زمان
+            </summary>
+            <param name="Minute">.میزان دقیقه ای که به زمان تبدیل می شود</param>
+            <returns>زمان محاسبه شده</returns>
+            <example>
+            MinuteToTime(130); --> 2:10
+            MinuteToTime(1450); --> 24:10
+            </example>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Log.LogLevel">
+            <summary>
+            نوع ثبت لاگ
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Log.LogSource">
+            <summary>
+            منبع ذخیره و ثبت لاگ
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1">
+            <summary>
+            .کلاس پايه براي تمامي کلاس هاي انباره که رابط آنها در مدل و پياده سازي آنها در فضاي نامي انباره انجام مي شود 
+            </summary>
+            <typeparam name="T">.نوع موجوديتي که انباره با آن کار مي کند</typeparam>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.GetById(System.Decimal,System.Boolean)">
+            <summary>
+            یک نمونه از شی مشخص شده را براساس شناسه آن برمی گرداند
+            </summary>
+            <param name="id">شناسه موجودیت مورد نظر</param>
+            <param name="shouldLock"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.RunHQL(System.String)">
+            <summary>
+            جستجوی ارسال شده را اجرا می نماید
+            </summary>
+            <param name="Query">جستجوی مورد نظر</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.GetByCriteria(GTS.Clock.Infrastructure.Utility.CriteriaStruct[])">
+            <summary>
+            تعداد رکوردها را پس از اعمال شروط بازمیگرداند
+            توجه شود که تنها عملگر 'و' را جهت اتصال شروط استفاده میکند
+            </summary>
+            <param name="cretriaParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.GetByCriteriaByPage(System.Int32,System.Int32,GTS.Clock.Infrastructure.Utility.CriteriaStruct[])">
+            <summary>
+            تعداد رکوردها را پس از اعمال شروط بازمیگرداند
+            توجه شود که تنها عملگر 'و' را جهت اتصال شروط استفاده میکند
+            </summary>
+            <param name="cretriaParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.GetByCriteria(GTS.Clock.Infrastructure.Utility.ConditionOperations,GTS.Clock.Infrastructure.Utility.CriteriaStruct[])">
+            <summary>
+            تعداد رکوردها را پس از اعمال شروط بازمیگرداند
+            </summary>
+            <param name="cretriaParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.GetByCriteriaByPage(System.Int32,System.Int32,GTS.Clock.Infrastructure.Utility.ConditionOperations,GTS.Clock.Infrastructure.Utility.CriteriaStruct[])">
+            <summary>
+            تعداد رکوردها را پس از اعمال شروط بازمیگرداند
+            </summary>
+            <param name="cretriaParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.GetCountByCriteria(GTS.Clock.Infrastructure.Utility.CriteriaStruct[])">
+            <summary>
+            تعداد رکوردها را پس از اعمال شروط بازمیگرداند
+            توجه شود که تنها عملگر 'و' را جهت اتصال شروط استفاده میکند
+            </summary>
+            <param name="cretriaParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.GetCountByCriteria(GTS.Clock.Infrastructure.Utility.ConditionOperations,GTS.Clock.Infrastructure.Utility.CriteriaStruct[])">
+            <summary>
+            تعداد رکوردها را پس از اعمال شروط بازمیگرداند
+            </summary>
+            <param name="cretriaParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.MakeCriteria(GTS.Clock.Infrastructure.Utility.CriteriaStruct,NHibernate.ICriteria@)">
+            <summary>
+            شرط را اعمال میکند
+            و خروجی را در پارامتر دوم میریزد
+            </summary>
+            <param name="criteriaStruct"></param>
+            <param name="criteria"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.MakeCriteria(GTS.Clock.Infrastructure.Utility.CriteriaStruct,NHibernate.ICriteria@,NHibernate.Criterion.Junction@,GTS.Clock.Infrastructure.Utility.ConditionOperations)">
+            <summary>
+            شرط را اعمال میکند
+            و خروجی را در پارامتر دوم و سوم میریزد
+            </summary>
+            <param name="criteriaStruct"></param>
+            <param name="criteria"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.RepositoryFramework.RepositoryBase`1.GetConnectionString">
+            <summary>
+            رشته ارتباط با پایگاه داده را برمی گرداند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.TranslatorFramework.GTSSTranslatorFactory.GetGTSSTranslator``2(System.String,System.String)">
+            <summary>
+            .یک نمونه مترجم از نوع و نسخه خواسته شده ایجاد می نماید 
+            .همچنین براساس نسخه دیکشنری درخواست شده دیکشنری مورد نظر را به مترجم ارسال می نماید
+            </summary>
+            <typeparam name="TGTSSTranslator">.نوع مترجم که خروجی عملیات است</typeparam>
+            <typeparam name="TGTSSDictionary">.نوع دیکشنری که در حین عملیات به مترجم تخصیص داده می شود</typeparam>
+            <param name="TranslatorReleaseVer">.نسخه ی مترجم مورد نظر</param>
+            <param name="DictionaryReleaseVer">.نسخه دیکشنری مورد نظر</param>
+            <returns>یک نمونه از مترجم درخواست شده</returns>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Exceptions.UI.IllegalServiceAccess">
+            <summary>
+            اگر سیستم سمت کلاینت هک شود و متدی فراخوانی شود که اجازه آن صادر نشده باشد این خطا رخ میدهد
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.UI.IllegalServiceAccess.#ctor(System.String,System.String)">
+            <summary>
+            سازنده کلاس پایه برای خطاها
+            </summary>
+            <param name="msg">پیغام خطا</param>
+            <param name="exceptionSrc">مکانی که در آن خطا پرتاب شده است</param>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Utility.DateRange">
+            <summary>
+            از این کلاس برای نگهداری یک محدوده ی تاریخ استفاده می شود
+            با استفاده از این کلاس می توان بین دو تاریخ "گردش" نمود
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.DateRange.IsContain(GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            وظیفه بررسی وجود تاریخ ارسالی در بازه این کلاس بعهده این تابع می باشد
+            </summary>
+            <param name="DateTime"></param>
+            <returns>اگر تاریخ ارسالی در بازه نگهداری شده توسط کلاس باشد "درست" وگرنه "نا درست" برمی گرداند</returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Utility.DateRange.IsContain(System.DateTime)">
+            <summary>
+            وظیفه بررسی وجود تاریخ ارسالی در بازه این کلاس بعهده این تابع می باشد
+            </summary>
+            <param name="DateTime"></param>
+            <returns>اگر تاریخ ارسالی در بازه نگهداری شده توسط کلاس باشد "درست" وگرنه "نا درست" برمی گرداند</returns>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager">
+            <summary>
+            .اين کلاس مسئول ايجاد و مديرت "جلسه" ها و "تراکنش" ها مي باشد
+            .اين کلاس به صورت "يگانه" تعريف شده است، به اين دليل که هزينه ايجاد "سازنده جلسه" بسيار بالاست
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.GetSessionFactory">
+            <summary>
+            .براساس تنظيمات پروژه ي فراخواننده و پروژه ي پيش فرض براي نگهداري نحوه ي نگاشت يک نمونه "سازنده ي جلسه" برميگرداند
+            not thread-safe
+            </summary>
+            <returns>يک نمونه سازنده ي جلسه</returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.GetFilters">
+            <summary>
+            .براساس تنظيمات پروژه ي فراخواننده و پروژه ي پيش فرض براي نگهداري نحوه ي نگاشت يک نمونه "سازنده ي جلسه" برميگرداند
+            not thread-safe
+            </summary>
+            <returns>يک نمونه سازنده ي جلسه</returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.GetSession">
+            <summary>
+            .يک "جلسه" برمي گرداند. اين نمونه براي تمام زمان زندگي درخواست يکسان خواهد بود
+            so it's not thread-safe
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.GetTransaction">
+            <summary>
+            تراکنش جاری را برمی گرداند
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.BeginTransactionOn">
+            <summary>
+            .يک "تراکنش" برمي گرداند. اين نمونه براي تمام زمان زندگي درخواست يکسان خواهد بود
+            so it's not thread-safe
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.BeginTransactionOn(NHibernate.FlushMode)">
+            <summary>
+            .يک "تراکنش" برمي گرداند. اين نمونه براي تمام زمان زندگي درخواست يکسان خواهد بود
+            so it's not thread-safe
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.CommitTransactionOn">
+            <summary>
+            تاييد تراکنش جاري
+            <returns>مشخص کننده ی موفقیت/عدم موفقیت آمیز بودن تایید تراکنش</returns>
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.RollbackTransactionOn">
+            <summary>
+            عقب گرد تراکنش جاري
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.CloseSessionOn">
+            <summary>
+            بستن جلسه جاري
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.ClearSession">
+            <summary>
+            وظیفه ی پاکسازی جلسه جاری را به عهده دارد.
+            به واسطه ی این پاکسازی تمام اشیایی که کش شده بودند از بین خواهند رفت
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.Instance">
+            <summary>
+            .يک نمونه از کلاس "مدير جلسه" را برمي گرداند
+            </summary>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.NHibernateFramework.NHibernateSessionManager.Nested">
+            <summary>
+            Assists with ensuring thread-safe, lazy singleton
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Exceptions.NHibernateException.AddAttribute(System.String,System.String)">
+            <summary>
+            انواع خصيصهاي يک نوع اثتثنا را در اينجا ميتوان اضافه کرد که تا در آينده لاگ شوند
+            </summary>
+            <param name="propertyName"></param>
+            <param name="propertyValue"></param>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.NHibernateException.NhibernateExceptionType">
+            <summary>
+            NhibernateException.GetType().ToString();
+            </summary>
+        </member>
+        <member name="P:GTS.Clock.Infrastructure.Exceptions.UI.UIValidationExceptions.InsertedLog">
+            <summary>
+            آیا در لاگ آمده است
+            </summary>
+        </member>
+    </members>
+</doc>

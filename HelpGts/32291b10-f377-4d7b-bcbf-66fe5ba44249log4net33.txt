@@ -1,0 +1,66 @@
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\fc927262\35a7e6a2\assembly\dl3\e3c6b031\00ea72fc_ad2acc01\log4net.DLL]. (.NET Runtime [2.0.50727.4984] on Microsoft Windows NT 6.1.7600.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [Anonymously Hosted DynamicMethods Assembly, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [Anonymously Hosted DynamicMethods Assembly, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [Anonymously Hosted DynamicMethods Assembly, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [GTS.Clock.Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [GTS.Clock.Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\fc927262\35a7e6a2\assembly\dl3\69227ad9\38645de4_6c20cd01\GTS.Clock.Infrastructure.DLL]
+log4net: DefaultRepositorySelector: Assembly [GTS.Clock.Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [GTS.Clock.Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using file [D:\HelpGTS\net4log.Config]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using stream
+log4net: XmlConfigurator: loading XML configuration
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Logger [root] Level string is [INFO].
+log4net: XmlHierarchyConfigurator: Logger [root] level set to [name="INFO",value=40000].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [RuleLogToDB].
+log4net: XmlHierarchyConfigurator: Setting [RuleLogToDB] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [RuleLogToDB] Level string is [INFO].
+log4net: XmlHierarchyConfigurator: Logger [RuleLogToDB] level set to [name="INFO",value=40000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RuleLogDBAppend] type: [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]
+log4net:ERROR XmlHierarchyConfigurator: Could not create Appender [RuleLogDBAppend] of type [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]. Reported error follows.
+System.TypeLoadException: Could not load type [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]. Tried assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821] and all loaded assemblies
+   at log4net.Util.SystemInfo.GetTypeFromString(Assembly relativeAssembly, String typeName, Boolean throwOnError, Boolean ignoreCase)
+   at log4net.Repository.Hierarchy.XmlHierarchyConfigurator.ParseAppender(XmlElement appenderElement)
+log4net:ERROR XmlHierarchyConfigurator: Appender named [RuleLogDBAppend] not found.
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [WinSvcLogToDB].
+log4net: XmlHierarchyConfigurator: Setting [WinSvcLogToDB] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [WinSvcLogToDB] Level string is [INFO].
+log4net: XmlHierarchyConfigurator: Logger [WinSvcLogToDB] level set to [name="INFO",value=40000].
+log4net: XmlHierarchyConfigurator: Loading Appender [WinSvcAppender] type: [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]
+log4net:ERROR XmlHierarchyConfigurator: Could not create Appender [WinSvcAppender] of type [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]. Reported error follows.
+System.TypeLoadException: Could not load type [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]. Tried assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821] and all loaded assemblies
+   at log4net.Util.SystemInfo.GetTypeFromString(Assembly relativeAssembly, String typeName, Boolean throwOnError, Boolean ignoreCase)
+   at log4net.Repository.Hierarchy.XmlHierarchyConfigurator.ParseAppender(XmlElement appenderElement)
+log4net:ERROR XmlHierarchyConfigurator: Appender named [WinSvcAppender] not found.
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [BusinessServiceErrors].
+log4net: XmlHierarchyConfigurator: Setting [BusinessServiceErrors] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [BusinessServiceErrors] Level string is [INFO].
+log4net: XmlHierarchyConfigurator: Logger [BusinessServiceErrors] level set to [name="INFO",value=40000].
+log4net: XmlHierarchyConfigurator: Loading Appender [BusinessErrorLogDBAppend] type: [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]
+log4net:ERROR XmlHierarchyConfigurator: Could not create Appender [BusinessErrorLogDBAppend] of type [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]. Reported error follows.
+System.TypeLoadException: Could not load type [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]. Tried assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821] and all loaded assemblies
+   at log4net.Util.SystemInfo.GetTypeFromString(Assembly relativeAssembly, String typeName, Boolean throwOnError, Boolean ignoreCase)
+   at log4net.Repository.Hierarchy.XmlHierarchyConfigurator.ParseAppender(XmlElement appenderElement)
+log4net:ERROR XmlHierarchyConfigurator: Appender named [BusinessErrorLogDBAppend] not found.
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [ActivityLogToDB].
+log4net: XmlHierarchyConfigurator: Setting [ActivityLogToDB] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [ActivityLogToDB] Level string is [INFO].
+log4net: XmlHierarchyConfigurator: Logger [ActivityLogToDB] level set to [name="INFO",value=40000].
+log4net: XmlHierarchyConfigurator: Loading Appender [UserActivityLogDBAppend] type: [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]
+log4net:ERROR XmlHierarchyConfigurator: Could not create Appender [UserActivityLogDBAppend] of type [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]. Reported error follows.
+System.TypeLoadException: Could not load type [GTS.Clock.Infrastructure.Log.GTSAdoNetAppender]. Tried assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821] and all loaded assemblies
+   at log4net.Util.SystemInfo.GetTypeFromString(Assembly relativeAssembly, String typeName, Boolean throwOnError, Boolean ignoreCase)
+   at log4net.Repository.Hierarchy.XmlHierarchyConfigurator.ParseAppender(XmlElement appenderElement)
+log4net:ERROR XmlHierarchyConfigurator: Appender named [UserActivityLogDBAppend] not found.
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: Logger: No appenders could be found for logger [NHibernate.Loader.Loader] repository [log4net-default-repository]
+log4net: Logger: Please initialize the log4net system properly.
+log4net: Logger:    Current AppDomain context information: 
+log4net: Logger:       BaseDirectory   : D:\HelpGts\
+log4net: Logger:       FriendlyName    : /LM/W3SVC/4/ROOT-2-130068486153698327
+log4net: Logger:       DynamicDirectory: C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\fc927262\35a7e6a2
+log4net: Hierarchy: Shutdown called on Hierarchy [log4net-default-repository]

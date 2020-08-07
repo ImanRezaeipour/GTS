@@ -1,0 +1,22 @@
+﻿
+.CalendarTextBoxes
+{
+	width:12px;
+	height:12px;
+	font-size:smaller;
+	border: 1px double gray;
+}
+
+
+.TextBoxes
+{
+    
+    background-color: white;
+    height: 18px;           
+    color:black;
+    padding-top: 4px;
+    Font-family: Arial;
+    border-style: solid solid solid solid;
+    border-color: #7f9db9;    
+    border-width: 1px;
+}

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_OffishRequestStatus, GTS.Clock.Model"
+         table ="CL_OffishStatus" lazy="true">
+    <id name="ID" access="property"  column="offishStatus_ID" >
+      <generator class="native" />
+    </id>
+    
+    <property name="Confirm"     access="property" column="offishStatus_Confirm" />
+    <property name="EndFlow"     access="property" column="offishStatus_EndFlow" />
+    <property name ="Description" access="property" column="offishStatus_Description"/>
+    <property name ="Date" access="property" column="offishStatus_Date"/>
+    <property name ="IsDeleted" access="property" column="offishStatus_Deleted"/>
+
+    <many-to-one name="OffishRequest" column="offishStatus_OffishID" class="GTS.Clock.Model.Clientele.CL_OffishRequest, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="ManagerFlow" column="offishStatus_ManagerFlowID" class="GTS.Clock.Model.Clientele.CL_ManagerFlow, GTS.Clock.Model" not-null="true" lazy="proxy"/>
+
+  </class>
+</hibernate-mapping>

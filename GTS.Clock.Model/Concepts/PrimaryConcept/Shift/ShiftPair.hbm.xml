@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.ShiftPair, GTS.Clock.Model"
+         table ="TA_ShiftPair" lazy="false">
+    <id name="ID" access="property" column="ShiftPair_ID">
+      <generator class="native" />
+    </id>
+
+    <property name="From"            access="property" column="ShiftPair_From"/>
+    <property name="To"              access="property" column="ShiftPair_To"/>
+    <property name="AfterTolerance"  access="property" column="ShiftPair_AfterTolerance"/>
+    <property name="BeforeTolerance" access="property" column="ShiftPair_BeforeTolerance"/>
+    <property name="ShiftId"         access="property" column="ShiftPair_ShiftId"/>
+
+    <many-to-one name="Shift" column="ShiftPair_ShiftId" class="GTS.Clock.Model.Concepts.Shift, GTS.Clock.Model" cascade="none" update="false" insert="false"/>
+    <many-to-one name="ShiftPairType" column="Shiftpair_ShiftPairTypeId" class="GTS.Clock.Model.Concepts.ShiftPairType, GTS.Clock.Model" />
+
+  </class>
+</hibernate-mapping>

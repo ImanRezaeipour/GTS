@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.0" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Connection Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Connection</Alias>
+        <ConnectionString>Password=123;Persist Security Info=True;Data Source=192.168.10.33\farhadsqlserver;Integrated Security=False;Initial Catalog=GTSOrginInstance;User ID=farhad</ConnectionString>
+        <Name>Connection</Name>
+        <PromptUserNameAndPassword>False</PromptUserNameAndPassword>
+      </Connection>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <MonthlyReport_MonthlyValue Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>MonthlyReport_MonthlyValue</Alias>
+        <Columns isList="true" count="9">
+          <value>gridFields_HourlyWithoutPayLeave,System.Decimal</value>
+          <value>gridFields_HourlyUnallowableAbsence,System.Decimal</value>
+          <value>gridFields_DailyAbsence,System.Decimal</value>
+          <value>gridFields_DailyWithoutPayLeave,System.Decimal</value>
+          <value>gridFields_AllowableOverTime,System.Decimal</value>
+          <value>gridFields_MonthlyCalculationRangeLength,System.Decimal</value>
+          <value>gridFields_MonthlyFoodDue,System.Decimal</value>
+          <value>ScndCnpValue_PersonId,System.Decimal</value>
+          <value>Prs_Barcode,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>MonthlyReport_MonthlyValue</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="2">
+          <value>_x0040_ToDate,,4,0</value>
+          <value>_x0040_Order,,8,0</value>
+        </Parameters>
+        <SqlCommand>SELECT [gridFields_HourlyWithoutPayLeave] 
+	,[gridFields_HourlyUnallowableAbsence]	  
+	,[gridFields_DailyAbsence]	  
+	,[gridFields_DailyWithoutPayLeave]	  
+	,[gridFields_AllowableOverTime]
+	,[gridFields_MonthlyCalculationRangeLength] 
+	,[gridFields_MonthlyFoodDue]
+	,ScndCnpValue_PersonId
+	,Prs_Barcode
+	FROM (							        
+SELECT ISNULL(SUM([gridFields_HourlyWithoutPayLeave]), 0) [gridFields_HourlyWithoutPayLeave]      
+	  ,ISNULL(SUM([gridFields_HourlyUnallowableAbsence]), 0) [gridFields_HourlyUnallowableAbsence]      
+      ,ISNULL(SUM([gridFields_DailyAbsence]), 0) [gridFields_DailyAbsence]            
+      ,ISNULL(SUM([gridFields_DailyWithoutPayLeave]), 0) [gridFields_DailyWithoutPayLeave]
+      ,ISNULL(SUM([gridFields_AllowableOverTime]), 0) [gridFields_AllowableOverTime]
+      ,ISNULL(SUM([gridFields_MonthlyCalculationRangeLength]), 0) [gridFields_MonthlyCalculationRangeLength]
+      ,ISNULL(SUM([gridFields_MonthlyFoodDue]), 0) [gridFields_MonthlyFoodDue]
+      ,ScndCnpValue_PersonId
+FROM (SELECT   PeriodicCnp_KeyColumnName AS ScndCnpValue_KeyColumnName,     
+	PeriodicCnp_FromDate		 AS ScndCnpValue_PeriodicFromDate,	   
+	PeriodicCnp_ToDate		 AS ScndCnpValue_PeriodicToDate,
+	PeriodicCnp_CnpTmpId		 AS ScndCnpValue_PeriodicScndCnpId, 
+	PeriodicCnp_PersonId		 AS ScndCnpValue_PersonId,
+	ScndCnpValue_Value		 AS ScndCnpValue_PeriodicValue
+FROM (SELECT  CalcDateRange_ID				  AS PeriodicCnp_ID,
+	PrsRangeAsg.PrsRangeAsg_PersonId  AS PeriodicCnp_PersonId, 
+	CalcDateRange_ConceptTmpId		  AS PeriodicCnp_CnpTmpId, 
+	ConceptTmp_KeyColumnName 		  AS PeriodicCnp_KeyColumnName, 
+	dbo.TA_ASM_CalculateFromDateRange(@ToDate, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													  AS PeriodicCnp_FromDate,
+					dbo.TA_ASM_CalculateToDateRange(@ToDate, CalcDateRange_Order, CalcDateRange_FromMonth, CalcDateRange_FromDay, CalcDateRange_ToMonth, CalcDateRange_ToDay, CalcRangeGroup_UsedCalendar)
+													  AS PeriodicCnp_ToDate
+FROM (SELECT * 
+	FROM dbo.TA_CalculationDateRange 
+	WHERE CalcDateRange_Order = @Order
+                 ) AS CalcDateRng
+INNER JOIN (SELECT * 
+	FROM dbo.TA_ConceptTemplate 
+	WHERE ConceptTmp_IsPeriodic = 1
+					   ) AS Concept
+			ON CalcDateRange_ConceptTmpId = Concept.ConceptTmp_ID		  
+INNER JOIN (SELECT *
+FROM (SELECT ROW_NUMBER() OVER (PARTITION BY PrsRangeAsg_PersonId ORDER BY PrsRangeAsg_FromDate DESC) AS [No], 
+    							 PrsRangeAsg_PersonId, PrsRangeAsg_CalcRangeGrpId
+						      FROM TA_PersonRangeAssignment								 
+						      WHERE PrsRangeAsg_FromDate &lt;= @ToDate
+								      AND 
+								    PrsRangeAsg_PersonId IN ({ReportHelper.Instance().ModifiedIds()})
+						     ) AS [Range]
+					    WHERE [Range].[No] = 1
+                       ) AS PrsRangeAsg                            
+		    ON CalcDateRange_CalcRangeGrpId = PrsRangeAsg.PrsRangeAsg_CalcRangeGrpId
+		    INNER JOIN TA_CalculationRangeGroup
+		    ON CalcDateRange_CalcRangeGrpId = CalcRangeGroup_ID
+            WHERE ConceptTmp_KeyColumnName IS NOT NULL
+			        AND
+		          Len(ConceptTmp_KeyColumnName) &lt;&gt; 0              
+		   ) AS PeriodicCnpValue
+	  CROSS APPLY dbo.TA_GetPeriodicScndCnpValue(PeriodicCnp_PersonId, PeriodicCnp_CnpTmpId, PeriodicCnp_FromDate, PeriodicCnp_ToDate)		   			   		
+	) AS [Source]			
+	PIVOT
+	(
+	 SUM(ScndCnpValue_PeriodicValue)
+	 FOR ScndCnpValue_KeyColumnName
+		 IN ([gridFields_MonthlyFoodDue]
+		    ,[gridFields_HourlyWithoutPayLeave]
+			,[gridFields_HourlyUnallowableAbsence]	  
+		    ,[gridFields_DailyAbsence]	  
+		    ,[gridFields_DailyWithoutPayLeave]	  
+		    ,[gridFields_AllowableOverTime]
+		    ,[gridFields_MonthlyCalculationRangeLength])
+	) AS Result			
+GROUP BY ScndCnpValue_PersonId, ScndCnpValue_PeriodicFromDate ,ScndCnpValue_PeriodicToDate
+) ScndCnpValue
+INNER JOIN TA_Person Prs
+ON ScndCnpValue.ScndCnpValue_PersonId = Prs.Prs_ID
+</SqlCommand>
+      </MonthlyReport_MonthlyValue>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="1">
+        <MasterBand Ref="5" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.4,27.7,0.5</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,15.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{Substring(MonthlyReport_MonthlyValue.Prs_Barcode, 4, 4) + 
+ '0' + 
+ ReportHelper.Instance().PadLeftWithZero(MonthlyReport_MonthlyValue.gridFields_MonthlyCalculationRangeLength.ToString(), 2) + 
+ '0' +
+ ReportHelper.Instance().IntTimeToTimePadLeft(MonthlyReport_MonthlyValue.gridFields_AllowableOverTime, 6) + 
+ '0' +
+ ReportHelper.Instance().PadLeftWithZero(MonthlyReport_MonthlyValue.gridFields_DailyWithoutPayLeave.ToString(), 2) + 
+ '0' +
+ ReportHelper.Instance().PadLeftWithZero(MonthlyReport_MonthlyValue.gridFields_DailyAbsence.ToString(), 2) + 
+ '0' +
+ ReportHelper.Instance().IntTimeToTimePadLeft(MonthlyReport_MonthlyValue.gridFields_HourlyUnallowableAbsence + MonthlyReport_MonthlyValue.gridFields_HourlyWithoutPayLeave, 6) + 
+ '0' +
+ ReportHelper.Instance().PadLeftWithZero(MonthlyReport_MonthlyValue.gridFields_MonthlyFoodDue.ToString(), 2)
+ }</Text>
+              <TextBrush>Black</TextBrush>
+            </Text1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>MonthlyReport_MonthlyValue</DataSourceName>
+          <Filters isList="true" count="0" />
+          <KeepChildTogether>True</KeepChildTogether>
+          <KeepDetailsTogether>True</KeepDetailsTogether>
+          <Name>MasterBand</Name>
+          <OddStyle isNull="true" />
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
+          <Sort isList="true" count="0" />
+        </MasterBand>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>4312ae8a09374b55a344f00f7cb85b2f</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <Report isRef="0" />
+      <RightToLeft>True</RightToLeft>
+      <Watermark Ref="7" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="8" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>2/29/2012 11:27:28 AM</ReportChanged>
+  <ReportCreated>11/6/2011 9:01:08 AM</ReportCreated>
+  <ReportFile>E:\Ghadir_Win_Prg\GTS\Construction\Researches\SampleProjects\StimulSoft\mrtFiles\ExportToPayroll.mrt</ReportFile>
+  <ReportGuid>9542dc33fafe44229a2782ea377423c9</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2010.1.700</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        
+        public Report()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="3">
+    <Master Ref="9" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>NavajoWhite</Brush>
+      <Font>Arial,8</Font>
+      <Name>Master</Name>
+      <TextBrush>Black</TextBrush>
+    </Master>
+    <EventStyle Ref="10" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>AntiqueWhite</Brush>
+      <Font>Arial,8</Font>
+      <Name>EventStyle</Name>
+      <TextBrush>Black</TextBrush>
+    </EventStyle>
+    <Style1 Ref="11" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>Transparent</Brush>
+      <Font>Arial,8</Font>
+      <Name>Style1</Name>
+      <TextBrush>Black</TextBrush>
+    </Style1>
+  </Styles>
+</StiSerializer>

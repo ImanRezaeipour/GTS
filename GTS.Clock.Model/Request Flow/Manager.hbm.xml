@@ -1,0 +1,1045 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RequestFlow.Manager, GTS.Clock.Model"
+         table ="TA_Manager" lazy="true">
+    <id name="ID" access="property"  column="MasterMng_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="Active"     access="property" column="MasterMng_Active" />
+    
+    <many-to-one name="Person" column="MasterMng_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" />
+    <many-to-one name="OrganizationUnit" column="MasterMng_OrganizationUnitID" class="GTS.Clock.Model.Charts.OrganizationUnit, GTS.Clock.Model" />
+    
+    <bag name="ManagerFlowList" table="TA_ManagerFlow" lazy="true" >
+      <key column="mngrFlow_ManagerID"></key>
+      <one-to-many class="GTS.Clock.Model.RequestFlow.ManagerFlow, GTS.Clock.Model"/>
+    </bag>   
+
+    <bag name="SubstituteList" table="TA_Substitute" lazy="true" >
+      <key column="sub_ManagerId"></key>
+      <one-to-many class="GTS.Clock.Model.RequestFlow.Substitute, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="DataAccessList" table="TA_DataAccessManager" lazy="true" >
+      <key column="DataAccessManager_ManagerID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DAManager, GTS.Clock.Model"/>
+    </bag>
+    
+  </class>
+
+  <!--<sql-query name="GetUnderManagementPersonList">
+    <return alias="UnderManagementPersonList" class="GTS.Clock.Model.MonthlyReport.UnderManagementPerson, GTS.Clock.Model"/>
+    <![CDATA[ 
+              	
+     DECLARE @prsId numeric,@DepartmentId numeric,@SearchField int
+    ,@PersonBarcode nvarchar(10),@PersonName nvarchar(50),@CurrentDateTime varchar(10)
+    ,@OrderByField varchar(250),@OrderType varchar(10),@curentDate varchar(10),@pageSize int
+    ,@dateRangeOrder int,@dateRangeOrderIndex int,@pageIndex int
+    
+    declare @TableVar table (	
+	  [gridFields_CurrentDateTime] [varchar](10) NULL,
+	  [gridFields_DataRangeOrder] [int] NULL,
+    [gridFields_DataRangeOrderIndex] [int] NULL,
+	  [gridFields_PersonID] [numeric](18, 0) NULL,
+	  [gridFields_BarCode] [nvarchar](50) NULL,	
+	  [gridFields_Family] [nvarchar](200) NULL,
+    [gridFields_DepartmentName] [nvarchar](200) NULL)
+    
+    declare @TableVar_tmp table (	
+	  [gridFields_CurrentDateTime] [varchar](10) NULL,
+	  [gridFields_DataRangeOrder] [int] NULL,
+    [gridFields_DataRangeOrderIndex] [int] NULL,	
+	  [gridFields_PersonID] [numeric](18, 0) NULL,
+	  [gridFields_BarCode] [nvarchar](50) NULL,	
+	  [gridFields_Family] [nvarchar](200) NULL,
+    [gridFields_DepartmentName] [nvarchar](200) NULL,
+    [__hibernate_sort_row] [int] NULL)
+    
+    set @prsId=:personId
+    set @SearchField=:searchField
+    set @DepartmentId=:departmentId
+    set @OrderByField = :orderByField
+    set @OrderType=:orderType    
+    set @PersonBarcode=:barcodeParam
+    set @PersonName=:personNameParam
+    set @dateRangeOrder=:dateRangeOrder
+    set @dateRangeOrderIndex=:dateRangeOrderIndex
+    set @curentDate=:curentDate
+    set @pageSize=:pageSize
+    set @pageIndex=:pageIndex
+    set @pageIndex=@pageIndex * @pageSize
+   
+    IF(@SearchField=1 AND Exists(SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId) WHERE dep_ID = @DepartmentId))
+    BEGIN
+
+    INSERT INTO @TableVar
+    SELECT @curentDate 'gridFields_CurrentDateTime',@dateRangeOrder 'gridFields_DataRangeOrder',@dateRangeOrderIndex 'gridFields_DataRangeOrderIndex', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family',dep_Name 'gridFields_DepartmentName' FROM
+    (
+		SELECT * FROM TA_Person 
+		WHERE	prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId=@DepartmentId AND
+				not Exists(SELECT * FROM TA_UnderManagment under 
+						   WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								 AND under.underMng_DepartmentID=@DepartmentId
+								 AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID
+						   )
+
+		UNION
+
+		SELECT * FROM TA_Person 
+		WHERE prs_IsDeleted=0 AND Prs_Active=1 
+			  AND Prs_ID in (SELECT under.underMng_PersonID FROM TA_UnderManagment under
+							 WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow 
+															 WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								   AND under.underMng_DepartmentID=@DepartmentId 
+								   AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+	) a
+    LEFT OUTER JOIN TA_Department on Prs_DepartmentId=dep_ID
+    WHERE prs_ID not in 
+    (
+		SELECT notAllowedUnder.underMng_PersonID FROM TA_UnderManagment notAllowedUnder
+		WHERE notAllowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+			  AND notAllowedUnder.underMng_DepartmentID=@DepartmentId 
+			  AND notAllowedUnder.underMng_Contains=0 AND notAllowedUnder.underMng_PersonID is not null
+			  AND 
+				not exists(
+					SELECT allowedUnder.underMng_PersonID FROM TA_UnderManagment allowedUnder
+					WHERE allowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+					AND allowedUnder.underMng_DepartmentID=@DepartmentId 
+					AND allowedUnder.underMng_Contains=1 AND ISNULL(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+				)
+    END
+
+    IF(@SearchField=2 OR @SearchField=3)
+    BEGIN
+	  INSERT INTO @TableVar
+      SELECT @curentDate 'gridFields_CurrentDateTime',@dateRangeOrder 'gridFields_DataRangeOrder',@dateRangeOrderIndex 'gridFields_DataRangeOrderIndex', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family',dep_Name 'gridFields_DepartmentName' from
+      (
+		SELECT * FROM TA_Person 
+		WHERE prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId)) AND
+		      Prs_DepartmentId not in(SELECT underMng_DepartmentID FROM TA_UnderManagment under 
+								      WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID 
+																	  FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))
+																	) 
+		     AND under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId)) 
+		     AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+
+		UNION
+
+		    SELECT * FROM TA_Person WHERE prs_IsDeleted=0 AND Prs_Active=1 AND Prs_ID in (SELECT under.underMng_PersonID FROM TA_UnderManagment under
+		    WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+		     AND under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))  
+		    AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+		) a
+       LEFT OUTER JOIN TA_Department on Prs_DepartmentId=dep_ID
+	   WHERE prs_ID not in 
+		    (
+		    SELECT notAllowedUnder.underMng_PersonID FROM TA_UnderManagment notAllowedUnder
+			WHERE notAllowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+			AND notAllowedUnder.underMng_DepartmentID  in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))
+			AND notAllowedUnder.underMng_Contains=0 AND notAllowedUnder.underMng_PersonID is not null
+			AND 
+			not exists(
+				  SELECT allowedUnder.underMng_PersonID FROM TA_UnderManagment allowedUnder
+				  WHERE allowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+				  AND allowedUnder.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))
+				  AND allowedUnder.underMng_Contains=1 AND ISNULL(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+		    )
+   END
+
+
+IF(@SearchField=2)
+  INSERT INTO @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar  
+  WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%') ) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by  CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+
+else IF(@SearchField=3)
+  INSERT INTO @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar  
+  WHERE gridFields_Family like(N'%'+@PersonName+'%')) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+
+else 
+  INSERT INTO @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by  CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+    
+    
+ IF(@OrderByField='gridFields_Family')
+  BEGIN
+	IF(@OrderType='asc')
+	    SELECT * FROM @TableVar_tmp 
+	    order by gridFields_Family asc
+	else
+		SELECT * FROM @TableVar_tmp 
+		order by gridFields_Family desc
+  END
+  
+  IF(@OrderByField='gridFields_Barcode')
+  BEGIN
+	IF(@OrderType='asc')
+	    SELECT * FROM @TableVar_tmp 
+	    order by gridFields_Barcode asc
+	else
+		SELECT * FROM @TableVar_tmp 
+		order by gridFields_Barcode desc
+  END
+  
+  IF(@OrderByField='gridFields_DepartmentName')
+  BEGIN
+	IF(@OrderType='asc')
+	    SELECT * FROM @TableVar_tmp 
+	    order by gridFields_DepartmentName asc
+	else
+		SELECT * FROM @TableVar_tmp 
+		order by gridFields_DepartmentName desc
+  END
+
+    ]]>
+  </sql-query>-->
+
+  <sql-query name="GetUnderManagementPersonList">
+    <return alias="UnderManagementPersonList" class="GTS.Clock.Model.MonthlyReport.UnderManagementPerson, GTS.Clock.Model"/>
+    <![CDATA[ 
+              	
+     DECLARE @prsId numeric,@DepartmentId numeric,@SearchField int
+    ,@PersonBarcode nvarchar(10),@PersonName nvarchar(50),@CurrentDateTime varchar(10)
+    ,@OrderByField varchar(250),@OrderType varchar(10),@curentDate varchar(10),@pageSize int
+    ,@dateRangeOrder int,@dateRangeOrderIndex int,@pageIndex int
+    
+    declare @TableVar table (	
+	  [gridFields_CurrentDateTime] [varchar](10) NULL,
+	  [gridFields_DataRangeOrder] [int] NULL,
+    [gridFields_DataRangeOrderIndex] [int] NULL,
+	  [gridFields_PersonID] [numeric](18, 0) NULL,
+	  [gridFields_BarCode] [nvarchar](50) NULL,	
+	  [gridFields_Family] [nvarchar](200) NULL,
+    [gridFields_DepartmentName] [nvarchar](200) NULL)
+    
+    declare @TableVar_tmp table (	
+	  [gridFields_CurrentDateTime] [varchar](10) NULL,
+	  [gridFields_DataRangeOrder] [int] NULL,
+    [gridFields_DataRangeOrderIndex] [int] NULL,	
+	  [gridFields_PersonID] [numeric](18, 0) NULL,
+	  [gridFields_BarCode] [nvarchar](50) NULL,	
+	  [gridFields_Family] [nvarchar](200) NULL,
+    [gridFields_DepartmentName] [nvarchar](200) NULL,
+    [__hibernate_sort_row] [int] NULL)
+    
+    set @prsId=:personId
+    set @SearchField=:searchField
+    set @DepartmentId=:departmentId
+    set @OrderByField = :orderByField
+    set @OrderType=:orderType    
+    set @PersonBarcode=:barcodeParam
+    set @PersonName=:personNameParam
+    set @dateRangeOrder=:dateRangeOrder
+    set @dateRangeOrderIndex=:dateRangeOrderIndex
+    set @curentDate=:curentDate
+    set @pageSize=:pageSize
+    set @pageIndex=:pageIndex
+    set @pageIndex=@pageIndex * @pageSize
+   
+    IF(@SearchField=1 AND Exists(SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId) WHERE dep_ID = @DepartmentId))
+    BEGIN
+
+    INSERT INTO @TableVar
+    SELECT @curentDate 'gridFields_CurrentDateTime',@dateRangeOrder 'gridFields_DataRangeOrder',@dateRangeOrderIndex 'gridFields_DataRangeOrderIndex', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family',dep_Name 'gridFields_DepartmentName' FROM
+    (
+		SELECT * FROM TA_Person 
+		WHERE	prs_IsDeleted=0 AND Prs_Active=1 AND --Prs_DepartmentId=@DepartmentId AND
+					Prs_DepartmentId in (SELECT isnull(under.underMng_DepartmentID,0) FROM TA_UnderManagment under 
+						   WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								 AND under.underMng_DepartmentID=@DepartmentId
+								 AND under.underMng_Contains=1 and under.underMng_personid is null
+						   )
+
+		UNION
+    
+		SELECT * FROM TA_Person person
+		WHERE	prs_IsDeleted=0 AND Prs_Active=1 AND 
+					Prs_DepartmentId in (SELECT dep.dep_ID FROM TA_Department dep inner join TA_UnderManagment under 
+					       					ON 	dep.dep_ID IN (SELECT Dep.dep_ID 
+												 FROM TA_Department Dep
+												 WHERE  Dep.dep_ParentPath like(N'%,'+CONVERT(nvarchar(max), under.underMng_DepartmentID)+',%') )
+									        OR								 
+						                        dep.dep_ID = under.underMng_DepartmentID
+						                   WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								           AND under.underMng_Contains=1 and under.underMng_ContainInnerChilds=1 and under.underMng_personid is null and (Prs_DepartmentId = @DepartmentID or
+										                                                                                                                      Prs_DepartmentId IN(SELECT Dep.dep_ID 
+												                                                                                                                                      FROM TA_Department Dep
+												                                                                                                                                      WHERE Dep.dep_ParentPath like(N'%,'+CONVERT(nvarchar(max), @DepartmentID)+',%') 
+                                                                                                                                                              )
+																																						                                                             )
+							             )
+                                AND
+				 						 person.Prs_ID NOT IN (SELECT prs.Prs_ID
+										 	 FROM (SELECT * 
+											 	   FROM TA_UnderManagment
+												   WHERE underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+														 AND
+														 underMng_PersonID IS NULL
+													     AND
+														 underMng_Contains = 0
+													     AND
+														 underMng_ContainInnerChilds = 0) UnderMngDep
+											 INNER JOIN TA_Person Prs
+											 ON Prs.Prs_DepartmentId = underMng_DepartmentID
+										   )
+
+        UNION
+    
+		SELECT * FROM TA_Person 
+		WHERE prs_IsDeleted=0 AND Prs_Active=1 
+			  AND Prs_ID in (SELECT under.underMng_PersonID FROM TA_UnderManagment under
+							 WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow 
+															 WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								   AND under.underMng_DepartmentID=@DepartmentId 
+								   AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+	) a
+    LEFT OUTER JOIN TA_Department on Prs_DepartmentId=dep_ID
+    WHERE prs_ID not in 
+    (
+		SELECT notAllowedUnder.underMng_PersonID FROM TA_UnderManagment notAllowedUnder
+		WHERE notAllowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+			  AND notAllowedUnder.underMng_DepartmentID=@DepartmentId 
+			  AND notAllowedUnder.underMng_Contains=0 AND notAllowedUnder.underMng_PersonID is not null
+			  AND 
+				not exists(
+					SELECT allowedUnder.underMng_PersonID FROM TA_UnderManagment allowedUnder
+					WHERE allowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+					AND allowedUnder.underMng_DepartmentID=@DepartmentId 
+					AND allowedUnder.underMng_Contains=1 AND ISNULL(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+				)
+    END
+
+    IF(@SearchField=2 OR @SearchField=3 OR @SearchField=5)
+    BEGIN
+	  INSERT INTO @TableVar
+      SELECT @curentDate 'gridFields_CurrentDateTime',@dateRangeOrder 'gridFields_DataRangeOrder',@dateRangeOrderIndex 'gridFields_DataRangeOrderIndex', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family',dep_Name 'gridFields_DepartmentName' from
+      (
+		SELECT * FROM TA_Person 
+		WHERE prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId)) AND
+		      Prs_DepartmentId not in(SELECT underMng_DepartmentID FROM TA_UnderManagment under 
+								                  WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID 
+																	                                FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))
+																	                               ) 
+		                       AND under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId)) 
+		                       AND under.underMng_Contains=1 
+                           )
+		UNION
+
+		    SELECT * FROM TA_Person WHERE prs_IsDeleted=0 AND Prs_Active=1 AND Prs_ID in (SELECT under.underMng_PersonID FROM TA_UnderManagment under
+		    WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+		     AND under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))  
+		    AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+		) a
+       LEFT OUTER JOIN TA_Department on Prs_DepartmentId=dep_ID
+	   WHERE prs_ID not in 
+		    (
+		    SELECT notAllowedUnder.underMng_PersonID FROM TA_UnderManagment notAllowedUnder
+			WHERE notAllowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+			AND notAllowedUnder.underMng_DepartmentID  in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))
+			AND notAllowedUnder.underMng_Contains=0 AND notAllowedUnder.underMng_PersonID is not null
+			AND 
+			not exists(
+				  SELECT allowedUnder.underMng_PersonID FROM TA_UnderManagment allowedUnder
+				  WHERE allowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+				  AND allowedUnder.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))
+				  AND allowedUnder.underMng_Contains=1 AND ISNULL(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+		    )
+   END
+
+
+IF(@SearchField=2)
+  INSERT INTO @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar  
+  WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%') ) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by  CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+
+else IF(@SearchField=3)
+  INSERT INTO @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar  
+  WHERE gridFields_Family like(N'%'+@PersonName+'%')) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+  
+else IF(@SearchField=5)
+  INSERT INTO @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar  
+  WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%') or gridFields_Family like(N'%'+@PersonName+'%')) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+  
+else 
+  INSERT INTO @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by  CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+    
+    
+ IF(@OrderByField='gridFields_Family')
+  BEGIN
+	IF(@OrderType='asc')
+	    SELECT * FROM @TableVar_tmp 
+	    order by gridFields_Family asc
+	else
+		SELECT * FROM @TableVar_tmp 
+		order by gridFields_Family desc
+  END
+  
+  IF(@OrderByField='gridFields_Barcode')
+  BEGIN
+	IF(@OrderType='asc')
+	    SELECT * FROM @TableVar_tmp 
+	    order by gridFields_Barcode asc
+	else
+		SELECT * FROM @TableVar_tmp 
+		order by gridFields_Barcode desc
+  END
+  
+  IF(@OrderByField='gridFields_DepartmentName')
+  BEGIN
+	IF(@OrderType='asc')
+	    SELECT * FROM @TableVar_tmp 
+	    order by gridFields_DepartmentName asc
+	else
+		SELECT * FROM @TableVar_tmp 
+		order by gridFields_DepartmentName desc
+  END
+
+    ]]>
+  </sql-query>
+
+  
+
+
+  <sql-query name="GetUnderManagementOperatorPersonList">
+    <return alias="UnderManagementOperatorPersonList" class="GTS.Clock.Model.MonthlyReport.UnderManagementPerson, GTS.Clock.Model"/>
+    <![CDATA[ 
+              	
+      declare @PersonId numeric,@DepartmentId numeric,@SearchField int
+    ,@PersonBarcode nvarchar(10),@PersonName nvarchar(50),@CurrentDateTime varchar(10)
+    ,@OrderByField varchar(250),@OrderType varchar(10),@curentDate varchar(10),@pageSize int
+    ,@dateRangeOrder int,@dateRangeOrderIndex int,@pageIndex int
+    
+    declare @TableVar table (	
+	  [gridFields_CurrentDateTime] [varchar](10) NULL,
+	  [gridFields_DataRangeOrder] [int] NULL,
+    [gridFields_DataRangeOrderIndex] [int] NULL,
+	  [gridFields_PersonID] [numeric](18, 0) NULL,
+	  [gridFields_BarCode] [nvarchar](50) NULL,	
+	  [gridFields_Family] [nvarchar](200) NULL,
+    [gridFields_DepartmentName] [nvarchar](200) NULL)
+    
+    declare @TableVar_tmp table (	
+	  [gridFields_CurrentDateTime] [varchar](10) NULL,
+	  [gridFields_DataRangeOrder] [int] NULL,
+    [gridFields_DataRangeOrderIndex] [int] NULL,	
+	  [gridFields_PersonID] [numeric](18, 0) NULL,
+	  [gridFields_BarCode] [nvarchar](50) NULL,	
+	  [gridFields_Family] [nvarchar](200) NULL,
+    [gridFields_DepartmentName] [nvarchar](200) NULL,
+    [__hibernate_sort_row] [int] NULL)
+    
+    set @PersonId=:oprPersonId
+    set @SearchField=:searchField
+    set @DepartmentId=:departmentId
+    set @OrderByField = :orderByField
+    set @OrderType=:orderType    
+    set @PersonBarcode=:barcodeParam
+    set @PersonName=:personNameParam
+    set @dateRangeOrder=:dateRangeOrder
+    set @dateRangeOrderIndex=:dateRangeOrderIndex
+    set @curentDate=:curentDate
+    set @pageSize=:pageSize
+    set @pageIndex=:pageIndex
+    set @pageIndex=@pageIndex * @pageSize
+
+    if(@SearchField=1 and Exists(SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId) where dep_ID = @DepartmentId))
+    begin
+
+    insert into @TableVar
+    select @curentDate 'gridFields_CurrentDateTime',@dateRangeOrder 'gridFields_DataRangeOrder',@dateRangeOrderIndex 'gridFields_DataRangeOrderIndex', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family',dep_Name 'gridFields_DepartmentName' from
+    (select * from TA_Person 
+    where  prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId=@DepartmentId AND
+    not Exists(select * from TA_UnderManagment under 
+    where under.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+     and under.underMng_DepartmentID=@DepartmentId
+    and under.underMng_Contains=1 and isnull(under.underMng_PersonID,0)=Prs_ID)
+
+    union
+
+    select * from TA_Person where prs_IsDeleted=0 AND Prs_Active=1 AND Prs_ID in (select under.underMng_PersonID from TA_UnderManagment under
+    where under.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+     and under.underMng_DepartmentID=@DepartmentId 
+    and under.underMng_Contains=1 and isnull(under.underMng_PersonID,0)=Prs_ID)) a
+    left outer join TA_Department on Prs_DepartmentId=dep_ID
+    where prs_ID not in 
+    (
+    select notAllowedUnder.underMng_PersonID from TA_UnderManagment notAllowedUnder
+    where notAllowedUnder.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+    and notAllowedUnder.underMng_DepartmentID=@DepartmentId 
+    and notAllowedUnder.underMng_Contains=0 and notAllowedUnder.underMng_PersonID is not null
+    and 
+    not exists(
+		select allowedUnder.underMng_PersonID from TA_UnderManagment allowedUnder
+		where allowedUnder.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+		and allowedUnder.underMng_DepartmentID=@DepartmentId 
+		and allowedUnder.underMng_Contains=1 and isnull(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+    )
+    end
+
+    if(@SearchField=2 or @SearchField=3 or @SearchField=5)
+    begin
+	    insert into @TableVar
+      select @curentDate 'gridFields_CurrentDateTime',@dateRangeOrder 'gridFields_DataRangeOrder',@dateRangeOrderIndex 'gridFields_DataRangeOrderIndex', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family',dep_Name 'gridFields_DepartmentName' from
+      (select * from TA_Person 
+		    where prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId)) AND
+		    Prs_DepartmentId not in(select underMng_DepartmentID from TA_UnderManagment under 
+		    where under.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+		     and under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId)) 
+		    and under.underMng_Contains=1 and isnull(under.underMng_PersonID,0)=Prs_ID)
+
+		    union
+
+		    select * from TA_Person where prs_IsDeleted=0 AND Prs_Active=1 AND Prs_ID in (select under.underMng_PersonID from TA_UnderManagment under
+		    where under.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+		     and under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId))  
+		    and under.underMng_Contains=1 and isnull(under.underMng_PersonID,0)=Prs_ID)) a
+        left outer join TA_Department on Prs_DepartmentId=dep_ID
+		    where prs_ID not in 
+		    (
+		    select notAllowedUnder.underMng_PersonID from TA_UnderManagment notAllowedUnder
+			where notAllowedUnder.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+			and notAllowedUnder.underMng_DepartmentID  in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId))
+			and notAllowedUnder.underMng_Contains=0 and notAllowedUnder.underMng_PersonID is not null
+			and 
+			not exists(
+				  select allowedUnder.underMng_PersonID from TA_UnderManagment allowedUnder
+				  where allowedUnder.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+				  and allowedUnder.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId))
+				  and allowedUnder.underMng_Contains=1 and isnull(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+		    )
+    end
+
+
+if(@SearchField=2)
+  insert into @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar  
+  WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%') ) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by  CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+
+else if(@SearchField=3)
+  insert into @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar  
+  WHERE gridFields_Family like(N'%'+@PersonName+'%')) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+  
+else IF(@SearchField=5)
+  INSERT INTO @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar  
+  WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%') or gridFields_Family like(N'%'+@PersonName+'%')) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+  
+else 
+  insert into @TableVar_tmp
+  SELECT TOP (@pageSize) * 
+  FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+  FROM @TableVar) as query 
+  WHERE query.__hibernate_sort_row >  @pageIndex 
+  order by  CONVERT(varchar(200), @OrderByField + ' ' + @OrderType) 
+    
+    
+ if(@OrderByField='gridFields_Family')
+  begin
+	if(@OrderType='asc')
+	    select * from @TableVar_tmp 
+	    order by gridFields_Family asc
+	else
+		select * from @TableVar_tmp 
+		order by gridFields_Family desc
+  end
+  
+  if(@OrderByField='gridFields_Barcode')
+  begin
+	if(@OrderType='asc')
+	    select * from @TableVar_tmp 
+	    order by gridFields_Barcode asc
+	else
+		select * from @TableVar_tmp 
+		order by gridFields_Barcode desc
+  end
+  
+  if(@OrderByField='gridFields_DepartmentName')
+  begin
+	if(@OrderType='asc')
+	    select * from @TableVar_tmp 
+	    order by gridFields_DepartmentName asc
+	else
+		select * from @TableVar_tmp 
+		order by gridFields_DepartmentName desc
+  end
+
+    ]]>
+  </sql-query>
+
+  <!--<sql-query name="GetUnderManagementPersonCount">
+    <![CDATA[ 
+
+    declare @prsId numeric,@DepartmentId numeric,@SearchField int
+    ,@PersonBarcode nvarchar(10),@PersonName nvarchar(50)
+    
+  declare @TableVar table (	
+	[gridFields_CurrentDateTime] [varchar](10) NULL,
+	[gridFields_Order] [int] NULL,	
+	[gridFields_PersonID] [numeric](18, 0) NULL,
+	[gridFields_BarCode] [nvarchar](50) NULL,	
+	[gridFields_Family] [nvarchar](201) NULL)
+	
+    set @prsId=:personId
+    set @SearchField=:searchField
+    set @DepartmentId=:departmentId   
+    set @PersonBarcode=:barcodeParam
+    set @PersonName=:personNameParam
+
+  
+    IF(@SearchField=1 AND Exists(SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId) WHERE dep_ID = @DepartmentId))
+    BEGIN
+
+    INSERT INTO @TableVar
+    select '' 'gridFields_CurrentDateTime','' 'gridFields_Order', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family' FROM
+    (
+		SELECT * FROM TA_Person 
+		WHERE	prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId=@DepartmentId AND
+				not Exists(SELECT * FROM TA_UnderManagment under 
+						   WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								 AND under.underMng_DepartmentID=@DepartmentId
+								 AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID
+						   )
+
+		UNION
+
+		SELECT * FROM TA_Person 
+		WHERE prs_IsDeleted=0 AND Prs_Active=1 
+			  AND Prs_ID in (SELECT under.underMng_PersonID FROM TA_UnderManagment under
+							 WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow 
+															 WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								   AND under.underMng_DepartmentID=@DepartmentId 
+								   AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+	) a
+    LEFT OUTER JOIN TA_Department on Prs_DepartmentId=dep_ID
+    WHERE prs_ID not in 
+    (
+		SELECT notAllowedUnder.underMng_PersonID FROM TA_UnderManagment notAllowedUnder
+		WHERE notAllowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+			  AND notAllowedUnder.underMng_DepartmentID=@DepartmentId 
+			  AND notAllowedUnder.underMng_Contains=0 AND notAllowedUnder.underMng_PersonID is not null
+			  AND 
+				not exists(
+					SELECT allowedUnder.underMng_PersonID FROM TA_UnderManagment allowedUnder
+					WHERE allowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+					AND allowedUnder.underMng_DepartmentID=@DepartmentId 
+					AND allowedUnder.underMng_Contains=1 AND ISNULL(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+				)
+    END
+
+    IF(@SearchField=2 OR @SearchField=3)
+    BEGIN
+    INSERT INTO @TableVar
+    select '' 'gridFields_CurrentDateTime','' 'gridFields_Order', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family' FROM
+      (
+		SELECT * FROM TA_Person 
+		WHERE prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId)) AND
+		      Prs_DepartmentId not in(SELECT underMng_DepartmentID FROM TA_UnderManagment under 
+								      WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID 
+																	  FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))
+																	) 
+		     AND under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId)) 
+		     AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+
+		UNION
+
+		    SELECT * FROM TA_Person WHERE prs_IsDeleted=0 AND Prs_Active=1 AND Prs_ID in (SELECT under.underMng_PersonID FROM TA_UnderManagment under
+		    WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+		     AND under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))  
+		    AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+		) a
+       LEFT OUTER JOIN TA_Department on Prs_DepartmentId=dep_ID
+	   WHERE prs_ID not in 
+		    (
+		    SELECT notAllowedUnder.underMng_PersonID FROM TA_UnderManagment notAllowedUnder
+			WHERE notAllowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+			AND notAllowedUnder.underMng_DepartmentID  in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))
+			AND notAllowedUnder.underMng_Contains=0 AND notAllowedUnder.underMng_PersonID is not null
+			AND 
+			not exists(
+				  SELECT allowedUnder.underMng_PersonID FROM TA_UnderManagment allowedUnder
+				  WHERE allowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+				  AND allowedUnder.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))
+				  AND allowedUnder.underMng_Contains=1 AND ISNULL(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+		    )
+   END
+
+
+    IF(@SearchField=2)
+    SELECT Count(*)     
+    FROM @TableVar  
+    WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%')
+    
+    else IF(@SearchField=3)
+    SELECT Count(*)     
+    FROM @TableVar   
+    WHERE gridFields_Family like(N'%'+@PersonName+'%')     
+    
+    else 
+    SELECT Count(*)     
+    FROM @TableVar    
+
+    ]]>
+  </sql-query>-->
+
+  <sql-query name="GetUnderManagementPersonCount">
+    <![CDATA[ 
+
+    declare @prsId numeric,@DepartmentId numeric,@SearchField int
+    ,@PersonBarcode nvarchar(10),@PersonName nvarchar(50)
+    
+  declare @TableVar table (	
+	[gridFields_CurrentDateTime] [varchar](10) NULL,
+	[gridFields_Order] [int] NULL,	
+	[gridFields_PersonID] [numeric](18, 0) NULL,
+	[gridFields_BarCode] [nvarchar](50) NULL,	
+	[gridFields_Family] [nvarchar](201) NULL)
+	
+    set @prsId=:personId
+    set @SearchField=:searchField
+    set @DepartmentId=:departmentId   
+    set @PersonBarcode=:barcodeParam
+    set @PersonName=:personNameParam
+
+  
+    IF(@SearchField=1 AND Exists(SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId) WHERE dep_ID = @DepartmentId))
+    BEGIN
+
+    INSERT INTO @TableVar
+    select '' 'gridFields_CurrentDateTime','' 'gridFields_Order', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family' FROM
+    (
+		SELECT * FROM TA_Person 
+		WHERE	prs_IsDeleted=0 AND Prs_Active=1 AND --Prs_DepartmentId=@DepartmentId AND
+					Prs_DepartmentId in (SELECT isnull(under.underMng_DepartmentID,0) FROM TA_UnderManagment under 
+						   WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								 AND under.underMng_DepartmentID=@DepartmentId
+								 AND under.underMng_Contains=1 and under.underMng_personid is null
+						   )
+
+		UNION
+    
+		SELECT * FROM TA_Person person
+		WHERE	prs_IsDeleted=0 AND Prs_Active=1 AND 
+					Prs_DepartmentId in (SELECT dep.dep_ID FROM TA_Department dep inner join TA_UnderManagment under 
+					       					ON 	dep.dep_ID IN (SELECT Dep.dep_ID 
+												 FROM TA_Department Dep
+												 WHERE  Dep.dep_ParentPath like(N'%,'+CONVERT(nvarchar(max), under.underMng_DepartmentID)+',%') )
+									        OR								 
+						                        dep.dep_ID = under.underMng_DepartmentID
+						                   WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								           AND under.underMng_Contains=1 and under.underMng_ContainInnerChilds=1 and under.underMng_personid is null and (Prs_DepartmentId = @DepartmentID or
+										                                                                                                                      Prs_DepartmentId IN(SELECT Dep.dep_ID 
+												                                                                                                                                      FROM TA_Department Dep
+												                                                                                                                                      WHERE Dep.dep_ParentPath like(N'%,'+CONVERT(nvarchar(max), @DepartmentID)+',%') 
+                                                                                                                                                              )
+																																						                                                             )
+							             )
+                                AND
+				 						 person.Prs_ID NOT IN (SELECT prs.Prs_ID
+										 	 FROM (SELECT * 
+											 	   FROM TA_UnderManagment
+												   WHERE underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 and mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+														 AND
+														 underMng_PersonID IS NULL
+													     AND
+														 underMng_Contains = 0
+													     AND
+														 underMng_ContainInnerChilds = 0) UnderMngDep
+											 INNER JOIN TA_Person Prs
+											 ON Prs.Prs_DepartmentId = underMng_DepartmentID
+										   )
+
+        UNION
+    
+		SELECT * FROM TA_Person 
+		WHERE prs_IsDeleted=0 AND Prs_Active=1 
+			  AND Prs_ID in (SELECT under.underMng_PersonID FROM TA_UnderManagment under
+							 WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow 
+															 WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+								   AND under.underMng_DepartmentID=@DepartmentId 
+								   AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+	) a
+    LEFT OUTER JOIN TA_Department on Prs_DepartmentId=dep_ID
+    WHERE prs_ID not in 
+    (
+		SELECT notAllowedUnder.underMng_PersonID FROM TA_UnderManagment notAllowedUnder
+		WHERE notAllowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+			  AND notAllowedUnder.underMng_DepartmentID=@DepartmentId 
+			  AND notAllowedUnder.underMng_Contains=0 AND notAllowedUnder.underMng_PersonID is not null
+			  AND 
+				not exists(
+					SELECT allowedUnder.underMng_PersonID FROM TA_UnderManagment allowedUnder
+					WHERE allowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+					AND allowedUnder.underMng_DepartmentID=@DepartmentId 
+					AND allowedUnder.underMng_Contains=1 AND ISNULL(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+				)
+    END
+
+    IF(@SearchField=2 OR @SearchField=3 OR @SearchField=5)
+    BEGIN
+    INSERT INTO @TableVar
+    select '' 'gridFields_CurrentDateTime','' 'gridFields_Order', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family' FROM
+      (
+		SELECT * FROM TA_Person 
+		WHERE prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId)) AND
+		      Prs_DepartmentId not in(SELECT underMng_DepartmentID FROM TA_UnderManagment under 
+								                  WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID 
+																	                                FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))
+																	                               ) 
+		                       AND under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId)) 
+		                       AND under.underMng_Contains=1
+         )
+
+		UNION
+
+		    SELECT * FROM TA_Person WHERE prs_IsDeleted=0 AND Prs_Active=1 AND Prs_ID in (SELECT under.underMng_PersonID FROM TA_UnderManagment under
+		    WHERE under.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+		     AND under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))  
+		    AND under.underMng_Contains=1 AND ISNULL(under.underMng_PersonID,0)=Prs_ID)
+		) a
+       LEFT OUTER JOIN TA_Department on Prs_DepartmentId=dep_ID
+	   WHERE prs_ID not in 
+		    (
+		    SELECT notAllowedUnder.underMng_PersonID FROM TA_UnderManagment notAllowedUnder
+			WHERE notAllowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+			AND notAllowedUnder.underMng_DepartmentID  in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))
+			AND notAllowedUnder.underMng_Contains=0 AND notAllowedUnder.underMng_PersonID is not null
+			AND 
+			not exists(
+				  SELECT allowedUnder.underMng_PersonID FROM TA_UnderManagment allowedUnder
+				  WHERE allowedUnder.underMng_FlowID in (SELECT mngrFlow_FlowID FROM TA_ManagerFlow WHERE mngrFlow_Active = 1 AND mngrFlow_ManagerID in (SELECT * FROM dbo.fn_GetManagers(@prsId))) 
+				  AND allowedUnder.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartments](@prsId))
+				  AND allowedUnder.underMng_Contains=1 AND ISNULL(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+		    )
+   END
+
+
+    IF(@SearchField=2)
+    SELECT Count(*)     
+    FROM @TableVar  
+    WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%')
+    
+    else IF(@SearchField=3)
+    SELECT Count(*)     
+    FROM @TableVar   
+    WHERE gridFields_Family like(N'%'+@PersonName+'%')   
+    
+    else IF(@SearchField=5)
+    SELECT Count(*)     
+    FROM @TableVar   
+    WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%') or gridFields_Family like(N'%'+@PersonName+'%') 
+    
+    else 
+    SELECT Count(*)     
+    FROM @TableVar    
+
+    ]]>
+  </sql-query>
+
+  <sql-query name="GetUnderManagementOperatorPersonCount">
+    <![CDATA[ 
+
+     declare @PersonId numeric,@DepartmentId numeric,@SearchField int
+    ,@PersonBarcode nvarchar(10),@PersonName nvarchar(50)
+declare @TableVar table (	
+	[gridFields_CurrentDateTime] [varchar](10) NULL,
+	[gridFields_Order] [int] NULL,	
+	[gridFields_PersonID] [numeric](18, 0) NULL,
+	[gridFields_BarCode] [nvarchar](50) NULL,	
+	[gridFields_Family] [nvarchar](201) NULL)
+	
+    set @PersonId=:oprPersonId
+    set @SearchField=:searchField
+    set @DepartmentId=:departmentId   
+    set @PersonBarcode=:barcodeParam
+    set @PersonName=:personNameParam
+
+  
+    if(@SearchField=1 and Exists(SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId)  where dep_ID = @DepartmentId))
+    begin
+
+    insert into @TableVar
+    select '' 'gridFields_CurrentDateTime','' 'gridFields_Order', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family' from
+    (select * from TA_Person
+    where prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId=@DepartmentId AND
+    not Exists(select * from TA_UnderManagment under 
+    where under.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+     and under.underMng_DepartmentID=@DepartmentId
+    and under.underMng_Contains=1 and isnull(under.underMng_PersonID,0)=Prs_ID)
+
+    union
+
+    select * from TA_Person where prs_IsDeleted=0 AND Prs_Active=1 AND Prs_ID in (select under.underMng_PersonID from TA_UnderManagment under
+    where under.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+     and under.underMng_DepartmentID=@DepartmentId 
+    and under.underMng_Contains=1 and isnull(under.underMng_PersonID,0)=Prs_ID)) a
+    where prs_ID not in 
+    (
+    select notAllowedUnder.underMng_PersonID from TA_UnderManagment notAllowedUnder
+    where notAllowedUnder.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+    and notAllowedUnder.underMng_DepartmentID=@DepartmentId 
+    and notAllowedUnder.underMng_Contains=0 and notAllowedUnder.underMng_PersonID is not null
+    and 
+    not exists(
+		select allowedUnder.underMng_PersonID from TA_UnderManagment allowedUnder
+		where allowedUnder.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+		and allowedUnder.underMng_DepartmentID=@DepartmentId 
+		and allowedUnder.underMng_Contains=1 and isnull(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+    )
+    end
+
+    if(@SearchField=2 or @SearchField=3 or @SearchField=5)
+    begin
+    insert into @TableVar
+    select '' 'gridFields_CurrentDateTime','' 'gridFields_Order', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family' from
+    (select * from TA_Person
+		    where prs_IsDeleted=0 AND Prs_Active=1 AND Prs_DepartmentId in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId)) AND
+		    Prs_DepartmentId not in(select underMng_DepartmentID from TA_UnderManagment under 
+		    where under.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+		     and under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId)) 
+		    and under.underMng_Contains=1 and isnull(under.underMng_PersonID,0)=Prs_ID)
+
+		    union
+
+		    select * from TA_Person where prs_IsDeleted=0 AND Prs_Active=1 AND Prs_ID in (select under.underMng_PersonID from TA_UnderManagment under
+		    where under.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+		     and under.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId))  
+		    and under.underMng_Contains=1 and isnull(under.underMng_PersonID,0)=Prs_ID)) a
+		    where prs_ID not in 
+		    (
+		    select notAllowedUnder.underMng_PersonID from TA_UnderManagment notAllowedUnder
+    where notAllowedUnder.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+    and notAllowedUnder.underMng_DepartmentID  in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId))
+    and notAllowedUnder.underMng_Contains=0 and notAllowedUnder.underMng_PersonID is not null
+    and 
+    not exists(
+		  select allowedUnder.underMng_PersonID from TA_UnderManagment allowedUnder
+		  where allowedUnder.underMng_FlowID in (select opr_FlowId from TA_Operator where opr_PersonId=@PersonId) 
+		  and allowedUnder.underMng_DepartmentID in (SELECT * FROM [dbo].[TA_GetContainsDepartmentsByOperator](@PersonId))
+		  and allowedUnder.underMng_Contains=1 and isnull(allowedUnder.underMng_PersonID ,0) =notAllowedUnder.underMng_PersonID)
+		    )
+    end
+
+
+    if(@SearchField=2)
+    SELECT Count(*)     
+    FROM @TableVar  
+    WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%')
+    
+    else if(@SearchField=3)
+    SELECT Count(*)     
+    FROM @TableVar   
+    WHERE gridFields_Family like(N'%'+@PersonName+'%')     
+
+    else if(@SearchField=5)
+    SELECT Count(*)     
+    FROM @TableVar   
+    WHERE gridFields_BarCode like(N'%'+@PersonBarcode+'%') or gridFields_Family like(N'%'+@PersonName+'%')     
+
+    else 
+    SELECT Count(*)     
+    FROM @TableVar      
+    
+
+    ]]>
+  </sql-query>
+
+  <sql-query name="GetUnderManagementPersonListByList">
+    <return alias="UnderManagementPersonListByList" class="GTS.Clock.Model.MonthlyReport.UnderManagementPerson, GTS.Clock.Model"/>
+    <![CDATA[ 
+              	
+      declare @managerId numeric,@DepartmentId numeric,@SearchField int
+    ,@PersonBarcode nvarchar(10),@PersonName nvarchar(50),@CurrentDateTime varchar(10)
+    ,@OrderByField varchar(250),@OrderType varchar(10),@curentDate varchar(10),@pageSize int
+    ,@dateRangeOrder int,@dateRangeOrderIndex int,@pageIndex int
+    
+    declare @TableVar table (	
+	  [gridFields_CurrentDateTime] [varchar](10) NULL,
+	  [gridFields_DataRangeOrder] [int] NULL,
+    [gridFields_DataRangeOrderIndex] [int] NULL,
+	  [gridFields_PersonID] [numeric](18, 0) NULL,
+	  [gridFields_BarCode] [nvarchar](50) NULL,	
+	  [gridFields_Family] [nvarchar](200) NULL,
+    [gridFields_DepartmentName] [nvarchar](200) NULL)
+    
+    declare @TableVar_tmp table (	
+	  [gridFields_CurrentDateTime] [varchar](10) NULL,
+	  [gridFields_DataRangeOrder] [int] NULL,
+    [gridFields_DataRangeOrderIndex] [int] NULL,	
+	  [gridFields_PersonID] [numeric](18, 0) NULL,
+	  [gridFields_BarCode] [nvarchar](50) NULL,	
+	  [gridFields_Family] [nvarchar](200) NULL,
+    [gridFields_DepartmentName] [nvarchar](200) NULL,
+    [__hibernate_sort_row] [int] NULL)
+      
+    set @dateRangeOrder=:dateRangeOrder
+    set @dateRangeOrderIndex=:dateRangeOrderIndex
+    set @curentDate=:curentDate
+    set @pageSize=:pageSize
+    set @pageIndex=:pageIndex
+    set @pageIndex=@pageIndex * @pageSize
+   
+ 
+   insert into @TableVar
+   select @curentDate 'gridFields_CurrentDateTime',@dateRangeOrder 'gridFields_DataRangeOrder',@dateRangeOrderIndex 'gridFields_DataRangeOrderIndex', Prs_ID 'gridFields_PersonID',Prs_Barcode 'gridFields_BarCode',Prs_FirstName + ' ' +Prs_LastName 'gridFields_Family','' 'gridFields_DepartmentName' from
+   (select * from TA_Person 
+    where  prs_IsDeleted=0 AND Prs_Active=1  AND
+    prs_ID in(:underMngList)
+    ) as prsList
+    
+     insert into @TableVar_tmp
+     SELECT TOP (@pageSize) * 
+     FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY CURRENT_TIMESTAMP) as __hibernate_sort_row 
+     FROM @TableVar ) as rows 
+   
+		select * from @TableVar_tmp 	  
+
+    ]]>
+  </sql-query>
+  
+</hibernate-mapping>

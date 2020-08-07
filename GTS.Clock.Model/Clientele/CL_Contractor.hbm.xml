@@ -1,0 +1,45 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_Contractor, GTS.Clock.Model"
+         table ="CL_contractor" lazy="true">
+    <id name="ID" access="property"  column="contractor_ID" >
+      <generator class="native" />
+    </id>
+    <property name="IsDeleted" access="property" column="contractor_Deleted" />
+    <property name="CustomCode" access="property" column="contractor_CustomCode" />
+    <property name="Name" access="property" column="contractor_Name"/>
+    <property name="WorkField" access="property" column="contractor_WorkField" />
+    <property name="ContractNumber" access="property" column="contractor_ContactNumber" />
+    <property name="WorkerCount" access="property" column="contractor_WorkerCount" />
+    <property name="InternetAccess" access="property" column="contractor_InternetAccess" />
+    <property name="Description" access="property" column="contractor_Description" />
+    <property name="FromDate" access="property" column="contractor_FromDate" />
+    <property name="ToDate" access="property" column="contractor_ToDate" />
+    <property name="FromTime" access="property" column="contractor_FromTime" />
+    <property name="ToTime" access="property" column="contractor_ToTime" />
+    <property name="DaysOfWeek" access="property" column="contractor_DaysOfWeek" />
+    <property name="Image" access="property" column="contractor_Image" />
+    <property name="Position" access="property" column="contractor_Position" />
+
+    <bag name="EmployeeList" table="CL_PersonContractor" lazy="false">
+      <key column="prsContractor_ContractorID"></key>
+      <many-to-many class="GTS.Clock.Model.Clientele.CL_ClientelePerson, GTS.Clock.Model" column="prsContractor_PersonID"/>
+    </bag>
+
+    <bag name="EquipmentList" table="CL_Equipment" lazy="true" inverse="true" >
+      <key column="Eqp_ContractorId"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_Equipment, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="CarList" table="CL_Car" lazy="true" inverse="true" >
+      <key column="CL_Car_contractorId"></key>
+      <one-to-many class="GTS.Clock.Model.Clientele.CL_Car, GTS.Clock.Model"/>
+    </bag>
+
+    <many-to-one name="MeetingPerson" class="GTS.Clock.Model.Person, GTS.Clock.Model"  column="contractor_MeetingPersonId" lazy="proxy"/>
+    <many-to-one name="ControlStation" class="GTS.Clock.Model.BaseInformation.ControlStation, GTS.Clock.Model"  column="contractor_ControlStationId" lazy="proxy"/>
+    <many-to-one name="Department" class="GTS.Clock.Model.Charts.Department, GTS.Clock.Model"  column="contractor_DepartmentId" lazy="proxy"/>
+    
+
+  </class>
+</hibernate-mapping>

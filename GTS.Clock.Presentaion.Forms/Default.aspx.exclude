@@ -1,0 +1,259 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<%@ Register TagPrefix="ComponentArt" Namespace="ComponentArt.Web.UI" Assembly="ComponentArt.Web.UI" %>
+<%@ Register Assembly="TimePicker" Namespace="MKB.TimePicker" TagPrefix="MKB" %>
+<%@ Register TagPrefix="cc1" Namespace="Subgurim.Controles" Assembly="FUA" %>
+<%@ Register Assembly="AspNetPersianDatePickup" Namespace="AspNetPersianDatePickup"
+    TagPrefix="pcal" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <link id="Link1" href="Css/toolbar.css" runat="server" type="text/css" rel="stylesheet" />
+    <link id="Link2" href="Css/tabStyle.css" runat="server" type="text/css" rel="stylesheet" />
+    <link id="Link3" href="Css/multiPage.css" runat="server" type="text/css" rel="stylesheet" />
+    <link id="Link4" href="css/style.css" runat="server" type="text/css" rel="stylesheet" />
+    <link id="Link5" href="css/treeStyle.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link6" href="css/combobox.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link7" href="css/inputStyle.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link8" href="css/dialog.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link9" href="css/iframe.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link10" href="css/calendarStyle.css" runat="server" type="text/css" rel="stylesheet" />
+    <link id="Link11" href="css/tableStyle.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link12" href="css/mainpage.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link13" href="css/label.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link14" href="css/persianDatePicker.css" runat="server" type="text/css" rel="Stylesheet" />
+    <link id="Link15" href="Css/gridStyle.css" runat="server" type="text/css" rel="stylesheet" />
+    <link id="Link16" href="css/alert_box.css" runat="server" type="text/css" rel="Stylesheet" />
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%--<table class="BoxStyle" style="width: 100%; font-family: Arial; font-size: small;">
+            <tr>
+                <td>
+                    <ComponentArt:ToolBar ID="TlbImperative" runat="server" CssClass="toolbar" DefaultItemActiveCssClass="itemActive"
+                        DefaultItemCheckedCssClass="itemChecked" DefaultItemCheckedHoverCssClass="itemActive"
+                        DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover" DefaultItemImageHeight="16px"
+                        DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText" DefaultItemTextImageSpacing="0"
+                        ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px" UseFadeEffect="false">
+                        <Items>
+                            <ComponentArt:ToolBarItem ID="tlbItemApply_TlbImperative" runat="server" ClientSideCommand="tlbItemApply_TlbImperative_onClick();"
+                                DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="apply.png"
+                                ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemApply_TlbImperative"
+                                TextImageSpacing="5" />
+                            <ComponentArt:ToolBarItem ID="tlbItemEndorsement_TlbImperative" runat="server" ClientSideCommand="tlbItemEndorsement_TlbImperative_onClick();"
+                                DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="save.png"
+                                ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemEndorsement_TlbImperative"
+                                TextImageSpacing="5" />
+                            <ComponentArt:ToolBarItem ID="tlbItemFormReconstruction_TlbImperative" runat="server"
+                                ClientSideCommand="tlbItemFormReconstruction_TlbImperative_onClick();" DropDownImageHeight="16px"
+                                DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="refresh.png" ImageWidth="16px"
+                                ItemType="Command" meta:resourcekey="tlbItemFormReconstruction_TlbImperative" TextImageSpacing="5" />
+                            <ComponentArt:ToolBarItem ID="tlbItemExit_TlbImperative" runat="server" ClientSideCommand="tlbItemExit_TlbImperative_onClick();"
+                                DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="exit.png"
+                                ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemExit_TlbImperative"
+                                TextImageSpacing="5" />
+                        </Items>
+                    </ComponentArt:ToolBar>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width: 100%; border:1px solid black">
+                        <tr>
+                            <td style="width: 36%">
+                                <asp:Label ID="lblRequesType_tbImperative_RequestRegister" runat="server" CssClass="WhiteLabel" meta:resourcekey="lblRequesType_tbImperative_RequestRegister" Text=": نوع درخواست"></asp:Label>
+                            </td>
+                            <td style="width: 18%">
+                                <asp:Label ID="lblYear_tbImperative_RequestRegister" runat="server" CssClass="WhiteLabel" meta:resourcekey="lblYear_tbImperative_RequestRegister" Text=": سال"></asp:Label>
+                            </td>
+                            <td style="width: 18%">
+                                <asp:Label ID="lblMonth_tbImperative_RequestRegister" runat="server" CssClass="WhiteLabel" meta:resourcekey="lblMonth_tbImperative_RequestRegister" Text=": ماه"></asp:Label>
+                            </td>
+                            <td style="width: 28%">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ComponentArt:CallBack ID="CallBack_cmbRequestType_tbImperative_RequestRegister" runat="server" Height="26" OnCallback="CallBack_cmbRequestType_tbImperative_RequestRegister_onCallback">
+                                    <Content>
+                                        <ComponentArt:ComboBox ID="cmbRequestType_tbImperative_RequestRegister" runat="server" AutoComplete="true" AutoFilter="true" AutoHighlight="false" CssClass="comboBox" DataTextField="Name" DataValueField="ID" DropDownCssClass="comboDropDown" DropDownResizingMode="Corner" DropHoverImageUrl="Images/ComboBox/ddn-hover.png" DropImageUrl="Images/ComboBox/ddn.png" FocusedCssClass="comboBoxHover" HoverCssClass="comboBoxHover" ItemCssClass="comboItem" ItemHoverCssClass="comboItemHover" SelectedItemCssClass="comboItemHover" Style="width: 90%" TextBoxCssClass="comboTextBox" TextBoxEnabled="false">
+                                            <ClientEvents>
+                                                <Expand EventHandler="cmbRequestType_tbImperative_RequestRegister_onExpand" />
+                                                <Collapse EventHandler="cmbRequestType_tbImperative_RequestRegister_onCollapse" />
+                                            </ClientEvents>
+                                        </ComponentArt:ComboBox>
+                                        <asp:HiddenField ID="ErrorHiddenField_RequestTypes_tbImperative_RequestRegister" runat="server" />
+                                    </Content>
+                                    <ClientEvents>
+                                        <BeforeCallback EventHandler="cmbRequestType_tbImperative_RequestRegister_onBeforeCallback" />
+                                        <CallbackComplete EventHandler="cmbRequestType_tbImperative_RequestRegister_onCallbackComplete" />
+                                        <CallbackError EventHandler="cmbRequestType_tbImperative_RequestRegister_onCallbackError" />
+                                    </ClientEvents>
+                                </ComponentArt:CallBack>
+                            </td>
+                            <td>
+                                <ComponentArt:ComboBox ID="cmbYear_tbImperative_RequestRegister" runat="server" AutoComplete="true" AutoFilter="true" AutoHighlight="false" CssClass="comboBox" DropDownCssClass="comboDropDown" DropDownResizingMode="Corner" DropHoverImageUrl="Images/ComboBox/ddn-hover.png" DropImageUrl="Images/ComboBox/ddn.png" FocusedCssClass="comboBoxHover" HoverCssClass="comboBoxHover" ItemCssClass="comboItem" ItemHoverCssClass="comboItemHover" SelectedItemCssClass="comboItemHover" TextBoxCssClass="comboTextBox" TextBoxEnabled="false" Width="100">
+                                    <ClientEvents>
+                                        <Change EventHandler="cmbYear_tbImperative_RequestRegister_onChange" />
+                                    </ClientEvents>
+                                </ComponentArt:ComboBox>
+                            </td>
+                            <td>
+                                <ComponentArt:ComboBox ID="cmbMonth_tbImperative_RequestRegister" runat="server" AutoComplete="true" AutoFilter="true" AutoHighlight="false" CssClass="comboBox" DropDownCssClass="comboDropDown" DropDownHeight="280" DropDownResizingMode="Corner" DropHoverImageUrl="Images/ComboBox/ddn-hover.png" DropImageUrl="Images/ComboBox/ddn.png" FocusedCssClass="comboBoxHover" HoverCssClass="comboBoxHover" ItemCssClass="comboItem" ItemHoverCssClass="comboItemHover" SelectedItemCssClass="comboItemHover" TextBoxCssClass="comboTextBox" TextBoxEnabled="false" Width="100">
+                                    <ClientEvents>
+                                        <Change EventHandler="cmbMonth_tbImperative_RequestRegister_onChange" />
+                                    </ClientEvents>
+                                </ComponentArt:ComboBox>
+                            </td>
+                            <td>
+                                <ComponentArt:ToolBar ID="TlbView_tbImperative_RequestRegister" runat="server" CssClass="toolbar"
+                                    DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked"
+                                    DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover"
+                                    DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText"
+                                    ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px" UseFadeEffect="false">
+                                    <Items>
+                                        <ComponentArt:ToolBarItem ID="tlbItemView_TlbView_tbImperative_RequestRegister" runat="server"
+                                            ClientSideCommand="tlbItemView_TlbView_tbImperative_RequestRegister_onClick();" DropDownImageHeight="16px"
+                                            DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="view.png" ImageWidth="16px"
+                                            ItemType="Command" meta:resourcekey="tlbItemView_TlbView_tbImperative_RequestRegister"
+                                            TextImageSpacing="5" Enabled="true" />
+                                    </Items>
+                                </ComponentArt:ToolBar>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width:36%">
+                                <asp:Label ID="lblValue_tbImperative_RequestRegister" runat="server" CssClass="WhiteLabel" meta:resourcekey="lblValue_tbImperative_RequestRegister" Text=": مقدار"></asp:Label>
+                                        </td>
+                            <td>
+                    <asp:Label ID="lblDescription_tbImperative_RequestRegister" runat="server" CssClass="WhiteLabel"
+                        meta:resourcekey="lblDescription_tbImperative_RequestRegister" Text=": توضیحات"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <input type="text" id="txtValue_tbImperative_RequestRegister" class="TextBoxes" onclick="this.select();" onfocus="this.select();" style="width: 97%" onchange="txtValue_tbImperative_RequestRegister_onChange();" /></td>
+                            <td>
+                    <textarea id="txtDescription_tbImperative_RequestRegister" class="TextBoxes" cols="20"
+                        name="S1" rows="3" style="width: 99%; height: 30px;"></textarea></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="BoxStyle" style="width: 100%; height: 300px; border: outset 1px black;">
+                        <tr>
+                            <td style="height: 5%">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td id="header_Personnel_tbImperative_RequestRegister" class="HeaderLabel" style="width: 16%;">Personnel </td>
+                                        <td id="loadingPanel_GridPersonnel_tbImperative_RequestRegister" class="HeaderLabel" style="width: 24%"></td>
+                                        <td style="width:30%">
+                                            <table style="width:100%;">
+                                                <tr>
+                                                    <td style="width:5%">
+                                                        
+                                                        <input id="chbAllInThisPage_tbImperative_RequestRegister" type="checkbox" onclick="chbAllInThisPage_tbImperative_RequestRegister_onClick();"/></td>
+                                                    <td>
+                                                        <asp:Label ID="lblAllInThisPage_tbImperative_RequestRegister" CssClass="WhiteLabel" runat="server" Text="همه در این صفحه" meta:resourcekey="lblAllInThisPage_tbImperative_RequestRegister"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td id="Td2" runat="server" meta:resourcekey="InverseAlignObj" style="width: 30%">
+                                            <ComponentArt:ToolBar ID="TlbImperativeRequestsFilter_tbImperative_RequestRegister" runat="server" CssClass="toolbar" DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked" DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover" DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageBeforeText" ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px" UseFadeEffect="false">
+                                                <Items>
+                                                    <ComponentArt:ToolBarItem ID="tlbItemApplyedRequests_TlbImperativeRequestsFilter_tbImperative_RequestRegister" runat="server" ClientSideCommand="tlbItemApplyedRequests_TlbImperativeRequestsFilter_tbImperative_RequestRegister_onClick();" DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="up.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemApplyedRequests_TlbImperativeRequestsFilter_tbImperative_RequestRegister" TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemNotApplyedRequests_TlbImperativeRequestsFilter_tbImperative_RequestRegister" runat="server" ClientSideCommand="tlbItemNotApplyedRequests_TlbImperativeRequestsFilter_tbImperative_RequestRegister_onClick();" DropDownImageHeight="16px" DropDownImageWidth="16px" ImageHeight="16px" ImageUrl="down.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemNotApplyedRequests_TlbImperativeRequestsFilter_tbImperative_RequestRegister" TextImageSpacing="5" />
+                                                </Items>
+                                            </ComponentArt:ToolBar>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: top">
+                                <ComponentArt:CallBack ID="CallBack_GridPersonnel_tbImperative_RequestRegister" runat="server" OnCallback="CallBack_GridPersonnel_tbImperative_RequestRegister_onCallBack">
+                                    <Content>
+                                        <ComponentArt:DataGrid ID="GridPersonnel_tbImperative_RequestRegister" runat="server" AllowColumnResizing="false" AllowEditing="true" AllowHorizontalScrolling="true" AllowMultipleSelect="false" CssClass="Grid" EditOnClickSelectedItem="false" EnableViewState="false" FillContainer="true" FooterCssClass="GridFooter" ImagesBaseUrl="images/Grid/" PagePaddingEnabled="true" PageSize="8" RunningMode="Client" ScrollBar="Off" ScrollBarCssClass="ScrollBar" ScrollBarWidth="16" ScrollButtonHeight="17" ScrollButtonWidth="16" ScrollGripCssClass="ScrollGrip" ScrollImagesFolderUrl="images/Grid/scroller/" ScrollTopBottomImageHeight="2" ScrollTopBottomImagesEnabled="true" ScrollTopBottomImageWidth="16" ShowFooter="false">
+                                            <Levels>
+                                                <ComponentArt:GridLevel AlternatingRowCssClass="AlternatingRow" DataCellCssClass="DataCell" DataKeyField="ID" EditCommandClientTemplateId="EditCommandTemplate" HeadingCellCssClass="HeadingCell" HeadingTextCssClass="HeadingCellText" RowCssClass="Row" SelectedRowCssClass="SelectedRow" SelectorCellCssClass="SelectorCell" SortAscendingImageUrl="asc.gif" SortDescendingImageUrl="desc.gif" SortImageHeight="5" SortImageWidth="9">
+                                                    <Columns>
+                                                        <ComponentArt:GridColumn DataField="ID" Visible="false" />
+                                                        <ComponentArt:GridColumn DataField="PersonID" Visible="false" />
+                                                        <ComponentArt:GridColumn Align="Center" AllowEditing="True" ColumnType="CheckBox" DataField="Select" HeadingText=" " HeadingTextCssClass="HeadingText" Width="20" />
+                                                        <ComponentArt:GridColumn Align="Center" AllowEditing="False" DataField="PersonName" DefaultSortDirection="Descending" HeadingText="نام و نام خانوادگی" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnPersonName_GridPersonnel_tbImperative_RequestRegister" Width="140" />
+                                                        <ComponentArt:GridColumn Align="Center" AllowEditing="False" DataField="PersonCode" DefaultSortDirection="Descending" HeadingText="شماره پرسنلی" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnPersonCode_GridPersonnel_tbImperative_RequestRegister" Width="110" />
+                                                        <ComponentArt:GridColumn Align="Center" AllowEditing="False" DataField="ImperativeValue" DefaultSortDirection="Descending" HeadingText="مقدار" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnImperativeValue_GridPersonnel_tbImperative_RequestRegister" Width="50" DataCellClientTemplateId="DataCellClientTemplateId_clmnFlowLevels_GridRegisteredRequests_RegisteredRequests" />
+                                                        <ComponentArt:GridColumn Align="Center" AllowEditing="False" DataField="CalcInfo" DefaultSortDirection="Descending" HeadingText="خلاصه کارکرد ماهیانه" HeadingTextCssClass="HeadingText" meta:resourcekey="clmnMonthlyOperationSummary_GridPersonnel_tbImperative_RequestRegister" Width="270" />
+                                                        <ComponentArt:GridColumn DataField="PersonImage" Visible="false" />
+                                                        <ComponentArt:GridColumn DataField="IsLockedImperative" Visible="false" />
+                                                    </Columns>
+                                                </ComponentArt:GridLevel>
+                                            </Levels>
+                                            <ClientTemplates>
+                                                <ComponentArt:ClientTemplate ID="DataCellClientTemplateId_clmnFlowLevels_GridRegisteredRequests_RegisteredRequests">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td align="center" style="font-family: Verdana; font-size: 10px; cursor: pointer; color: ##SetForeColor_clmnImperativeValue_GridPersonnel_tbImperative_RequestRegister(DataItem.GetMember('IsLockedImperative').Value)##">##DataItem.GetMember('ImperativeValue').Value##
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </ComponentArt:ClientTemplate>
+                                            </ClientTemplates>
+                                            <ClientEvents>
+                                                <Load EventHandler="GridPersonnel_tbImperative_RequestRegister_onLoad" />
+                                                <ItemCheckChange EventHandler="GridPersonnel_tbImperative_RequestRegister_onItemCheckChange" />
+                                                <ItemDoubleClick EventHandler="GridPersonnel_tbImperative_RequestRegister_onItemDoubleClick" />
+                                            </ClientEvents>
+                                        </ComponentArt:DataGrid>
+                                        <asp:HiddenField ID="ErrorHiddenField_tbImperative_RequestRegister" runat="server" />
+                                        <asp:HiddenField ID="hfImperativeCount_tbImperative_RequestRegister" runat="server" />
+                                        <asp:HiddenField ID="hfImperativePageCount_tbImperative_RequestRegister" runat="server" />
+                                    </Content>
+                                    <ClientEvents>
+                                        <CallbackComplete EventHandler="CallBack_GridPersonnel_tbImperative_RequestRegister_onCallbackComplete" />
+                                        <CallbackError EventHandler="CallBack_GridPersonnel_tbImperative_RequestRegister_onCallbackError" />
+                                    </ClientEvents>
+                                </ComponentArt:CallBack>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 5%">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td id="Td7" runat="server" meta:resourcekey="AlignObj" style="width: 10%;">
+                                            <ComponentArt:ToolBar ID="TlbPaging_GridPersonnel_tbImperative_RequestRegister" runat="server" CssClass="toolbar" DefaultItemActiveCssClass="itemActive" DefaultItemCheckedCssClass="itemChecked" DefaultItemCheckedHoverCssClass="itemActive" DefaultItemCssClass="item" DefaultItemHoverCssClass="itemHover" DefaultItemImageHeight="16px" DefaultItemImageWidth="16px" DefaultItemTextImageRelation="ImageOnly" DefaultItemTextImageSpacing="0" ImagesBaseUrl="images/ToolBar/" ItemSpacing="1px" Style="direction: ltr" UseFadeEffect="false">
+                                                <Items>
+                                                    <ComponentArt:ToolBarItem ID="tlbItemRefresh_TlbPaging_GridPersonnel_tbImperative_RequestRegister" runat="server" ClientSideCommand="tlbItemRefresh_TlbPaging_GridPersonnel_tbImperative_RequestRegister_onClick();" DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px" ImageUrl="refresh.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemRefresh_TlbPaging_GridPersonnel_tbImperative_RequestRegister" TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemFirst_TlbPaging_GridPersonnel_tbImperative_RequestRegister" runat="server" ClientSideCommand="tlbItemFirst_TlbPaging_GridPersonnel_tbImperative_RequestRegister_onClick();" DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px" ImageUrl="first.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemFirst_TlbPaging_GridPersonnel_tbImperative_RequestRegister" TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemBefore_TlbPaging_GridPersonnel_tbImperative_RequestRegister" runat="server" ClientSideCommand="tlbItemBefore_TlbPaging_GridPersonnel_tbImperative_RequestRegister_onClick();" DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px" ImageUrl="Before.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemBefore_TlbPaging_GridPersonnel_tbImperative_RequestRegister" TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemNext_TlbPaging_GridPersonnel_tbImperative_RequestRegister" runat="server" ClientSideCommand="tlbItemNext_TlbPaging_GridPersonnel_tbImperative_RequestRegister_onClick();" DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px" ImageUrl="Next.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemNext_TlbPaging_GridPersonnel_tbImperative_RequestRegister" TextImageSpacing="5" />
+                                                    <ComponentArt:ToolBarItem ID="tlbItemLast_TlbPaging_GridPersonnel_tbImperative_RequestRegister" runat="server" ClientSideCommand="tlbItemLast_TlbPaging_GridPersonnel_tbImperative_RequestRegister_onClick();" DropDownImageHeight="16px" DropDownImageWidth="16px" Enabled="true" ImageHeight="16px" ImageUrl="last.png" ImageWidth="16px" ItemType="Command" meta:resourcekey="tlbItemLast_TlbPaging_GridPersonnel_tbImperative_RequestRegister" TextImageSpacing="5" />
+                                                </Items>
+                                            </ComponentArt:ToolBar>
+                                        </td>
+                                        <td id="footer_GridPersonnel_tbImperative_RequestRegister" runat="server" class="WhiteLabel" meta:resourcekey="InverseAlignObj" style="width: 45%"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>--%>
+    </form>
+</body>
+</html>
+
+

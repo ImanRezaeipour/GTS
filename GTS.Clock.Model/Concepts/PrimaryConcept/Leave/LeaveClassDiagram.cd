@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GTS.Clock.Model.Concepts.Budget" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAggAAgAAAAAAAAAAAAACABAQAAAQAAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\Budget.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.LeaveIncDec" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAIAAggAAAAAAAAAAAAAAAACABAQAAAQAAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\LeaveIncDec.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.LeaveYearRemain" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAACAAAAAAAgAAEABAIAAAAAAAAAAABAAAAARAAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\LeaveYearRemain.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.UsedLeaveDetail" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAIAAAgAAIAAAAAAAAAAAAACABAAAgAAAAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\UsedLeaveDetail.cs</FileName>
+      <NewMemberFileName>Concepts\SecondaryConcept\Leave\UsedBudget.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.LeaveCalcResult" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAIAgAgAAAQEAAAAAAACCIACABAAAAAAAAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\LeaveCalcResult.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.BudgetLCR">
+    <Position X="1" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\BudgetLCR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.LeaveIncDecLCR">
+    <Position X="3.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\LeaveIncDecLCR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.LeaveYearRemainLCR">
+    <Position X="5.5" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\LeaveYearRemainLCR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.UsedLeaveDetailLCR">
+    <Position X="7.5" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Leave\UsedLeaveDetailLCR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UI.GanttChartClientSettings, GTS.Clock.Model"
+         table ="TA_GunChartClientSettings" lazy="true">
+    <id name="ID" access="property"  column="ID" >
+      <generator class="native" />
+    </id>
+    <property name="PresenceDuration"     access="property" column="PresenceDuration" />
+    <property name="AllowedOverTime"     access="property" column="AllowedOverwork" />
+    <property name="UnallowableOverTime"     access="property" column="UnallowedOverwork" />
+    <property name="HourlyAllowableAbsence"     access="property" column="AllowedHourlyAbsence" />
+    <property name="HourlyUnallowableAbsence"     access="property" column="UnallowableHourlyAbsence" />
+    <property name="DailyAbsence"     access="property" column="UnallowedDailyAbsence" />
+    <property name="HourlyMission"     access="property" column="HourlyMission" />
+    <property name="DailyMission"     access="property" column="DailyMission" />
+    <property name="DailyNightMission"     access="property" column="DailyNightMission" />
+    <property name="HourlySickLeave"     access="property" column="HourlyEstelajiLeave" />
+    <property name="DailySickLeave"     access="property" column="DailyEstelajiLeave" />
+    <property name="HourlyMeritoriouslyLeave"     access="property" column="HourlyEstehghaghiLeave" />
+    <property name="DailyMeritoriouslyLeave"     access="property" column="DailyEstehghaghiLeave" />
+    <property name="HourlyWithoutPayLeave"     access="property" column="HourlyWithoutPayLeave" />
+    <property name="DailyWithoutPayLeave"     access="property" column="DailyWithoutPayLeave" />
+    <property name="HourlyWithPayLeave"     access="property" column="HourlyWithPayLeave" />
+    <property name="DailyWithPayLeave"     access="property" column="DailyWithPayLeave" />
+
+    <many-to-one name="UserSetting" column="UserSettingId" class="GTS.Clock.Model.AppSetting.UserSettings, GTS.Clock.Model" not-null="true"/>
+
+
+  </class>
+</hibernate-mapping>

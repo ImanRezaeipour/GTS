@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Rules.PersonParamField, GTS.Clock.Model"
+         table ="TA_PersonParamFields" lazy="false">
+    <id name="ID" access="property"  column="paramField_ID" >
+      <generator class="native" />
+    </id>      
+    <property name="Key"     access="property" column="paramField_Key" />
+    <property name="FnTitle"     access="property" column="paramField_fnTitle" />
+    <property name="EnTitle"     access="property" column="paramField_enTitle" />
+    <property name="Active"     access="property" column="paramField_Active" />
+    <property name="SubSystemId"     access="property" column="paramField_SubSystemId" />
+       
+  </class>
+</hibernate-mapping>

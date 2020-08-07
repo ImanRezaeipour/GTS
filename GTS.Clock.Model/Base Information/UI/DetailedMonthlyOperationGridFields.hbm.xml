@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UI.DetailedMonthlyOperationGridFields, GTS.Clock.Model"
+         table ="TA_DetailedMonthlyOperationGridFields" lazy="true">
+    <id name="ID" access="property"  column="ID" >
+      <generator class="native" />
+    </id>
+    <property name="FromHour"     access="property" column="FromHour" />
+    <property name="ToHour"     access="property" column="ToHour" />
+
+    <many-to-one name="Master" column="MasterID" class="GTS.Clock.Model.UI.MasterMonthlyOperationGridFields, GTS.Clock.Model" not-null="true"/>
+    <many-to-one name="Concept" column="ConceptID" class="GTS.Clock.Model.BaseInformation.ExistConcepts, GTS.Clock.Model" not-null="true"/>
+
+  </class>
+</hibernate-mapping>

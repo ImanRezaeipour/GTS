@@ -1,0 +1,761 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTS.Clock.Infrastructure.Repository</name>
+    </assembly>
+    <members>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ExecutablePersonCalcRepository.GetAll(System.DateTime)">
+            <summary>
+             پرسنلی که باید محاسبات برای آنها انجام شود را برمی گرداند
+             اگر تاریخ آخرین محاسبه پرسنلی کوچکتر از تاریخ ورودی بود یا محاسباتش نا معتبر بود، آن پرسنل برای محاسبه واکشی می گردد
+            </summary>
+            <param name="Date">زمان حال که محاسبات تا آن زمان باید انجام شود</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ExecutablePersonCalcRepository.GetByBarcode(System.String,System.DateTime)">
+            <summary>
+             اگر پرسنل با بارکد ورودی نیاز به محاسبه داشت آن را در قالب شی "پرسنل قابل محاسبه" برمی گرداند
+             اگر تاریخ آخرین محاسبه پرسنل کوچکتر از تاریخ ورودی بود یا محاسباتش نا معتبر بود، آن پرسنل برای محاسبه واکشی می گردد
+            </summary>
+            <param name="Barcode"></param>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ExecutablePersonCalcRepository.GetByPrsId(System.Decimal,System.DateTime)">
+            <summary>
+             اگر پرسنل با شناسه ورودی نیاز به محاسبه داشت آن را در قالب شی "پرسنل قابل محاسبه" برمی گرداند
+             اگر تاریخ آخرین محاسبه پرسنل کوچکتر از تاریخ ورودی بود یا محاسباتش نا معتبر بود، آن پرسنل برای محاسبه واکشی می گردد   
+            </summary>
+            <param name="PrsId"></param>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ExecutablePersonCalcRepository.GetAllByPrsIds(System.Collections.Generic.IList{System.Decimal},System.DateTime)">
+            <summary>
+             اگر پرسنل با شناسه های ورودی نیاز به محاسبه داشت آن را در قالب شی "پرسنل قابل محاسبه" برمی گرداند
+             اگر تاریخ آخرین محاسبه پرسنل کوچکتر از تاریخ ورودی بود یا محاسباتش نا معتبر بود، آن پرسنل برای محاسبه واکشی می گردد   
+            </summary>
+            <param name="PrsId"></param>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.SubstituteRepository.GetSubstitute(System.Decimal)">
+            <summary>
+            سمتهای جانشینی یک شخص را برمیگرداند
+            </summary>
+            <param name="personId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.SubstituteRepository.IsSubstitute(System.Decimal)">
+            <summary>
+            آیا این شخص جانشین است
+            </summary>
+            <param name="personId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.CalendarRepository.GetAllCalendarDateByTypeId(System.Decimal)">
+            <summary>
+            تلریخ تقوین را برمیگرداند
+            </summary>
+            <param name="caledarTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ShiftRepository.HasWorkGroupDetail(System.Decimal)">
+            <summary>
+            آیا این شیفت به روزی اختصاص داده شده است یا نه
+            </summary>
+            <param name="shiftId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.FlowRepository.DeleteManagerFlows(System.Decimal)">
+            <summary>
+            مدیران جریان را غیر فعال میکند
+            </summary>
+            <param name="flowId"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.FlowRepository.GetFlowManagerCount(System.Decimal)">
+            <summary>
+            آیا اگر این مدیر حذف شود جریانی وجود دارد هیچ مدیری داشته باشد
+            </summary>
+            <param name="managerFlowId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.FlowRepository.GetSubstituteAccessGroupCount(System.Decimal,System.Decimal)">
+            <summary>
+            تعداد پیشکارتهای یک جریان که توسط یک جانشین قابل دسترس است را برمیگرداند
+            </summary>
+            <param name="substituteId"></param>
+            <param name="flowId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PrecardRepository.GetUsualPrecard">
+            <summary>
+            تردد عادی را برمیگرداند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PermitRepository.GetExistingPermit(System.Decimal,System.Decimal,System.DateTime,System.DateTime)">
+            <summary>
+            مجوز را برمیگرداند
+            </summary>
+            <param name="personId"></param>
+            <param name="precardId"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UIValidationGroupingRepository.DeleteAfterUpdate(System.Decimal,System.Collections.Generic.IList{System.Decimal})">
+            <summary>
+            بعد از بروزرسانی یگ گروه اعتبارسنجی و تخصیص قوانین جدید لازم است قوانین قبلی حذف و قوانین جدید
+            جایگزین قبلی شود
+            </summary>
+            <param name="validationGroupId"></param>
+            <param name="newRuleIds"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UIValidationGroupingRepository.GetPrecard(System.String)">
+            <summary>
+            پیشکاتهای متصل به یک قانون را برمیگرداند
+            </summary>
+            <param name="ruleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.AssignRuleParameterRepository.InitilizeParameters(System.Decimal,System.Decimal)">
+            <summary>
+            بعد از درج انتساب قانون به پارامتر باید پارامترها نیز درچ شوند که 
+            این سرویس این کار را انجام میدهد
+            </summary>
+            <param name="assignRuleParameterID">شناسه انتساب قانون به پارامتر</param>
+            <param name="ruleID">شناسه قانون</param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.AssignRuleParameterRepository.GetRuleTemplateParameters(System.Decimal)">
+            <summary>
+            با توجه به شناسه قانون پارامترهای قالب را برمیگرداند
+            </summary>
+            <param name="ruleID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.WorkGroupRepository.DeleteWorkGroupDetail(System.Decimal,System.DateTime,System.DateTime)">
+            <summary>
+            کلیه انتسابات شیفت به گروه کاری را در یک بازه حذف میکند
+            </summary>
+            <param name="workGroupId"></param>
+            <param name="minDate"></param>
+            <param name="maxDate"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ReportFileRepository.GetAllAvailableReportFile">
+            <summary>
+            فایل گزارشهایی که به گزارشات انتساب داده نشده اند
+            </summary>
+            <param name="personId"></param>
+            <param name="date"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.OperatorRepository.GetAllOperator">
+            <summary>
+            لیست افرادی که اپراتور هستند را برمیگرداند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.OperatorRepository.GetOperator(System.Decimal)">
+            <summary>
+            یک شناسه پرسنلی میگیرد و اگر شخص اپراتور باشد آنرا برمیگرداند
+            در غیر این صورت شی خالی برمیگردد
+            </summary>
+            <param name="personId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.IsDutyPlaceUsed(System.Decimal)">
+            <summary>
+            آیا یک محل ماموریت جایی استفاده شده است
+            </summary>
+            <param name="placeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllHourlyRequestByType(System.Decimal,System.DateTime,GTS.Clock.Infrastructure.PrecardGroupsName)">
+            <summary>
+            یک نوع خاص روزانه از درخواستهای ثبت شده را در تاریخی معین برمیگرداند
+            </summary>
+            <param name="personId"></param>
+            <param name="date"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllHourlyRequestByType(System.Decimal,System.DateTime,GTS.Clock.Infrastructure.PrecardGroupsName,GTS.Clock.Infrastructure.PrecardGroupsName,GTS.Clock.Infrastructure.PrecardGroupsName)">
+            <summary>
+            یک نوع خاص ساعتی از درخواستهای ثبت شده را در تاریخی معین برمیگرداند
+            </summary>
+            <param name="personId"></param>
+            <param name="date"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllDailyRequestByType(System.Decimal,System.DateTime,GTS.Clock.Infrastructure.PrecardGroupsName)">
+            <summary>
+            یک نوع خاص روزانه از درخواستهای ثبت شده را در تاریخی معین برمیگرداند
+            </summary>
+            <param name="personId"></param>
+            <param name="date"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllDailyRequestByType(System.Decimal,System.DateTime,GTS.Clock.Infrastructure.PrecardGroupsName,GTS.Clock.Infrastructure.PrecardGroupsName,GTS.Clock.Infrastructure.PrecardGroupsName)">
+            <summary>
+            یک نوع خاص روزانه از درخواستهای ثبت شده را در تاریخی معین برمیگرداند
+            </summary>
+            <param name="personId"></param>
+            <param name="date"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllRequest(System.Decimal,System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestState)">
+            <summary>
+            درخواستهای یک شخص را برمیگرداند
+            </summary>
+            <param name="personId"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllManagerKartabl(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestType,System.Decimal,System.Int32,System.Int32,System.Decimal[],GTS.Clock.Infrastructure.KartablOrderBy)">
+            <summary>
+            درخواست های افراد را برمیگرداند
+            </summary>
+            <param name="personIds">لیست افراد</param>
+            <param name="fromDate">تاریخ شروع</param>
+            <param name="toDate">تاریخ پایان</param>
+            <param name="requestType">نوع درخواست</param>
+            <param name="pageIndex">ایندکس صفجه</param>
+            <param name="pageSize">تعداد آیتم هر صفحه</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllSubstituteKartabl(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestType,System.Decimal,System.Decimal,System.Int32,System.Int32,System.Decimal[],GTS.Clock.Infrastructure.KartablOrderBy)">
+            <summary>
+            درخواستهای افراد برای جانشین را برمیگرداند
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestType">نوع درخواست</param>
+            <param name="managerId">شناسه مدیریت جانشین - جانشین ممکن است خود جانشین باشد</param>
+            <param name="personId">شناسه جانشین</param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllManagerReviewd(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestState,System.Decimal,System.Int32,System.Int32,System.Decimal[],GTS.Clock.Infrastructure.KartablOrderBy)">
+            <summary>
+            درخواستهای بررسی شده
+            </summary>
+            <param name="personIds"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestStatus"></param>
+            <param name="managerId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllUserRequest(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestState,System.Decimal,System.Int32,System.Int32)">
+            <summary>
+            درخواستهای ثبت شده را برمیگرداند
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestStatus"></param>
+            <param name="personId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllUserRequest(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{GTS.Clock.Infrastructure.RequestType},System.Nullable{GTS.Clock.Infrastructure.RequestSubmiter},System.Decimal,System.Int32,System.Int32)">
+            <summary>
+            درخواستهای فیلتر درخواستهای ثبت شده
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestType"></param>
+            <param name="submiter"></param>
+            <param name="personId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllOperatorRequest(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestState,System.Decimal,System.Collections.Generic.IList{System.Decimal},System.Int32,System.Int32)">
+            <summary>
+            درخواستهای ثبت شده اپراتور را برمیگرداند
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestStatus"></param>
+            <param name="personId">شناسه پرسنلی اپراتور</param>
+            <param name="undermanagmentList">افراد تحت مدیریت</param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllOperatorRequest(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{GTS.Clock.Infrastructure.RequestType},System.Nullable{GTS.Clock.Infrastructure.RequestSubmiter},System.Decimal,System.Decimal,System.Collections.Generic.IList{System.Decimal},System.Decimal,System.Int32,System.Int32)">
+            <summary>
+            درخواستهای اپراتور فیلتر درخواستهای ثبت شده
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestType"></param>
+            <param name="submiter"></param>
+            <param name="personId">شناسه پرسنلی اپراتور</param>
+            <param name="userId">شناسه کاربری اپراتور</param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllManagerKartablCount(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestType,System.Decimal,System.Decimal[])">
+            <summary>
+            تعداد درخواست های کارتابل را برمیگرداند
+            </summary>
+            <param name="personIds">لیست افراد</param>
+            <param name="fromDate">تاریخ شروع</param>
+            <param name="toDate">تاریخ پایان</param>
+            <param name="requestType">نوع درخواست</param>       
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllSubstituteKartablCount(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestType,System.Decimal,System.Decimal,System.Decimal[])">
+            <summary>
+            تعداد درخواست های کارتابل برای جانشین را برمیگرداند
+            </summary>
+            <param name="personIds">لیست افراد</param>
+            <param name="fromDate">تاریخ شروع</param>
+            <param name="toDate">تاریخ پایان</param>
+            <param name="requestType">نوع درخواست</param>       
+            <param name="managerId"> شناسه مدیر که جانشین هم هست</param>       
+            <param name="personId">شناسه شخص که جانشین است</param>       
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllManagerReviewdCount(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestState,System.Decimal,System.Decimal[])">
+            <summary>
+            تعداد درخواستهای بررسی شده را برکیگرداند
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestState"></param>
+            <param name="managerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllUserRequestCount(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestState,System.Decimal)">
+            <summary>
+            تعداد درخواستهای ثبت شده را برمیگرداند
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestStatus"></param>
+            <param name="personId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllUserRequestCount(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{GTS.Clock.Infrastructure.RequestType},System.Nullable{GTS.Clock.Infrastructure.RequestSubmiter},System.Decimal)">
+            <summary>
+            تعداد درخواستها در فیلتر گزارشات ثبت شده
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestType"></param>
+            <param name="submiter"></param>
+            <param name="personId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllOperatorRequestCount(System.DateTime,System.DateTime,GTS.Clock.Infrastructure.RequestState,System.Decimal,System.Collections.Generic.IList{System.Decimal})">
+            <summary>
+            تعداد درخواستهای ثبت شده اپراتور را برمیگرداند
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestStatus"></param>
+            <param name="personId">شناسه پرسنلی اپراتور</param>
+            <param name="userId">شناسه کاربری اپراتور</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllOperatorRequestCount(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{GTS.Clock.Infrastructure.RequestType},System.Nullable{GTS.Clock.Infrastructure.RequestSubmiter},System.Decimal,System.Decimal,System.Collections.Generic.IList{System.Decimal},System.Decimal)">
+            <summary>
+            تعداد درخواستهای اپراتور در فیلتر گزارشات ثبت شده
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="requestType"></param>
+            <param name="submiter"></param>
+            <param name="personId">شناسه پرسنلی اپراتور</param>
+            <param name="userId">شناسه کاربری اپراتور</param>
+            <param name="underManagmentPersonId">شناسه پرسنل تحت مدیریت یعنی فقط برای همین شخص فیلتر شود</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.RequestRepository.GetAllUsedRequest(System.Decimal,System.Decimal,System.DateTime,System.DateTime)">
+            <summary>
+            درخواستهای یک شخص دریک بازه را برمیگرداند
+            </summary>
+            <param name="personId"></param>
+            <param name="precardId"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.GTSRoleProvider.GetRolesForUser(System.String)">
+            <summary>
+            نقش یک کاربر را برمیگرداند
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ShiftExceptionRepository.DeleteExceptionShift(System.Decimal,System.DateTime,System.DateTime)">
+            <summary>
+            حذف شیفتهای استثنا قبلی
+            </summary>
+            <param name="personId"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.DeleteScndCnpValue(System.Decimal,System.DateTime,System.DateTime)">
+            <summary>
+            نتایج مفاهیم در تاریخ مشخص شده برای پرسنل ارسالی را پاک می نماید
+            </summary>
+            <param name="PersonID"></param>
+            <param name="FromDate"></param>
+            <param name="ToDate"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.UpdatePTable(System.String,GTS.Clock.Infrastructure.Utility.PersianDateTime)">
+            <summary>
+            در اینجا یک "پروسیجر ذخیره شده ی" "اسکیوال" فراخوانی می شود که
+            جدول "خروجی" پرسنل مشخص شده را در تاریخ ارسالی پر می نماید
+            </summary>
+            <param name="Barcode"></param>
+            <param name="date"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.Refresh(GTS.Clock.Model.Person)">
+            <summary>
+            شی ارسال شده را دوباره بارگذاری می نماید
+            </summary>
+            <param name="Entity"></param>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetScndCnpValueByIndex(System.String)">
+            <summary>
+            با ارسال "جستجوی" مستقیم برروی پایگاه داده مقدار مفهوم مورد نظر را براساس شناسه ی ارسالی برمی گرداند
+            </summary>
+            <param name="Index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetByCriteriaByPage(System.Int32,System.Int32,GTS.Clock.Infrastructure.Utility.ConditionOperations,GTS.Clock.Infrastructure.Utility.CriteriaStruct[])">
+            <summary>
+            اگر بارکد تهی باشد نباید در لیست جواب بیاید
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="conOp"></param>
+            <param name="cretriaParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetCountByCriteriaNotNull(GTS.Clock.Infrastructure.Utility.ConditionOperations,GTS.Clock.Infrastructure.Utility.CriteriaStruct[])">
+            <summary>
+            اگر بارکد تهی باشد نباید در لیست جواب بیاید
+            </summary>
+            <param name="conOp"></param>
+            <param name="cretriaParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetAllByPage(System.Int32,System.Int32)">
+            <summary>
+            صفحه بندی روی اشخاصی که شماره پرسنلی آنها تهی نباشد
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.UpdatePersonImage(System.Decimal,System.String)">
+            <summary>
+            بروزرسانی عکس پرسنل
+            </summary>
+            <param name="personDtlId"></param>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetPersonImage(System.Decimal)">
+            <summary>
+            بازیابی عکس پرسنل
+            </summary>
+            <param name="personDtlId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetPersonalMonthlyReport(System.Decimal,System.DateTime,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="personId">شناسه شخص</param>
+            <param name="date">تاریخ جهت بررسی تاریخ انتساب شخص</param>
+            <param name="order">ترتیب ماه</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetAllPersonByControlStaion(System.Decimal[])">
+            <summary>
+            پرسنل را براساس ایستگاه کنترلی برمیگرداند
+            </summary>
+            <param name="controlStationIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.QuickSearchByPage(System.String,System.Collections.Generic.IList{System.Decimal},System.Int32,System.Int32)">
+            <summary>
+            جستجوی سریع داخل یک مجموعه
+            </summary>
+            <param name="key"></param>
+            <param name="searchInCategory"></param>
+            <param name="inIds"></param>
+            <param name="pageSize"></param>
+            <param name="pageIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetPersonInAdvanceSearchCount(GTS.Clock.Infrastructure.PersonSearchProxy,System.Collections.Generic.IList{System.Decimal})">
+            <summary>
+            
+            </summary>
+            <param name="proxy"></param>
+            <param name="inIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PersonRepository.GetQuickSearchCount(System.String,System.Collections.Generic.IList{System.Decimal})">
+            <summary>
+            تعداد جستجوی سریع که در یک مجموعه خاص باشند مانند مدیران تحت مدیریت اپراتور
+            </summary>
+            <param name="key"></param>
+            <param name="searchInCategory"></param>
+            <param name="inIds">شناسه هایی که باید بین آنها جست و جو شود</param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PrsMonthlyRptRepository.LoadDailyProceedTrafficList(System.Decimal,System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="personId"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PrsMonthlyRptRepository.LoadDailyScndCnpList(System.Decimal,System.DateTime,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="PersonId"></param>
+            <param name="Date"></param>
+            <param name="OrderIndex"></param>
+            <param name="Order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PrsMonthlyRptRepository.LoadPairableScndcnpValue(System.Decimal,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="PersonId"></param>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.PrsMonthlyRptRepository.LoadDailyScndCnpWithouthMonthlyList(System.Decimal,System.DateTime,System.DateTime)">
+            <summary>
+            جهت بارگزاری آیتم های بازه ای
+            </summary>
+            <param name="PersonId"></param>
+            <param name="Date"></param>
+            <param name="Order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.DepartmentRepository.GetById(System.Collections.Generic.IList{System.Decimal})">
+            <summary>
+            لیست بچهای یک گره را با توجه به آدرس والدین برمیگرداند
+            </summary>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Repository.EntityRepository`1">
+            <summary>
+             این کلاس برای موجودیت هایی استفاده میشود که به هیچ سرویس اضافی احتیاج ندارند
+             و تنها سرویسهای موجود در والد آنها کفایت میکند
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.AuthorizeRepository.GetAccessDenied(System.Decimal)">
+            <summary>
+            لیستی از منابعی که استفاده از آن برای یک نقش خاص ممنوع است را برمیگرداند
+            درهنگام ذخیره تنها آنهایی اجازه دسترسی دارد را ذخیره میکنیم
+            </summary>    
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.AuthorizeRepository.GetAccessAllowed(System.Decimal)">
+            <summary>
+            لیستی از منابعی که استفاده از آن برای یک نقش خاص مجاز است را برمیگرداند
+            </summary>    
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.AuthorizeRepository.GetAccessDenied(GTS.Clock.Model.Security.Role)">
+            <summary>
+            لیستی از منابعی که استفاده از آن برای یک نقش خاص ممنوع است را برمیگرداند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.AuthorizeRepository.GetResourceByRoleId(System.Decimal)">
+            <summary>
+            تمام منابع را به ازای یک نقش برمیگرداند
+            </summary>    
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.AuthorizeRepository.SetAuthorize(System.Decimal,System.Decimal,System.Boolean)">
+             <summary>
+            تعیین سطح دسترسی
+             </summary>    
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.OrganizationUnitRepository.GetOrganizationUsnitByPersonIds(System.Collections.Generic.IList{System.Decimal})">
+            <summary>
+            پست سازمانی دسته ای از پرسنل را برمیگرداند
+            </summary>
+            <param name="personIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetLanguageByUsername(System.String)">
+            <summary>
+            زبان انتخابی کاربر را با توجه به شناسه کاربری برمیگرداند
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetPasswordByUserId(System.Decimal)">
+            <summary>
+            کلمه عبور یک کاربر را برمیگرداند
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetLastActivityDateByUserId(System.Decimal)">
+            <summary>
+            تاریخ آخرین فعالیت یک کاربر را برمیگرداند
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.HasAllDepartmentAccess(System.Decimal)">
+            <summary>
+            آیا بر همه بخش ها دسترسی دارد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.HasAllManagerAccess(System.Decimal)">
+            <summary>
+            آیا بر همه افراد مدیریت دارد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserDepartmentList(System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserManagerIdList(System.Decimal)">
+            <summary>
+            لیست مدیرانی که کاربر به آنها دسترسی دارد را برمیگرداند
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserManagerList(System.Decimal)">
+            <summary>
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserWorkGroupList(System.Decimal)">
+            <summary>
+            بجای شناسه خودش , شناسه دسترسی برگردانده شد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserRuleGroupList(System.Decimal)">
+            <summary>
+            بجای شناسه خودش , شناسه دسترسی برگردانده شد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserShiftList(System.Decimal)">
+            <summary>
+            بجای شناسه خودش , شناسه دسترسی برگردانده شد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserPrecardList(System.Decimal)">
+            <summary>
+            بجای شناسه خودش , شناسه دسترسی برگردانده شد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserControlStationList(System.Decimal)">
+            <summary>
+            بجای شناسه خودش , شناسه دسترسی برگردانده شد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserDoctorList(System.Decimal)">
+            <summary>
+            بجای شناسه خودش , شناسه دسترسی برگردانده شد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserFlowList(System.Decimal)">
+            <summary>
+            بجای شناسه خودش , شناسه دسترسی برگردانده شد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.UserRepository.GetUserReportList(System.Decimal)">
+            <summary>
+            بجای شناسه خودش , شناسه دسترسی برگردانده شد
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GTS.Clock.Infrastructure.Repository.UserRepository.UserAuthorization">
+            <summary>
+            بمنظور کلاس بندی رکوردهای استخراج شده از 
+            دیتابیس بمنظور بررسی سطح دسترسی کاربر استفاده میشود
+            </summary>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ManagerRepository.GetQuickSearch(System.String,System.Int32,System.Int32)">
+            <summary>
+            جست و جو برروی نام مدیر و نام پست سازمانی و شماره پرسنلی
+            </summary>
+            <param name="searchKey"></param>
+            <param name="pageSize"></param>
+            <param name="pageIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ManagerRepository.GetManagerByOrganID(System.Decimal)">
+            <summary>
+            یک مدیر زا با توجه به پست سازمانی بین مدیران و پرسنل جستجو میکند
+            اگر مدیر با شناسه پرسنل ذخیره شده بود آنرا با پست سازمانی ذخیره میکند
+            </summary>
+            <param name="organID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ManagerRepository.GetAllManager">
+            <summary>
+            لیست افرادی که مدیر هستند را برمیگرداند
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GTS.Clock.Infrastructure.Repository.ManagerRepository.GetAllAccessGroup(System.Decimal)">
+            <summary>
+            تمام پیشکارتهایی که مدیر به آنها دسترسی دارد را برمیگرداند
+            </summary>
+            <param name="managerPersonID">شناسه پرسنلی مدیر</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AppSetting.Languages, GTS.Clock.Model"
+         table ="TA_Languages" lazy="false">
+    <id name="ID" access="property"  column="Lang_ID" >
+      <generator class="native" />
+    </id>
+    <property name="LangID"     access="property" column="Lang_LangID" />
+    <property name="IsActive"     access="property" column="Lang_IsActive" />
+
+    <bag name="UserSettingList" table="TA_UserSettings" lazy="true" >
+      <key column="userset_langId"></key>
+      <one-to-many class="GTS.Clock.Model.AppSetting.UserSettings, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

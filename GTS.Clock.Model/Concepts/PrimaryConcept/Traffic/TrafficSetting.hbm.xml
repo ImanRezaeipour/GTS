@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.TrafficSettings, GTS.Clock.Model"
+         table ="TA_TrafficSettings" lazy="true">
+
+    <id name="ID" access="property"  column="TrafficSet_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="BeginTimeHourDutyByCart" access="property" column="TrafficSet_BeginTimeHourDutyByCart" />
+    <property name="DutyByPermision" access="property" column="TrafficSet_DutyByPermision" />
+    <property name="DelayCartIsAllowed" access="property" column="TrafficSet_DelayCartIsAllowed" />
+    <property name="DelayCartServiceIsAllowd" access="property" column="TrafficSet_DelayCartServiceIsAllowd" />
+    <property name="OneEnterOneExit" access="property" column="TrafficSet_OneEnterOneExit" />
+    <property name="Precard28_29ExpireLength" access="property" column="TrafficSet_28_29ExpireLength" />
+    <property name="AutoEnterTraffic" access="property" column="TrafficSet_AutoEnterTraffic" />
+    <property name="AutoExitTraffic"  access="property" column="TrafficSet_AutoExitTraffic" />
+    <property name="TrafficMinLength"  access="property" column="TrafficSet_TrafficMinLength" />
+    <property name="OutInWorkMax"  access="property" column="TrafficSet_OutInWorkMax" />
+    <property name="FixVirtualMidNight"  access="property" column="TrafficSet_FixVirtualMidNight" />
+    <property name="VirtualMidNight"  access="property" column="TrafficSet_VirtualMidNight" />
+
+
+    <many-to-one name="Person" column="TrafficSet_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true"/>
+
+
+  </class>
+</hibernate-mapping>

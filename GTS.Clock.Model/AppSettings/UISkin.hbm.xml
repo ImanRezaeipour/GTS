@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AppSetting.UISkin, GTS.Clock.Model"
+         table ="TA_UISkin" lazy="false">
+    <id name="ID" access="property"  column="skin_ID" >
+      <generator class="native" />
+    </id>
+    <property name="FnName"     access="property" column="skin_FnName" />
+    <property name="EnName"     access="property" column="skin_EnName" />
+    <property name="Active"     access="property" column="skin_Active" />
+
+
+  </class>
+</hibernate-mapping>

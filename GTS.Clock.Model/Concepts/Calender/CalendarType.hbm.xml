@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.CalendarType, GTS.Clock.Model"
+         table ="TA_CalendarType" lazy="true">
+    <id name="ID" access="property"  column="CalendarType_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="CalendarType_Name" />
+    <property name="CustomCode"     access="property" column="CalendarType_CustomCode" />
+    <property name="Description"     access="property" column="CalendarType_Description" />
+
+    <bag name="CalanderList" table="TA_Calendar" lazy="true" batch-size="100" inverse="true"  >
+      <key column="Calendar_CalendarTypeId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.Calendar, GTS.Clock.Model"/>
+    </bag> 
+
+
+    <bag name="HolidayTemplateList" table="TA_HolidaysTemplate" lazy="true" batch-size="100" inverse="true"  >
+      <key column="TmpHlidy_CalendarTypeId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.HolidaysTemplate, GTS.Clock.Model"/>
+    </bag> 
+
+  </class>
+</hibernate-mapping>

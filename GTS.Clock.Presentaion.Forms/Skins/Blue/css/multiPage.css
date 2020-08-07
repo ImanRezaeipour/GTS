@@ -1,0 +1,50 @@
+.MultiPage
+{
+    background-image: url('../Images/Ghadir/tab_body.png');
+    background-repeat: repeat-x;
+    padding: 10px;
+    top: -3px;
+    left: 3px;
+    z-index: 98;
+    border-right-color: #FFFFFF;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: #c2cabd;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
+
+.PageContent
+{
+    font-family: MS Sans Serif, Tahoma;
+    font-size: small;
+}
+
+.PageHeader
+{
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -0.2mm;
+    font-family: Tahoma;
+    color: #3F3F3F;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.MultiPage2
+{
+}
+
+
+.PageContent2
+{
+}
+
+
+.PageHeader2
+{
+}

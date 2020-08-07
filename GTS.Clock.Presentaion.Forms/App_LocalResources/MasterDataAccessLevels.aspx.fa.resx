@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="hfTitle_DialogMasterDataAccessLevels.Value" xml:space="preserve">
+    <value>سطوح دسترسی داده</value>
+  </data>
+  <data name="lblDataAccessLevels_MasterDataAccessLevels.Text" xml:space="preserve">
+    <value>سطوح دسترسی داده :</value>
+  </data>
+  <data name="MasterDataAccessLevelsForm.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancel.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemExit_TlbMasterDataAccessLevels.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemHelp_TlbMasterDataAccessLevels.Text" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید </value>
+  </data>
+  <data name="tlbItemSettings_TlbSettings_MasterDataAccessLevels.Text" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="ControlStation" xml:space="preserve">
+    <value>ایستگاه کنترل</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>بخش</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>پزشک</value>
+  </data>
+  <data name="Flow" xml:space="preserve">
+    <value>جریان  کاری</value>
+  </data>
+  <data name="hfCloseMessage_MasterDataAccessLevels.Value" xml:space="preserve">
+    <value>آیا از فرم سطوح دسترسی داده خارج می شوید ؟</value>
+  </data>
+  <data name="hfcmbAlarm_MasterDataAccessLevels.Value" xml:space="preserve">
+    <value>انتخاب کنید</value>
+  </data>
+  <data name="hfConnectionError_MasterDataAccessLevels.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfErrorType_MasterDataAccessLevels.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>مدیر</value>
+  </data>
+  <data name="OrganizationUnit" xml:space="preserve">
+    <value>پست سازمانی</value>
+  </data>
+  <data name="Precard" xml:space="preserve">
+    <value>پیش کارت</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>گزارش</value>
+  </data>
+  <data name="RuleGroup" xml:space="preserve">
+    <value>گروه قانون</value>
+  </data>
+  <data name="Shift" xml:space="preserve">
+    <value>شیفت</value>
+  </data>
+  <data name="WorkGroup" xml:space="preserve">
+    <value>گروه کاری</value>
+  </data>
+  <data name="ControlStationSource" xml:space="preserve">
+    <value>ایستگاه های کنترل</value>
+  </data>
+  <data name="ControlStationTarget" xml:space="preserve">
+    <value>دسترسی به ایستگاه های کنترل</value>
+  </data>
+  <data name="DepartmentSource" xml:space="preserve">
+    <value>بخش ها</value>
+  </data>
+  <data name="DepartmentTarget" xml:space="preserve">
+    <value>دسترسی به بخش ها</value>
+  </data>
+  <data name="DoctorSource" xml:space="preserve">
+    <value>پزشکان</value>
+  </data>
+  <data name="DoctorTarget" xml:space="preserve">
+    <value>دسترسی به پزشکان</value>
+  </data>
+  <data name="FlowSource" xml:space="preserve">
+    <value>جریان های کاری</value>
+  </data>
+  <data name="FlowTarget" xml:space="preserve">
+    <value>دسترسی به جریان های کاری</value>
+  </data>
+  <data name="ManagerSource" xml:space="preserve">
+    <value>مدیران</value>
+  </data>
+  <data name="ManagerTarget" xml:space="preserve">
+    <value>دسترسی به مدیران</value>
+  </data>
+  <data name="OrganizationUnitSource" xml:space="preserve">
+    <value>پست های سازمانی</value>
+  </data>
+  <data name="OrganizationUnitTarget" xml:space="preserve">
+    <value>دسترسی به پست های سازمانی</value>
+  </data>
+  <data name="PrecardSource" xml:space="preserve">
+    <value>پیش کارت ها</value>
+  </data>
+  <data name="PrecardTarget" xml:space="preserve">
+    <value>دسترسی به پیش کارت ها</value>
+  </data>
+  <data name="ReportSource" xml:space="preserve">
+    <value>گزارش ها</value>
+  </data>
+  <data name="ReportTarget" xml:space="preserve">
+    <value>دسترسی به گزارش ها</value>
+  </data>
+  <data name="RuleGroupSource" xml:space="preserve">
+    <value>گروه های قوانین</value>
+  </data>
+  <data name="RuleGroupTarget" xml:space="preserve">
+    <value>دسترسی به گروه های قوانین</value>
+  </data>
+  <data name="ShiftSource" xml:space="preserve">
+    <value>شیفت ها</value>
+  </data>
+  <data name="ShiftTarget" xml:space="preserve">
+    <value>دسترسی به شیفت ها</value>
+  </data>
+  <data name="WorkGroupSource" xml:space="preserve">
+    <value>گروه های کاری</value>
+  </data>
+  <data name="WorkGroupTarget" xml:space="preserve">
+    <value>دسترسی به گروه های کاری</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbMasterDataAccessLevels.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="Corporation" xml:space="preserve">
+    <value>شرکت</value>
+  </data>
+  <data name="CorporationSource" xml:space="preserve">
+    <value>شرکت </value>
+  </data>
+  <data name="CorporationTarget" xml:space="preserve">
+    <value>شرکت ها</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی غیر مجاز به سرویس</value>
+  </data>
+  <data name="hfUserCount_MasterDataAccessLevels.Value" xml:space="preserve">
+    <value>تعداد کاربر :</value>
+  </data>
+</root>

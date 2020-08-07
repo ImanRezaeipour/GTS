@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GTS.Clock.Model.Concepts.BasePair" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAEAAAAAIAAAAAIEAAAAQAgAAAAABA=</HashCode>
+      <FileName>Concepts\BasePair.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.BasePairableConceptValue&lt;TPair&gt;" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAhAAABAAAAgQAMQAkAgIAAAAAAYCAAAAAiDAAFAAQ=</HashCode>
+      <FileName>Concepts\BasePairableConceptValue.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.ProceedTrafficPair" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAjAAIAEAAABgCAEAAAAAAAAAEAAIAAAAAAgAAAAABA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Traffic\ProceedTrafficPair.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.ProceedTraffic" Collapsed="true">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAgAEAAAAAAAEhAAAAASAAAAUAAEAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Traffic\ProceedTraffic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.ShiftPair" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAgCgAAAAAAIgAEAgoQAIAAAAAAAABAAAAA=</HashCode>
+      <FileName>Concepts\PrimaryConcept\Shift\ShiftPair.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.NonePairableScndCnpValue" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Concepts\SecondaryConcept\NonePairableScndCnpValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.PairableScndCnpValue" Collapsed="true">
+    <Position X="7.25" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAChAAABAAABAQAIQAGFgACAAAAAcAQEAAACCAAEAAQ=</HashCode>
+      <FileName>Concepts\SecondaryConcept\PairableScndCnpValue.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.PairableScndCnpValuePair" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Concepts\SecondaryConcept\PairableScndCnpValuePair.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.BaseScndCnpValue" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAAAAAAAgggAUAAgAAYAAAAAAAAAAAAEgFABBAAA=</HashCode>
+      <FileName>Concepts\SecondaryConcept\BaseScndCnpValue.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.Permit" Collapsed="true">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAgIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Concepts\MiddleConcepts\Permit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GTS.Clock.Model.Concepts.PermitPair" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAgAAIAQAAAAAAAAAAACAEAAAgAAAAAAA=</HashCode>
+      <FileName>Concepts\MiddleConcepts\PermitPair.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="GTS.Clock.Model.Concepts.IPair" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAIAAAAAIEAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Concepts\IPair.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Model.Concepts.IPairableConceptValue&lt;TPair&gt;" Collapsed="true">
+    <Position X="6" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAhAAABAAAAAQAIQAEAgAAAAAAAYAAAAAACCAAEAAQ=</HashCode>
+      <FileName>Concepts\SecondaryConcept\IPairableConceptValue.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GTS.Clock.Model.Concepts.IConceptValue" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAgAAAAAgAAIAAAAAAAAAAAAAgBAABAAA=</HashCode>
+      <FileName>Concepts\SecondaryConcept\IConceptValue.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

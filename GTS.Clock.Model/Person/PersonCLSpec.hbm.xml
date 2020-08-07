@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.PersonCLSpec, GTS.Clock.Model"
+         table ="CL_personCLSpec" lazy="false">
+    <id name="ID" access="property"  column="prsCL_ID" >
+    </id>
+
+    <property name="R1"     access="property" column="prsCL_R1" />
+    <property name="R2"     access="property" column="prsCL_R2" />
+    <property name="R3"     access="property" column="prsCL_R3" />
+    <property name="R4"     access="property" column="prsCL_R4" />
+    <property name="R5"     access="property" column="prsCL_R5" />
+    <property name="R6"     access="property" column="prsCL_R6" />
+    <property name="R7"     access="property" column="prsCL_R7" />
+    <property name="R8"     access="property" column="prsCL_R8" />
+    <property name="R9"     access="property" column="prsCL_R9" />
+    <property name="R10"     access="property" column="prsCL_R10" />
+    <property name="R11"     access="property" column="prsCL_R11" />
+    <property name="R12"     access="property" column="prsCL_R12" />
+    <property name="R13"     access="property" column="prsCL_R13" />
+    <property name="R14"     access="property" column="prsCL_R14" />
+    <property name="R15"     access="property" column="prsCL_R15" />
+    <property name="R16"     access="property" column="prsCL_R16" />
+    <property name="R17"     access="property" column="prsCL_R17" />
+    <property name="R18"     access="property" column="prsCL_R18" />
+    <property name="R19"     access="property" column="prsCL_R19" />
+    <property name="R20"     access="property" column="prsCL_R20" />
+
+    <many-to-one name="R16Value" column="prsCL_R16" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+    <many-to-one name="R17Value" column="prsCL_R17" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+    <many-to-one name="R18Value" column="prsCL_R18" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+    <many-to-one name="R19Value" column="prsCL_R19" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+    <many-to-one name="R20Value" column="prsCL_R20" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>    
+
+    <bag name="ParameterValueList" lazy="true" inverse="true" batch-size="30000">
+      <key column="prsParam_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Rules.PersonParamValue, GTS.Clock.Model"/>
+    </bag>
+    
+    <many-to-one name="ControlStation" class="GTS.Clock.Model.BaseInformation.ControlStation, GTS.Clock.Model" column="PrsCL_ControlStationId" lazy="proxy"/>
+    <many-to-one name="UIValidationGroup" class="GTS.Clock.Model.UIValidation.UIValidationGroup, GTS.Clock.Model" column="PrsCL_UIValidationGroupID" cascade="none" lazy="proxy" not-null="false"/>
+    <many-to-one name="DepartmentPosition" class="GTS.Clock.Model.Charts.DepartmentPosition, GTS.Clock.Model" column="PrsCL_DepartmentPositionId" lazy="proxy"/>
+  </class>
+</hibernate-mapping>

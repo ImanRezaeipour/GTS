@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Clientele.CL_Equipment, GTS.Clock.Model"
+         table ="CL_Equipment" lazy="true">
+    <id name="ID" access="property"  column="Eqp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="IsDeleted" access="property" column="Eqp_Deleted" />
+    <property name="Name" access="property" column="Eqp_Name"/>
+    <property name="CustomCode" access="property" column="Eqp_CustomCode" />
+    <property name="Carrier" access="property" column="Eqp_Carrier" />
+    <property name="Count" access="property" column="Eqp_Count" />
+    <property name="Description" access="property" column="Eqp_Description" />
+
+    <many-to-one name="EquipmentType" class="GTS.Clock.Model.Clientele.CL_EquipmentType, GTS.Clock.Model" column="Eqp_EquipmentTypeId" lazy="proxy"/>
+    <many-to-one name="Contractor" class="GTS.Clock.Model.Clientele.CL_Contractor, GTS.Clock.Model"  column="Eqp_ContractorId" lazy="proxy"/>
+    <many-to-one name="Offish" class="GTS.Clock.Model.Clientele.CL_OffishRequest, GTS.Clock.Model"  column="Eqp_OffishId" lazy="proxy"/>
+  </class>
+</hibernate-mapping>

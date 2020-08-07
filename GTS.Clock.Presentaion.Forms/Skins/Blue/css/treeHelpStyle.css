@@ -1,0 +1,57 @@
+.TreeView
+{
+   
+    padding: 2px;
+    padding-left: 5px;
+    } 
+
+.TreeNode
+{
+    background-color: #CCCCCC;
+    background-image: url('../images/Help/treeview/node_bg.gif');
+    font-family: tahoma;
+    font-size: 10px;
+    padding: 3px;
+    padding-left: 5px;
+    border: solid 1px #666666;
+    border-bottom-color: black;
+    border-right-color: black;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+} 
+
+.HoverTreeNode
+{
+    background-color: #BBBBBB;
+    background-image: url('../images/Help/treeview/node_bg_hover.gif');
+    font-family: tahoma;
+    font-size: 10px;
+    padding: 3px;
+    padding-left: 5px;
+    border: solid 1px black;
+    border-bottom-color: black;
+    border-right-color: black;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+} 
+
+.SelectedTreeNode 
+{ 
+  background-color:#FFFFFF; 
+  font-family: tahoma; 
+  font-size: 10px; 
+  padding: 3px; 
+  padding-left: 5px; 
+  border:solid 1px black; 
+  border-bottom-color:#C0C0C0; 
+  border-right-color:#C0C0C0; 
+  cursor: pointer; 
+  font-weight: bold;
+} 
+
+.TreeNodeRow 
+{ 
+  height: 22px; 
+}

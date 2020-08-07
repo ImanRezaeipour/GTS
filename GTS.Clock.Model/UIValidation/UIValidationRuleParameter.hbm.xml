@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.UIValidation.UIValidationRuleParameter, GTS.Clock.Model"
+         table ="TA_UIValidationRuleParameter" lazy="true">
+    <id name="ID" access="property"  column="UIRleParam_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Value" access="property" column="UIRleParam_Value" />
+    
+    <property name="Name" access="property" column="UIRleParam_Name" />
+
+    <property name="Type" access="property" column="UIRleParam_Type" />
+
+    <property name="KeyName" access="property" column="UIRleParam_KeyName" />
+    
+    <property name="ContinueOnTomorrow" access="property" column="UIRleParam_ContinueInNextDay" />
+
+    <many-to-one name="Grouping" column="UIRleParam_GroupingID" class="GTS.Clock.Model.UIValidation.UIValidationGrouping, GTS.Clock.Model" cascade="none" update="false" />
+
+
+  </class>
+</hibernate-mapping>

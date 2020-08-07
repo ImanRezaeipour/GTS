@@ -1,0 +1,32 @@
+
+.SiteMap
+{
+  Font-family: Tahoma; 
+  font-size: 11px;
+  color:Gray;
+}
+
+.BreadcrumbsNode
+{
+  Font-family: Tahoma; 
+  font-size: 11px;
+  text-decoration:none;  
+} 
+
+.BreadcrumbsNode a
+{ 
+  color: black;
+  text-decoration:none;
+} 
+
+.BreadcrumbsNode a:hover
+{ 
+  color: red;
+} 
+
+.SiteMapContainer
+{
+    background-image: url('../Images/TabStrip/boxstyle_13.png');
+    background-repeat: repeat;
+}
+

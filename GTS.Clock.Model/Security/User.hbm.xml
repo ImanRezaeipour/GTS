@@ -1,0 +1,90 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.User, GTS.Clock.Model"
+         table="TA_SecurityUser" lazy="false">
+
+    <id name="ID" access="property"  column="User_ID" >
+      <generator class="native"/>
+    </id>
+
+    <property name="Active" access="property" column="User_Active" />
+    <property name="UserName" access="property" column="User_Username"/>
+    <property name="Password" access="property" column="User_Password"/>
+    <property name="LastActivityDate" access="property" column="user_LastActivityDate"/>
+    <property name="ActiveDirectoryAuthenticate" access="property" column="user_IsADAuthenticateActive"/>
+
+    <!--fetch="join"  : load data after close nhibernate session in http module -->
+    <many-to-one name="Person" column="User_PersonID" class="GTS.Clock.Model.Person, GTS.Clock.Model" fetch="join"/>
+
+    <many-to-one name="Role" column="User_RoleID" class="GTS.Clock.Model.Security.Role, GTS.Clock.Model" />
+    
+    <many-to-one name="Domain" column="user_DomainID" class="GTS.Clock.Model.Security.Domains, GTS.Clock.Model"  />       
+
+    <!--lazy=false  : load data after close nhibernate session in http module -->
+    <bag name="UserSettingList" table="TA_UserSettings" lazy="true" inverse="true" >
+      <key column="userSet_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.AppSetting.UserSettings, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="DADepartmentList" table="TA_DataAccessDepartment" lazy="true" cascade="none" inverse="true" >
+      <key column="DataAccessDep_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DADepartment, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DAOrganizationUnitList" table="TA_DataAccessOrganizationUnit" lazy="true" inverse="true"  >
+      <key column="DataAccessOrgUnit_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DAOrganizationUnit, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DAShiftList" table="TA_DataAccessShift" lazy="true"  inverse="true" >
+      <key column="DataAccessShift_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DAShift, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DAWorkGroupList" table="TA_DataAccessWorkGroup" lazy="true"  inverse="true" >
+      <key column="DataAccessWorkGrp_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DAWorkGroup, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DAPrecardList" table="TA_DataAccessPrecard" lazy="true"  inverse="true" >
+      <key column="DataAccessPreCard_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DAPrecard, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DACtrlStationList" table="TA_DataAccessCtrlStation" lazy="true"  inverse="true" >
+      <key column="DataAccessCtrlStation_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DACtrlStation, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DADoctorList" table="TA_DataAccessDoctor" lazy="true"  inverse="true" >
+      <key column="DataAccessDoctor_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DADoctor, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DAManagerList" table="TA_DataAccessManager" lazy="true"  inverse="true" >
+      <key column="DataAccessManager_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DAManager, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DARuleGroupList" table="TA_DataAccessRuleGroup" lazy="true"  inverse="true">
+      <key column="DataAccessRuleGrp_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DARuleGroup, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DAFlowList" table="TA_DataAccessFlow" lazy="true"  inverse="true" >
+      <key column="DataAccessFlow_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DAFlow, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DAReportList" table="TA_DataAccessReport" lazy="true"  inverse="true" >
+      <key column="DataAccessReport_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DAReport, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+    <bag name="DACorporationList" table="TA_DataAccessOrgan" lazy="true"  inverse="true" >
+      <key column="DataAccessOrgan_UserID"></key>
+      <one-to-many class="GTS.Clock.Model.Security.DACorporation, GTS.Clock.Model" ></one-to-many>
+    </bag>
+
+  </class>
+</hibernate-mapping>

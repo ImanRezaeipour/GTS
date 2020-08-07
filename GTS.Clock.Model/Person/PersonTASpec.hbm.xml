@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.PersonTASpec, GTS.Clock.Model"
+         table ="TA_personTASpec" lazy="false">
+    <id name="ID" access="property"  column="prsTA_ID" >
+    </id>    
+    <property name="R1"     access="property" column="prsTA_R1" />
+    <property name="R2"     access="property" column="prsTA_R2" />
+    <property name="R3"     access="property" column="prsTA_R3" />
+    <property name="R4"     access="property" column="prsTA_R4" />
+    <property name="R5"     access="property" column="prsTA_R5" />
+    <property name="R6"     access="property" column="prsTA_R6" />
+    <property name="R7"     access="property" column="prsTA_R7" />
+    <property name="R8"     access="property" column="prsTA_R8" />
+    <property name="R9"     access="property" column="prsTA_R9" />
+    <property name="R10"     access="property" column="prsTA_R10" />
+    <property name="R11"     access="property" column="prsTA_R11" />
+    <property name="R12"     access="property" column="prsTA_R12" />
+    <property name="R13"     access="property" column="prsTA_R13" />
+    <property name="R14"     access="property" column="prsTA_R14" />
+    <property name="R15"     access="property" column="prsTA_R15" />
+    <property name="R16"     access="property" column="prsTA_R16" />
+    <property name="R17"     access="property" column="prsTA_R17" />
+    <property name="R18"     access="property" column="prsTA_R18" />
+    <property name="R19"     access="property" column="prsTA_R19" />
+    <property name="R20"     access="property" column="prsTA_R20" />
+
+    <many-to-one name="R16Value" column="prsTA_R16" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+    <many-to-one name="R17Value" column="prsTA_R17" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+    <many-to-one name="R18Value" column="prsTA_R18" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+    <many-to-one name="R19Value" column="prsTA_R19" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+    <many-to-one name="R20Value" column="prsTA_R20" class="GTS.Clock.Model.PersonInfo.PersonReserveFieldComboValue, GTS.Clock.Model" cascade="none" insert="false" update="false"/>
+   
+    <many-to-one name="ControlStation" class="GTS.Clock.Model.BaseInformation.ControlStation, GTS.Clock.Model" column="PrsTA_ControlStationId" lazy="proxy"/>
+    <many-to-one name="UIValidationGroup" class="GTS.Clock.Model.UIValidation.UIValidationGroup, GTS.Clock.Model" column="PrsTA_UIValidationGroupID" cascade="none" lazy="proxy" not-null="false" ></many-to-one> <!--not-null="false"/>-->
+
+    <bag name="ParameterValueList" lazy="true" inverse="true" batch-size="30000">
+      <key column="prsParam_PersonId"></key>
+      <one-to-many class="GTS.Clock.Model.Rules.PersonParamValue, GTS.Clock.Model"/>
+    </bag>
+
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,902 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Connection Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Connection</Alias>
+        <ConnectionString>Initial Catalog=Ghadir;Integrated Security=False;Password=123;User ID=sa;Data Source=iman-pc</ConnectionString>
+        <Name>Connection</Name>
+      </Connection>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <DataSource1 Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>DataSource1</Alias>
+        <Columns isList="true" count="31">
+          <value>Number,System.Int64</value>
+          <value>ID,System.Decimal</value>
+          <value>ManagerID,System.Decimal</value>
+          <value>PrecardID,System.Decimal</value>
+          <value>PersonID,System.Decimal</value>
+          <value>FromDate,System.String</value>
+          <value>ToDate,System.String</value>
+          <value>FromTime,System.Int32</value>
+          <value>ToTime,System.Int32</value>
+          <value>TimeDuration,System.Int32</value>
+          <value>Description,System.String</value>
+          <value>RegisterDate,System.String</value>
+          <value>UserID,System.Decimal</value>
+          <value>AttachmentFile,System.String</value>
+          <value>OperatorUser,System.String</value>
+          <value>mngrFlowID,System.Decimal</value>
+          <value>PrecardName,System.String</value>
+          <value>IsHourly,System.Boolean</value>
+          <value>IsDaily,System.Boolean</value>
+          <value>IsMonthly,System.Boolean</value>
+          <value>ApplicantFirstName,System.String</value>
+          <value>ApplicantLastName,System.String</value>
+          <value>PersonCode,System.String</value>
+          <value>PersonImage,System.String</value>
+          <value>LookupKey,System.String</value>
+          <value>PrsBarcode1,System.String</value>
+          <value>PrsName1,System.String</value>
+          <value>PrsBarcode2,System.String</value>
+          <value>PrsName2,System.String</value>
+          <value>FD,System.String</value>
+          <value>TD,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>DataSource1</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="2">
+          <value>fromDate,,4,0</value>
+          <value>toDate,,4,0</value>
+        </Parameters>
+        <SqlCommand>
+
+  --declare @p0 datetime,@p1 datetime,@p2 decimal(28,5)
+--set @p0='2012-03-21 00:00:00'
+--set @p1='2014-03-20 00:00:00'
+--set @p2=47746.00000
+  
+  
+--declare @fromDate datetime,@toDate datetime
+
+--set @fromDate=@p0
+--set @toDate=@p1
+
+
+SELECT Number, ID,mngrFlow_ManagerID ManagerID,request_PrecardID PrecardID,request_PersonID PersonID,
+dbo.GTS_ASM_MiladiToShamsi( cast( FromDate as date)) FromDate,dbo.GTS_ASM_MiladiToShamsi( cast( ToDate as date)) ToDate,FromTime,ToTime,
+TimeDuration,Description,dbo.GTS_ASM_MiladiToShamsi( cast( RegisterDate as date)) RegisterDate,UserID,AttachmentFile,
+OperatorUser,mngrFlowID
+,Precrd_Name PrecardName,Precrd_Hourly IsHourly,Precrd_Daily IsDaily, Precrd_Monthly IsMonthly, Prs_FirstName ApplicantFirstName , Prs_LastName ApplicantLastName,Prs_Barcode PersonCode, prs.PrsDtl_Image PersonImage
+, precardGroup.PishcardGrp_LookupKey LookupKey
+, (select top(1) prs_barcode from ta_person where prs_id in( select MasterMng_PersonID from TA_Manager where MasterMng_ID=mngrFlow_ManagerID)) PrsBarcode1
+, (select top(1) prs_firstname+' '+prs_lastname from ta_person where prs_id in( select MasterMng_PersonID from TA_Manager where MasterMng_ID=mngrFlow_ManagerID)) PrsName1
+, (select top(1) prs_barcode from ta_person where prs_id in(select organ_personid from TA_OrganizationUnit where organ_id in( select MasterMng_OrganizationUnitID from TA_Manager where MasterMng_ID=mngrFlow_ManagerID))) PrsBarcode2
+, (select top(1) prs_firstname+' '+prs_lastname from ta_person where prs_id in(select organ_personid from TA_OrganizationUnit where organ_id in( select MasterMng_OrganizationUnitID from TA_Manager where MasterMng_ID=mngrFlow_ManagerID))) PrsName2
+, dbo.GTS_ASM_MiladiToShamsi( cast( @fromDate as date)) FD
+, dbo.GTS_ASM_MiladiToShamsi( cast( @toDate as date)) TD
+ FROM
+(
+SELECT ROW_NUMBER() Over(order by request_FromDate,request_FromTime,request_ID) as Number,MngFlow.mngrFlow_ManagerID, request_ID ID,request_PrecardID PrecardID,request_PersonID PersonID ,
+request_FromDate FromDate,request_ToDate ToDate,request_FromTime FromTime,request_ToTime ToTime, request_AttachmentFile AttachmentFile,
+isnull(request_TimeDuration,0) TimeDuration,isnull(request_Description,'''') Description,request_RegisterDate RegisterDate,request_UserID UserID,
+isnull(request_OperatorUser,'''') as OperatorUser,
+MngFlow.mngrFlow_ID mngrFlowID,request_PersonID
+,request_PrecardID
+FROM (SELECT * FROM TA_ManagerFlow where mngrFlow_Active=1  AND mngrFlow_ManagerID in ( --------------------
+select m.MasterMng_ID from ta_manager m
+join TA_ManagerFlow mf on m.MasterMng_ID=mf.mngrFlow_ManagerID
+join ta_flow f on f.Flow_ID=mf.mngrFlow_FlowID
+left join TA_OrganizationUnit ou on ou.organ_ID = m.MasterMng_OrganizationUnitID
+where f.Flow_MainFlow=1 and m.MasterMng_Active=1 and mf.mngrFlow_Active=1  and f.Flow_ActiveFlow=1
+and (m.MasterMng_PersonID in ({ReportHelper.Instance().ModifiedIds()}) or ou.organ_PersonID in ({ReportHelper.Instance().ModifiedIds()}))
+) ----------------------------------------------------------------------------------------------------------
+      ) MngFlow
+INNER JOIN (SELECT Flow.Flow_ID, PrcAccessGrpDtl.accessGrpDtl_PrecardId,Flow_FlowName
+	FROM TA_Flow Flow
+			INNER JOIN TA_PrecardAccessGroupDetail  PrcAccessGrpDtl
+			ON PrcAccessGrpDtl.accessGrpDtl_AccessGrpId = Flow.Flow_AccessGroupID			
+		   ) AS UnderMgn
+ON MngFlow.mngrFlow_FlowID = UnderMgn.Flow_Id							
+CROSS APPLY [dbo].[TA_GetUnderManagmentPersons] (UnderMgn.Flow_ID) as UndermanagmentsPersons						
+INNER JOIN	(SELECT request_ID,request_FromDate,request_FromTime,request_ToDate,request_ToTime,request_TimeDuration,request_RegisterDate,request_PersonID ,request_PrecardID
+	,request_Description,request_UserID,request_OperatorUser, request_AttachmentFile
+	FROM TA_Request             
+	WHERE ( request_FromDate &gt;= @fromDate
+                    AND 
+                   request_FromDate &lt;= @toDate )
+                   OR
+                   ( request_ToDate &gt;= @fromDate
+                    AND 
+                   request_ToDate &lt;= @toDate )
+            ) Req
+ON Req.request_PersonID = UndermanagmentsPersons.prs_id				
+    AND
+   Req.request_PrecardID = UnderMgn.accessGrpDtl_PrecardId
+
+
+WHERE (Req.request_ID IN (SELECT isnull(ReqSts.reqStat_RequestID,0)
+	FROM TA_RequestStatus ReqSts
+INNER JOIN (SELECT mngrFlow_ID 
+	FROM TA_ManagerFlow 
+	WHERE mngrFlow_FlowID = MngFlow.mngrFlow_FlowID
+	AND
+	mngrFlow_Level = MngFlow.mngrFlow_Level - 1
+						             ) InnerMngFlow
+		                  ON ReqSts.reqStat_MnagerFlowID = InnerMngFlow.mngrFlow_ID					 							   
+				                AND
+			                 ReqSts.reqStat_Confirm = 1
+						 )
+         OR
+       MngFlow.mngrFlow_Level = 1
+      )
+         AND
+Req.request_ID NOT IN (SELECT isnull(reqStat_RequestID,0)
+	FROM TA_RequestStatus 
+	WHERE reqStat_RequestId = Req.request_ID AND
+	reqStat_MnagerFlowID = MngFlow.mngrFlow_ID 
+			                )
+        AND
+req.request_ID NOT IN (SELECT isnull(reqStat_RequestID,0)
+	FROM TA_RequestStatus 
+			                 JOIN TA_ManagerFlow as otherMngFlw on otherMngFlw.mngrFlow_ID=reqStat_MnagerFlowID
+								    WHERE reqStat_RequestId = Req.request_ID 
+									AND otherMngFlw.mngrFlow_FlowID &lt;&gt; MngFlow.mngrFlow_FlowID
+			                  )
+AND/*changed manager flow*/
+req.request_ID NOT IN (SELECT isnull(reqStat_RequestID,0)
+	FROM TA_RequestStatus 
+	Where reqStat_RequestId = Req.request_ID AND
+	reqStat_EndFlow = 1 
+			                  )	
+			) as result1
+INNER JOIN (Select TA_Person.*, TA_PersonDetail.PrsDtl_Image from TA_Person inner join TA_PersonDetail  on TA_Person.Prs_PrsDtlID = TA_PersonDetail.PrsDtl_ID) prs on prs.Prs_ID=request_PersonID AND prs.prs_IsDeleted=0
+                        INNER JOIN TA_Precard on Precrd_ID=result1.request_PrecardID   
+                        INNER JOIN TA_PrecardGroups as precardGroup on precardGroup.PishcardGrp_ID=Precrd_pshcardGroupID</SqlCommand>
+      </DataSource1>
+      <nameOrg Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>nameOrg</Alias>
+        <Columns isList="true" count="1">
+          <value>OrgDef_Name,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>nameOrg</Name>
+        <NameInSource>Connection</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select  OrgDef_Name from TA_DataAccessOrgan
+
+join  TA_OrganDefine on DataAccessOrgan_ID=OrgDef_ID
+
+where DataAccessOrgan_UserID={ReportHelper.Instance().UserId}</SqlCommand>
+      </nameOrg>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <phbMain Ref="6" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.2,7.72,0.73</ClientRectangle>
+          <Components isList="true" count="9">
+            <txtOrgDefName Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>1.99,0,3.67,0.67</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,18,Bold</Font>
+              <Guid>98f2f17e920443e8be08a8067264c9a3</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtOrgDefName</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{nameOrg.OrgDef_Name}
+گزارش کارتابل مدیران</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </txtOrgDefName>
+            <txteportDate Ref="8" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.74,0,1.02,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>f47615b9eab941218c66f77a1e265914</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txteportDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: تاریخ تهیه گزارش</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txteportDate>
+            <txtReporter Ref="9" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.98,0.34,0.79,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>150638361d054bb2a06d58f39777be76</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtReporter</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>: تهیه کننده</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtReporter>
+            <txtShamsiGetNow Ref="10" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0,0,0.74,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>c5dba48813954d3cba3d12faba002c7c</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtShamsiGetNow</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().ShamsiGetNow()}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtShamsiGetNow>
+            <txtUserName Ref="11" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0,0.34,0.98,0.24</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>4696843d2444449cb38a1ec66b7ef239</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtUserName</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{ReportHelper.Instance().UserName}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtUserName>
+            <txtTo Ref="12" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>7.37,0.3,0.26,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>a43d2368111946c9acdf33de0a70ba0f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtTo</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>تا</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtTo>
+            <txtFrom Ref="13" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>7.36,0,0.26,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>c5a20aa73844481f9537bd0e93993d02</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtFrom</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>از</Text>
+              <TextBrush>[89:89:89]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <VertAlignment>Center</VertAlignment>
+            </txtFrom>
+            <txtPeriodicFromDate Ref="14" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>6.41,0,0.94,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>abe29496580145329c0274b2e20d5a0a</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtPeriodicFromDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{DataSource1.FD}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </txtPeriodicFromDate>
+            <txtPeriodicToDate Ref="15" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
+              <AutoWidth>True</AutoWidth>
+              <Border>None;Black;1;Solid;False;4;[105:105:105]</Border>
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>6.43,0.3,0.94,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>152ac82e1a004331a80bd5e03ac38790</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>txtPeriodicToDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{DataSource1.TD}</Text>
+              <TextBrush>[183:117:64]</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </txtPeriodicToDate>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>e4a0ebac47604e8ab0385e046d1a11e8</Guid>
+          <Name>phbMain</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </phbMain>
+        <GroupHeaderBand1 Ref="16" type="GroupHeaderBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>[191:191:191]</Brush>
+          <ClientRectangle>0,1.33,7.72,0.7</ClientRectangle>
+          <Components isList="true" count="12">
+            <Text1 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.4,0,1.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Regular,Point,False,0</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>{IIF(DataSource1.PrsBarcode2=="",DataSource1.PrsBarcode1,DataSource1.PrsBarcode2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="18" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.7,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold,Point,False,0</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>کد پرسنلی مدیر</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text4 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.1,0,2.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Regular,Point,False,0</Font>
+              <Guid>3ed14e1bc2e042dd8c513ddb1f4d0e27</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>{IIF(DataSource1.PrsName2=="",DataSource1.PrsName1,DataSource1.PrsName2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="20" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold,Point,False,0</Font>
+              <Guid>843c21462bcb42b7942c6bddea942c79</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>نام مدیر</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <HeaderDataSource1_ToDate Ref="21" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:206:170]</Brush>
+              <ClientRectangle>1.1,0.4,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderDataSource1_ToDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>تا تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderDataSource1_ToDate>
+            <HeaderDataSource1_PrecardName Ref="22" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:206:170]</Brush>
+              <ClientRectangle>2.9,0.4,1.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderDataSource1_PrecardName</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>پیشکارت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderDataSource1_PrecardName>
+            <HeaderDataSource1_ApplicantLastName Ref="23" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:206:170]</Brush>
+              <ClientRectangle>4.5,0.4,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderDataSource1_ApplicantLastName</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>نام خانوادگی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderDataSource1_ApplicantLastName>
+            <HeaderDataSource1_PersonCode Ref="24" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:206:170]</Brush>
+              <ClientRectangle>6.5,0.4,0.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderDataSource1_PersonCode</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>کد پرسنلی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderDataSource1_PersonCode>
+            <HeaderDataSource1_ApplicantFirstName Ref="25" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:206:170]</Brush>
+              <ClientRectangle>5.5,0.4,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderDataSource1_ApplicantFirstName</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>نام</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderDataSource1_ApplicantFirstName>
+            <HeaderDataSource1_FromDate Ref="26" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:206:170]</Brush>
+              <ClientRectangle>2,0.4,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderDataSource1_FromDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>از تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderDataSource1_FromDate>
+            <Text9 Ref="27" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:206:170]</Brush>
+              <ClientRectangle>7.1,0.4,0.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>4540b8bb4cc446cd8af39cba18d34133</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>ردیف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <HeaderDataSource1_RegisterDate Ref="28" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:206:170]</Brush>
+              <ClientRectangle>0.2,0.4,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>83a037dbdf6244ae929492989a6dbd85</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderDataSource1_RegisterDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="16" />
+              <Text>تاریخ ثبت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderDataSource1_RegisterDate>
+          </Components>
+          <Condition>{DataSource1.ManagerID}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand1</Name>
+          <NewPageBefore>True</NewPageBefore>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </GroupHeaderBand1>
+        <DataDataSource1 Ref="29" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,2.43,7.72,0.3</ClientRectangle>
+          <Components isList="true" count="10">
+            <DataDataSource1_PrecardName Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.9,0,1.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource1_PrecardName</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <Text>{DataSource1.PrecardName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource1_PrecardName>
+            <DataDataSource1_PersonCode Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.5,0,0.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource1_PersonCode</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <Text>{DataSource1.PersonCode}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource1_PersonCode>
+            <DataDataSource1_ApplicantFirstName Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.5,0,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource1_ApplicantFirstName</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <Text>{DataSource1.ApplicantFirstName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource1_ApplicantFirstName>
+            <DataDataSource1_ApplicantLastName Ref="33" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.5,0,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource1_ApplicantLastName</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <Text>{DataSource1.ApplicantLastName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource1_ApplicantLastName>
+            <DataDataSource1_ToDate Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.1,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource1_ToDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <Text>{DataSource1.ToDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource1_ToDate>
+            <DataDataSource1_FromDate Ref="35" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource1_FromDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <Text>{DataSource1.FromDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource1_FromDate>
+            <Text7 Ref="36" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.5,0,0.22,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <Guid>f18a0fe2d73d4eb4937d3712f077c2c0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text8 Ref="37" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,0.2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <Guid>e4c5f7b620614afe91a27e074b6d9dd0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text10 Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.1,0,0.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Bold,Point,False,0</Font>
+              <Guid>52e86948de854591bd85df9078338977</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <Text>{Line}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <DataDataSource1_RegisterDate Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0.2,0,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8.25,Regular,Point,False,0</Font>
+              <Guid>a9b7464244cc439b995da9db4c79c6ef</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource1_RegisterDate</Name>
+              <Page isRef="5" />
+              <Parent isRef="29" />
+              <Text>{DataSource1.RegisterDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource1_RegisterDate>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>DataSource1</DataSourceName>
+          <EvenStyle>Style1</EvenStyle>
+          <Filters isList="true" count="0" />
+          <Name>DataDataSource1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="4">
+            <value>ASC</value>
+            <value>PrecardName</value>
+            <value>ASC</value>
+            <value>FromDate</value>
+          </Sort>
+        </DataDataSource1>
+        <GroupFooterBand1 Ref="40" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.13,7.72,0.8</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text3 Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[191:191:191]</Brush>
+              <ClientRectangle>0,0,7.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold,Point,False,0</Font>
+              <Guid>1899888b098f4444b2c409eb43df2e23</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="5" />
+              <Parent isRef="40" />
+              <Text>    {Count() +" : جمع"}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text6 Ref="42" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.3,0,2.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Regular,Point,False,0</Font>
+              <Guid>e4a6ea42b52e4e758c0e9d7f9947a37a</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="5" />
+              <Parent isRef="40" />
+              <Text>{IIF(DataSource1.PrsName2=="",DataSource1.PrsName1,DataSource1.PrsName2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </GroupFooterBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>caf4f548df3e49b787f22011e2f778aa</Guid>
+      <Margins>0.39,0.39,0.39,0.39</Margins>
+      <Name>Page1</Name>
+      <PageHeight>11</PageHeight>
+      <PageWidth>8.5</PageWidth>
+      <PaperSize>Letter</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="43" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="44" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>7/10/2013 11:18:16 AM</ReportChanged>
+  <ReportCreated>7/8/2013 9:26:12 AM</ReportCreated>
+  <ReportFile>E:\KartableReport[تعداد درخواست های کارتابل][Date FromTo Date].mrt</ReportFile>
+  <ReportGuid>1ea0f861620d45599b0647184dca83ce</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Inches</ReportUnit>
+  <ReportVersion>2011.3.1200</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+        #endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="1">
+    <Style1 Ref="45" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Brush>[255:224:192]</Brush>
+      <Conditions isList="true" count="0" />
+      <Description />
+      <Font>Arial,8</Font>
+      <Name>Style1</Name>
+      <TextBrush>Black</TextBrush>
+    </Style1>
+  </Styles>
+</StiSerializer>

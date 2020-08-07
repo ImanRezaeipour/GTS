@@ -1,0 +1,57 @@
+.DefaultTab 
+{
+background-image: url('../images/TabStrip/gradient_tab.gif');
+  
+  color: #4c535d;
+  background-color: #6F8AD2;
+  Font-family: Tahoma; 
+  font-weight:bold;
+  font-size:11px; 
+  cursor:pointer;
+}
+
+.DefaultTabHover 
+{
+    background-image: url('../images/TabStrip/gradient_tab.gif');
+    color: black;
+    Font-family: Tahoma;
+    font-weight: bold;
+    font-size: 11px;
+    
+    cursor: pointer;
+}
+
+.SelectedTab 
+{
+    color: white;
+    Font-family: Tahoma;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    background-image: url('../Images/TabStrip/selected_tab.gif');
+}
+
+.Spacer
+{
+	/* [disabled]background-color: #4544AF; */
+}
+
+.ScrollItem 
+{
+	color:black;
+	background-image: url('../images/TabStrip/scroll_item_bg.gif');
+	font-family:MS Sans Serif, Verdana;
+	font-size:10px;
+	height: 20px;
+	cursor:default;
+}
+
+.ScrollItemHover 
+{
+	color:black;
+	background-image: url('../images/TabStrip/hover_scroll_item_bg.gif');
+	font-family:MS Sans Serif, Verdana;
+	font-size:10px;
+	height: 20px;
+	cursor:default;
+}

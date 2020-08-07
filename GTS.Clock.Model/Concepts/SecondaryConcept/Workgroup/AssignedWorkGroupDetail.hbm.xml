@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.AssignedWorkGroupDetail, GTS.Clock.Model"
+         table ="AssignedWorkGroupDetail_view" lazy="false">
+    <id name="ID" access="property" column="CatShift_ID">
+      <generator class="native" />
+    </id>
+
+    <many-to-one name="Person" column="CatShift_PersonId" class="GTS.Clock.Model.Person, GTS.Clock.Model" not-null="true"/>
+
+    <property name="WorkGroupName" access="property" column="CatShift_WGName"/>
+    <property name="Date" access="property" column="CatShift_Date"/>
+    
+    <bag name="Pairs" table="ShiftPairWithDate_view" 
+         lazy="false" 
+         batch-size="20"
+         order-by="ShiftPair_From asc">
+      <key column="WorkGroupDtl_Date"></key>
+      <one-to-many class="GTS.Clock.Model.ShiftPairWithDate, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

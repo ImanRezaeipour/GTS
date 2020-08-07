@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.BaseInformation.ClockType, GTS.Clock.Model"
+         table ="TA_ClockType" lazy="false">
+    <id name="ID" access="property"  column="clcsys_ID" >
+      <generator class="native" />
+    </id>
+    <property name="CustomCode"     access="property" column="clcsys_CustomCode" />
+    <property name="Name"     access="property" column="clcsys_Name" />
+
+
+  </class>
+</hibernate-mapping>

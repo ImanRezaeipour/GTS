@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.PairableScndCnpValuePair, GTS.Clock.Model"
+         table ="TA_PairableSecondaryConceptValuePair" lazy="true">
+    <id name="ID" access="property" column="PairScndCnpValuePair_ID">
+      <generator class="native" />
+    </id>
+    
+    <many-to-one name="ScndCnpValue" column="PairScndCnpValuePair_PairableSecondaryConceptValueId" class="GTS.Clock.Model.Concepts.PairableScndCnpValue, GTS.Clock.Model" not-null="true"/>
+
+    <property name="From" access="property" column="PairScndCnpValuePair_From"/>
+    <property name="To"   access="property" column="PairScndCnpValuePair_To"/>
+  </class>
+</hibernate-mapping>

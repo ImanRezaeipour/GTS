@@ -1,0 +1,130 @@
+.Grid
+{
+    border: 1px solid #9495A2;
+    background-color: #f6f7f8;
+    cursor: pointer;
+}
+
+.HeadingCell
+{
+    color: white;
+    background-color: transparent;
+    padding: 5px;
+    font-family: Arial;
+    font-size: small;
+    background-image: url('../images/Grid/grid_headerBg.gif');
+    border-right-style: solid;
+    border-bottom-style: double;
+    border-left-style: solid;
+    border-right-width: 1px;
+    border-bottom-width: 2px;
+    border-left-width: 1px;
+    border-right-color: #c9cfe7;
+    border-bottom-color: #4c5fa6;
+    border-left-color: #c9cfe7;
+}
+
+.HeadingCellText
+{
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.SelectedRow
+{
+    background-color: #FFE4B5;
+    font-family: Arial;
+    font-size: 11px;
+    height: 20px;
+}
+
+.Row
+{
+    background-color: white;
+    cursor: pointer;
+}
+
+.Row td.DataCell
+{
+    border-right: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    font-family: Arial;
+    font-size: 11px;
+    cursor: pointer;
+    height: 20px;
+}
+
+.AlternatingRow
+{
+    cursor: pointer;
+    height: 20px;
+}
+
+.AlternatingRow td.DataCell
+{
+    background-color: #f3f5fa;
+    border-right: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    font-family: Arial;
+    font-size: 11px;
+    cursor: pointer;
+    height: 20px;
+}
+
+.GridFooter
+{
+    cursor: pointer;
+    padding: 5px;
+    vertical-align: bottom;
+}
+
+.GridFooterText
+{
+    color: #000000;
+    font-family: Arial;
+    font-size: 11px;
+    direction: ltr;
+}
+
+.CellText
+{
+    font-family: Arial;
+    font-size: 10px;
+}
+
+.SliderPopup
+{
+    background-color: #FFF4D7;
+    border: 1px solid #4B4B6F;
+    border-top-color: #9495A2;
+    border-left-color: #9495A2;
+    width: 288px;
+    height: 68px;
+}
+
+.HoverRow
+{
+    background-color: #FFEEC2;
+    font-family: Arial;
+    font-size: 11px;
+    height: 20px;
+}
+
+.ScrollBar
+{
+    background-image: url('../images/Grid/scroller/scroller_bg.gif');
+}
+
+.ScrollGrip
+{
+    background-image: url('../images/Grid/scroller/scroll_gripBg.gif');
+}
+
+
+
+
+
+
+
+

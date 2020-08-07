@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.DAReport, GTS.Clock.Model"
+         table ="TA_DataAccessReport" lazy="true">
+    <id name="ID" access="property"  column="DataAccessReport_ID" >
+      <generator class="native" />
+    </id>
+    <property name="UserID"     access="property" column="DataAccessReport_UserID" />
+    <property name="ReportID"     access="property" column="DataAccessReport_ReportID" />
+    <property name="All"     access="property" column="DataAccessReport_All" />
+
+    <many-to-one name="Report" column="DataAccessReport_ReportID" class="GTS.Clock.Model.Report.Report, GTS.Clock.Model"  update="false" insert="false"/>
+
+  </class>
+</hibernate-mapping>

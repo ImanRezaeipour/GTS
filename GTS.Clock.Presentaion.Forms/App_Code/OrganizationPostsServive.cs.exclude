@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+using ComponentArt.SOA.UI;
+using GTS.Clock.Business.Charts;
+using GTS.Clock.Model.Charts;
+using System.ServiceModel.Activation;
+using System.Web;
+using System.IO;
+using GTS.Clock.Infrastructure.Exceptions.UI;
+using System.Web.UI;
+using System.Threading;
+
+[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+public class OrganizationPostsServive : SoaTreeViewService
+{
+    private string imageUrl = HttpContext.Current.Server.MapPath("~") + "\\Images\\TreeView\\folder.gif";
+    private string imagePath = "Images/TreeView/folder.gif";
+
+    public BOrganizationUnit OrganizationPostBusiness
+    {
+        get
+        {
+            return new BOrganizationUnit();
+        }
+    }
+
+    public ExceptionHandler exceptionHandler
+    {
+        get
+        {
+            return new ExceptionHandler();
+        }
+    }
+
+    public void SetCurrentCulture(string CurrentCulture)
+    {
+        HttpContext.Current.Session.Add("CurrentCulture",CurrentCulture);
+    }
+   
+    public override SoaTreeViewGetNodesResponse GetNodes(SoaTreeViewGetNodesRequest request)
+    {
+        string[] absolutePathParts = HttpContext.Current.Request.UrlReferrer.AbsolutePath.ToString().Split(new char[] { '/' });
+        string currentPageUrl = absolutePathParts[absolutePathParts.Length - 1];
+        string rootOrgPostNodeText = string.Empty;
+        string currentCulture = string.Empty;
+        if (HttpContext.Current.Session["CurrentCulture"] != null)
+        {
+            currentCulture = HttpContext.Current.Session["CurrentCulture"].ToString();
+            rootOrgPostNodeText = HttpContext.GetLocalResourceObject("~/" + currentPageUrl, "OrgNode_trvPosts_Post", new System.Globalization.CultureInfo(currentCulture)).ToString();
+            HttpContext.Current.Session["CurrentCulture"] = null;
+        }
+
+        SoaTreeViewGetNodesResponse response = new SoaTreeViewGetNodesResponse();
+
+        string[] retMessage = new string[4];
+        try
+        {
+            if (request.ParentNode == null)
+            {
+                OrganizationUnit rootOrgPost = this.OrganizationPostBusiness.GetOrganizationUnitTree();
+                SoaTreeViewNode rootOrgPostNode = new SoaTreeViewNode();
+                rootOrgPostNode.Tag = rootOrgPost.ID.ToString() + "#" + rootOrgPost.CustomCode.ToString();
+                rootOrgPostNode.Text = rootOrgPostNodeText;
+                if (File.Exists(this.imageUrl))
+                    rootOrgPostNode.IconSource = this.imagePath;
+                rootOrgPostNode.IsExpanded = true;
+
+                response.Nodes = new List<SoaTreeViewNode>();
+                response.Nodes.Add(rootOrgPostNode);
+                this.GetChildNodes(request, response, rootOrgPostNode, rootOrgPost);
+            }
+            else
+            {
+                decimal parentOrgPostID = decimal.Parse((request.Tag.ToString().Split(new char[] { '#' }))[0]);
+                OrganizationUnit parentOrgPost = this.OrganizationPostBusiness.GetByID(parentOrgPostID);
+                response = this.GetChildNodes(request, response, request.ParentNode, parentOrgPost);
+            }
+
+        }
+        catch (UIValidationExceptions ex)
+        {
+            retMessage = this.exceptionHandler.HandleException(null, ExceptionTypes.UIValidationExceptions, ex, retMessage);
+            HttpContext.Current.Session.Add("OrganizationPostsServiveLoadException",this.exceptionHandler.CreateErrorMessage(retMessage));
+        }
+        catch (UIBaseException ex)
+        {
+            retMessage = this.exceptionHandler.HandleException(null, ExceptionTypes.UIBaseException, ex, retMessage);
+            HttpContext.Current.Session.Add("OrganizationPostsServiveLoadException", this.exceptionHandler.CreateErrorMessage(retMessage));
+        }
+        catch (Exception ex)
+        {
+            retMessage = this.exceptionHandler.HandleException(null, ExceptionTypes.Exception, ex, retMessage);
+            HttpContext.Current.Session.Add("OrganizationPostsServiveLoadException", this.exceptionHandler.CreateErrorMessage(retMessage));
+        }
+        return response;
+    }
+
+    private SoaTreeViewGetNodesResponse GetChildNodes(SoaTreeViewGetNodesRequest request,  SoaTreeViewGetNodesResponse response, SoaTreeViewNode parentOrgPostNode, OrganizationUnit parentOrgPost)
+    {
+        foreach (OrganizationUnit childOrgPost in parentOrgPost.ChildList)
+        {
+            SoaTreeViewNode childOrgPostNode = new SoaTreeViewNode();
+            childOrgPostNode.Tag = childOrgPost.ID.ToString() + "#" + childOrgPost.CustomCode.ToString();
+            childOrgPostNode.Text = childOrgPost.Name;
+            if (childOrgPost.ChildList.Count > 0)
+                childOrgPostNode.IsLoadOnDemandEnabled = true;
+            if (File.Exists(this.imageUrl))
+                childOrgPostNode.IconSource = this.imagePath;
+            if (request.ParentNode == null)
+                parentOrgPostNode.Items.Add(childOrgPostNode);
+            else
+                response.Nodes.Add(childOrgPostNode);
+        }
+        return response;
+    }
+}

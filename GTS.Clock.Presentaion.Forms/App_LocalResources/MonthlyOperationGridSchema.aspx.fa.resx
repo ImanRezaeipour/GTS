@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PresenceDuration" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="clmnAllowableAbsence_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>غیبت مجاز</value>
+  </data>
+  <data name="clmnAllowableOverTime_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>اضافه کار مجاز</value>
+  </data>
+  <data name="clmnDailyAbsence_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>غیبت روزانه</value>
+  </data>
+  <data name="clmnDailyMeritoriouslyLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مرخصی استحقاقی روزانه</value>
+  </data>
+  <data name="clmnDailyMission_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ماموریت روزانه</value>
+  </data>
+  <data name="clmnDailyPureOperation_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>کارکرد خالص روزانه</value>
+  </data>
+  <data name="clmnDailySickLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مرخصی استعلاجی روزانه</value>
+  </data>
+  <data name="clmnFirstEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ورود اول</value>
+  </data>
+  <data name="clmnFirstExit_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>خروج اول</value>
+  </data>
+  <data name="clmnHostelryMission_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ماموریت شبانه روزی</value>
+  </data>
+  <data name="clmnHourlyUnallowableAbsence_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>غیبت غیر مجاز ساعتی</value>
+  </data>
+  <data name="clmnImpureOperation_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>کارکرد ناخالص </value>
+  </data>
+  <data name="clmnHourlyMeritoriouslyLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مرخصی استحقاقی ساعتی</value>
+  </data>
+  <data name="clmnHourlyMission_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ماموریت ساعتی</value>
+  </data>
+  <data name="clmnHourlyPureOperation_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>کارکرد خالص ساعتی</value>
+  </data>
+  <data name="clmnHourlySickLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مرخصی استعلاجی ساعتی</value>
+  </data>
+  <data name="clmnHourlyWithoutPayLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مرخصی بی حقوق ساعتی</value>
+  </data>
+  <data name="clmnLastExit_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>خروج آخر</value>
+  </data>
+  <data name="clmnNecessaryOperation_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>کارکرد لازم</value>
+  </data>
+  <data name="clmnSecondEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ورود دوم</value>
+  </data>
+  <data name="clmnSecondExit_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>خروج دوم</value>
+  </data>
+  <data name="clmnThirdEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ورود سوم</value>
+  </data>
+  <data name="clmnThirdExit_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>خروج سوم</value>
+  </data>
+  <data name="clmnUnallowableOverTime_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>اضافه کار غیر مجاز</value>
+  </data>
+  <data name="clmnDescription_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="clmnFromHour_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>از ساعت</value>
+  </data>
+  <data name="lblFromDate_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>از تاریخ :</value>
+  </data>
+  <data name="lblMonth_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ماه :</value>
+  </data>
+  <data name="lblPersonnel_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>پرسنل :</value>
+  </data>
+  <data name="lblToDate_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>تا تاریخ :</value>
+  </data>
+  <data name="MonthlyOperationGridSchemaForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="tlbItemAdvancedSearch_TlbAdvancedSearch_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>جستجوی پیشرفته</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_PersonnelSearch_MasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="tlbItemExit_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_PersonnelSearch_MasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="tlbItemGridSettings_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>تنظیمات گرید</value>
+  </data>
+  <data name="tlbItemHelp_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_PersonnelSearch_MasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_PersonnelSearch_MasterMonthlyOperation.ToolTip" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_PersonnelSearch_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemRequestsView_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>درخواست های ثبت شده</value>
+  </data>
+  <data name="tlbItemSearch_TlbSearchPersonnel_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="tlbItemUnderManagementPersonnelInformationView_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مشاهده اطلاعات پرسنل تحت مدیریت</value>
+  </data>
+  <data name="clmnToHour_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>تا ساعت</value>
+  </data>
+  <data name="clmnDate_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>بارکد</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="hfheader_MonthlyOperation_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>گزارش کارکرد ماهیانه</value>
+  </data>
+  <data name="hfheader_SearchByPersonnelBox_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>انتخاب پرسنل</value>
+  </data>
+  <data name="hfheader_Summary_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>مجموع</value>
+  </data>
+  <data name="hfTitle_DialogMonthlyOperationGridSchema.Value" xml:space="preserve">
+    <value>کارکرد ماهیانه</value>
+  </data>
+  <data name="tlbItemExcelExport_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فرستادن به اکسل</value>
+  </data>
+  <data name="GridMasterMonthlyOperation_MasterMonthlyOperation.TreeLineImagesFolderUrl" xml:space="preserve">
+    <value>images/Grid/RightLines/</value>
+  </data>
+  <data name="clmnDescription_GridMasterMonthlyOperation_MasterMonthlyOperation.Align" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="clmnDay_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="hfheader_GridSettings_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>تنظیمات گرید</value>
+  </data>
+  <data name="tblGridSettings_DialogGridSettings.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="tlbItemExit_TlbGridSettings.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemSave_TlbGridSettings.Text" xml:space="preserve">
+    <value>ثبت</value>
+  </data>
+  <data name="hfheader_tblPersonnelSearch_DialogPersonnelSearch.Value" xml:space="preserve">
+    <value>جستجوی پرسنل</value>
+  </data>
+  <data name="tblPersonnelSearch_DialogPersonnelSearch.dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="clmnGridColumn_GridSettings_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ستون گرید</value>
+  </data>
+  <data name="clmnView_GridSettings_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="lblSelectAll_GridSettings_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>انتخاب همه</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_PersonnelSearch_MasterMonthlyOperation.ImageUrl" xml:space="preserve">
+    <value>Before.png</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_PersonnelSearch_MasterMonthlyOperation.ImageUrl" xml:space="preserve">
+    <value>First.png</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_PersonnelSearch_MasterMonthlyOperation.ImageUrl" xml:space="preserve">
+    <value>Last.png</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_PersonnelSearch_MasterMonthlyOperation.ImageUrl" xml:space="preserve">
+    <value>Next.png</value>
+  </data>
+  <data name="clmnFifthEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ورود پنجم</value>
+  </data>
+  <data name="clmnFifthExit_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>خروج پنجم</value>
+  </data>
+  <data name="clmnFourthEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>ورود چهارم</value>
+  </data>
+  <data name="clmnFourthExit_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>خروج چهارم</value>
+  </data>
+  <data name="clmnPresenceDuration_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مدت حضور</value>
+  </data>
+  <data name="clmnReserveField10_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 10</value>
+  </data>
+  <data name="clmnReserveField1_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 1</value>
+  </data>
+  <data name="clmnReserveField2_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 2</value>
+  </data>
+  <data name="clmnReserveField3_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 3</value>
+  </data>
+  <data name="clmnReserveField4_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 4</value>
+  </data>
+  <data name="clmnReserveField5_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 5</value>
+  </data>
+  <data name="clmnReserveField6_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 6</value>
+  </data>
+  <data name="clmnReserveField7_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 7</value>
+  </data>
+  <data name="clmnReserveField8_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 8</value>
+  </data>
+  <data name="clmnReserveField9_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>فیلد رزرو 9</value>
+  </data>
+  <data name="clmnDailyWithoutPayLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مرخصی بی حقوق روزانه</value>
+  </data>
+  <data name="clmnDailyWithPayLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مرخصی با حقوق روزانه</value>
+  </data>
+  <data name="clmnHourlyAllowableAbsence_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>غیبت مجاز ساعتی</value>
+  </data>
+  <data name="clmnHourlyWithPayLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>مرخصی با حقوق ساعتی</value>
+  </data>
+  <data name="clmnShift_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>شیفت</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>پیش فرض</value>
+  </data>
+  <data name="Month10ef" xml:space="preserve">
+    <value>اکتبر</value>
+  </data>
+  <data name="Month10ff" xml:space="preserve">
+    <value>دی</value>
+  </data>
+  <data name="Month11ef" xml:space="preserve">
+    <value>نوامبر</value>
+  </data>
+  <data name="Month11ff" xml:space="preserve">
+    <value>بهمن</value>
+  </data>
+  <data name="Month12ef" xml:space="preserve">
+    <value>دسامبر</value>
+  </data>
+  <data name="Month12ff" xml:space="preserve">
+    <value>اسفند</value>
+  </data>
+  <data name="Month1ef" xml:space="preserve">
+    <value>ژانویه</value>
+  </data>
+  <data name="Month1ff" xml:space="preserve">
+    <value>فروردین</value>
+  </data>
+  <data name="Month2ef" xml:space="preserve">
+    <value>فوریه</value>
+  </data>
+  <data name="Month2ff" xml:space="preserve">
+    <value>اردیبهشت</value>
+  </data>
+  <data name="Month3ef" xml:space="preserve">
+    <value>مارس</value>
+  </data>
+  <data name="Month3ff" xml:space="preserve">
+    <value>خرداد</value>
+  </data>
+  <data name="Month4ef" xml:space="preserve">
+    <value>آوریل</value>
+  </data>
+  <data name="Month4ff" xml:space="preserve">
+    <value>تیر</value>
+  </data>
+  <data name="Month5ef" xml:space="preserve">
+    <value>مه</value>
+  </data>
+  <data name="Month5ff" xml:space="preserve">
+    <value>مرداد</value>
+  </data>
+  <data name="Month6ef" xml:space="preserve">
+    <value>ژوئن</value>
+  </data>
+  <data name="Month6ff" xml:space="preserve">
+    <value>شهریور</value>
+  </data>
+  <data name="Month7ef" xml:space="preserve">
+    <value>ژوئیه</value>
+  </data>
+  <data name="Month7ff" xml:space="preserve">
+    <value>مهر</value>
+  </data>
+  <data name="Month8ef" xml:space="preserve">
+    <value>اوت</value>
+  </data>
+  <data name="Month8ff" xml:space="preserve">
+    <value>آبان</value>
+  </data>
+  <data name="Month9ef" xml:space="preserve">
+    <value>سپتامبر</value>
+  </data>
+  <data name="Month9ff" xml:space="preserve">
+    <value>آذر</value>
+  </data>
+  <data name="tlbItemView_TlbView_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="hfCallBackError_GridMasterMonthlyOperation_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>اشکال در بارگیری جزئیات تردد :</value>
+  </data>
+  <data name="hfRetErrorType_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="hfCloseMessage_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>آیا از فرم گزارش کارکرد ماهیانه خارج می شوید ؟</value>
+  </data>
+  <data name="hfloadingPanel_GridMasterMonthlyOperation_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>در حال بارگیری ...</value>
+  </data>
+  <data name="clmnTitle_GridMasterMonthlyOperation_MasterMonthlyOperation.HeadingText" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="lblYear_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>سال :</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید </value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی به سرویس غیر مجاز می باشد</value>
+  </data>
+  <data name="MonthlyOpCurentUserIsNotValid" xml:space="preserve">
+    <value>کاربر جاری نامعتبر می باشد</value>
+  </data>
+  <data name="MonthlyOpIDMustSpecified" xml:space="preserve">
+    <value>شناسه تنظیمات گرید نامعتبر می باشد</value>
+  </data>
+  <data name="PersonDateRangeIsNotDefiend" xml:space="preserve">
+    <value>بازه گزارش کارکرد ماهیانه مقدار نگرفته است</value>
+  </data>
+  <data name="tlbItemRefresh_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="ErrorHiddenField_CalculationDateRange.Value" xml:space="preserve">
+    <value>محدوده محاسبات پرسنل مقدار نگرفته است</value>
+  </data>
+  <data name="hfConnectionError_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfErrorType_MasterMonthlyOperation.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="tlbItemDetailsInformation_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>اطلاعات تکمیلی</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbMasterMonthlyOperation.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="clmnHeaderAllowableOverTime_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>اضافه کار مجاز</value>
+  </data>
+  <data name="clmnHeaderDailyAbsence_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>غیبت روزانه</value>
+  </data>
+  <data name="clmnHeaderDailyMeritoriouslyLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مرخصی استحقاقی روزانه</value>
+  </data>
+  <data name="clmnHeaderDailyMission_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ماموریت روزانه</value>
+  </data>
+  <data name="clmnHeaderDailyPureOperation_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>کارکرد خالص روزانه</value>
+  </data>
+  <data name="clmnHeaderDailySickLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مرخصی استعلاجی روزانه</value>
+  </data>
+  <data name="clmnHeaderDailyWithoutPayLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مرخصی بی حقوق روزانه</value>
+  </data>
+  <data name="clmnHeaderDailyWithPayLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مرخصی با حقوق روزانه</value>
+  </data>
+  <data name="clmnHeaderDate_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="clmnHeaderDay_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="clmnHeaderFifthEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ورود پنجم</value>
+  </data>
+  <data name="clmnHeaderFifthExit_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>خروج پنجم</value>
+  </data>
+  <data name="clmnHeaderFirstEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ورود اول</value>
+  </data>
+  <data name="clmnHeaderFirstExit_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>خروج اول</value>
+  </data>
+  <data name="clmnHeaderFourthEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ورود چهارم</value>
+  </data>
+  <data name="clmnHeaderFourthExit_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>خروج چهارم</value>
+  </data>
+  <data name="clmnHeaderHostelryMission_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ماموریت شبانه روزی</value>
+  </data>
+  <data name="clmnHeaderHourlyAllowableAbsence_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>غیبت مجاز ساعتی</value>
+  </data>
+  <data name="clmnHeaderHourlyMeritoriouslyLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مرخصی استحقاقی ساعتی</value>
+  </data>
+  <data name="clmnHeaderHourlyMission_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ماموریت ساعتی</value>
+  </data>
+  <data name="clmnHeaderHourlyPureOperation_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>کارکرد خالص ساعتی</value>
+  </data>
+  <data name="clmnHeaderHourlySickLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مرخصی استعلاجی ساعتی</value>
+  </data>
+  <data name="clmnHeaderHourlyUnallowableAbsence_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>غیبت غیر مجاز ساعتی</value>
+  </data>
+  <data name="clmnHeaderHourlyWithoutPayLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مرخصی بی حقوق ساعتی</value>
+  </data>
+  <data name="clmnHeaderHourlyWithPayLeave_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مرخصی با حقوق ساعتی</value>
+  </data>
+  <data name="clmnHeaderImpureOperation_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>کارکرد ناخالص </value>
+  </data>
+  <data name="clmnHeaderLastExit_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>خروج آخر</value>
+  </data>
+  <data name="clmnHeaderNecessaryOperation_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>کارکرد لازم</value>
+  </data>
+  <data name="clmnHeaderPresenceDuration_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>مدت حضور</value>
+  </data>
+  <data name="clmnHeaderReserveField10_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 10</value>
+  </data>
+  <data name="clmnHeaderReserveField1_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 1</value>
+  </data>
+  <data name="clmnHeaderReserveField2_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 2</value>
+  </data>
+  <data name="clmnHeaderReserveField3_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 3</value>
+  </data>
+  <data name="clmnHeaderReserveField4_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 4</value>
+  </data>
+  <data name="clmnHeaderReserveField5_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 5</value>
+  </data>
+  <data name="clmnHeaderReserveField6_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 6</value>
+  </data>
+  <data name="clmnHeaderReserveField7_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 7</value>
+  </data>
+  <data name="clmnHeaderReserveField8_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 8</value>
+  </data>
+  <data name="clmnHeaderReserveField9_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>فیلد رزرو 9</value>
+  </data>
+  <data name="clmnHeaderSecondEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ورود دوم</value>
+  </data>
+  <data name="clmnHeaderSecondExit_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>خروج دوم</value>
+  </data>
+  <data name="clmnHeaderShift_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>شیفت</value>
+  </data>
+  <data name="clmnHeaderThirdEntrance_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>ورود سوم</value>
+  </data>
+  <data name="clmnHeaderThirdExit_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>خروج سوم</value>
+  </data>
+  <data name="clmnHeaderUnallowableOverTime_GridMasterMonthlyOperation_MasterMonthlyOperation.Text" xml:space="preserve">
+    <value>اضافه کار غیر مجاز</value>
+  </data>
+</root>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.RuleCategory, GTS.Clock.Model"
+         table="TA_RuleCategory" lazy="true">
+
+    <id name="ID" access="property"  column="RuleCat_ID" >
+      <generator class="native"/>
+    </id>
+
+    <property name="Discription" access="property" column="RuleCat_Discription" />
+    <property name="Name" access="property" column="RuleCat_Name"/>
+    <property name="IsRoot" access="property" column="RuleCat_IsRoot"/>
+    <property name ="CustomCode" access="property" column="RuleCat_CustomCode"/>
+
+    <bag name="PersonRuleCatAssignList" table="TA_PersonRuleCategoryAssignment" lazy="true" inverse="true">
+      <key column="PrsRulCatAsg_RuleCategoryId"></key>
+      <one-to-many class="GTS.Clock.Model.PersonRuleCatAssignment, GTS.Clock.Model"/>
+    </bag>
+
+    <!--<bag name="ObjectCategoryList" table="TA_ObjectCategory" lazy="true">
+      <key column="ObjCat_CategoryId"></key>
+      <one-to-many class="GTS.Clock.Model.Charts.ObjectCategory, GTS.Clock.Model"/>
+    </bag>-->
+    
+    <bag name="ParentList" table="TA_RuleCategoryPart" lazy="true" >
+      <key column="RuleCatPart_ChildCatId"></key>
+      <many-to-many class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model" column="RuleCatPart_ParentCatId"></many-to-many>
+    </bag>
+    
+    <!--لیزی در حالت اکسترا بود ولی چون کپی قانون خطا میداد آنرا فالس کردیم-->
+    <bag name="RuleList" table="TA_Rule" lazy="false" cascade="all-delete-orphan" inverse="true">
+      <key column="Rule_RuleCategoryId"></key>
+      <one-to-many class="GTS.Clock.Model.Rule, GTS.Clock.Model"></one-to-many>
+    </bag>
+    
+    <bag name="ChildList" table="TA_RuleCategoryPart" lazy="extra" cascade="all-delete-orphan" >
+      <key column="RuleCatPart_ParentCatId"></key>
+      <many-to-many class="GTS.Clock.Model.RuleCategory, GTS.Clock.Model" column="RuleCatPart_ChildCatId"></many-to-many>
+    </bag>
+  
+  </class>
+</hibernate-mapping>

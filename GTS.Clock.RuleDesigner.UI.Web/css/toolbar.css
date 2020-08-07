@@ -1,0 +1,85 @@
+.toolbar
+{
+    border: 1px solid #1f4d54;
+    color: Black;
+    background-color: transparent;
+    background-image: url('../images/toolbar/toolbar_bg.png');
+    background-position: right;
+    background-repeat: repeat-x;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.verticaltoolbar
+{
+  border:solid 1px #B4CED8;
+  background-position:center center;
+  background-repeat:repeat-x;
+}
+
+.item
+{
+  border:none;
+  padding:2px;
+  font-family:Tahoma;
+  font-size:smaller;
+  font-weight:bold;
+  color:black;
+}
+.itemHover
+{
+    
+    padding: 2px;
+    font-family: Tahoma;
+    font-size: smaller;
+    font-weight: bold;
+    color:Black;
+    cursor: pointer;
+    text-decoration:underline;
+    
+}
+.itemActive
+{
+    background-image: url('../Images/ToolBar/silverhover.png');
+    background-repeat: repeat-x;
+    background-position:bottom;
+    padding: 2px;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: smaller;
+    color:black;
+    cursor: pointer;
+   
+}
+.itemChecked
+{
+  border-width:1px;
+  border-style:solid;
+  border-color:#0A246A;
+  padding:1px;
+  background-color:#D4D5D8;
+  background-image:none;
+  font-family:Tahoma;
+  font-size:smaller;  
+  font-weight:bold;
+  color:black;
+  cursor:default; 
+}
+.CustomItem
+{
+  padding-bottom:0px;
+  padding-top:1px;
+  padding-left:4px;
+  padding-right:3px;
+}
+
+.ToolbarMode
+{
+    background-position: center;
+    text-align:center;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    background-image: url('../Images/ToolBar/ToolbarMode.png');
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Security.Domains, GTS.Clock.Model"
+         table="TA_SecurityActiveDirectoryDomains" lazy="true">
+
+    <id name="ID" access="property"  column="ADDomain_ID" >
+      <generator class="native"/>
+    </id>
+
+    <property name="Active" access="property" column="ADDomain_Active" />
+    <property name="UserName" access="property" column="ADDomain_Username"/>
+    <property name="Password" access="property" column="ADDomain_Password"/>
+    <property name="Domain" access="property" column="ADDomain_Domain"/>
+
+    </class>
+</hibernate-mapping>

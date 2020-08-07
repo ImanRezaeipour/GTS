@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Report.ReportParameterDesigned, GTS.Clock.Model"
+         table ="TA_ReportParameterDesigned" lazy="true">
+    <id name="ID" access="property"  column="ReportParameterDes_ID" >
+      <generator class="native" />
+    </id>
+    
+    <property name="CustomCode"     access="property" column="ReportParameterDes_CustomCode" />
+    <property name="FnName"     access="property" column="ReportParameterDes_FnName" />
+    <property name="EnName"     access="property" column="ReportParameterDes_EnName" />
+    <many-to-one name="ReportUIParameter" column="ReportParameterDes_ReportUIParameterID" class="GTS.Clock.Model.Report.ReportUIParameter, GTS.Clock.Model" />
+    <bag name="ReportParameterDesignedParam" table="TA_ReportParameterDesignedParam" lazy="false" inverse="true" >
+      <key column="ReportParameterDesParam_rptParamDesID"></key>
+      <one-to-many class="GTS.Clock.Model.Report.ReportParameterDesignedParam, GTS.Clock.Model"/>
+    </bag>
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.SecondaryConcept, GTS.Clock.Model"
+         table ="TA_ConceptTemplate" lazy="true">
+    <id name="ID" access="property"  column="ConceptTmp_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"                 access="property" column="ConceptTmp_Name" />
+    <property name="Script"               access="property" column="ConceptTmp_Script" />
+    <property name="CSharpCode"           access="property" column="ConceptTmp_CSharpCode" />
+    <property name="IdentifierCode"       access="property" column="ConceptTmp_IdentifierCode" />
+    <property name="CustomCode"           access="property" column="ConceptTmp_CustomCode" />
+    <property name="CustomCategoryCode"   access="property" column="ConceptTmp_CustomCategoryCode"    lazy="false" />
+    <property name="PeriodicType"         access="property" column="ConceptTmp_IsPeriodic" />
+    <property name="Type"                 access="property" column="ConceptTmp_Type"                  lazy="false" />
+    <property name="PColumn"              access="property" column="ConceptTmp_PColumn" />
+    <property name="CalcSituationType"    access="property" column="ConceptTmp_CalcSituationType"     lazy="false" />
+    <property name="Color"                access="property" column="ConceptTmp_Color"                 lazy="false" />
+    <property name="KeyColumnName"        access="property" column="ConceptTmp_KeyColumnName" />
+    <property name="PersistSituationType" access="property" column="ConceptTmp_PersistSituationType"  lazy="false" />
+    <property name="FnName"               access="property" column="ConceptTmp_FnName" />
+    <property name="EnName"               access="property" column="ConceptTmp_EngName" />
+    <property name="UserDefined"          access="property" column="ConceptTmp_UserDefined" />
+    <property name="JsonObject"           access="property" column="ConceptTmp_JsonObject" />
+    <property name="DataType"             access="property" column="ConceptTmp_DataType" />
+    <property name="ShowInReport"           access="property" column="ConceptTmp_ShowInReport" />
+    <property name="IsHourly"           access="property" column="ConceptTmp_IsHourly" />
+    <bag name="CalculationDateRangeList" table="TA_CalculationDateRange" lazy="extra" batch-size="100" inverse="true">
+      <key column="CalcDateRange_ConceptTmpId"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.CalculationDateRange, GTS.Clock.Model"/>
+    </bag>
+
+    <bag name="PeriodicScndCnpDetails" table="TA_PeriodicCnpTmpDetail" lazy="extra" batch-size="3000">
+      <key column="PrdCnpTmpDetail_PrdCnpTmpId"></key>
+      <many-to-many class="GTS.Clock.Model.Concepts.SecondaryConcept, GTS.Clock.Model" column="PrdCnpTmpDetail_DtlCnpTmpId"></many-to-many>
+    </bag>
+
+    <bag name="DetailsScndCnpPeridics" table="TA_PeriodicCnpTmpDetail" lazy="extra" batch-size="3000">
+      <key column="PrdCnpTmpDetail_DtlCnpTmpId"></key>
+      <many-to-many class="GTS.Clock.Model.Concepts.SecondaryConcept, GTS.Clock.Model" column="PrdCnpTmpDetail_PrdCnpTmpId"></many-to-many>
+    </bag>
+
+  </class>
+
+  <sql-query name="GetPersistedScndCnpPeriodicValueList">
+    <return alias="PersistedScndCnpPeriodicValue" class="GTS.Clock.Model.PersistedScndCnpPrdValue, GTS.Clock.Model"/>
+    <![CDATA[       
+DECLARE @PersonId DECIMAL    
+DECLARE @CalcRangeGrpId DECIMAL
+DECLARE @fromDate DATETIME 
+DECLARE @fromDateRange DATETIME
+DECLARE @toDateRange DATETIME
+
+SET @PersonId = :personId
+SET @CalcRangeGrpId = :CalcRangeGrpId
+SET @fromDate = :fromDate
+SET @fromDateRange = :fromDateRange
+SET @toDateRange = :toDateRange
+
+SELECT SUM(RESULT.PersistedSCPrdValue_Value)   AS PersistedSCPrdValue_Value,
+       RESULT.PersistedSCPrdValue_ScndCnpId,
+       RESULT.PersistedSCPrdValue_FromDate, 
+       RESULT.PersistedSCPrdValue_ToDate
+FROM        	  
+	 (SELECT  ISNULL(ScndCnpValue_Value, 0)	AS PersistedSCPrdValue_Value, 
+ 			      ConceptTmp_ID	                AS PersistedSCPrdValue_ScndCnpId, 
+			      @fromDateRange			          AS PersistedSCPrdValue_FromDate, 
+            @toDateRange			            AS PersistedSCPrdValue_ToDate
+	   FROM dbo.TA_ConceptTemplate
+		 left JOIN (SELECT * FROM dbo.TA_SecondaryConceptValue 
+                WHERE ScndCnpValue_PersonId = @PersonId
+				                  AND
+                      ScndCnpValue_CalcRangeGrpId = @CalcRangeGrpId
+                          AND
+                      ScndCnpValue_FromDate >= @fromDateRange
+                          AND
+                      ScndCnpValue_FromDate < @fromDate
+                          AND                      
+                      ScndCnpValue_FromDate = ScndCnpValue_ToDate                     
+               ) AS ScndCnpValue			                          
+			ON ScndCnpValue_SecondaryConceptId in (SELECT PrdCnpTmpDetail_DtlCnpTmpId
+				  								                   FROM  dbo.TA_PeriodicCnpTmpDetail
+												                     WHERE PrdCnpTmpDetail_PrdCnpTmpId = ConceptTmp_ID)										
+	   WHERE ConceptTmp_IsPeriodic = 1
+     ) AS RESULT
+GROUP BY    PersistedSCPrdValue_ScndCnpId,
+      			PersistedSCPrdValue_FromDate, 
+			      PersistedSCPrdValue_ToDate
+            ]]>
+  </sql-query>
+
+</hibernate-mapping>

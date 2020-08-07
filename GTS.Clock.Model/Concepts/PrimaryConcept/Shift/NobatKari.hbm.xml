@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.NobatKari, GTS.Clock.Model"
+         table ="TA_NobatKari" lazy="true">
+    <id name="ID" access="property"  column="nobat_ID" >
+      <generator class="native" />
+    </id>
+    <property name="Name"     access="property" column="nobat_Name" />
+    <property name="Description"     access="property" column="nobat_Description" />
+    <property name="CustomCode"     access="property" column="nobat_CustomCode" />
+
+    <bag name="ShiftList" table="TA_Shift" lazy="true" inverse="true">
+      <key column="shift_NobatKari"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.Shift, GTS.Clock.Model"/>
+    </bag>
+
+  </class>
+</hibernate-mapping>

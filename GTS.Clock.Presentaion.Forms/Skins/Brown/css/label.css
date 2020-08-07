@@ -1,0 +1,37 @@
+﻿
+
+.WhiteLabel
+{
+	color:black;
+	font-family:Tahoma;
+	font-size:12px;
+}
+
+.ContentLabel
+{
+	color:black;
+}
+
+.LowContentLabel
+{
+	color:black;
+}
+
+.HeaderLabel
+{
+	color:white;
+	background-color: transparent;
+	font-weight:bold;
+	Font-family: Tahoma;
+	font-size:12px;
+}
+
+.WelcomeLabel
+{
+    color: #fff200;
+    background-color: transparent;
+    font-weight: bold;
+    font-family: Tahoma;
+    font-size: 12px;
+}
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="TotalWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://salavati1.ghadir.local/GTSWebservice/TotalWebService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://salavati1.ghadir.local/GTSWebservice/TotalWebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITotalWebService_GTS_ExecuteByPersonID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GTS_ExecuteByPersonID" />
+  </wsdl:message>
+  <wsdl:message name="ITotalWebService_GTS_ExecuteByPersonID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GTS_ExecuteByPersonIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITotalWebService_GTS_ExecuteByPersonIdAndToDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GTS_ExecuteByPersonIdAndToDate" />
+  </wsdl:message>
+  <wsdl:message name="ITotalWebService_GTS_ExecuteByPersonIdAndToDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GTS_ExecuteByPersonIdAndToDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITotalWebService_GTS_ExecuteAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GTS_ExecuteAll" />
+  </wsdl:message>
+  <wsdl:message name="ITotalWebService_GTS_ExecuteAllByToDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GTS_ExecuteAllByToDate" />
+  </wsdl:message>
+  <wsdl:message name="ITotalWebService_Clock_FillByPersonID_InputMessage">
+    <wsdl:part name="parameters" element="tns:Clock_FillByPersonID" />
+  </wsdl:message>
+  <wsdl:message name="ITotalWebService_Clock_FillByPersonID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Clock_FillByPersonIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITotalWebService_Clock_ExecuteByToDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Clock_ExecuteByToDate" />
+  </wsdl:message>
+  <wsdl:portType name="ITotalWebService">
+    <wsdl:operation name="GTS_ExecuteByPersonID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITotalWebService/GTS_ExecuteByPersonID" message="tns:ITotalWebService_GTS_ExecuteByPersonID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITotalWebService/GTS_ExecuteByPersonIDResponse" message="tns:ITotalWebService_GTS_ExecuteByPersonID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GTS_ExecuteByPersonIdAndToDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITotalWebService/GTS_ExecuteByPersonIdAndToDate" message="tns:ITotalWebService_GTS_ExecuteByPersonIdAndToDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITotalWebService/GTS_ExecuteByPersonIdAndToDateResponse" message="tns:ITotalWebService_GTS_ExecuteByPersonIdAndToDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GTS_ExecuteAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITotalWebService/GTS_ExecuteAll" message="tns:ITotalWebService_GTS_ExecuteAll_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GTS_ExecuteAllByToDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITotalWebService/GTS_ExecuteAllByToDate" message="tns:ITotalWebService_GTS_ExecuteAllByToDate_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Clock_FillByPersonID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITotalWebService/Clock_FillByPersonID" message="tns:ITotalWebService_Clock_FillByPersonID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITotalWebService/Clock_FillByPersonIDResponse" message="tns:ITotalWebService_Clock_FillByPersonID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Clock_ExecuteByToDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITotalWebService/Clock_ExecuteByToDate" message="tns:ITotalWebService_Clock_ExecuteByToDate_InputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITotalWebService" type="tns:ITotalWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GTS_ExecuteByPersonID">
+      <soap:operation soapAction="http://tempuri.org/ITotalWebService/GTS_ExecuteByPersonID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GTS_ExecuteByPersonIdAndToDate">
+      <soap:operation soapAction="http://tempuri.org/ITotalWebService/GTS_ExecuteByPersonIdAndToDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GTS_ExecuteAll">
+      <soap:operation soapAction="http://tempuri.org/ITotalWebService/GTS_ExecuteAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GTS_ExecuteAllByToDate">
+      <soap:operation soapAction="http://tempuri.org/ITotalWebService/GTS_ExecuteAllByToDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Clock_FillByPersonID">
+      <soap:operation soapAction="http://tempuri.org/ITotalWebService/Clock_FillByPersonID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Clock_ExecuteByToDate">
+      <soap:operation soapAction="http://tempuri.org/ITotalWebService/Clock_ExecuteByToDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TotalWebService">
+    <wsdl:port name="BasicHttpBinding_ITotalWebService" binding="tns:BasicHttpBinding_ITotalWebService">
+      <soap:address location="http://salavati1.ghadir.local/GTSWebservice/TotalWebService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

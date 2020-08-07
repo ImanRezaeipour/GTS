@@ -1,0 +1,29 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="GTS.Clock.Model.Concepts.UsedBudget, GTS.Clock.Model"
+         table ="TA_UsedBudget" lazy="true">
+
+    <id name="ID" access="property"  column="UsedBudget_ID" >
+      <generator class="native" />
+    </id>
+
+    <property name="MinutesInFarvardin" access="property" column="UsedBudget_t1" />
+    <property name="MinutesInOrdibehesht" access="property" column="UsedBudget_t2" />
+    <property name="MinutesInKhordad" access="property" column="UsedBudget_t3" />
+    <property name="MinutesInTir" access="property" column="UsedBudget_t4" />
+    <property name="MinutesInMordad" access="property" column="UsedBudget_t5" />
+    <property name="MinutesInShahrivar" access="property" column="UsedBudget_t6" />
+    <property name="MinutesInMehr" access="property" column="UsedBudget_t7" />
+    <property name="MinutesInAban" access="property" column="UsedBudget_t8" />
+    <property name="MinutesInAzar" access="property" column="UsedBudget_t9" />
+    <property name="MinutesInDey" access="property" column="UsedBudget_t10" />
+    <property name="MinutesInBahman" access="property" column="UsedBudget_t11" />
+    <property name="MinutesInEsfand" access="property" column="UsedBudget_t12" />
+
+ 
+    <bag name="DetailList" table="TA_UsedBudgetDetail" cascade="all-delete-orphan" lazy="true" inverse ="true"  >
+      <key column="usedDtl_UsedBudgetID"></key>
+      <one-to-many class="GTS.Clock.Model.Concepts.UsedLeaveDetail, GTS.Clock.Model"/>      
+    </bag>
+  </class>
+</hibernate-mapping>

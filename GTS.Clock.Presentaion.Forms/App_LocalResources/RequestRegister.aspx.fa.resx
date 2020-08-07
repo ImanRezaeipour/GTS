@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DefaultTabLook.LeftIconUrl" xml:space="preserve">
+    <value>tab_right_icon.gif</value>
+  </data>
+  <data name="DefaultTabLook.RightIconUrl" xml:space="preserve">
+    <value>tab_left_icon.gif</value>
+  </data>
+  <data name="lblAfterTime_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>بعد از وقت</value>
+  </data>
+  <data name="lblBeforeTime_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>قبل از وقت</value>
+  </data>
+  <data name="lblDescription_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>توضیحات :</value>
+  </data>
+  <data name="lblDescription_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>توضیحات :</value>
+  </data>
+  <data name="lblDescription_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>توضیحات :</value>
+  </data>
+  <data name="lblDoctorName_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>نام دکتر :</value>
+  </data>
+  <data name="lblDoctorName_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>نام دکتر :</value>
+  </data>
+  <data name="lblDoctorName_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>نام دکتر :</value>
+  </data>
+  <data name="lblDuration_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>مدت زمان :</value>
+  </data>
+  <data name="lblFromDate_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>از تاریخ :</value>
+  </data>
+  <data name="lblFromDate_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>از تاریخ :</value>
+  </data>
+  <data name="lblFromHour_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>از ساعت :</value>
+  </data>
+  <data name="lblFromHour_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>از ساعت :</value>
+  </data>
+  <data name="lblIllnessName_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>نام بیماری :</value>
+  </data>
+  <data name="lblIllnessName_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>نام بیماری :</value>
+  </data>
+  <data name="lblIllnessName_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>نام بیماری :</value>
+  </data>
+  <data name="lblMiddleTime_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>بین وقت</value>
+  </data>
+  <data name="lblMissionLocation_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>محل ماموریت :</value>
+  </data>
+  <data name="lblMissionLocation_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>محل ماموریت :</value>
+  </data>
+  <data name="lblMissionLocation_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>محل ماموریت :</value>
+  </data>
+  <data name="lblRequestDate_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>تاریخ درخواست :</value>
+  </data>
+  <data name="lblRequesType_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>نوع درخواست :</value>
+  </data>
+  <data name="lblRequesType_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>نوع درخواست :</value>
+  </data>
+  <data name="lblRequesType_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>نوع درخواست :</value>
+  </data>
+  <data name="lblToDate_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>تا تاریخ :</value>
+  </data>
+  <data name="lblToDate_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>تا تاریخ :</value>
+  </data>
+  <data name="lblToHour_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>تا ساعت :</value>
+  </data>
+  <data name="lblToHour_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>تا ساعت :</value>
+  </data>
+  <data name="RequestRegisterForm.dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="SelectedTabLook.LeftIconUrl" xml:space="preserve">
+    <value>selected_tab_right_icon.gif</value>
+  </data>
+  <data name="SelectedTabLook.RightIconUrl" xml:space="preserve">
+    <value>selected_tab_left_icon.gif</value>
+  </data>
+  <data name="tbDaily_TabStripRequestRegister.Text" xml:space="preserve">
+    <value>روزانه</value>
+  </data>
+  <data name="tbHourly_TabStripRequestRegister.Text" xml:space="preserve">
+    <value>ساعتی</value>
+  </data>
+  <data name="tbOvertime_TabStripRequestRegister.Text" xml:space="preserve">
+    <value>اضافه کار</value>
+  </data>
+  <data name="hfTitle_DialogRequestRegister.Value" xml:space="preserve">
+    <value>ثبت درخواست</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbDaily.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbHourly.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbOverTime.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="tlbItemExit_TlbDaily.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemExit_TlbHourly.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemExit_TlbOverTime.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="AlignObj.align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="CustomAlignObj.Align" xml:space="preserve">
+    <value>center</value>
+  </data>
+  <data name="InverseAlignObj.align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="hfCloseMessage_RequestRegister.Value" xml:space="preserve">
+    <value>آیا از فرم ثبت درخواست ها خارج می شوید ؟</value>
+  </data>
+  <data name="hfcmbAlarm_RequestRegister.Value" xml:space="preserve">
+    <value>انتخاب کنید</value>
+  </data>
+  <data name="hfConnectionError_RequestRegister.Value" xml:space="preserve">
+    <value>خطای ارتباط با سرور</value>
+  </data>
+  <data name="hfErrorType_RequestRegister.Value" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="tlbItemCancel_TlbCancelConfirm.Text" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="tlbItemOk_TlbOkConfirm.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="trvMissionLocation_tbDaily_RequestRegister.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/RightLines</value>
+  </data>
+  <data name="trvMissionLocation_tbHourly_RequestRegister.LineImagesFolderUrl" xml:space="preserve">
+    <value>Images/TreeView/RightLines</value>
+  </data>
+  <data name="AddComplete" xml:space="preserve">
+    <value>عملیات درج با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="lblDoctors_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>نام پزشک :</value>
+  </data>
+  <data name="lblDoctors_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>نام پزشک :</value>
+  </data>
+  <data name="lblIllnesses_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>نام بیماری :</value>
+  </data>
+  <data name="lblIllnesses_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>نام بیماری :</value>
+  </data>
+  <data name="NotDetermined" xml:space="preserve">
+    <value>نامشخص</value>
+  </data>
+  <data name="RetErrorType" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="RetFatalErrorIdentifier" xml:space="preserve">
+    <value>شناسه خطا :</value>
+  </data>
+  <data name="RetFatalErrorType" xml:space="preserve">
+    <value>خطای سیستمی</value>
+  </data>
+  <data name="RetSuccessType" xml:space="preserve">
+    <value>نتیجه</value>
+  </data>
+  <data name="RequestDateShouldNotEmpty" xml:space="preserve">
+    <value>تاریخ درخواست مقدار نگرفته است</value>
+  </data>
+  <data name="RequestFromDateGreaterThanToDate" xml:space="preserve">
+    <value>تاریخ شروع درخواست بزرگتر از تاریخ پایان درخواست می باشد</value>
+  </data>
+  <data name="RequestFromTimeGreaterThanToTime" xml:space="preserve">
+    <value>زمان شروع درخواست بزرگتر از زمان پایان درخواست می باشد</value>
+  </data>
+  <data name="RequestFromToDateNotEqual" xml:space="preserve">
+    <value>تاریخ شروع درخواست برابر با تاریخ پایان درخواست نمی باشد</value>
+  </data>
+  <data name="RequestPrecardIsEmpty" xml:space="preserve">
+    <value>نوع درخواست انتخاب نگردیده است</value>
+  </data>
+  <data name="RequestRepeated" xml:space="preserve">
+    <value>درخواست تکراری می باشد</value>
+  </data>
+  <data name="RequestTimeIsNotValid" xml:space="preserve">
+    <value>زمان درخواست معتبر نمی باشد</value>
+  </data>
+  <data name="RequestTimeShouldNotEmpty" xml:space="preserve">
+    <value>زمان درخواست مقدار نگرفته است</value>
+  </data>
+  <data name="hfclmnBarCode_cmbPersonnel_RequestRegister.Value" xml:space="preserve">
+    <value>شماره پرسنلی</value>
+  </data>
+  <data name="hfclmnCardNum_cmbPersonnel_RequestRegister.Value" xml:space="preserve">
+    <value>شماره کارت</value>
+  </data>
+  <data name="hfclmnName_cmbPersonnel_RequestRegister.Value" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="lblAllPersonnelSelect_RequestRegister.Text" xml:space="preserve">
+    <value>انتخاب همه پرسنل</value>
+  </data>
+  <data name="lblPersonnel_RequestRegister.Text" xml:space="preserve">
+    <value>پرسنل :</value>
+  </data>
+  <data name="lblSinglePersonnelSelect_RequestRegister.Text" xml:space="preserve">
+    <value>انتخاب تک پرسنل</value>
+  </data>
+  <data name="tlbItemAdvancedSearch_TlbAdvancedSearch_RequestRegister.Text" xml:space="preserve">
+    <value>جستجوی پیشرفته</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_PersonnelSearch_RequestRegister.Text" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="tlbItemCollectiveTrrafic_TlbPaging_PersonnelSearch_RequestRegister.ToolTip" xml:space="preserve">
+    <value>تردد انبوه</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_PersonnelSearch_RequestRegister.Text" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_PersonnelSearch_RequestRegister.Text" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_PersonnelSearch_RequestRegister.Text" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_PersonnelSearch_RequestRegister.Text" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemSearch_TlbSearchPersonnel_RequestRegister.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="clmnDepartment_GridPersonnel_CollectiveTraffic.HeadingText" xml:space="preserve">
+    <value>بخش</value>
+  </data>
+  <data name="clmnName_GridPersonnel_CollectiveTraffic.HeadingText" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="clmnOrganizationPost_GridPersonnel_CollectiveTraffic.HeadingText" xml:space="preserve">
+    <value>پست سازمانی</value>
+  </data>
+  <data name="clmnPersonnelNumber_GridPersonnel_CollectiveTraffic.HeadingText" xml:space="preserve">
+    <value>شماره پرسنلی</value>
+  </data>
+  <data name="clmnSelect_GridPersonnel_CollectiveTraffic.HeadingText" xml:space="preserve">
+    <value>انتخاب</value>
+  </data>
+  <data name="hffooter_GridPersonnel_CollectiveTraffic.Value" xml:space="preserve">
+    <value>صفحه 0 از 0</value>
+  </data>
+  <data name="hfheader_Personnel_CollectiveTraffic.Value" xml:space="preserve">
+    <value>پرسنل</value>
+  </data>
+  <data name="hfloadingPanel_GridPersonnel_CollectiveTraffic.Value" xml:space="preserve">
+    <value>در حال بارگیری ...</value>
+  </data>
+  <data name="hfTitle_DialogCollectiveTraffic.Value" xml:space="preserve">
+    <value>تردد انبوه</value>
+  </data>
+  <data name="lblSelectAllInThisPage_CollectiveTraffic.Text" xml:space="preserve">
+    <value>انتخاب همه در این صفحه</value>
+  </data>
+  <data name="lblSelectAll_CollectiveTraffic.Text" xml:space="preserve">
+    <value>انتخاب همه </value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_GridPersonnel_CollectiveTraffic.ToolTip" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="tlbItemExit_TlbCollectiveTraffic.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_GridPersonnel_CollectiveTraffic.ToolTip" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_GridPersonnel_CollectiveTraffic.ToolTip" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_GridPersonnel_CollectiveTraffic.ToolTip" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_GridPersonnel_CollectiveTraffic.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="tlbItemSave_TlbCollectiveTraffic.Text" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="hfCloseMessage_CollectiveTraffic.Value" xml:space="preserve">
+    <value>آیا از فرم تردد انبوه خارج می شوید ؟</value>
+  </data>
+  <data name="hfheaderPersonnelCount_RequestRegister.Value" xml:space="preserve">
+    <value>تعداد پرسنل : 0</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbDaily.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbHourly.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbOverTime.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="hfDate_tbOverTime_RequestRegister.Value" xml:space="preserve">
+    <value>تاریخ :</value>
+  </data>
+  <data name="hfFromDate_tbOverTime_RequestRegister.Value" xml:space="preserve">
+    <value>از تاریخ :</value>
+  </data>
+  <data name="lblMinistryDuration_tbOverTime_RequestRegister.Text" xml:space="preserve">
+    <value>مدت زمان :</value>
+  </data>
+  <data name="MissLocNode_trvMissionLocations_RequestRegister" xml:space="preserve">
+    <value>محل های ماموریت</value>
+  </data>
+  <data name="hfPersonnelCountTitle_GridPersonnel_CollectiveTraffic.Value" xml:space="preserve">
+    <value>تعداد پرسنل :</value>
+  </data>
+  <data name="IllegalServiceAccess" xml:space="preserve">
+    <value>دسترسی غیر مجاز به سرویس</value>
+  </data>
+  <data name="clmnMonthlyOperationSummary_GridPersonnel_tbImperative_RequestRegister.HeadingText" xml:space="preserve">
+    <value>خلاصه کارکرد ماهیانه</value>
+  </data>
+  <data name="clmnPersonCode_GridPersonnel_tbImperative_RequestRegister.HeadingText" xml:space="preserve">
+    <value>شماره پرسنلی</value>
+  </data>
+  <data name="clmnPersonName_GridPersonnel_tbImperative_RequestRegister.HeadingText" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="header_Personnel_tbImperative_RequestRegister.Value" xml:space="preserve">
+    <value>پرسنل</value>
+  </data>
+  <data name="hffooter_GridPersonnel_tbImperative_RequestRegister.Value" xml:space="preserve">
+    <value>صفحه 0 از 0</value>
+  </data>
+  <data name="hfloadingPanel_GridPersonnel_tbImperative_RequestRegister.Value" xml:space="preserve">
+    <value>بارگیری ...</value>
+  </data>
+  <data name="lblDescription_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>توضیحات :</value>
+  </data>
+  <data name="lblMonth_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>ماه :</value>
+  </data>
+  <data name="lblRequesType_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>نوع درخواست :</value>
+  </data>
+  <data name="lblValue_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>مقدار :</value>
+  </data>
+  <data name="lblYear_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>سال :</value>
+  </data>
+  <data name="tbImperative_TabStripRequestRegister.Text" xml:space="preserve">
+    <value>دستوری</value>
+  </data>
+  <data name="tlbItemBefore_TlbPaging_GridPersonnel_tbImperative_RequestRegister.ToolTip" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="tlbItemEndorsement_TlbImperative.Text" xml:space="preserve">
+    <value>تائید نهایی</value>
+  </data>
+  <data name="tlbItemExit_TlbImperative.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="tlbItemFirst_TlbPaging_GridPersonnel_tbImperative_RequestRegister.ToolTip" xml:space="preserve">
+    <value>اولین</value>
+  </data>
+  <data name="tlbItemFormReconstruction_TlbImperative.Text" xml:space="preserve">
+    <value>بازسازی فرم</value>
+  </data>
+  <data name="tlbItemLast_TlbPaging_GridPersonnel_tbImperative_RequestRegister.ToolTip" xml:space="preserve">
+    <value>آخرین</value>
+  </data>
+  <data name="tlbItemNext_TlbPaging_GridPersonnel_tbImperative_RequestRegister.ToolTip" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="tlbItemRefresh_TlbPaging_GridPersonnel_tbImperative_RequestRegister.ToolTip" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="clmnSelect_GridPersonnel_tbImperative_RequestRegister.HeadingText" xml:space="preserve">
+    <value>انتخاب</value>
+  </data>
+  <data name="Month10ef" xml:space="preserve">
+    <value>اکتبر</value>
+  </data>
+  <data name="Month10ff" xml:space="preserve">
+    <value>دی</value>
+  </data>
+  <data name="Month11ef" xml:space="preserve">
+    <value>نوامبر</value>
+  </data>
+  <data name="Month11ff" xml:space="preserve">
+    <value>بهمن</value>
+  </data>
+  <data name="Month12ef" xml:space="preserve">
+    <value>دسامبر</value>
+  </data>
+  <data name="Month12ff" xml:space="preserve">
+    <value>اسفند</value>
+  </data>
+  <data name="Month1ef" xml:space="preserve">
+    <value>ژانویه</value>
+  </data>
+  <data name="Month1ff" xml:space="preserve">
+    <value>فروردین</value>
+  </data>
+  <data name="Month2ef" xml:space="preserve">
+    <value>فوریه</value>
+  </data>
+  <data name="Month2ff" xml:space="preserve">
+    <value>اردیبهشت</value>
+  </data>
+  <data name="Month3ef" xml:space="preserve">
+    <value>مارس</value>
+  </data>
+  <data name="Month3ff" xml:space="preserve">
+    <value>خرداد</value>
+  </data>
+  <data name="Month4ef" xml:space="preserve">
+    <value>آوریل</value>
+  </data>
+  <data name="Month4ff" xml:space="preserve">
+    <value>تیر</value>
+  </data>
+  <data name="Month5ef" xml:space="preserve">
+    <value>مه</value>
+  </data>
+  <data name="Month5ff" xml:space="preserve">
+    <value>مرداد</value>
+  </data>
+  <data name="Month6ef" xml:space="preserve">
+    <value>ژوئن</value>
+  </data>
+  <data name="Month6ff" xml:space="preserve">
+    <value>شهریور</value>
+  </data>
+  <data name="Month7ef" xml:space="preserve">
+    <value>ژوئیه</value>
+  </data>
+  <data name="Month7ff" xml:space="preserve">
+    <value>مهر</value>
+  </data>
+  <data name="Month8ef" xml:space="preserve">
+    <value>اوت</value>
+  </data>
+  <data name="Month8ff" xml:space="preserve">
+    <value>آبان</value>
+  </data>
+  <data name="Month9ef" xml:space="preserve">
+    <value>سپتامبر</value>
+  </data>
+  <data name="Month9ff" xml:space="preserve">
+    <value>آذر</value>
+  </data>
+  <data name="DailyAbsence" xml:space="preserve">
+    <value>غیبت روزانه</value>
+  </data>
+  <data name="DailyLeave" xml:space="preserve">
+    <value>مرخصی روزانه</value>
+  </data>
+  <data name="HourlyAbsence" xml:space="preserve">
+    <value>غیبت ساعتی</value>
+  </data>
+  <data name="HourlyLeave" xml:space="preserve">
+    <value>مرخصی ساعتی</value>
+  </data>
+  <data name="OverTime" xml:space="preserve">
+    <value>اضافه کار</value>
+  </data>
+  <data name="lblMonthlyOperationSummary_MonthlyOperationSummary_RequestRegister.Text" xml:space="preserve">
+    <value>خلاصه کارکرد ماهیانه :</value>
+  </data>
+  <data name="lblPersonnelCode_MonthlyOperationSummary_RequestRegister.Text" xml:space="preserve">
+    <value>شماره پرسنلی :</value>
+  </data>
+  <data name="lblPersonnelName_MonthlyOperationSummary_RequestRegister.Text" xml:space="preserve">
+    <value>نام و نام خانوادگی :</value>
+  </data>
+  <data name="tlbItemClose_TlbMonthlyOperationSummary.ToolTip" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="RequestPersonRequierd" xml:space="preserve">
+    <value>پرسنل به درخواست تخصیص داده نشده است</value>
+  </data>
+  <data name="AttachmentUploader_tbHourly_RequestRegister.text_Uploading" xml:space="preserve">
+    <value>در حال بار گذاری ...</value>
+  </data>
+  <data name="lblAttachment_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>ضمیمه :</value>
+  </data>
+  <data name="tlbItemDeleteAttachment_TlbDeleteAttachment_tbHourly_RequestRegister.ToolTip" xml:space="preserve">
+    <value>حذف ضمیمه</value>
+  </data>
+  <data name="UploadingError" xml:space="preserve">
+    <value>خطا در بارگذاری ...</value>
+  </data>
+  <data name="AttachmentUploader_tbDaily_RequestRegister.text_Uploading" xml:space="preserve">
+    <value>در حال بار گذاری ...</value>
+  </data>
+  <data name="DeleteComplete" xml:space="preserve">
+    <value>عملیات حذف با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="lblAttachment_tbDaily_RequestRegister.Text" xml:space="preserve">
+    <value>ضمیمه :</value>
+  </data>
+  <data name="hfSelectedPersonnelCount_RequestRegister.Value" xml:space="preserve">
+    <value>تعداد پرسنل انتخاب شده :</value>
+  </data>
+  <data name="tlbItemDeleteAttachment_TlbDeleteAttachment_tbDaily_RequestRegister.ToolTip" xml:space="preserve">
+    <value>حذف ضمیمه </value>
+  </data>
+  <data name="clmnImperativeValue_GridPersonnel_tbImperative_RequestRegister.HeadingText" xml:space="preserve">
+    <value>مقدار</value>
+  </data>
+  <data name="tlbItemAppliedRequests_TlbImperativeRequestsFilter_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>اعمال شده</value>
+  </data>
+  <data name="tlbItemApply_TlbImperative.Text" xml:space="preserve">
+    <value>تائید اولیه</value>
+  </data>
+  <data name="tlbItemNotAppliedRequests_TlbImperativeRequestsFilter_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>اعمال نشده</value>
+  </data>
+  <data name="tlbItemView_TlbView_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="lblAllInThisPage_tbImperative_RequestRegister.Text" xml:space="preserve">
+    <value>همه در این صفحه</value>
+  </data>
+  <data name="ApplyComplete" xml:space="preserve">
+    <value>عملیات تائید اولیه با موفقیت به اتمام رسید</value>
+  </data>
+  <data name="RequestMonthIsEmpty" xml:space="preserve">
+    <value>ماه مقدار نگرفته است</value>
+  </data>
+  <data name="RequestYearIsEmpty" xml:space="preserve">
+    <value>سال مقدار نگرفته است</value>
+  </data>
+  <data name="tlbItemClosePicture_TlbPersonnelPicture.ToolTip" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="lblToHourInNextDay_tbHourly_RequestRegister.Text" xml:space="preserve">
+    <value>روز بعد</value>
+  </data>
+  <data name="RequestIsNotAllowed" xml:space="preserve">
+    <value>درخواست غیر مجاز می باشد</value>
+  </data>
+</root>
